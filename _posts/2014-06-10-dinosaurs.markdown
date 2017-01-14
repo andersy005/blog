@@ -45,16 +45,6 @@ header-img: "img/post-bg-01.jpg"
 {% raw %}
 <!-- A simple addition equation -->
 <div class="equation" data-expr="\displaystyle x=\frac{1+y}{1+2z^2}"></div>
-<div id="tester" style="width:600px;height:250px;"></div>
-
-<script>
-        TESTER = document.getElementById('tester'); // Instance from the HTML canvas
-        plotly.plot(TESTER, [{
-            x: [1,2,3,4,5],
-            y: [1,2,4,8,16] }], {
-                margin: { t: 0} } );
-
-</script>
 {% endraw %}
 
 <div id="tester" style="width:600px;height:250px;"></div>

@@ -51,7 +51,7 @@ header-img: "img/post-bg-01.jpg"
 
 <script>
         TESTER = document.getElementById('tester'); // Instance from the HTML canvas
-        plotly.plot(TESTER, [{
+        Plotly.plot(TESTER, [{
             x: [1,2,3,4,5],
             y: [1,2,4,8,16] }], {
                 margin: { t: 0} } );

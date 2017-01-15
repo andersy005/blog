@@ -1,0 +1,14 @@
+- school: University of Arkansas at Little Rock
+  current: Yes
+  start: "August, 2014"
+  end: "May, 2018"
+  degrees:
+    - name: Systems Engineering
+      concentration: Computer Systems 
+      type: "B.S."
+      gpa: 3.87
+
+  gpa: 3.87
+  description: |
+    I am a junior student at University of Arkansas at Little Rock majoring in Systems Engineering and double minoring
+    in Mathematics and Physics -- interesting combination, I know!

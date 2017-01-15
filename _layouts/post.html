@@ -10,9 +10,13 @@ layout: default
                 <div class="post-heading">
                     <h1>{{ page.title }}</h1>
                     {% if page.subtitle %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                        <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% endif %}
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <span class="meta">Posted by
+                        {% if page.author %}{{ page.author }}
+                        {% else %}{{ site.title }}{% endif %}
+                        on
+                        {{ page.date | date: "%B %-d, %Y" }}</span>
                 </div>
             </div>
         </div>
@@ -25,22 +29,47 @@ layout: default
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				{{ content }}
+                {{ content }}
 
-             {% include katex_render.html %}
+                {% include katex_render.html %}
+
+                <hr>
+
+                <!-- .about-author -->
+                <aside class="about-author">
+                    <h3>WRITTEN BY</h3>
+
+                    <!-- .author-bio -->
+                    <div class="author-bio">
+                        <!-- .author-img -->
+                        <div class="author-img">
+                            <a href="/#/about"><img alt="Avatar" src="/img/avatar.jpg" class="avatar"></a>
+                        </div>
+                        <!-- .author-img -->
+                        <!-- .author-info -->
+                        <div class="author-info">
+                            <h4 class="author-name">Anderson Banihirwe</h4>
+                            <p>{{ site.blog_author_description | markdownify }}</p>
+                        </div>
+                        <!-- .author-info -->
+                    </div>
+                    <!-- .author-bio -->
+
+                </aside>
+                <!-- .about-author -->
 
                 <hr>
 
                 <ul class="pager">
                     {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-                    </li>
+                        <li class="previous">
+                            <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+                        </li>
                     {% endif %}
                     {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-                    </li>
+                        <li class="next">
+                            <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+                        </li>
                     {% endif %}
                 </ul>
 

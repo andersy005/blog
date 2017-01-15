@@ -2,14 +2,18 @@
 title: Anderson Banihirwe
 header-img: img/home.jpg
 email: axbanihirwe@gmail.com
-copyright_name: Your/Project/Corporate Name
-description: "Write your site description here. It will be used as your sites meta description as well!"
+copyright_name: Anderson Banihirwe
+description: "The personal website, portfolio and blog of Anderson Banihirwe: Programmer, Autodidact Data Scientist, Quantum computing enthusiast!"
 baseurl: ""
 url: "https://andersy005.github.io/"
 twitter_username: andersy005
 github_username:  andersy005
 facebook_username: None
 email_username:  axbanihirwe@gmail.com 
+
+header_description: Programmer, Autodidact Data Scientist, Quantum Computing enthusiast
+blog_author_description: "Anderson is a Computer Systems Engineering major who loves programming, Artificial Intelligence, Machine Learning and Quantum
+                            Computing. When he's not being productive, he likes watch documentaries, watch science fiction series - Person of Interest is the best!-."
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID
@@ -21,5 +25,7 @@ highlighter: rouge
 permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+related_project_keys: ["category", "technology"]
 
 gems: [jekyll-paginate, jekyll-feed]
+

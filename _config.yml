@@ -24,8 +24,11 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 paginate: 5
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude: ["Gemfile.lock","Gemfile","less","node_modules","Gruntfile.js","package.json","README.md"]
 related_project_keys: ["category", "technology"]
 
 gems: [jekyll-paginate, jekyll-feed]
+
+# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
+google_analytics: UA-91185106-1
 

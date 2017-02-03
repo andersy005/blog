@@ -9,7 +9,7 @@ header-img: "img/post-02.png"
 
 <div id="test">
 <p>Imagine a particle of mass m, constrained to move along the x-axis, subject to some specified force $F(x,t)$.<br>
- <img src="{{ site.baseurl }}/img/post-sample-image.jpg"  alt="Particle Image"></p>
+ <img src="{{ site.baseurl }}/img/post-02.png"  alt="Particle Image"></p>
 <p><strong>Classical Mechanics</strong> approaches this problem with the objective of determining the position of the particle at any given time $x(t)$. Once we know that, we can figure out:</p>
 <ul>
 <li id="test">The velocity ($v=\frac{dx}{dt}$)</li>

@@ -21,7 +21,7 @@ blog_author_description: "Anderson is a Computer Systems Engineering major who l
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
 paginate: 5
 exclude: ["Gemfile.lock","Gemfile","less","node_modules","Gruntfile.js","package.json","README.md"]

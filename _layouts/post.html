@@ -25,43 +25,19 @@ layout: default
 
 <!-- Post Content -->
 <article>
-    <div class="container">
+    <!--<div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">-->
 
                 {{ content }}
 
-                {% include katex_render.html %}
+               
 
                 <hr>
 
-
-                
-                <!-- .about-author -->
-                <!--<aside class="about-author">
-                    <h3>WRITTEN BY</h3>-->
-
-                    <!-- .author-bio -->
-                    <!--<div class="author-bio">-->
-                        <!-- .author-img -->
-                        <!--<div class="author-img">
-                            <a href="/#/about"><img alt="Avatar" src="/img/avatar.jpg" class="avatar"></a>
-                        </div>-->
-                        <!-- .author-img -->
-                        <!-- .author-info -->
-                        <!--<div class="author-info">
-                            <h4 class="author-name">Anderson Banihirwe</h4>
-                            <p>{{ site.blog_author_description | markdownify }}</p>
-                        </div>-->
-                        <!-- .author-info -->
-                    <!--</div>-->
-                    <!-- .author-bio -->
-
-                <!--</aside>-->
-                <!-- .about-author -->
-
-                <hr>
-           
+       <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="pager">
                     {% if page.previous.url %}
                         <li class="previous">
@@ -75,13 +51,16 @@ layout: default
                     {% endif %}
                 </ul>
 
-                <hr><hr>
+                
                  {% include disqus.html %}
 
+                </div>
+                </div>
+                </div>
 
-            </div>
+
+            <!--</div>
         </div>
-    </div>
+    </div>-->
 </article>
 
-<hr>

@@ -18,7 +18,7 @@ jobs:
         persist-credentials: false
 
     - name: convert notebooks and word docs to posts
-      uses: ./_action_files
+      uses: fastai/fastpages@master
 
     - name: setup directories for Jekyll build
       run: |

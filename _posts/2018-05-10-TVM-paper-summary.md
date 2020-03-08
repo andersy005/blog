@@ -1,12 +1,12 @@
 ---
-keywords: compiler, tensor, deeplearning, gpu, tvm
+keywords: compiler, tensor, deeplearning, gpu, tvm, paper
 description: 
 title: Summary of TVM -- End-to-End Optimization Stack for Deep Learning
 toc: true 
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: [blog,deeplearning]
+categories: [blog,paper]
 image: https://i.imgur.com/pA2pcl4.png
 nb_path: _notebooks/2018-05-10-TVM-paper-summary.ipynb
 layout: notebook

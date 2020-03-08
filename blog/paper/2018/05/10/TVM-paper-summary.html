@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Summary of TVM – End-to-End Optimization Stack for Deep Learning | Anderson Banihirwe</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Summary of TVM – End-to-End Optimization Stack for Deep Learning" />
+<meta name="author" content="Anderson Banihirwe" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A place for me to share thoughts, ideas, projects with the world." />
+<meta property="og:description" content="A place for me to share thoughts, ideas, projects with the world." />
+<link rel="canonical" href="https://andersonbanihirwe.dev/blog/paper/2018/05/10/TVM-paper-summary.html" />
+<meta property="og:url" content="https://andersonbanihirwe.dev/blog/paper/2018/05/10/TVM-paper-summary.html" />
+<meta property="og:site_name" content="Anderson Banihirwe" />
+<meta property="og:image" content="https://i.imgur.com/pA2pcl4.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-10T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Anderson Banihirwe"},"description":"A place for me to share thoughts, ideas, projects with the world.","headline":"Summary of TVM – End-to-End Optimization Stack for Deep Learning","@type":"BlogPosting","dateModified":"2018-05-10T00:00:00-05:00","datePublished":"2018-05-10T00:00:00-05:00","image":"https://i.imgur.com/pA2pcl4.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://andersonbanihirwe.dev/blog/paper/2018/05/10/TVM-paper-summary.html"},"url":"https://andersonbanihirwe.dev/blog/paper/2018/05/10/TVM-paper-summary.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://andersonbanihirwe.dev/feed.xml" title="Anderson Banihirwe" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-91185106-1"></script>
+<script>
+  window['ga-disable-UA-91185106-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-91185106-1');
+</script>
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Summary of TVM – End-to-End Optimization Stack for Deep Learning | Anderson Banihirwe</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Summary of TVM – End-to-End Optimization Stack for Deep Learning" />
+<meta name="author" content="Anderson Banihirwe" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A place for me to share thoughts, ideas, projects with the world." />
+<meta property="og:description" content="A place for me to share thoughts, ideas, projects with the world." />
+<link rel="canonical" href="https://andersonbanihirwe.dev/blog/paper/2018/05/10/TVM-paper-summary.html" />
+<meta property="og:url" content="https://andersonbanihirwe.dev/blog/paper/2018/05/10/TVM-paper-summary.html" />
+<meta property="og:site_name" content="Anderson Banihirwe" />
+<meta property="og:image" content="https://i.imgur.com/pA2pcl4.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-10T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Anderson Banihirwe"},"description":"A place for me to share thoughts, ideas, projects with the world.","headline":"Summary of TVM – End-to-End Optimization Stack for Deep Learning","@type":"BlogPosting","dateModified":"2018-05-10T00:00:00-05:00","datePublished":"2018-05-10T00:00:00-05:00","image":"https://i.imgur.com/pA2pcl4.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://andersonbanihirwe.dev/blog/paper/2018/05/10/TVM-paper-summary.html"},"url":"https://andersonbanihirwe.dev/blog/paper/2018/05/10/TVM-paper-summary.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://andersonbanihirwe.dev/feed.xml" title="Anderson Banihirwe" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-91185106-1"></script>
+<script>
+  window['ga-disable-UA-91185106-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-91185106-1');
+</script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    // remove paragraph tags in rendered toc (happens from notebooks)
+    var toctags = document.querySelectorAll(".toc-entry")
+    toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Anderson Banihirwe</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a><a class="page-link" href="/talks/">Talks</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Summary of TVM -- End-to-End Optimization Stack for Deep Learning</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2018-05-10T00:00:00-05:00" itemprop="datePublished">
+        May 10, 2018
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Anderson Banihirwe</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#blog">blog</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#paper">paper</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Abstract">Abstract¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Introduction">Introduction¶</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Four-fundamental-challenges-at-the-computation-graph-level-and-tensor-operator-level">Four fundamental challenges at the computation graph level and tensor operator level¶</a></li>
+<li class="toc-entry toc-h3"><a href="#TVM:-An-End-to-End-Optimization-Stack">TVM: An End-to-End Optimization Stack¶</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Optimizing-Computational-Graphs">Optimizing Computational Graphs¶</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Computational-Graph">Computational Graph¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Operator-Fusion">Operator Fusion¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Data-Layout-Transformation">Data Layout Transformation¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Limitations-of-Graph-Level-Optimizations">Limitations of Graph-Level Optimizations¶</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Optimizing-Tensor-Operations">Optimizing Tensor Operations¶</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Tensor-Expression-Language">Tensor Expression Language¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Schedule-Space">Schedule Space¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Nested-Parallelism-with-Cooperation">Nested Parallelism with Cooperation¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Tensorization:-Generalizing-the-Hardware-Interface">Tensorization: Generalizing the Hardware Interface¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Compiler-Support-for-Latency-Hiding">Compiler Support for Latency Hiding¶</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Code-Generation-and-Runtime-Support">Code Generation and Runtime Support¶</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Code-Generation">Code Generation¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Runtime-Support">Runtime Support¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Remote-Deployment-Profiling">Remote Deployment Profiling¶</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Conclusion">Conclusion¶</a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2018-05-10-TVM-paper-summary.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Abstract">
+<a class="anchor" href="#Abstract" aria-hidden="true"><span class="octicon octicon-link"></span></a>Abstract<a class="anchor-link" href="#Abstract">¶</a>
+</h2>
+<p><strong>Paper link:</strong> <a href="https://arxiv.org/abs/1802.04799">https://arxiv.org/abs/1802.04799</a></p>
+<ul>
+<li>Scalable frameworks, such as TensorFlow, MXNet, Caffe, and PyTorch are optimized for a narrow range of serve-class GPUs.</li>
+<li>Deploying workloads to other platforms such as mobile phones, IoT, and specialized accelarators(FPGAs, ASICs) requires laborious manual effort.</li>
+<li>
+<p>TVM is an end-to-end optimization stack that exposes:</p>
+<ul>
+<li>graph-level</li>
+<li>operator-level optimizations</li>
+</ul>
+<p>---&gt; to provide performance portability to deep learning workloads across diverse hardware back-ends.</p>
+</li>
+</ul>
+<h2 id="Introduction">
+<a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction">¶</a>
+</h2>
+<ul>
+<li>
+<p>The number and diversity of specialized deep learning (DL) accelerators pose an adoption challenge</p>
+<ul>
+<li>They introduce new hardware abstractions that modern compilers and frameworks are ill-equipped to deal with.</li>
+</ul>
+</li>
+<li>
+<p>Providing support in various DL frameworks for diverse hardware back-ends in the present ad-hoc fashion is <strong>unsustainable</strong>.</p>
+</li>
+<li>
+<p>Hardware targets significantly diverge in terms of memory organization, compute, etc..</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/XRSZMt0.png" alt=""></p>
+<ul>
+<li>
+<p><em>The Goal</em>: <strong>easily deploy DL workloads to all kinds of hardware targets, including embedded devives, GPUs, FPGAs, ASCIs (e.g, the TPU).</strong></p>
+</li>
+<li>
+<p>Current DL frameworks rely on a <strong>computational graph intermediate representation</strong> to implement optimizations such as:</p>
+<ul>
+<li>auto differentiation</li>
+<li>dynamic memory management</li>
+</ul>
+</li>
+<li>
+<p><strong>Graph-level optimizations</strong> are often too high-level to handle hardware back-end-specific <strong>operator transformations</strong>.</p>
+</li>
+<li>
+<p><strong>Current operator-level libraries</strong> that DL frameworks rely on are:</p>
+<ul>
+<li>too rigid</li>
+<li>specialized</li>
+</ul>
+<p>---&gt; to be easily ported <strong>across hardware devices</strong></p>
+</li>
+<li>
+<p>To address these weaknesses, we need a <strong>compiler framework</strong> that can expose optimization opportunities across both</p>
+<ul>
+<li>graph-level and</li>
+<li>operator-level</li>
+</ul>
+<p>---&gt; to deliver competitive performance across hardware back-ends.</p>
+</li>
+</ul>
+<h3 id="Four-fundamental-challenges-at-the-computation-graph-level-and-tensor-operator-level">
+<a class="anchor" href="#Four-fundamental-challenges-at-the-computation-graph-level-and-tensor-operator-level" aria-hidden="true"><span class="octicon octicon-link"></span></a>Four fundamental challenges at the computation graph level and tensor operator level<a class="anchor-link" href="#Four-fundamental-challenges-at-the-computation-graph-level-and-tensor-operator-level">¶</a>
+</h3>
+<ol>
+<li>
+<p><strong>High-level dataflow rewriting:</strong></p>
+<ul>
+<li>
+<p>Different hardware devices may have vastly different memory hierarchies.</p>
+</li>
+<li>
+<p>Enabling strategies to fuse operators and optimize data layouts are crucial for optimizing memory access.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Memory reuse across threads:</strong></p>
+<ul>
+<li>Modern GPUs and specialized accelerators ahve memory that can be shared across compute cores.</li>
+<li>Traditional shared-nothing nested parallel model is no longer optimal.</li>
+<li>Cooperation among threads on shared memory loaded is required for optimized kernels. </li>
+</ul>
+</li>
+<li>
+<p><strong>Tensorized compute intrinsics:</strong></p>
+<ul>
+<li>The latest hardware provides new instructions that go beyond vector operations like the GEMM operator in TPU or the tensor core in NVIDIA's Volta.</li>
+<li>Consequently, the scheduling procedure must break computation into tensor arithmetic intrinsics instead of scalar or vector code.</li>
+</ul>
+</li>
+<li>
+<p><strong>Latency Hiding</strong></p>
+<ul>
+<li>Traditional architectures with simultaneous multithreading and automatically managed caches implicitly hide latency in modern CPUs/GPUs.</li>
+<li>Specialized accelerator designs favor learner control and offload most of the scheduling complexity to the compiler stack.</li>
+<li>Still, scheduling must be peformed carefully to hide memory access latency.</li>
+</ul>
+</li>
+</ol>
+<h3 id="TVM:-An-End-to-End-Optimization-Stack">
+<a class="anchor" href="#TVM:-An-End-to-End-Optimization-Stack" aria-hidden="true"><span class="octicon octicon-link"></span></a>TVM: An End-to-End Optimization Stack<a class="anchor-link" href="#TVM:-An-End-to-End-Optimization-Stack">¶</a>
+</h3>
+<ul>
+<li>An end-to-end optimizing compiler stack to lower and fine-tune DL workloads to diverse hardware back-ends. </li>
+<li>Designed to separate:<ul>
+<li>the algorithm description</li>
+<li>schedule</li>
+<li>hardware interface</li>
+</ul>
+</li>
+<li>This separation enables <strong>support for novel specialized accelerators</strong> and <strong>their corresponding new intrinsics</strong>. </li>
+<li>TVM presents <strong>two optimization layers</strong>:<ul>
+<li>a computation graph optimization layer to address:<ul>
+<li>High-level dataflow rewriting</li>
+</ul>
+</li>
+<li>a tensor optimization layer with new schedule primitives to address:<ul>
+<li>memory reuse across threads</li>
+<li>tensorized compute intrinsics</li>
+<li>latency hiding</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Optimizing-Computational-Graphs">
+<a class="anchor" href="#Optimizing-Computational-Graphs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimizing Computational Graphs<a class="anchor-link" href="#Optimizing-Computational-Graphs">¶</a>
+</h2>
+<h3 id="Computational-Graph">
+<a class="anchor" href="#Computational-Graph" aria-hidden="true"><span class="octicon octicon-link"></span></a>Computational Graph<a class="anchor-link" href="#Computational-Graph">¶</a>
+</h3>
+<ul>
+<li>Computational graphs are a common way to represent programs in DL frameworks. </li>
+<li>They provide a global view on computation tasks, yet avoid specifying how each computation task needs to be implemented. </li>
+</ul>
+<h3 id="Operator-Fusion">
+<a class="anchor" href="#Operator-Fusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Operator Fusion<a class="anchor-link" href="#Operator-Fusion">¶</a>
+</h3>
+<ul>
+<li>An optimization that can greatly reduce execution time, particulary in GPUs and specialized accelerators.</li>
+<li>The idea is to <strong>combine multiple operators together into a single kernel without saving the intermediate results back into global memory</strong>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/mlNhoDT.png" alt=""></p>
+<p><strong>Four categories of graph operators</strong>:</p>
+<ul>
+<li>Injective (one-to-one map)</li>
+<li>Reduction</li>
+<li>Complex-out-fusable (can fuse element-wise map to output)</li>
+<li>Opaque (cannot be fused)</li>
+</ul>
+<p><img src="https://i.imgur.com/XnhSWVN.png" alt=""></p>
+<h3 id="Data-Layout-Transformation">
+<a class="anchor" href="#Data-Layout-Transformation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Layout Transformation<a class="anchor-link" href="#Data-Layout-Transformation">¶</a>
+</h3>
+<ul>
+<li>Tensor operations are the basic operators of computational graphs</li>
+<li>They can have divergent layout requirements across different operations</li>
+<li>Optimizing data layout starts with specifying the preferred data layout of each operator given the constraints dictating their implementation in hardware.</li>
+</ul>
+<p><img src="https://i.imgur.com/0J5QxGs.png" alt=""></p>
+<h3 id="Limitations-of-Graph-Level-Optimizations">
+<a class="anchor" href="#Limitations-of-Graph-Level-Optimizations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limitations of Graph-Level Optimizations<a class="anchor-link" href="#Limitations-of-Graph-Level-Optimizations">¶</a>
+</h3>
+<ul>
+<li>They are only as effective as what the operator library provides.</li>
+<li>Currently, the few DL frameworks that support operator fusion require the operator library to provide an implementation of the fused patterns.<ul>
+<li>With more network operators introduced on a regular basis, this approach is no longer sustainable when targeting an increasing number of hardware back-ends.</li>
+</ul>
+</li>
+<li>It is not feasible to handcraft operator kernels for this massive space of back-end specific operators<ul>
+<li>TVM provides a code-generation approach that can generate tensor operators. </li>
+</ul>
+</li>
+</ul>
+<h2 id="Optimizing-Tensor-Operations">
+<a class="anchor" href="#Optimizing-Tensor-Operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimizing Tensor Operations<a class="anchor-link" href="#Optimizing-Tensor-Operations">¶</a>
+</h2>
+<h3 id="Tensor-Expression-Language">
+<a class="anchor" href="#Tensor-Expression-Language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tensor Expression Language<a class="anchor-link" href="#Tensor-Expression-Language">¶</a>
+</h3>
+<ul>
+<li>TVM introduces a dataflow tensor expression language to support automatic code generation.</li>
+<li>Unlike high-level computation graph languages, where the implementation of tensor operations is opaque, <em>each operation is described in an index formula expression language</em>.</li>
+</ul>
+<p><img src="https://i.imgur.com/LG1pguT.png" alt=""></p>
+<ul>
+<li>TVM tensor expression language supports common arithmetic and math operations found in common language like C. </li>
+<li>TVM explicitly introduces a <strong>commutative reduction</strong> operator to easily schedule commutative reductions across multiple threads. </li>
+<li>TVM further introduces a <strong>high-order scan operator</strong> that can combine basic compute operators to form recurrent computations over time. </li>
+</ul>
+<h3 id="Schedule-Space">
+<a class="anchor" href="#Schedule-Space" aria-hidden="true"><span class="octicon octicon-link"></span></a>Schedule Space<a class="anchor-link" href="#Schedule-Space">¶</a>
+</h3>
+<ul>
+<li>Given a tensor expression, it is challenging to create high-performance implementations for each hardware back-end. </li>
+<li>Each optimized low-level program is the result of different combinations of scheduling strategies, imposing a large burden on the kernel writer.</li>
+<li>TVM adopts the <strong>principle of decoupling compute descriptions from schedule optimizations</strong>.</li>
+<li>Schedules are the specific rules that lower compute descriptions down to back-end-optimized implementations. </li>
+</ul>
+<p><img src="https://i.imgur.com/JUikGQz.png" alt=""></p>
+<p><img src="https://i.imgur.com/BCg6gCz.png" alt=""></p>
+<h3 id="Nested-Parallelism-with-Cooperation">
+<a class="anchor" href="#Nested-Parallelism-with-Cooperation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nested Parallelism with Cooperation<a class="anchor-link" href="#Nested-Parallelism-with-Cooperation">¶</a>
+</h3>
+<ul>
+<li>Parallel programming is key to improving the efficiency of compute intensive kernels in deep learning workloads. </li>
+<li>
+<p>Modern GPUs offer massive parallelism</p>
+<p>---&gt; Requiring TVM to bake parallel programming models into schedule transformations</p>
+</li>
+<li>
+<p>Most existing solutions adopt a parallel programming model referred to as <a href="https://youtu.be/4lS_WThsFoM">nested parallel programs</a>, which is a form of <a href="https://en.wikipedia.org/wiki/Fork%E2%80%93join_model">fork-join parallelism</a>.</p>
+</li>
+<li>TVM uses a parallel schedule primitive to parallelize a data parallel task<ul>
+<li>Each parallel task can be further recursively subdivided into subtasks to exploit the multi-level thread hierarchy on the target architecture (e.g, thread groups in GPU)</li>
+</ul>
+</li>
+<li>
+<p>This model is called <strong>shared-nothing nested parallelism</strong></p>
+<ul>
+<li>One working thread cannot look at the data of its sibling within the same parallel computation stage.</li>
+<li>Interactions between sibling threads happen at the join stage, when the subtasks are done and the next stage can consume the data produced by the previous stage. </li>
+<li>This programming model <strong>does not enable threads to cooperate with each other in order to perform collective task within the same parallel stage</strong>.</li>
+</ul>
+</li>
+<li>
+<p>A better alternative to the shared-nothing approach is to <strong>fetch data cooperatively across threads</strong></p>
+<ul>
+<li>This pattern is well known in GPU programming using languages like CUDA, OpenCL and Metal.</li>
+<li><strong>It has not been implemented into a schedule primitive.</strong></li>
+</ul>
+</li>
+<li>TVM introduces the <strong>concept of memory scopes to the schedule space</strong>, so that a stage can be marked as shared.<ul>
+<li>Without memory scopes, automatic scope inference will mark the relevant stage as thread-local.</li>
+<li>Memory scopes are useful to GPUs.</li>
+<li>Memory scopes allow us to tag special memory buffers and create special lowering rules when targeting specialized deep learning accelerators. </li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/HHYtujL.png" alt=""></p>
+<h3 id="Tensorization:-Generalizing-the-Hardware-Interface">
+<a class="anchor" href="#Tensorization:-Generalizing-the-Hardware-Interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tensorization: Generalizing the Hardware Interface<a class="anchor-link" href="#Tensorization:-Generalizing-the-Hardware-Interface">¶</a>
+</h3>
+<ul>
+<li>
+<strong>Tensorization</strong> problem is analogous to the <strong>vectorization</strong> problem for <a href="https://en.wikipedia.org/wiki/SIMD">SIMD architectures</a>. </li>
+<li>Tensorization differs significantly from vectorization<ul>
+<li>The inputs to the tensor compute primitives are multi-dimensional, with fixed or variable lengths, and dictate different data layouts.</li>
+<li>Cannot resort to a fixed set of primitives, as new DL accelerators are emerging with their own flavors of tensor instructions. </li>
+</ul>
+</li>
+<li>To solve this challenge, TVM <strong>separates the hardware interface from the schedule</strong>:<ul>
+<li>TVM introduces a tensor intrinsic declaration mechanism</li>
+<li>TVM uses the tensor expression language to declare the behavior of each new hardware intrinsic, as well as the lowering rule associated to it. </li>
+<li>TVM introduces a <strong>tensorize</strong> schedule primitive to replace a unit of computation with the corresponding tensor intrinsics. </li>
+<li>The compiler matches the computation pattern with a hardware declaration, and lowers it to the corresping hardware intrinsic. </li>
+</ul>
+</li>
+</ul>
+<h3 id="Compiler-Support-for-Latency-Hiding">
+<a class="anchor" href="#Compiler-Support-for-Latency-Hiding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compiler Support for Latency Hiding<a class="anchor-link" href="#Compiler-Support-for-Latency-Hiding">¶</a>
+</h3>
+<ul>
+<li>
+<strong>Latency Hiding:</strong> refers to the process of overlapping memory operations with computation to maximize memory and compute utilization. </li>
+<li>It requires different different strategies depending on the hardware back-end that is being targeted. </li>
+<li>On CPUs, memory latency hiding is achieved <strong>implicitly with simultaneous multithreading</strong> or <strong>hardware prefetching techniques</strong>. </li>
+<li>GPUs rely on <strong>rapid context switching of many wraps of threads</strong> to maximize the utilization of functional units. </li>
+<li>TVM provides a virtual threading schedule primitive that lets the programmer specify a high-level data parallel program that TVM automatically lowers to a low-level explicit data dependence program. </li>
+</ul>
+<h2 id="Code-Generation-and-Runtime-Support">
+<a class="anchor" href="#Code-Generation-and-Runtime-Support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Generation and Runtime Support<a class="anchor-link" href="#Code-Generation-and-Runtime-Support">¶</a>
+</h2>
+<h3 id="Code-Generation">
+<a class="anchor" href="#Code-Generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Generation<a class="anchor-link" href="#Code-Generation">¶</a>
+</h3>
+<ul>
+<li>For a specific tuple of data-flow declaration, axis relation hyper-graph, and schedule tree, TVM can generate lowered code by:<ul>
+<li>iteratively traversing the schedule tree</li>
+<li>inferring the dependent bounds of the input tensors (using the axis relation hyergraph)</li>
+<li>generating the loop nest in the low-level code</li>
+</ul>
+</li>
+<li>The code is lowered to an in-memory representation of an imperative C style loop program. </li>
+<li>TVM reuses a variant of Halide's the loop program data structure in this process. </li>
+<li>TVM reuses passes from Halide for common lowering primitives like storage flattening and unrolling, <ul>
+<li>and add GPU/accelerator-specific transformations such as:<ul>
+<li><em>synchronization point detection</em></li>
+<li><em>virtual thread injection</em></li>
+<li><em>module generation</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Finally, the loop program is transformed into <strong>LLVM</strong> or <strong>CUDA/Metal/OpenCL</strong> source code.</li>
+</ul>
+<h3 id="Runtime-Support">
+<a class="anchor" href="#Runtime-Support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runtime Support<a class="anchor-link" href="#Runtime-Support">¶</a>
+</h3>
+<ul>
+<li>For GPU programs, TVM builds the host and device modules <strong>separately</strong> and provide a runtime module system that launch kernels using corresponding driver APIs. </li>
+</ul>
+<h3 id="Remote-Deployment-Profiling">
+<a class="anchor" href="#Remote-Deployment-Profiling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Remote Deployment Profiling<a class="anchor-link" href="#Remote-Deployment-Profiling">¶</a>
+</h3>
+<ul>
+<li>TVM includes infrastructure to make profiling and autotuning easier on embedded devices. </li>
+<li>
+<p>Traditionally, targeting an embedded device for tuning requires:</p>
+<ul>
+<li>cross-compiling on the host side, </li>
+<li>copying to the target device, </li>
+<li>and timing the execution</li>
+</ul>
+</li>
+<li>
+<p>TVM provides remote function call support. Through the <strong>RPC interface</strong>:</p>
+<ul>
+<li>TVM compiles the program on a host compiler</li>
+<li>it uploads to remote embedded devices</li>
+<li>it runs the funcion remotely, </li>
+<li>and it accesses the results in the same script on the host. </li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/oL0Z9pp.png" alt=""></p>
+<h2 id="Conclusion">
+<a class="anchor" href="#Conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion<a class="anchor-link" href="#Conclusion">¶</a>
+</h2>
+<ul>
+<li>TVM provides an end-to-end stack to solve fundamental optimization challenges across a diverse set of hardware back-ends.</li>
+<li>TVM can encourage more studies of programming languages, compilation, and open new opportunities for hardware co-design techniques for deep learning systems. </li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="andersy005/andersy005.github.io"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/blog/paper/2018/05/10/TVM-paper-summary.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A place for me to share thoughts, ideas, projects with the world.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/andersy005" title="andersy005"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/andersy005" title="andersy005"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

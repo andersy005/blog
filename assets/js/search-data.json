@@ -104,16 +104,16 @@
   
 
   
-      ,"page2": {
-          "title": "CV",
-          "content": "",
-          "url": "https://andersonbanihirwe.dev/cv/",
-          "relUrl": "/cv/",
+
+  
+      ,"page3": {
+          "title": "Projects",
+          "content": "I’ve been extremely lucky to work in realms that allow me to cross institutional and geographic boundaries to collaborate on tools and research software. More generally I write open source tools for scientific computing in Python. . Intake-esm: this package makes it much easier for scientists to load cataloged Earth System Model data on an HPC system or in the cloud. . | Pooch: a Python package that manages downloading data files over HTTP and storing them in a local directory. . | xarray: a Python package for working with labeled multi-dimensional arrays. . | Dask: a Python library for parallel computing. . | . For a much more up-to-date list of my work, check out my GitHub page. .",
+          "url": "https://andersonbanihirwe.dev/projects/",
+          "relUrl": "/projects/",
           "date": ""
       }
       
-  
-
   
 
   

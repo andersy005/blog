@@ -30,7 +30,7 @@ layout: notebook
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Abstract">Abstract<a class="anchor-link" href="#Abstract">&#182;</a></h2><p><strong>Paper link:</strong> <a href="https://arxiv.org/abs/1802.04799">https://arxiv.org/abs/1802.04799</a></p>
+<h2 id="Abstract">Abstract<a class="anchor-link" href="#Abstract"> </a></h2><p><strong>Paper link:</strong> <a href="https://arxiv.org/abs/1802.04799">https://arxiv.org/abs/1802.04799</a></p>
 <ul>
 <li>Scalable frameworks, such as TensorFlow, MXNet, Caffe, and PyTorch are optimized for a narrow range of serve-class GPUs.</li>
 <li>Deploying workloads to other platforms such as mobile phones, IoT, and specialized accelarators(FPGAs, ASICs) requires laborious manual effort.</li>
@@ -42,7 +42,7 @@ layout: notebook
 <p>---&gt; to provide performance portability to deep learning workloads across diverse hardware back-ends.</p>
 </li>
 </ul>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><ul>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"> </a></h2><ul>
 <li><p>The number and diversity of specialized deep learning (DL) accelerators pose an adoption challenge</p>
 <ul>
 <li>They introduce new hardware abstractions that modern compilers and frameworks are ill-equipped to deal with.</li>
@@ -80,7 +80,7 @@ layout: notebook
 <p>---&gt; to deliver competitive performance across hardware back-ends.</p>
 </li>
 </ul>
-<h3 id="Four-fundamental-challenges-at-the-computation-graph-level-and-tensor-operator-level">Four fundamental challenges at the computation graph level and tensor operator level<a class="anchor-link" href="#Four-fundamental-challenges-at-the-computation-graph-level-and-tensor-operator-level">&#182;</a></h3><ol>
+<h3 id="Four-fundamental-challenges-at-the-computation-graph-level-and-tensor-operator-level">Four fundamental challenges at the computation graph level and tensor operator level<a class="anchor-link" href="#Four-fundamental-challenges-at-the-computation-graph-level-and-tensor-operator-level"> </a></h3><ol>
 <li><p><strong>High-level dataflow rewriting:</strong></p>
 <ul>
 <li><p>Different hardware devices may have vastly different memory hierarchies.</p>
@@ -110,7 +110,7 @@ layout: notebook
 </ul>
 </li>
 </ol>
-<h3 id="TVM:-An-End-to-End-Optimization-Stack">TVM: An End-to-End Optimization Stack<a class="anchor-link" href="#TVM:-An-End-to-End-Optimization-Stack">&#182;</a></h3><ul>
+<h3 id="TVM:-An-End-to-End-Optimization-Stack">TVM: An End-to-End Optimization Stack<a class="anchor-link" href="#TVM:-An-End-to-End-Optimization-Stack"> </a></h3><ul>
 <li>An end-to-end optimizing compiler stack to lower and fine-tune DL workloads to diverse hardware back-ends. </li>
 <li>Designed to separate:<ul>
 <li>the algorithm description</li>
@@ -133,11 +133,11 @@ layout: notebook
 </ul>
 </li>
 </ul>
-<h2 id="Optimizing-Computational-Graphs">Optimizing Computational Graphs<a class="anchor-link" href="#Optimizing-Computational-Graphs">&#182;</a></h2><h3 id="Computational-Graph">Computational Graph<a class="anchor-link" href="#Computational-Graph">&#182;</a></h3><ul>
+<h2 id="Optimizing-Computational-Graphs">Optimizing Computational Graphs<a class="anchor-link" href="#Optimizing-Computational-Graphs"> </a></h2><h3 id="Computational-Graph">Computational Graph<a class="anchor-link" href="#Computational-Graph"> </a></h3><ul>
 <li>Computational graphs are a common way to represent programs in DL frameworks. </li>
 <li>They provide a global view on computation tasks, yet avoid specifying how each computation task needs to be implemented. </li>
 </ul>
-<h3 id="Operator-Fusion">Operator Fusion<a class="anchor-link" href="#Operator-Fusion">&#182;</a></h3><ul>
+<h3 id="Operator-Fusion">Operator Fusion<a class="anchor-link" href="#Operator-Fusion"> </a></h3><ul>
 <li>An optimization that can greatly reduce execution time, particulary in GPUs and specialized accelerators.</li>
 <li>The idea is to <strong>combine multiple operators together into a single kernel without saving the intermediate results back into global memory</strong></li>
 </ul>
@@ -150,13 +150,13 @@ layout: notebook
 <li>Opaque (cannot be fused)</li>
 </ul>
 <p><img src="https://i.imgur.com/XnhSWVN.png" alt=""></p>
-<h3 id="Data-Layout-Transformation">Data Layout Transformation<a class="anchor-link" href="#Data-Layout-Transformation">&#182;</a></h3><ul>
+<h3 id="Data-Layout-Transformation">Data Layout Transformation<a class="anchor-link" href="#Data-Layout-Transformation"> </a></h3><ul>
 <li>Tensor operations are the basic operators of computational graphs</li>
 <li>They can have divergent layout requirements across different operations</li>
 <li>Optimizing data layout starts with specifying the preferred data layout of each operator given the constraints dictating their implementation in hardware.</li>
 </ul>
 <p><img src="https://i.imgur.com/0J5QxGs.png" alt=""></p>
-<h3 id="Limitations-of-Graph-Level-Optimizations">Limitations of Graph-Level Optimizations<a class="anchor-link" href="#Limitations-of-Graph-Level-Optimizations">&#182;</a></h3><ul>
+<h3 id="Limitations-of-Graph-Level-Optimizations">Limitations of Graph-Level Optimizations<a class="anchor-link" href="#Limitations-of-Graph-Level-Optimizations"> </a></h3><ul>
 <li>They are only as effective as what the operator library provides.</li>
 <li>Currently, the few DL frameworks that support operator fusion require the operator library to provide an implementation of the fused patterns.<ul>
 <li>With more network operators introduced on a regular basis, this approach is no longer sustainable when targeting an increasing number of hardware back-ends.</li>
@@ -167,7 +167,7 @@ layout: notebook
 </ul>
 </li>
 </ul>
-<h2 id="Optimizing-Tensor-Operations">Optimizing Tensor Operations<a class="anchor-link" href="#Optimizing-Tensor-Operations">&#182;</a></h2><h3 id="Tensor-Expression-Language">Tensor Expression Language<a class="anchor-link" href="#Tensor-Expression-Language">&#182;</a></h3><ul>
+<h2 id="Optimizing-Tensor-Operations">Optimizing Tensor Operations<a class="anchor-link" href="#Optimizing-Tensor-Operations"> </a></h2><h3 id="Tensor-Expression-Language">Tensor Expression Language<a class="anchor-link" href="#Tensor-Expression-Language"> </a></h3><ul>
 <li>TVM introduces a dataflow tensor expression language to support automatic code generation.</li>
 <li>Unlike high-level computation graph languages, where the implementation of tensor operations is opaque, <em>each operation is described in an index formula expression language</em>.</li>
 </ul>
@@ -177,7 +177,7 @@ layout: notebook
 <li>TVM explicitly introduces a <strong>commutative reduction</strong> operator to easily schedule commutative reductions across multiple threads. </li>
 <li>TVM further introduces a <strong>high-order scan operator</strong> that can combine basic compute operators to form recurrent computations over time. </li>
 </ul>
-<h3 id="Schedule-Space">Schedule Space<a class="anchor-link" href="#Schedule-Space">&#182;</a></h3><ul>
+<h3 id="Schedule-Space">Schedule Space<a class="anchor-link" href="#Schedule-Space"> </a></h3><ul>
 <li>Given a tensor expression, it is challenging to create high-performance implementations for each hardware back-end. </li>
 <li>Each optimized low-level program is the result of different combinations of scheduling strategies, imposing a large burden on the kernel writer.</li>
 <li>TVM adopts the <strong>principle of decoupling compute descriptions from schedule optimizations</strong>.</li>
@@ -185,7 +185,7 @@ layout: notebook
 </ul>
 <p><img src="https://i.imgur.com/JUikGQz.png" alt=""></p>
 <p><img src="https://i.imgur.com/BCg6gCz.png" alt=""></p>
-<h3 id="Nested-Parallelism-with-Cooperation">Nested Parallelism with Cooperation<a class="anchor-link" href="#Nested-Parallelism-with-Cooperation">&#182;</a></h3><ul>
+<h3 id="Nested-Parallelism-with-Cooperation">Nested Parallelism with Cooperation<a class="anchor-link" href="#Nested-Parallelism-with-Cooperation"> </a></h3><ul>
 <li>Parallel programming is key to improving the efficiency of compute intensive kernels in deep learning workloads. </li>
 <li><p>Modern GPUs offer massive parallelism</p>
 <p>---&gt; Requiring TVM to bake parallel programming models into schedule transformations</p>
@@ -217,7 +217,7 @@ layout: notebook
 </li>
 </ul>
 <p><img src="https://i.imgur.com/HHYtujL.png" alt=""></p>
-<h3 id="Tensorization:-Generalizing-the-Hardware-Interface">Tensorization: Generalizing the Hardware Interface<a class="anchor-link" href="#Tensorization:-Generalizing-the-Hardware-Interface">&#182;</a></h3><ul>
+<h3 id="Tensorization:-Generalizing-the-Hardware-Interface">Tensorization: Generalizing the Hardware Interface<a class="anchor-link" href="#Tensorization:-Generalizing-the-Hardware-Interface"> </a></h3><ul>
 <li><strong>Tensorization</strong> problem is analogous to the <strong>vectorization</strong> problem for <a href="https://en.wikipedia.org/wiki/SIMD">SIMD architectures</a>. </li>
 <li>Tensorization differs significantly from vectorization<ul>
 <li>The inputs to the tensor compute primitives are multi-dimensional, with fixed or variable lengths, and dictate different data layouts.</li>
@@ -232,14 +232,14 @@ layout: notebook
 </ul>
 </li>
 </ul>
-<h3 id="Compiler-Support-for-Latency-Hiding">Compiler Support for Latency Hiding<a class="anchor-link" href="#Compiler-Support-for-Latency-Hiding">&#182;</a></h3><ul>
+<h3 id="Compiler-Support-for-Latency-Hiding">Compiler Support for Latency Hiding<a class="anchor-link" href="#Compiler-Support-for-Latency-Hiding"> </a></h3><ul>
 <li><strong>Latency Hiding:</strong> refers to the process of overlapping memory operations with computation to maximize memory and compute utilization. </li>
 <li>It requires different different strategies depending on the hardware back-end that is being targeted. </li>
 <li>On CPUs, memory latency hiding is achieved <strong>implicitly with simultaneous multithreading</strong> or <strong>hardware prefetching techniques</strong>. </li>
 <li>GPUs rely on <strong>rapid context switching of many wraps of threads</strong> to maximize the utilization of functional units. </li>
 <li>TVM provides a virtual threading schedule primitive that lets the programmer specify a high-level data parallel program that TVM automatically lowers to a low-level explicit data dependence program. </li>
 </ul>
-<h2 id="Code-Generation-and-Runtime-Support">Code Generation and Runtime Support<a class="anchor-link" href="#Code-Generation-and-Runtime-Support">&#182;</a></h2><h3 id="Code-Generation">Code Generation<a class="anchor-link" href="#Code-Generation">&#182;</a></h3><ul>
+<h2 id="Code-Generation-and-Runtime-Support">Code Generation and Runtime Support<a class="anchor-link" href="#Code-Generation-and-Runtime-Support"> </a></h2><h3 id="Code-Generation">Code Generation<a class="anchor-link" href="#Code-Generation"> </a></h3><ul>
 <li>For a specific tuple of data-flow declaration, axis relation hyper-graph, and schedule tree, TVM can generate lowered code by:<ul>
 <li>iteratively traversing the schedule tree</li>
 <li>inferring the dependent bounds of the input tensors (using the axis relation hyergraph)</li>
@@ -259,10 +259,10 @@ layout: notebook
 </li>
 <li>Finally, the loop program is transformed into <strong>LLVM</strong> or <strong>CUDA/Metal/OpenCL</strong> source code.</li>
 </ul>
-<h3 id="Runtime-Support">Runtime Support<a class="anchor-link" href="#Runtime-Support">&#182;</a></h3><ul>
+<h3 id="Runtime-Support">Runtime Support<a class="anchor-link" href="#Runtime-Support"> </a></h3><ul>
 <li>For GPU programs, TVM builds the host and device modules <strong>separately</strong> and provide a runtime module system that launch kernels using corresponding driver APIs. </li>
 </ul>
-<h3 id="Remote-Deployment-Profiling">Remote Deployment Profiling<a class="anchor-link" href="#Remote-Deployment-Profiling">&#182;</a></h3><ul>
+<h3 id="Remote-Deployment-Profiling">Remote Deployment Profiling<a class="anchor-link" href="#Remote-Deployment-Profiling"> </a></h3><ul>
 <li>TVM includes infrastructure to make profiling and autotuning easier on embedded devices. </li>
 <li><p>Traditionally, targeting an embedded device for tuning requires:</p>
 <ul>
@@ -281,7 +281,7 @@ layout: notebook
 </li>
 </ul>
 <p><img src="https://i.imgur.com/oL0Z9pp.png" alt=""></p>
-<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><ul>
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion"> </a></h2><ul>
 <li>TVM provides an end-to-end stack to solve fundamental optimization challenges across a diverse set of hardware back-ends.</li>
 <li>TVM can encourage more studies of programming languages, compilation, and open new opportunities for hardware co-design techniques for deep learning systems. </li>
 </ul>

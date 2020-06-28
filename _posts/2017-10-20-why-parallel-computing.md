@@ -59,7 +59,7 @@ conventional processors on a single chip.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why-we-need-ever-increasing-performance">Why we need ever-increasing performance<a class="anchor-link" href="#Why-we-need-ever-increasing-performance">&#182;</a></h2>
+<h2 id="Why-we-need-ever-increasing-performance">Why we need ever-increasing performance<a class="anchor-link" href="#Why-we-need-ever-increasing-performance"> </a></h2>
 </div>
 </div>
 </div>
@@ -75,7 +75,7 @@ conventional processors on a single chip.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include youtube.html content='<code>https://youtu.be/aLdNDFuLazw</code>' %}</p>
+<p>{% include youtube.html content='<a href="https://youtu.be/aLdNDFuLazw">https://youtu.be/aLdNDFuLazw</a>' %}</p>
 
 </div>
 </div>
@@ -101,7 +101,7 @@ conventional processors on a single chip.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include youtube.html content='<code>https://youtu.be/pGI_GTnSs_E</code>' %}</p>
+<p>{% include youtube.html content='<a href="https://youtu.be/pGI_GTnSs_E">https://youtu.be/pGI_GTnSs_E</a>' %}</p>
 
 </div>
 </div>
@@ -117,7 +117,7 @@ conventional processors on a single chip.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include youtube.html content='<code>https://youtu.be/bHK9RbM3HDk</code>' %}</p>
+<p>{% include youtube.html content='<a href="https://youtu.be/bHK9RbM3HDk">https://youtu.be/bHK9RbM3HDk</a>' %}</p>
 
 </div>
 </div>
@@ -131,7 +131,7 @@ conventional processors on a single chip.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why-we-are-building-parallel-systems">Why we are building parallel systems<a class="anchor-link" href="#Why-we-are-building-parallel-systems">&#182;</a></h2>
+<h2 id="Why-we-are-building-parallel-systems">Why we are building parallel systems<a class="anchor-link" href="#Why-we-are-building-parallel-systems"> </a></h2>
 </div>
 </div>
 </div>
@@ -145,14 +145,14 @@ conventional processors on a single chip.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include youtube.html content='<code>https://youtu.be/7ukDKVHnac4</code>' %}</p>
+<p>{% include youtube.html content='<a href="https://youtu.be/7ukDKVHnac4">https://youtu.be/7ukDKVHnac4</a>' %}</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why-we-need-to-write-parallel-programs">Why we need to write parallel programs<a class="anchor-link" href="#Why-we-need-to-write-parallel-programs">&#182;</a></h2>
+<h2 id="Why-we-need-to-write-parallel-programs">Why we need to write parallel programs<a class="anchor-link" href="#Why-we-need-to-write-parallel-programs"> </a></h2>
 </div>
 </div>
 </div>
@@ -190,7 +190,10 @@ for my_i in range(my_first, my_last_i):
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>After each core completes execution of this code, its variable <strong>my_sum</strong> will store the sum of the values computed by its calls to <code>compute_next_value()</code>.
 For instance, if there are <strong>eight</strong> cores, $n=24$, and the $24$ calls to <code>compute_next_value()</code> return the values</p>
-$$1, 4, 3, \ 9, 2, 8, \ 5, 1, 1, \ 6, 2, 7, \ 2, 5, 0, \ 4, 1, 8, \ 6, 5, 1, \ 2, 3, 9,$$<p>then the values store in <code>my_sum</code> might be</p>
+<p>{% raw %}
+$$1, 4, 3, \ 9, 2, 8, \ 5, 1, 1, \ 6, 2, 7, \ 2, 5, 0, \ 4, 1, 8, \ 6, 5, 1, \ 2, 3, 9,$$
+{% endraw %}</p>
+<p>then the values store in <code>my_sum</code> might be</p>
 <p><img src="https://i.imgur.com/XzpU0f6.png" alt="" title="Credit: An Introduction to Parallel Programming by Peter Pacheco, https://www.cs.usfca.edu/~peter/ipp/"></p>
 
 </div>
@@ -238,7 +241,7 @@ else:
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-do-we-write-parallel-programs">How do we write parallel programs<a class="anchor-link" href="#How-do-we-write-parallel-programs">&#182;</a></h2>
+<h2 id="How-do-we-write-parallel-programs">How do we write parallel programs<a class="anchor-link" href="#How-do-we-write-parallel-programs"> </a></h2>
 </div>
 </div>
 </div>
@@ -262,7 +265,7 @@ else:
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ul>
+<h2 id="References">References<a class="anchor-link" href="#References"> </a></h2><ul>
 <li><p>[1] M. Herlihy, N. Shavit, The Art of Multiprocessor Programming, Morgan Kaufmann, Boston, 2008.</p>
 </li>
 <li><p>[2] IBM, IBM InfoSphere streams v1.2.0 supports highly complex heterogeneous data analysis, IBM United States Software Announcement 210-037, February 23, 2010. Available <a href="http://www-01.ibm.com/common/ssi/rep_ca/7/897/ENUS210-037/ENUS210-037.PDF">here</a></p>

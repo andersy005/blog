@@ -38,7 +38,7 @@ layout: notebook
 <li>view data</li>
 </ul>
 <p>and is designed for maximum extensibility. Once a programmer has gotten over the initial syntax hurdles, they quickly learn to appreciate the STL's sheer power and flexibility.</p>
-<h2 id="Overview-of-STL">Overview of STL<a class="anchor-link" href="#Overview-of-STL">&#182;</a></h2><p><img src="https://i.imgur.com/zO1sozu.png" alt="" title="Credit: CS106L-Stanford"></p>
+<h2 id="Overview-of-STL">Overview of STL<a class="anchor-link" href="#Overview-of-STL"> </a></h2><p><img src="https://i.imgur.com/zO1sozu.png" alt="" title="Credit: CS106L-Stanford"></p>
 
 </div>
 </div>
@@ -73,7 +73,7 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Vectors">Vectors<a class="anchor-link" href="#Vectors">&#182;</a></h2>
+<h2 id="Vectors">Vectors<a class="anchor-link" href="#Vectors"> </a></h2>
 </div>
 </div>
 </div>
@@ -479,7 +479,7 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="deque">deque<a class="anchor-link" href="#deque">&#182;</a></h2>
+<h2 id="deque">deque<a class="anchor-link" href="#deque"> </a></h2>
 </div>
 </div>
 </div>
@@ -660,14 +660,14 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Container-Adapters">Container Adapters<a class="anchor-link" href="#Container-Adapters">&#182;</a></h2><p>How can we implement stack and queue using the containers we have?</p>
+<h2 id="Container-Adapters">Container Adapters<a class="anchor-link" href="#Container-Adapters"> </a></h2><p>How can we implement stack and queue using the containers we have?</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Stack">Stack<a class="anchor-link" href="#Stack">&#182;</a></h3>
+<h3 id="Stack">Stack<a class="anchor-link" href="#Stack"> </a></h3>
 </div>
 </div>
 </div>
@@ -994,7 +994,7 @@ layout: notebook
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Queue">Queue<a class="anchor-link" href="#Queue">&#182;</a></h3>
+<h3 id="Queue">Queue<a class="anchor-link" href="#Queue"> </a></h3>
 </div>
 </div>
 </div>

@@ -39,7 +39,7 @@ characters of indefinite length.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-do-you-write-data-to-a-file-in-C++?">How do you write data to a file in C++?<a class="anchor-link" href="#How-do-you-write-data-to-a-file-in-C++?">&#182;</a></h2>
+<h2 id="How-do-you-write-data-to-a-file-in-C++?">How do you write data to a file in C++?<a class="anchor-link" href="#How-do-you-write-data-to-a-file-in-C++?"> </a></h2>
 </div>
 </div>
 </div>
@@ -157,13 +157,13 @@ characters of indefinite length.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stream-Manipulators">Stream Manipulators<a class="anchor-link" href="#Stream-Manipulators">&#182;</a></h2>
+<h2 id="Stream-Manipulators">Stream Manipulators<a class="anchor-link" href="#Stream-Manipulators"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-does-the-setw-manipulator-do?">What does the <code>setw</code> manipulator do?<a class="anchor-link" href="#What-does-the-setw-manipulator-do?">&#182;</a></h3>
+<h3 id="What-does-the-setw-manipulator-do?">What does the <code>setw</code> manipulator do?<a class="anchor-link" href="#What-does-the-setw-manipulator-do?"> </a></h3>
 </div>
 </div>
 </div>
@@ -255,7 +255,7 @@ characters of indefinite length.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-does-the-boolalpha-manipulator-do?">What does the <code>boolalpha</code> manipulator do?<a class="anchor-link" href="#What-does-the-boolalpha-manipulator-do?">&#182;</a></h3>
+<h3 id="What-does-the-boolalpha-manipulator-do?">What does the <code>boolalpha</code> manipulator do?<a class="anchor-link" href="#What-does-the-boolalpha-manipulator-do?"> </a></h3>
 </div>
 </div>
 </div>
@@ -330,7 +330,7 @@ characters of indefinite length.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-do-hex,-dec,-oct-manipulator-do?">What do <code>hex</code>, <code>dec</code>, <code>oct</code> manipulator do?<a class="anchor-link" href="#What-do-hex,-dec,-oct-manipulator-do?">&#182;</a></h3>
+<h3 id="What-do-hex,-dec,-oct-manipulator-do?">What do <code>hex</code>, <code>dec</code>, <code>oct</code> manipulator do?<a class="anchor-link" href="#What-do-hex,-dec,-oct-manipulator-do?"> </a></h3>
 </div>
 </div>
 </div>
@@ -467,7 +467,7 @@ characters of indefinite length.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-stream-failure?-How-do-you-check-for-it?">What is stream failure? How do you check for it?<a class="anchor-link" href="#What-is-stream-failure?-How-do-you-check-for-it?">&#182;</a></h2>
+<h2 id="What-is-stream-failure?-How-do-you-check-for-it?">What is stream failure? How do you check for it?<a class="anchor-link" href="#What-is-stream-failure?-How-do-you-check-for-it?"> </a></h2>
 </div>
 </div>
 </div>
@@ -551,7 +551,7 @@ characters of indefinite length.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-a-stringstream?">What is a <code>stringstream</code>?<a class="anchor-link" href="#What-is-a-stringstream?">&#182;</a></h2>
+<h2 id="What-is-a-stringstream?">What is a <code>stringstream</code>?<a class="anchor-link" href="#What-is-a-stringstream?"> </a></h2>
 </div>
 </div>
 </div>
@@ -803,7 +803,7 @@ World
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Write-a-function-that-converts-an-int-into-a-string">Write a function that converts an <code>int</code> into a <code>string</code><a class="anchor-link" href="#Write-a-function-that-converts-an-int-into-a-string">&#182;</a></h2>
+<h2 id="Write-a-function-that-converts-an-int-into-a-string">Write a function that converts an <code>int</code> into a <code>string</code><a class="anchor-link" href="#Write-a-function-that-converts-an-int-into-a-string"> </a></h2>
 </div>
 </div>
 </div>
@@ -863,7 +863,7 @@ World
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Draw-a-tringle-by-drawing-a-single-character-on-one-line,-then-three-on-the-next,-...">Draw a tringle by drawing a single character on one line, then three on the next, ...<a class="anchor-link" href="#Draw-a-tringle-by-drawing-a-single-character-on-one-line,-then-three-on-the-next,-...">&#182;</a></h2>
+<h2 id="Draw-a-tringle-by-drawing-a-single-character-on-one-line,-then-three-on-the-next,-...">Draw a tringle by drawing a single character on one line, then three on the next, ...<a class="anchor-link" href="#Draw-a-tringle-by-drawing-a-single-character-on-one-line,-then-three-on-the-next,-..."> </a></h2>
 </div>
 </div>
 </div>

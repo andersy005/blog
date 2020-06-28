@@ -54,7 +54,7 @@ layout: notebook
 <li>Familiarity with conda.</li>
 </ol>
 <p>Note: Credit goes to <a href="https://uwekorn.com/2017/12/17/play-interactively-with-arrow-cpp-in-xeus-cling.html">Uwe for his excellent blog post on how to setup C++ environment for Apache Arrow</a></p>
-<h1 id="Getting-Started">Getting Started<a class="anchor-link" href="#Getting-Started">&#182;</a></h1><p>To quote xeus-cling project:</p>
+<h1 id="Getting-Started">Getting Started<a class="anchor-link" href="#Getting-Started"> </a></h1><p>To quote xeus-cling project:</p>
 <blockquote><p>It is preferable to install xeus-cling in a fresh conda environment. It is also needed to use a miniconda installation because with anaconda you can have a conflict with the zeromq library which is already installed with anaconda.</p>
 </blockquote>
 <p>As a start, we create a conda environment with all non-C++ dependencies and also install Jupyter Lab from conda-forge.</p>
@@ -65,7 +65,8 @@ conda create -n xeus <span class="nv">python</span><span class="o">=</span><span
 <p>Finally, let's install the actual interactive environment. For the C++ support, we install the interactive C++ compiler cling and the C++ kernel for Jupyter Notebook xeus-cling from the QuantStack channel.</p>
 <div class="highlight"><pre><span></span>conda install xeus-cling -c QuantStack -c conda-forge
 </pre></div>
-<p>After starting Jupyter Lab with jupyter lab, you should now see two additional kernels: xeus C++11 and xeus C++14. You can use either of them to use write interactive C++ programs.<img src="https://i.imgur.com/MoUPWd7.png" alt="jupyter-kernels"></p>
+<p>After starting Jupyter Lab with jupyter lab, you should now see two additional kernels:xeus C++11 and xeus C++14. You can use either of them to use write interactive C++ programs.
+<img src="https://i.imgur.com/MoUPWd7.png" alt="jupyter-kernels"></p>
 <p>Now you are ready to start playing with C++ interactively.</p>
 <p><strong>Thanks for reading!</strong></p>
 

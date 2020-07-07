@@ -7,7 +7,7 @@ branch: master
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: [xarray,dask,netcdf]
+categories: [xarray,dask,netcdf, python]
 image: images/copied_from_nb/my_icons/save-mfdataset-thumbnail.png
 nb_path: _notebooks/2020-06-29-writing-multiple-netcdf-files-in-parallel-wit-xarray-and-dask.ipynb
 layout: notebook

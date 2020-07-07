@@ -6,7 +6,7 @@ toc: true
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: [blog, cpp]
+categories: [c++, jupyter]
 image: http://www.cplusplus.com/img/iostream.gif
 nb_path: _notebooks/2018-01-20-play-interactively-with-cpp-streams.ipynb
 layout: notebook

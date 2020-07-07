@@ -6,7 +6,7 @@ toc: true
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: [blog]
+categories: [parallel-computing]
 image: https://i.imgur.com/rLbJhqZ.png
 nb_path: _notebooks/2017-10-20-why-parallel-computing.ipynb
 layout: notebook

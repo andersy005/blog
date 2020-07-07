@@ -6,7 +6,7 @@ toc: true
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: [blog, cpp]
+categories: [c++, jupyter]
 image: https://i.imgur.com/zO1sozu.png
 nb_path: _notebooks/2018-01-23-play-interactively-with-cpp-sequence-containers.ipynb
 layout: notebook

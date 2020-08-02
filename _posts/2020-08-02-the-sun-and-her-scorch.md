@@ -7,12 +7,12 @@ comments: true
 author: Anderson
 layout: post
 toc: false
-categories: [2020]
+categories: ["2020"]
 ---
 
-Two years ago I was introduced to [indie music](https://en.wikipedia.org/wiki/Independent_music) and have never looked back since then. I love indie music for how true to the soul it is. I am thankful for my discovery 😊!
+Two years ago I was introduced to [indie music](https://en.wikipedia.org/wiki/Independent_music) and have never looked back since then. I love indie music for how true to the soul it is. I am thankful for my discovery 😊.
 
-One of my favorite artists is [**Dizzy**](https://www.dizzytheband.com/), a Canadian alt-pop four-piece band. Dizzy recently released their new record *The Sun and Her Scorch*. It is so beautiful! My top two songs on this record are:
+One of my favorite artists is [**Dizzy**](https://www.dizzytheband.com/), a Canadian indie alt-pop four-piece band. Dizzy recently released their new record *The Sun and Her Scorch*. It is so beautiful! My top two songs on this record are:
 
 - **The Magician**: which is about Katie Munshaw (who is the vocalist of the band) wanting to magically bring a friend who passed away back to real life. Overall, the song sounds like such an emotional story portrayed beautifully with a little hope.
 

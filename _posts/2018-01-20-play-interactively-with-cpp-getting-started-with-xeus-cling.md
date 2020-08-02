@@ -6,7 +6,7 @@ toc: true
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: [c++, jupyter]
+categories: ["2018"]
 image: https://github.com/QuantStack/xeus-cling/raw/master/docs/source/xeus-cling.svg?sanitize=true
 nb_path: _notebooks/2018-01-20-play-interactively-with-cpp-getting-started-with-xeus-cling.ipynb
 layout: notebook

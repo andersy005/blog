@@ -2,12 +2,12 @@
 keywords: dask, xarray, netcdf, save_mfdataset, to_netcdf
 description: 
 title: Writing multiple netCDF files in parallel with xarray and dask
-toc: true
+toc: false
 branch: master
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: [xarray,dask,netcdf, python]
+categories: ["2020"]
 image: images/copied_from_nb/my_icons/save-mfdataset-thumbnail.png
 nb_path: _notebooks/2020-06-29-writing-multiple-netcdf-files-in-parallel-wit-xarray-and-dask.ipynb
 layout: notebook
@@ -31,6 +31,7 @@ layout: notebook
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Note:</strong> <em>Originally published at <a href="https://ncar.github.io/xdev/">https://ncar.github.io/xdev/</a></em></p>
 <p>A typical computation workflow with xarray consists of:</p>
 <ol>
 <li>reading one or more netCDF files into an xarray dataset backed by dask using <code>xr.open_mfdataset()</code> or <code>xr.open_dataset(chunks=...)</code>,</li>

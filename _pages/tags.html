@@ -1,22 +1,22 @@
 ---
 layout: categories
 permalink: /categories/
-title: Tags
+title: Archive
 search_exclude: true
 ---
 
 {% if site.categories.size > 0 %}
-<h2>Contents</h2>
+<h2>Posts by Year</h2>
 
   {% assign categories = "" | split:"" %}
   {% for c in site.categories %}
     {% assign categories = categories | push: c[0] %}
   {% endfor %}
-  {% assign categories = categories | sort_natural %}
+  {% assign categories = categories | sort_natural | reverse %}
 
   <ul>
   {% for category in categories %}
-    <li><a href="#{{ category }}">{{ category }}</a></li>
+    <li><a href="#{{ category }}"><strong>{{ category }}</strong> &emsp; <span>({{ site.categories[category].size }})</span></a></li>
   {% endfor %}
   </ul>
 

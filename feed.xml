@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://blog.andersonbanihirwe.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.andersonbanihirwe.dev/" rel="alternate" type="text/html" /><updated>2020-07-06T23:21:44-05:00</updated><id>https://blog.andersonbanihirwe.dev/feed.xml</id><title type="html">Anderson Banihirwe</title><subtitle>A place for me to share thoughts, ideas, projects with the world.</subtitle><entry><title type="html">Writing multiple netCDF files in parallel with xarray and dask</title><link href="https://blog.andersonbanihirwe.dev/2020/06/29/writing-multiple-netcdf-files-in-parallel-wit-xarray-and-dask.html" rel="alternate" type="text/html" title="Writing multiple netCDF files in parallel with xarray and dask" /><published>2020-06-29T00:00:00-05:00</published><updated>2020-06-29T00:00:00-05:00</updated><id>https://blog.andersonbanihirwe.dev/2020/06/29/writing-multiple-netcdf-files-in-parallel-wit-xarray-and-dask</id><content type="html" xml:base="https://blog.andersonbanihirwe.dev/2020/06/29/writing-multiple-netcdf-files-in-parallel-wit-xarray-and-dask.html">&lt;!--
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://blog.andersonbanihirwe.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.andersonbanihirwe.dev/" rel="alternate" type="text/html" /><updated>2020-08-02T07:26:53-05:00</updated><id>https://blog.andersonbanihirwe.dev/feed.xml</id><title type="html">Anderson Banihirwe</title><subtitle>A place for me to share thoughts, ideas, projects with the world.</subtitle><entry><title type="html">Dizzy - The Sun and Her Scorch</title><link href="https://blog.andersonbanihirwe.dev/2020/08/02/the-sun-and-her-scorch.html" rel="alternate" type="text/html" title="Dizzy - The Sun and Her Scorch" /><published>2020-08-02T00:00:00-05:00</published><updated>2020-08-02T00:00:00-05:00</updated><id>https://blog.andersonbanihirwe.dev/2020/08/02/the-sun-and-her-scorch</id><content type="html" xml:base="https://blog.andersonbanihirwe.dev/2020/08/02/the-sun-and-her-scorch.html">&lt;p&gt;Two years ago I was introduced to &lt;a href=&quot;https://en.wikipedia.org/wiki/Independent_music&quot;&gt;indie music&lt;/a&gt; and have never looked back since then. I love indie music for how true to the soul it is. I am thankful for my discovery 😊.&lt;/p&gt;
+
+&lt;p&gt;One of my favorite artists is &lt;a href=&quot;https://www.dizzytheband.com/&quot;&gt;&lt;strong&gt;Dizzy&lt;/strong&gt;&lt;/a&gt;, a Canadian indie alt-pop four-piece band. Dizzy recently released their new record &lt;em&gt;The Sun and Her Scorch&lt;/em&gt;. It is so beautiful! My top two songs on this record are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;The Magician&lt;/strong&gt;: which is about Katie Munshaw (who is the vocalist of the band) wanting to magically bring a friend who passed away back to real life. Overall, the song sounds like such an emotional story portrayed beautifully with a little hope.&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;You be the bird, I’ll be a magician 🎶&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/akyDtx5c5J4&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Roman Candles&lt;/strong&gt;: which is about the spiraling anxiety and fear one feels whenever they think of having made the wrong career choice.&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;“The song is about being nervous and scared that I’ve made the wrong decision in pursuing music as a career. I feel like I’m being left behind in a way. I think it’s hard for people to understand music as a career when you’re not famous. If you’re not Dua Lipa, people are worried about you. They don’t realise that it is a career option. It can be hard to relate to people, especially when I’m not going to work every morning. Christmas dinners are usually pretty awkward. ‘Oh, you’re still doing music, eh?’ ‘Yes, grandpa!’” – Katie Munshaw, &lt;a href=&quot;https://music.apple.com/nz/album/the-sun-and-her-scorch/1508164390&quot;&gt;Apple Music&lt;/a&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/LlvzCOxQRko&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here’s the full album on Spotify. Enjoy :)&lt;/p&gt;
+
+&lt;iframe src=&quot;https://open.spotify.com/embed/album/0bwa7x8UZ8ZRv7YgLlerm6&quot; width=&quot;300&quot; height=&quot;380&quot; frameborder=&quot;0&quot; allowtransparency=&quot;true&quot; allow=&quot;encrypted-media&quot;&gt;&lt;/iframe&gt;</content><author><name>Anderson</name></author><summary type="html">Two years ago I was introduced to indie music and have never looked back since then. I love indie music for how true to the soul it is. I am thankful for my discovery 😊.</summary></entry><entry><title type="html">Writing multiple netCDF files in parallel with xarray and dask</title><link href="https://blog.andersonbanihirwe.dev/2020/06/29/writing-multiple-netcdf-files-in-parallel-wit-xarray-and-dask.html" rel="alternate" type="text/html" title="Writing multiple netCDF files in parallel with xarray and dask" /><published>2020-06-29T00:00:00-05:00</published><updated>2020-06-29T00:00:00-05:00</updated><id>https://blog.andersonbanihirwe.dev/2020/06/29/writing-multiple-netcdf-files-in-parallel-wit-xarray-and-dask</id><content type="html" xml:base="https://blog.andersonbanihirwe.dev/2020/06/29/writing-multiple-netcdf-files-in-parallel-wit-xarray-and-dask.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -16,6 +43,7 @@
 
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;em&gt;Originally published at &lt;a href=&quot;https://ncar.github.io/xdev/&quot;&gt;https://ncar.github.io/xdev/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;A typical computation workflow with xarray consists of:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;reading one or more netCDF files into an xarray dataset backed by dask using &lt;code&gt;xr.open_mfdataset()&lt;/code&gt; or &lt;code&gt;xr.open_dataset(chunks=...)&lt;/code&gt;,&lt;/li&gt;

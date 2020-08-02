@@ -6,7 +6,7 @@ toc: true
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: [dash, documentation, sphinx, python]
+categories: ["2020"]
 image: https://upload.wikimedia.org/wikipedia/commons/b/bb/Knitting_plaited_stitches_fabric.png
 nb_path: _notebooks/2020-01-21-a-knitting-weekend.ipynb
 layout: notebook

@@ -6,7 +6,7 @@ toc: true
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: [paper]
+categories: ["2018"]
 image: https://i.imgur.com/pA2pcl4.png
 nb_path: _notebooks/2018-05-10-TVM-paper-summary.ipynb
 layout: notebook

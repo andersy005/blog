@@ -7,7 +7,7 @@ branch: master
 badges: false
 comments: true
 author: Anderson Banihirwe
-categories: ["2020", "pandas", "til"]
+categories: ["2020", "pandas", "todayilearned"]
 nb_path: _notebooks/2020-08-11-adding-style-to-pandas.ipynb
 layout: notebook
 ---

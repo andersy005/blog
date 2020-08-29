@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://blog.andersonbanihirwe.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.andersonbanihirwe.dev/" rel="alternate" type="text/html" /><updated>2020-08-15T02:08:37-05:00</updated><id>https://blog.andersonbanihirwe.dev/feed.xml</id><title type="html">Anderson Banihirwe</title><subtitle>A place for me to share thoughts, ideas, projects with the world.</subtitle><entry><title type="html">From xray to xarray</title><link href="https://blog.andersonbanihirwe.dev/2020/08/15/from-xray-to-xarray.html" rel="alternate" type="text/html" title="From xray to xarray" /><published>2020-08-15T00:00:00-05:00</published><updated>2020-08-15T00:00:00-05:00</updated><id>https://blog.andersonbanihirwe.dev/2020/08/15/from-xray-to-xarray</id><content type="html" xml:base="https://blog.andersonbanihirwe.dev/2020/08/15/from-xray-to-xarray.html">&lt;p&gt;I started using &lt;a href=&quot;https://github.com/pydata/xarray&quot;&gt;xarray&lt;/a&gt; in the summer of 2017. At the time, the latest version was &lt;code class=&quot;highlighter-rouge&quot;&gt;v0.9.5&lt;/code&gt;. Today I learned that in its early stages, xarray was called &lt;strong&gt;xray&lt;/strong&gt; (no ties to &lt;a href=&quot;https://en.wikipedia.org/wiki/X-ray_machine&quot;&gt;x-ray machines&lt;/a&gt; :)). Once it gained popularity, the core developers decided it was a good idea to rename the package to a more descriptive/neutral name. The following names were considered:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://blog.andersonbanihirwe.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.andersonbanihirwe.dev/" rel="alternate" type="text/html" /><updated>2020-08-29T01:51:40-05:00</updated><id>https://blog.andersonbanihirwe.dev/feed.xml</id><title type="html">Anderson Banihirwe</title><subtitle>A place for me to share thoughts, ideas, projects with the world.</subtitle><entry><title type="html">Chadwick Boseman</title><link href="https://blog.andersonbanihirwe.dev/2020/08/28/chadwick-boseman.html" rel="alternate" type="text/html" title="Chadwick Boseman" /><published>2020-08-28T00:00:00-05:00</published><updated>2020-08-28T00:00:00-05:00</updated><id>https://blog.andersonbanihirwe.dev/2020/08/28/chadwick-boseman</id><content type="html" xml:base="https://blog.andersonbanihirwe.dev/2020/08/28/chadwick-boseman.html">&lt;p&gt;Chadwick Boseman:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Thank you for teaching and showing us how to serve others, while quietly understanding their pain.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;jekyll-twitter-plugin&quot;&gt;&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;It’s not every day that St. Jude gets a visit from an Avenger! Thank you &lt;a href=&quot;https://twitter.com/chadwickboseman?ref_src=twsrc%5Etfw&quot;&gt;@ChadwickBoseman&lt;/a&gt; for stopping by to bring joy to our patients and learn more about our lifesaving mission! ❤ 🎉 &lt;a href=&quot;https://t.co/7RwPO7qgPD&quot;&gt;pic.twitter.com/7RwPO7qgPD&lt;/a&gt;&lt;/p&gt;&amp;mdash; St. Jude (@StJude) &lt;a href=&quot;https://twitter.com/StJude/status/1040003392444264464?ref_src=twsrc%5Etfw&quot;&gt;September 12, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Thank you for being the light to so many people, sharing your beautiful spirit and talent with the world! We will miss you so …. ✊🏾 ❤️ 🙅🏾‍♂️  forever and ever …&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/expKmfdoo28&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“He who has gone, so we but cherish his memory, abides with us, more potent, nay, more present than the living man.” — Antoine de Saint-Exupery&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Repose en paix Chadwick Boseman. Tu nous manques déjà…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/black-panther.jpeg&quot; alt=&quot;black-panther&quot; /&gt;&lt;/p&gt;</content><author><name>Anderson</name></author><summary type="html">Chadwick Boseman:</summary></entry><entry><title type="html">From xray to xarray</title><link href="https://blog.andersonbanihirwe.dev/2020/08/15/from-xray-to-xarray.html" rel="alternate" type="text/html" title="From xray to xarray" /><published>2020-08-15T00:00:00-05:00</published><updated>2020-08-15T00:00:00-05:00</updated><id>https://blog.andersonbanihirwe.dev/2020/08/15/from-xray-to-xarray</id><content type="html" xml:base="https://blog.andersonbanihirwe.dev/2020/08/15/from-xray-to-xarray.html">&lt;p&gt;I started using &lt;a href=&quot;https://github.com/pydata/xarray&quot;&gt;xarray&lt;/a&gt; in the summer of 2017. At the time, the latest version was &lt;code class=&quot;highlighter-rouge&quot;&gt;v0.9.5&lt;/code&gt;. Today I learned that in its early stages, xarray was called &lt;strong&gt;xray&lt;/strong&gt; (no ties to &lt;a href=&quot;https://en.wikipedia.org/wiki/X-ray_machine&quot;&gt;x-ray machines&lt;/a&gt; :)). Once it gained popularity, the core developers decided it was a good idea to rename the package to a more descriptive/neutral name. The following names were considered:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -5771,69 +5793,4 @@ World
 
 &lt;script type=&quot;application/vnd.jupyter.widget-state+json&quot;&gt;
 {&quot;state&quot;: {}, &quot;version_major&quot;: 2, &quot;version_minor&quot;: 0}
-&lt;/script&gt;</content><author><name>Anderson Banihirwe</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://www.cplusplus.com/img/iostream.gif" /><media:content medium="image" url="http://www.cplusplus.com/img/iostream.gif" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Play interactively with C++: Xeus-Cling</title><link href="https://blog.andersonbanihirwe.dev/2018/01/20/play-interactively-with-cpp-getting-started-with-xeus-cling.html" rel="alternate" type="text/html" title="Play interactively with C++: Xeus-Cling" /><published>2018-01-20T00:00:00-06:00</published><updated>2018-01-20T00:00:00-06:00</updated><id>https://blog.andersonbanihirwe.dev/2018/01/20/play-interactively-with-cpp-getting-started-with-xeus-cling</id><content type="html" xml:base="https://blog.andersonbanihirwe.dev/2018/01/20/play-interactively-with-cpp-getting-started-with-xeus-cling.html">&lt;!--
-#################################################
-### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
-#################################################
-# file to edit: _notebooks/2018-01-20-play-interactively-with-cpp-getting-started-with-xeus-cling.ipynb
---&gt;
-
-&lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
-        
-    
-    
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-
-&lt;/div&gt;
-    
-
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;&lt;em&gt;This is the 1st installment of a new series called&lt;/em&gt; &lt;strong&gt;Play interactively with C++&lt;/strong&gt;. Every week or so, I’ll be summarizing and exploring &lt;strong&gt;Standard C++ Programming&lt;/strong&gt; in Jupyter notebook using &lt;a href=&quot;https://github.com/QuantStack/xeus-cling&quot;&gt;xeus-cling&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The source code (in notebook format) for this series can be found &lt;a href=&quot;http://nbviewer.jupyter.org/github/andersy005/interactive-cpp/tree/master/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;xeus-cling is a Jupyter kernel for C++ based on the C++ interpreter &lt;a href=&quot;https://github.com/root-project/cling&quot;&gt;cling&lt;/a&gt; and the native implementation of the Jupyter protocol &lt;a href=&quot;https://github.com/QuantStack/xeus&quot;&gt;xeus&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;In this installment, I will go over how to get started with playing with C++ Programming interactively.&lt;/p&gt;
-&lt;p&gt;I am going to show you how to setup your environment. This blog post makes the following assumptions:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The reader has some experience with Jupyter notebooks.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol&gt;
-&lt;li&gt;Familiarity with conda.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Note: Credit goes to &lt;a href=&quot;https://uwekorn.com/2017/12/17/play-interactively-with-arrow-cpp-in-xeus-cling.html&quot;&gt;Uwe for his excellent blog post on how to setup C++ environment for Apache Arrow&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;Getting-Started&quot;&gt;Getting Started&lt;a class=&quot;anchor-link&quot; href=&quot;#Getting-Started&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;To quote xeus-cling project:&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;It is preferable to install xeus-cling in a fresh conda environment. It is also needed to use a miniconda installation because with anaconda you can have a conflict with the zeromq library which is already installed with anaconda.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;As a start, we create a conda environment with all non-C++ dependencies and also install Jupyter Lab from conda-forge.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Create a new conda environment&lt;/span&gt;
-conda create -n xeus &lt;span class=&quot;nv&quot;&gt;python&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;.6 jupyterlab -c conda-forge
-&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; activate xeus
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Finally, let's install the actual interactive environment. For the C++ support, we install the interactive C++ compiler cling and the C++ kernel for Jupyter Notebook xeus-cling from the QuantStack channel.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;conda install xeus-cling -c QuantStack -c conda-forge
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;After starting Jupyter Lab with jupyter lab, you should now see two additional kernels:xeus C++11 and xeus C++14. You can use either of them to use write interactive C++ programs.
-&lt;img src=&quot;https://i.imgur.com/MoUPWd7.png&quot; alt=&quot;jupyter-kernels&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;Now you are ready to start playing with C++ interactively.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Thanks for reading!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script type=&quot;application/vnd.jupyter.widget-state+json&quot;&gt;
-{&quot;state&quot;: {}, &quot;version_major&quot;: 2, &quot;version_minor&quot;: 0}
-&lt;/script&gt;</content><author><name>Anderson Banihirwe</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://github.com/QuantStack/xeus-cling/raw/master/docs/source/xeus-cling.svg?sanitize=true" /><media:content medium="image" url="https://github.com/QuantStack/xeus-cling/raw/master/docs/source/xeus-cling.svg?sanitize=true" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/script&gt;</content><author><name>Anderson Banihirwe</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://www.cplusplus.com/img/iostream.gif" /><media:content medium="image" url="http://www.cplusplus.com/img/iostream.gif" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

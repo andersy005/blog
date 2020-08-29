@@ -7,7 +7,7 @@ comments: false
 author: Anderson
 layout: post
 toc: false
-categories: ["2020", "life", "chadwick"]
+categories: ["2020", "life"]
 ---
 
 Chadwick Boseman:
@@ -19,13 +19,13 @@ Chadwick Boseman:
 
 - **Thank you for being the light to so many people, sharing your beautiful spirit and talent with the world! We will miss you so .... ✊🏾 ❤️ 🙅🏾‍♂️  forever and ever ...**
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/expKmfdoo28" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/expKmfdoo28" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - **Chadwick, throughout it all you found the courage and the will to persevere while uplifting those around you. You didn't just play a hero, you were truly one!**
 
 {% twitter https://twitter.com/tarantallegra/status/1299544269099802624 %}
 
-Repose en paix Chadwick Boseman. Tu nous manques déjà...
+Repose en paix, Chadwick Boseman. Tu nous manques déjà...
 
 ![black-panther](/images/black-panther.jpeg)
 

@@ -8,6 +8,9 @@ permalink: /talks/
 I’ve given talks at academic and software conferences. Some of these are recorded and available online. Here’s a mostly up to date list of all the talks I’ve given.
 
 
+- [Zarr](https://talks.andersonbanihirwe.dev/zarr-cloud-native-geospatial-2020.html) - Cloud Native Geospatial Outreach Day 2020. September 2020
+- [Intake & Intake-ESM -- Taking the pain out of data access and distribution](https://talks.andersonbanihirwe.dev/intake-jupyter-meets-earth-2020.html) - Jupyter meets the Earth: EarthCube Community Meeting. July 2020
+- [Intake-ESM -- Making It Easier To Consume Climate and Weather Data](https://talks.andersonbanihirwe.dev/intake-esm-esip-2020.html) - ESIP Summer Meeting 2020. July 2020
 - [Intake-esm -- Making It Easier To Consume Climate Data](https://talks.andersonbanihirwe.dev/intake-esm-cmip6-2019.html) - CMIP6 Hackathon 2019. Boulder, CO.
 - [JupyterHub on HPC](https://talks.andersonbanihirwe.dev/jupyterhub-on-hpc-pangeo-2019.html) - Pangeo Meeting 2019. Seattle, WA. August 2019
 - [Intake-esm](https://talks.andersonbanihirwe.dev/intake-esm-pangeo-2019.html) - Pangeo Meeting 2019. Seattle, WA. August 2019

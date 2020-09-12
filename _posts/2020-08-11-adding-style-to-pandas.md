@@ -1,13 +1,13 @@
 ---
 keywords: pandas, styling
-description: 
+description:
 title: Pandas Dataframe Styling
 toc: false
 branch: master
-badges: false
+badges: true
 comments: true
 author: Anderson Banihirwe
-categories: ["2020", "pandas", "todayilearned"]
+categories: ["2020", "pandas", "todayilearned", "python"]
 nb_path: _notebooks/2020-08-11-adding-style-to-pandas.ipynb
 layout: notebook
 ---
@@ -20,9 +20,9 @@ layout: notebook
 -->
 
 <div class="container" id="notebook-container">
-        
+
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
@@ -35,7 +35,7 @@ layout: notebook
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -59,7 +59,7 @@ layout: notebook
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -161,14 +161,14 @@ layout: notebook
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pivot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> 
-                       <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">])</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pivot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
+                       <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">])</span>
 <span class="n">pivot</span>
 </pre></div>
 
@@ -367,13 +367,13 @@ layout: notebook
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pivot</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">highlight_max</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">highlight_min</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pivot</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">highlight_max</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">highlight_min</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -531,7 +531,7 @@ layout: notebook
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -769,7 +769,7 @@ layout: notebook
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1008,7 +1008,7 @@ layout: notebook
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1273,7 +1273,7 @@ layout: notebook
     {% endraw %}
 
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1313,5 +1313,8 @@ layout: notebook
 </div>
 </div>
 </div>
- 
 
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script>

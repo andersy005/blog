@@ -1,13 +1,13 @@
 ---
 keywords: dask, xarray, netcdf, save_mfdataset, to_netcdf
-description: 
+description:
 title: Writing multiple netCDF files in parallel with xarray and dask
 toc: false
 branch: master
-badges: false
+badges: true
 comments: true
 author: Anderson Banihirwe
-categories: ["2020"]
+categories: ["2020", "xarray", "python"]
 image: images/copied_from_nb/my_icons/save-mfdataset-thumbnail.png
 nb_path: _notebooks/2020-06-29-writing-multiple-netcdf-files-in-parallel-wit-xarray-and-dask.ipynb
 layout: notebook
@@ -21,9 +21,9 @@ layout: notebook
 -->
 
 <div class="container" id="notebook-container">
-        
+
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
@@ -68,7 +68,7 @@ layout: notebook
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -104,7 +104,7 @@ layout: notebook
     {% endraw %}
 
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -161,7 +161,7 @@ layout: notebook
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -697,7 +697,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
     {% endraw %}
 
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -745,7 +745,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -762,7 +762,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
     {% endraw %}
 
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -811,7 +811,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -843,7 +843,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
     {% endraw %}
 
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -867,13 +867,13 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">))</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -911,7 +911,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -942,7 +942,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -982,7 +982,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1036,7 +1036,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1059,7 +1059,7 @@ history deleted for brevity</dd></dl></div></li></ul></div></div>
 </div>
 </div>
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1593,7 +1593,7 @@ dl.xr-attrs {
     {% endraw %}
 
     {% raw %}
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1649,9 +1649,8 @@ dl.xr-attrs {
 </div>
 </div>
 </div>
- 
+
 
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script>
-

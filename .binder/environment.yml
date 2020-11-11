@@ -1,0 +1,15 @@
+name: blog
+channels:
+  - conda-forge
+dependencies:
+  - ablog
+  - jupyterlab
+  - myst-nb
+  - pandas
+  - pydata-sphinx-theme
+  - python=3.8
+  - sphinx-panels
+  - pip
+  - pip:
+      - sphinxext-opengraph
+      - sphinxcontrib-bibtex

@@ -6,25 +6,19 @@ I’ve been extremely lucky to work in realms that allow me to cross institution
 
 As part of my work at the National Center for Atmospheric Research, I contribute to multiple open-source projects such as dask, xarray, jupyter, and intake. Most projects that I work on can be found on my [GitHub page](https://github.com/andersy005).
 
-## Recent posts
+## Recent Posts
 
-<!-- See the [blog archives](blog) for a more complete list.
+See the [blog archives](blog) for a more complete list.
 
 ```{postlist}
 :date: "%Y-%m-%d"
 :format: "{date} - {title}"
 :excerpts:
-``` -->
-<!--
+```
+
 ```{toctree}
 :maxdepth: 2
 :hidden:
-about
-projects
-publications
+blog
 talks
-blog -->
-
-```
-
 ```

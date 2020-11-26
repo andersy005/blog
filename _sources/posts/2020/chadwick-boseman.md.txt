@@ -24,8 +24,6 @@ Chadwick Boseman:
 
 Repose en paix, Chadwick Boseman. Tu nous manques déjà...
 
-<img src="../../_static/images/black-panther.jpeg" />
+![black-panther](../../_static/images/black-panther.jpeg)
 
-<br>
-
-> > “He who has gone, so we but cherish his memory, abides with us, more potent, nay, more present than the living man.” — Antoine de Saint-Exupery
+> “He who has gone, so we but cherish his memory, abides with us, more potent, nay, more present than the living man.” — Antoine de Saint-Exupery

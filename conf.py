@@ -17,12 +17,12 @@ import datetime
 
 # -- Project information -----------------------------------------------------
 
-project = 'Mindspace'
+project = 'Paysage Pythonique'
 license_message = (
     'Except where otherwise noted, this work is licensed under '
-    'a Creative Commons Attribution 4.0 International License.'
+    'a Creative Commons Attribution 4.0 International License'
 )
-copyright = f'2020-{datetime.datetime.now().year}, Anderson Banihirwe. {license_message}'
+copyright = f'2018-{datetime.datetime.now().year}. {license_message}'
 author = 'Anderson Banihirwe'
 html_last_updated_fmt = '%b %d, %Y'
 
@@ -88,7 +88,7 @@ html_sidebars = {
     'blog/**': ['postcard.html', 'recentposts.html', 'archives.html'],
 }
 blog_baseurl = 'https://blog.andersonbanihirwe.dev'
-blog_title = 'Mindspace'
+blog_title = 'Paysage Pythonique'
 blog_path = 'posts'
 fontawesome_included = True
 blog_post_pattern = 'posts/*/*'

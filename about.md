@@ -4,12 +4,12 @@ I work as a software engineer in the [Computational & Information Systems Lab (C
 
 As part of my work at the National Center for Atmospheric Research, I contribute to multiple open-source projects such as dask, xarray, jupyter, and intake. Most projects that I work on can be found on my [{fa}`github,style=fab` GitHub page](https://github.com/andersy005).
 
-For a list of publications and scholarly artifacts in which I've been involved,
+For a list of publications in which I've been involved,
 check out [my ORCID page](https://orcid.org/0000-0001-6583-571X) or [my Google Scholar page](https://scholar.google.com/citations?user=vrlgltgAAAAJ&hl=en&oi=ao).
 
-## A rough timeline
+## Academic and Work timeline
 
-Below is a rough timeline of what I've been up to over the past several years.
+Below is a timeline of what I've been up to over the past several years.
 
 ```{panels}
 :container: timeline
@@ -22,9 +22,8 @@ Below is a rough timeline of what I've been up to over the past several years.
 2020: Promoted to **Software Engineer ||**
 ^^^
 
-- Lead the development of [jupyter-forward](https://jupyter-forward.readthedocs.io/), a Jupyter Lab port forwarding utility that simplifies running jupyter on remote resources.
-- Continued leading the intake-ESM project
-- Served as a contributor for the [Jupyter Meets Earth](https://pangeo-data.github.io/jupyter-earth/) project
+I continued leading the intake-ESM project. In addition, I joined the [Jupyter Meets Earth](https://pangeo-data.github.io/jupyter-earth/) project as a contributor. During this time, I helped with the development of the following projects:
+- [jupyter-forward](https://jupyter-forward.readthedocs.io/), a Jupyter Lab port forwarding utility that simplifies running jupyter on remote resources.
 
 ---
 :column: +right

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://blog.andersonbanihirwe.dev</id>
+  <title>Paysage Pythonique</title>
+  <updated>2020-11-26T06:34:46.544640+00:00</updated>
+  <link href="https://blog.andersonbanihirwe.dev"/>
+  <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
+  <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/</id>
+    <title>Reflecting on SciPy 2019: My first SciPy, definitely not my last</title>
+    <updated>2019-07-21T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
+    <content type="html">&lt;p&gt;It’s been a week since SciPy 2019 conference came to a close. I had the pleasure of speaking at SciPy 2019 about &lt;a class="reference external" href="https://andersonbanihirwe.dev/talks/dask-jupyter-scipy-2019.html"&gt;&lt;strong&gt;interactive supercomputing with Dask and Jupyter&lt;/strong&gt;&lt;/a&gt;. I am so thankful for the chance to speak in the Earth, Ocean, Geo and Atmospheric Science track! Here’s a recording of my talk:&lt;/p&gt;
+&lt;p&gt;As I look back at my first &lt;a class="reference external" href="https://www.scipy2019.scipy.org/"&gt;SciPy&lt;/a&gt;, I can say that it was the most productive conference that I’ve been to so far. So, I wanted to take this opportunity to summarize my key takeaways.&lt;/p&gt;
+&lt;img alt="Credit: Karthik Ram: http://inundata.org/talks/sdss" src="../_images/hidden-oss-work.png" /&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/" rel="alternate"/>
+    <published>2019-07-21T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2020/a-knitting-weekend-with-dash/</id>
+    <title>A Knitting Weekend with Dash and Python</title>
+    <updated>2020-01-21T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
+    <content type="html">&lt;p&gt;For the last few months, I’ve become a huge fan of the &lt;strong&gt;quiet weekend&lt;/strong&gt;, the weekend when no plan is the plan, and you are in no hurry at all. I woke up on Saturday morning, and I decided that this weekend was going to be a quiet one. After watching a late morning football game from the English Premier League – yup, I refuse to call it soccer 😀 – I decided to write some code-nothing big, just a few lines of codes to improve my experience with &lt;a class="reference external" href="https://kapeli.com/dash"&gt;Dash&lt;/a&gt;, a tool that I’ve been using for a few months.&lt;/p&gt;
+&lt;p&gt;Dash is a MacOS application that offers offline documentation for hundreds of programming languages, frameworks and libraries. Dash is awesome for offline programming when using spotty WiFi or on long-haul flights. While it is &lt;strong&gt;free as in beer&lt;/strong&gt;, it’s one of the programs that are worth paying for.&lt;/p&gt;
+&lt;img alt="" src="../_images/navigate.png" /&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2020/a-knitting-weekend-with-dash/" rel="alternate"/>
+    <published>2020-01-21T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2020/the-sun-and-her-scorch/</id>
+    <title>Dizzy - The Sun and Her Scorch: You don’t just hear it, you feel it</title>
+    <updated>2020-08-02T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
+    <content type="html">&lt;p&gt;Two years ago I stumble upon &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Independent_music"&gt;indie music&lt;/a&gt;, and have never looked back since then. Today, I love indie music for how true to the soul it is. One of my favorite indie artists is &lt;a class="reference external" href="https://www.dizzytheband.com/"&gt;&lt;strong&gt;Dizzy&lt;/strong&gt;&lt;/a&gt;, a Canadian indie alt-pop four-piece band. Dizzy recently released their new record &lt;em&gt;The Sun and Her Scorch&lt;/em&gt;. It is so beautiful! My top two songs on this record are:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Magician&lt;/strong&gt;: which is about Katie Munshaw (who is the vocalist of the band) wanting to magically bring a friend who passed away back to real life.&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2020/the-sun-and-her-scorch/" rel="alternate"/>
+    <published>2020-08-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2020/chadwick-boseman/</id>
+    <title>Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever</title>
+    <updated>2020-08-28T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
+    <content type="html">&lt;p&gt;Chadwick Boseman:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thank you for teaching and showing us how to serve others, while quietly understanding their pain.&lt;/strong&gt;&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2020/chadwick-boseman/" rel="alternate"/>
+    <published>2020-08-28T00:00:00+00:00</published>
+  </entry>
+</feed>

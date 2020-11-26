@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Reflecting on SciPy 2019: My first SciPy, definitely not my last" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019.html" />
+  <meta property="og:description" content="It’s been a week since SciPy 2019 conference came to a close. I had the pleasure of speaking at SciPy 2019 about interactive supercomputing with Dask and Jupyter. I am so thankful for the chance to..." />
+  <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
+  <meta property="og:image:alt" content="Reflecting on SciPy 2019: My first SciPy, definitely not my last" />
+  
+    <title>Reflecting on SciPy 2019: My first SciPy, definitely not my last &#8212; Paysage Pythonique  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Paysage Pythonique"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">Paysage Pythonique</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../">Posts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/">About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../talks/">Talks</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://cv.andersonbanihirwe.dev/">CV</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw">Video</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andersy005/" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/andersy005" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  21 July 2019 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../author/anderson-banihirwe/">Anderson Banihirwe</a>  
+</li>
+    
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../tag/scipy/">scipy</a>   
+  <a href="../../tag/conference/">conference</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../2020/chadwick-boseman/"
+      >28 August - Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/the-sun-and-her-scorch/"
+      >02 August - Dizzy - The Sun and Her Scorch: You don’t just hear it, you feel it</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/a-knitting-weekend-with-dash/"
+      >21 January - A Knitting Weekend with Dash and Python</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../2020/">2020 (3)</a>
+  </li>
+    
+  <li>
+    <a href="../">2019 (1)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#the-awesomeness-of-scipy-community" class="nav-link">1. The Awesomeness of SciPy Community</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#invisible-work-in-open-source-software-projects" class="nav-link">2. Invisible Work in Open Source Software Projects</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#tell-people-when-you-appreciate-their-work" class="nav-link">3. Tell People When You Appreciate Their Work</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#we-should-think-about-open-source-standards" class="nav-link">4. We Should Think About Open Source Standards</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#jupyter-notebooks-come-alive-with-jupyter-widgets" class="nav-link">5. Jupyter Notebooks Come Alive with Jupyter Widgets</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#maslows-hierarchy-of-software-needs" class="nav-link">6. Maslow’s Hierarchy of Software Needs</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#final-thoughts" class="nav-link">7. Final Thoughts</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="reflecting-on-scipy-2019-my-first-scipy-definitely-not-my-last">
+<h1>Reflecting on SciPy 2019: My first SciPy, definitely not my last<a class="headerlink" href="#reflecting-on-scipy-2019-my-first-scipy-definitely-not-my-last" title="Permalink to this headline">¶</a></h1>
+<p>It’s been a week since SciPy 2019 conference came to a close. I had the pleasure of speaking at SciPy 2019 about <a class="reference external" href="https://andersonbanihirwe.dev/talks/dask-jupyter-scipy-2019.html"><strong>interactive supercomputing with Dask and Jupyter</strong></a>. I am so thankful for the chance to speak in the Earth, Ocean, Geo and Atmospheric Science track! Here’s a recording of my talk:</p>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/vhawO8fgD64" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p>As I look back at my first <a class="reference external" href="https://www.scipy2019.scipy.org/">SciPy</a>, I can say that it was the most productive conference that I’ve been to so far. So, I wanted to take this opportunity to summarize my key takeaways.</p>
+<div class="section" id="the-awesomeness-of-scipy-community">
+<h2>1. The Awesomeness of SciPy Community<a class="headerlink" href="#the-awesomeness-of-scipy-community" title="Permalink to this headline">¶</a></h2>
+<p>The biggest highlight of SciPy for me was the <strong>community</strong>.
+<strong>What an authentic, super-talented, enthusiastic and welcoming community!</strong> I met and interacted with a lot of amazing people that I only knew via Github prior the conference :). The community is really what makes SciPy such a special conference.</p>
+</div>
+<div class="section" id="invisible-work-in-open-source-software-projects">
+<h2>2. Invisible Work in Open Source Software Projects<a class="headerlink" href="#invisible-work-in-open-source-software-projects" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Because so much of the work in OSS is tracked on public platforms, it is easy to forget about the work that takes place outside of them.</p>
+</div></blockquote>
+<p>This quote by Stuart really hit home. For the last few months, I’ve become a core maintainer of a few projects, and one of the things I’ve learned so far as a user, a contributor to, and core maintainer of an open source project is that it’s really important to recognize that the github repository does not fully represent a project. <strong>There’s quite a lot of crucial, untracked work that goes on in the background</strong> such as:</p>
+<p><img alt="Credit: Karthik Ram: http://inundata.org/talks/sdss" src="../../../_images/hidden-oss-work.png" /></p>
+<blockquote>
+<div><p>Credit: Karthik Ram: http://inundata.org/talks/sdss</p>
+</div></blockquote>
+<p>You can watch the full key note here:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PM3iltcaIL8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="section" id="tell-people-when-you-appreciate-their-work">
+<h2>3. Tell People When You Appreciate Their Work<a class="headerlink" href="#tell-people-when-you-appreciate-their-work" title="Permalink to this headline">¶</a></h2>
+<p>Another key lessons I learned is from <a class="reference external" href="https://www.youtube.com/watch?v=s-W-UvGgDco&amp;list=PLYx7XA2nY5GcDQblpQ_M1V3PQPoLWiDAC&amp;index=71">Carol Willing’s keynote</a> is that research shows that meeting someone who has befitted from your work can double your effort and triple your productivity:</p>
+<p><img alt="Credit: Carol Willing: https://speakerdeck.com/willingc/jupyter-always-open-for-learning-and-discovery" src="../../../_images/extract-hidden-value.png" /></p>
+<blockquote>
+<div><p>Credit: Carol Willing: https://speakerdeck.com/willingc/jupyter-always-open-for-learning-and-discovery</p>
+</div></blockquote>
+</div>
+<div class="section" id="we-should-think-about-open-source-standards">
+<h2>4. We Should Think About Open Source Standards<a class="headerlink" href="#we-should-think-about-open-source-standards" title="Permalink to this headline">¶</a></h2>
+<p>Matthew Rocklin gave a great talk on <a class="reference external" href="http://matthewrocklin.com/slides/scipy-2019.html">refactoring the SciPy ecosystem for heterogeneous computing</a>.</p>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/Q0DsdiY-jiw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>My takeaway from his talk is that</p>
+<blockquote>
+<div><p>The Python scientific community fractures when we develop competing packages that are not compatible with each other and thrives when we develop tools based on common standards.</p>
+</div></blockquote>
+<p>As software developers, we should try to follow already existing standards when we can, because standards level the playing field in so many ways:</p>
+<ul class="simple">
+<li><p>new technologies can quickly compete</p></li>
+<li><p>new developers can quickly engage</p></li>
+<li><p>incentivize support (e.g. GitHub renders <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> since Jupyter notebooks are built on a widely used standard)</p></li>
+</ul>
+</div>
+<div class="section" id="jupyter-notebooks-come-alive-with-jupyter-widgets">
+<h2>5. Jupyter Notebooks Come Alive with Jupyter Widgets<a class="headerlink" href="#jupyter-notebooks-come-alive-with-jupyter-widgets" title="Permalink to this headline">¶</a></h2>
+<p>One of my favorite SciPy 2019 talks is Martin and Maarten’s talk on <strong>Dashboarding with Jupyter Notebooks, Voilà and Widgets</strong>. It is really fun and full of cool stuffs.</p>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/VtchVpoSdoQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>I am looking forward to making my own widgets and dashboards! And exclaiming <strong>voilà!</strong> after I deploy them!</p>
+</div>
+<div class="section" id="maslows-hierarchy-of-software-needs">
+<h2>6. Maslow’s Hierarchy of Software Needs<a class="headerlink" href="#maslows-hierarchy-of-software-needs" title="Permalink to this headline">¶</a></h2>
+<p>Stan’s talk on <strong>How to Accelerate an Existing Codebase with Numba</strong> is also among my favorites. The Key lesson from this talk is the following:</p>
+<blockquote>
+<div><p>Be honest with yourself about where your project is in this hierarchy. If your program doesn’t run, there’s no point in making it faster.</p>
+</div></blockquote>
+<p><img alt="Credit: Stan Seibert" src="../../../_images/maslow.png" /></p>
+<blockquote>
+<div><p>Credit: Stan Seibert</p>
+</div></blockquote>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/-4tD8kNHdXs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="section" id="final-thoughts">
+<h2>7. Final Thoughts<a class="headerlink" href="#final-thoughts" title="Permalink to this headline">¶</a></h2>
+<p>I left SciPy 2019 feeling:</p>
+<ul class="simple">
+<li><p><strong>very thankful</strong> that so many amazing people are able to come out and collaborate on the projects that are so vital to the Python scientific ecocystem!</p></li>
+<li><p><strong>grateful</strong> to be part of this community.</p></li>
+<li><p><strong>inspired</strong> to keep contributing to this community.</p></li>
+<li><p><strong>so excited</strong> about the technology, the science, and the people.</p></li>
+</ul>
+<p><strong>Thank you so much to the SciPy Conference organizers for putting on a great conference.</strong></p>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="../../2020/a-knitting-weekend-with-dash/">
+      A Knitting Weekend with Dash and Python <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-91185106-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License.<br/>
+        Last updated on Nov 26, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

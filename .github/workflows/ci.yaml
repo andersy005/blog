@@ -1,4 +1,4 @@
-name: deploy-website
+name: deploy-site
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy-book:
+  deploy-site:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,9 +24,9 @@ jobs:
         run: |
           make dirhtml
 
-    # - name: Deploy
-    #   uses: peaceiris/actions-gh-pages@v3.7.3
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: ./_build/dirhtml
-    #     cname: blog.andersonbanihirwe.dev
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_build/dirhtml
+          cname: blog.andersonbanihirwe.dev

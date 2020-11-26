@@ -4,7 +4,7 @@ date: 2019-07-21
 tags: scipy, conference
 ---
 
-# Reflecting on SciPy 2019: My First SciPy, Definitely Not My Last
+# Reflecting on SciPy 2019: My first SciPy, definitely not my last
 
 It's been a week since SciPy 2019 conference came to a close. I had the pleasure of speaking at SciPy 2019 about [**interactive supercomputing with Dask and Jupyter**](https://andersonbanihirwe.dev/talks/dask-jupyter-scipy-2019.html). I am so thankful for the chance to speak in the Earth, Ocean, Geo and Atmospheric Science track! Here's a recording of my talk:
 

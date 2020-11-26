@@ -6,7 +6,7 @@ I’ve been extremely lucky to work in realms that allow me to cross institution
 
 ## Recent Posts
 
-See the [blog archives](blog) for a more complete list.
+See the [blog archives](posts) for a more complete list.
 
 ```{postlist}
 :date: "%Y-%m-%d"
@@ -17,7 +17,7 @@ See the [blog archives](blog) for a more complete list.
 ```{toctree}
 :maxdepth: 2
 :hidden:
-blog
+posts
 about
 talks
 CV <https://cv.andersonbanihirwe.dev/>

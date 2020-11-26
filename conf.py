@@ -83,9 +83,8 @@ html_sidebars = {
     'publications': ['hello.html'],
     'projects': ['hello.html'],
     'talks': ['hello.html'],
+    'posts': ['tagcloud.html', 'archives.html'],
     'posts/**': ['postcard.html', 'recentposts.html', 'archives.html'],
-    'blog': ['tagcloud.html', 'archives.html'],
-    'blog/**': ['postcard.html', 'recentposts.html', 'archives.html'],
 }
 blog_baseurl = 'https://blog.andersonbanihirwe.dev'
 blog_title = 'Paysage Pythonique'
@@ -95,7 +94,7 @@ blog_post_pattern = 'posts/*/*'
 post_redirect_refresh = 1
 post_auto_image = 1
 post_auto_excerpt = 2
-disqus_shortname = 'andersy005'
+
 
 # Panels config
 panels_add_bootstrap_css = False

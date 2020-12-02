@@ -1,0 +1,525 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Advent of Code Day 1: Report Repair"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Load Input data"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    ":::{note}\n",
+    "The input data can be found [here](https://adventofcode.com/2020/day/1).\n",
+    ":::"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open('../../data/advent-of-code/2020/day-1-input') as fid:\n",
+    "    data = fid.readlines()\n",
+    "    data = sorted([int(x.strip()) for x in data if x != '\\n'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "([61, 156, 166, 279], 200)"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data[:4], len(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Part One\n",
+    "\n",
+    "\n",
+    "After saving Christmas five years in a row, you've decided to take a vacation at a nice resort on a tropical island. Surely, Christmas will go on without you.\n",
+    "\n",
+    "The tropical island has its own currency and is entirely cash-only. The gold coins used there have a little picture of a starfish; the locals just call them stars. None of the currency exchanges seem to have heard of them, but somehow, you'll need to find fifty of these coins by the time you arrive so you can pay the deposit on your room.\n",
+    "\n",
+    "To save your vacation, you need to get all fifty stars by December 25th.\n",
+    "\n",
+    "Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!\n",
+    "\n",
+    "Before you leave, the Elves in accounting just need you to fix your expense report (your puzzle input); apparently, something isn't quite adding up.\n",
+    "\n",
+    "Specifically, they need you to find the two entries that sum to 2020 and then multiply those two numbers together.\n",
+    "\n",
+    "For example, suppose your expense report contained the following:\n",
+    "\n",
+    "- 1721\n",
+    "- 979\n",
+    "- 366\n",
+    "- 299\n",
+    "- 675\n",
+    "- 1456\n",
+    "\n",
+    "In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying them together produces `1721 * 299 = 514579`, so the correct answer is 514579.\n",
+    "\n",
+    "Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you multiply them together?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Brute force solution\n",
+    "\n",
+    "My naive approach to this problem is to use two nested loops."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def pairs_addup(data, target):\n",
+    "    \"\"\"Find indexes of pairs from data that add to target\n",
+    "    Parameters\n",
+    "    ----------\n",
+    "    data : list\n",
+    "      Input data\n",
+    "    target : int\n",
+    "\n",
+    "    Returns\n",
+    "    -------\n",
+    "    n1 : int\n",
+    "    n2 : int\n",
+    "    \"\"\"\n",
+    "    n1, n2 = None, None\n",
+    "    size = len(data)\n",
+    "    for x in range(size):\n",
+    "        for y in range(x + 1, size):\n",
+    "            if data[x] + data[y] == target:\n",
+    "                n1, n2 = data[x], data[y]\n",
+    "                break\n",
+    "    return n1, n2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<TimeitResult : 2.07 ms ± 121 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)>"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a = %timeit -qo pairs_addup(data, 2020)\n",
+    "a"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Two numbers: 156 and 1864\n",
+      "Their product: 290784\n"
+     ]
+    }
+   ],
+   "source": [
+    "n1, n2 = pairs_addup(data, 2020)\n",
+    "if n1 is not None:\n",
+    "    print(f'Two numbers: {n1} and {n2}\\nTheir product: {n1 * n2}')\n",
+    "else:\n",
+    "    print('Found Nothing....')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- **This yields a solution with $O(N^2)$ time complexity in the worst case scenario**\n",
+    "\n",
+    "Can we do better? "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Improved solution using `set` logic\n",
+    "\n",
+    "Rather than using two nested for loops, a much better solution consists of using **set logic** to find the two numbers that add up to the target: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def pairs_addup(data, target):\n",
+    "    rest = set()\n",
+    "    n1, n2 = None, None\n",
+    "    for num in data:\n",
+    "        remain = target - num\n",
+    "        if remain in rest:\n",
+    "            n1, n2 = num, remain\n",
+    "            break\n",
+    "        else:\n",
+    "            rest.add(remain)\n",
+    "    return n1, n2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<TimeitResult : 21.9 µs ± 316 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)>"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "b = %timeit -qo pairs_addup(data, 2020)\n",
+    "b"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(156, 1864, 290784)"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pairs_addup(data, 2020)\n",
+    "n1, n2, n1 * n2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Compared to the brute force approach, this is a much faster approach with a considerable speedup:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "99x Speedup\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(f'{(a.worst / b.worst):.0f}x Speedup')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- **This yields a solution with $O(N * log(N))$ time complexity in the worst case scenario**. This includes the time complexity for sorting the list (as the list was sorted during the data loading step). "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Part Two\n",
+    "\n",
+    "The Elves in accounting are thankful for your help; one of them even offers you a starfish coin they had left over from a past vacation. They offer you a second one if you can find three numbers in your expense report that meet the same criteria.\n",
+    "\n",
+    "Using the above example again, the three entries that sum to 2020 are 979, 366, and 675. Multiplying them together produces the answer, 241861950.\n",
+    "\n",
+    "In your expense report, what is the product of the three entries that sum to 2020?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Brute force solution\n",
+    "\n",
+    "A naive/brute force solution consists of using three nested for loops:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def triplets_addup(data, target):\n",
+    "    \"\"\"Find indexes of triplets from data that add to target\n",
+    "    Parameters\n",
+    "    ----------\n",
+    "    data : list\n",
+    "      Input data\n",
+    "    target : int\n",
+    "\n",
+    "    Returns\n",
+    "    -------\n",
+    "    n1 : int\n",
+    "    n2 : int\n",
+    "    n3 : int\n",
+    "    \"\"\"\n",
+    "    n1, n2, n3 = None, None, None\n",
+    "    size = len(data)\n",
+    "    for x in range(size):\n",
+    "        for y in range(x + 1, size):\n",
+    "            for z in range(y + 1, size):\n",
+    "                if data[x] + data[y] + data[z] == target:\n",
+    "                    n1, n2, n3 = data[x], data[y], data[z]\n",
+    "                    break\n",
+    "    return n1, n2, n3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Three numbers: 279 and 521 and 1220\n",
+      "Their product: 177337980\n"
+     ]
+    }
+   ],
+   "source": [
+    "n1, n2, n3 = triplets_addup(data, 2020)\n",
+    "if n1 is not None:\n",
+    "    print(f'Three numbers: {n1} and {n2} and {n3}\\nTheir product: {n1 * n2 * n3}')\n",
+    "else:\n",
+    "    print('Found Nothing....')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- **This yields a solution with  𝑂(𝑁^3)  time complexity in the worst case scenario**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<TimeitResult : 192 ms ± 10.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)>"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "c = %timeit -qo triplets_addup(data, 2020)\n",
+    "c"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Improved solution\n",
+    "\n",
+    "Rather than using the nested three loops, we can save some work by:\n",
+    "- Looping over our input data, \n",
+    "- Saving the sums of all pairs of numbers in a dictionary with keys being the sum of each pair, and the values consisting of a tuple of numbers in each pair. \n",
+    "- Looping over our input data again\n",
+    "- Checking if `target - num` is in the dictionary"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def triplets_addup(data, target):\n",
+    "    two_nums_sum = {}\n",
+    "    size = len(data)\n",
+    "    for x in range(size):\n",
+    "        for y in range(x + 1, size):\n",
+    "            two_nums_sum[data[x] + data[y]] = (data[x], data[y])\n",
+    "\n",
+    "    n1, n2, n3 = None, None, None\n",
+    "    for num in data:\n",
+    "        remain = target - num\n",
+    "        if remain in two_nums_sum:\n",
+    "            n1, n2, n3 = num, *two_nums_sum[remain]\n",
+    "            break\n",
+    "\n",
+    "    return n1, n2, n3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(279, 521, 1220, 177337980)"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "n1, n2, n3 = triplets_addup(data, 2020)\n",
+    "n1, n2, n3, n1 * n2 * n3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<TimeitResult : 3.91 ms ± 356 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)>"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d = %timeit -qo triplets_addup(data, 2020)\n",
+    "d"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This solution provides a huge improvement over our brute force solution:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "47x Speedup\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(f'{(c.worst / d.worst):.0f}x Speedup')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- **This yields a solution with  𝑂(𝑁^2)  time complexity in the worst case scenario**"
+   ]
+  }
+ ],
+ "metadata": {
+  "category": "coding,adventofcode",
+  "date": "2020-12-01",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  },
+  "title": "Advent of Code Day 1: Report Repair",
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {},
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

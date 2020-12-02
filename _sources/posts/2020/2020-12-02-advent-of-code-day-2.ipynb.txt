@@ -1,0 +1,423 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Advent of Code - Day 2: Password Philosophy"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Load Input data"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    ":::{note}\n",
+    "The input data can be found [here](https://adventofcode.com/2020/day/2).\n",
+    ":::"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open('../../data/advent-of-code/2020/day-2-input') as fid:\n",
+    "    data = fid.readlines()\n",
+    "    data = [x.strip() for x in data if x != '\\n']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(['6-7 z: dqzzzjbzz',\n",
+       "  '13-16 j: jjjvjmjjkjjjjjjj',\n",
+       "  '5-6 m: mmbmmlvmbmmgmmf',\n",
+       "  '2-4 k: pkkl'],\n",
+       " 1000)"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data[:4], len(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Part One\n",
+    "\n",
+    "\n",
+    "Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via [toboggan](https://en.wikipedia.org/wiki/Toboggan).\n",
+    "\n",
+    "The shopkeeper at the North Pole Toboggan Rental Shop is having a bad day. \"Something's wrong with our computers; we can't log in!\" You ask if you can take a look.\n",
+    "\n",
+    "Their password database seems to be a little corrupted: some of the passwords wouldn't have been allowed by the Official Toboggan Corporate Policy that was in effect when they were chosen.\n",
+    "\n",
+    "To try to debug the problem, they have created a list (your puzzle input) of passwords (according to the corrupted database) and the corporate policy when that password was set.\n",
+    "\n",
+    "For example, suppose you have the following list:\n",
+    "\n",
+    "- 1-3 a: abcde\n",
+    "- 1-3 b: cdefg\n",
+    "- 2-9 c: ccccccccc\n",
+    "\n",
+    "Each line gives the password policy and then the password. The password policy indicates the lowest and highest number of times a given letter must appear for the password to be valid. For example, 1-3 a means that the password must contain a at least 1 time and at most 3 times.\n",
+    "\n",
+    "In the above example, 2 passwords are valid. The middle password, cdefg, is not; it contains no instances of b, but needs at least 1. The first and third passwords are valid: they contain one a or nine c, both within the limits of their respective policies.\n",
+    "\n",
+    "How many passwords are valid according to their policies?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Solution\n",
+    "\n",
+    "My solution consists of a single function that parses and validates a single password and returns `True` when the password is valid. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import collections"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def is_valid_password(entry):\n",
+    "    \"\"\"\n",
+    "    Checks whether the password is valid according to the policy.\n",
+    "    \"\"\"\n",
+    "    required_count, letter, password = entry.split()\n",
+    "    letter = letter.split(':')[0]\n",
+    "    min_req_count, max_req_count = required_count.split('-')\n",
+    "    min_req_count, max_req_count = int(min_req_count), int(max_req_count)\n",
+    "    count = collections.Counter(password)  # Get a count for each letter in the password\n",
+    "    return min_req_count <= count[letter] <= max_req_count"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's validate the password in the example so as to make sure this function is working properly:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "is_valid_password('1-3 a: abcde')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "is_valid_password('1-3 b: cdefg')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "is_valid_password('2-9 c: ccccccccc')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now that we are confident this function is working properly, let's loop over all entries in the input dataset, and count how many passwords are valid:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "valid_passwords = 0\n",
+    "for entry in data:\n",
+    "    if is_valid_password(entry):\n",
+    "        valid_passwords += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "542"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "valid_passwords"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Out of 1000 passwords, 542 are found to be valid.\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(f'Out of {len(data)} passwords, {valid_passwords} are found to be valid.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Part Two\n",
+    "\n",
+    "While it appears you validated the passwords correctly, they don't seem to be what the Official Toboggan Corporate Authentication System is expecting.\n",
+    "\n",
+    "The shopkeeper suddenly realizes that he just accidentally explained the password policy rules from his old job at the sled rental place down the street! The Official Toboggan Corporate Policy actually works a little differently.\n",
+    "\n",
+    "Each policy actually describes two positions in the password, where 1 means the first character, 2 means the second character, and so on. (Be careful; Toboggan Corporate Policies have no concept of \"index zero\"!) **Exactly one of these positions must contain the given letter**. Other occurrences of the letter are irrelevant for the purposes of policy enforcement.\n",
+    "\n",
+    "Given the same example list from above:\n",
+    "\n",
+    "- 1-3 a: abcde is valid: position 1 contains a and position 3 does not.\n",
+    "- 1-3 b: cdefg is invalid: neither position 1 nor position 3 contains b.\n",
+    "- 2-9 c: ccccccccc is invalid: both position 2 and position 9 contain c.\n",
+    "\n",
+    "**How many passwords are valid according to the new interpretation of the policies?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Solution\n",
+    "\n",
+    "My approach to part two is similar to my solution to part one in that I still have a single function for validating a single entry. In this function, I use a [bitwise XOR operator](https://en.wikipedia.org/wiki/Bitwise_operation#XOR_2). The Bitwise XOR sets the bits in the result to 1 if either, but not both, of the corresponding bits in the two operands is 1:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def is_valid_password(entry):\n",
+    "    required_positions, letter, password = entry.split()\n",
+    "    letter = letter.split(':')[0]\n",
+    "    first_position, second_position = required_positions.split('-')\n",
+    "    first_position, second_position = int(first_position), int(second_position)\n",
+    "    # use bitwise XOR to make sure exactly one of the positions contains the given letter\n",
+    "    if (password[first_position - 1] == letter) ^ (password[second_position - 1] == letter):\n",
+    "        return True\n",
+    "    return False"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Once again, let's make sure this function is working properly by using the three sample examples above:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "is_valid_password('1-3 a: abcde')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "is_valid_password('1-3 b: cdefg')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "is_valid_password('2-9 c: ccccccccc')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "It appears that this function is working.... It's now time to count all valid passwords from our input data:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Out of 1000 passwords, 360 are found to be valid.\n"
+     ]
+    }
+   ],
+   "source": [
+    "valid_passwords = 0\n",
+    "for entry in data:\n",
+    "    if is_valid_password(entry):\n",
+    "        valid_passwords += 1\n",
+    "\n",
+    "print(f'Out of {len(data)} passwords, {valid_passwords} are found to be valid.')"
+   ]
+  }
+ ],
+ "metadata": {
+  "category": "coding,adventofcode",
+  "date": "2020-12-02",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  },
+  "title": "Advent of Code - Day 2: Password Philosophy",
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {},
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

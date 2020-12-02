@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Advent of Code - Day 2: Password Philosophy" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/2020-12-02-advent-of-code-day-2.html" />
+  <meta property="og:description" content="Load Input data: with open('../../data/advent-of-code/2020/day-2-input') as fid: data = fid.readlines() data = [x.strip() for x in data if x != '\n'] data[:4], len(data)(['6-7 z: dqzzzjbzz', '13-16..." />
+  <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
+  <meta property="og:image:alt" content="Advent of Code - Day 2: Password Philosophy" />
+  
+    <title>Advent of Code - Day 2: Password Philosophy &#8212; Paysage Pythonique  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Paysage Pythonique"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">Paysage Pythonique</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../">Posts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/">About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../talks/">Talks</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://cv.andersonbanihirwe.dev/">CV</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw">Video</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andersy005/" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/andersy005" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  02 December 2020 
+</h2>
+
+<ul>
+      
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../category/coding/">coding</a>,   
+  <a href="../../category/adventofcode/">adventofcode</a>  
+</li>
+  
+</ul>
+
+<h3>
+  <a href="../../">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../2020-12-01-advent-of-code-day-1/"
+      >01 December - Advent of Code - Day 1: Report Repair</a
+    >
+  </li>
+  
+  <li>
+    <a href="../chadwick-boseman/"
+      >28 August - Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever</a
+    >
+  </li>
+  
+  <li>
+    <a href="../the-sun-and-her-scorch/"
+      >02 August - Dizzy - The Sun and Her Scorch: You don’t just hear it, you feel it</a
+    >
+  </li>
+  
+  <li>
+    <a href="../a-knitting-weekend-with-dash/"
+      >21 January - A Knitting Weekend with Dash and Python</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2019/scipy-2019/"
+      >21 July - Reflecting on SciPy 2019: My first SciPy, definitely not my last</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../">2020 (5)</a>
+  </li>
+    
+  <li>
+    <a href="../../2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#load-input-data" class="nav-link">Load Input data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#solution" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-two" class="nav-link">Part Two</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="advent-of-code-day-2-password-philosophy">
+<h1>Advent of Code - Day 2: Password Philosophy<a class="headerlink" href="#advent-of-code-day-2-password-philosophy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-input-data">
+<h2>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/2">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-2-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[:</span><span class="mi">4</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&#39;6-7 z: dqzzzjbzz&#39;,
+  &#39;13-16 j: jjjvjmjjkjjjjjjj&#39;,
+  &#39;5-6 m: mmbmmlvmbmmgmmf&#39;,
+  &#39;2-4 k: pkkl&#39;],
+ 1000)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-one">
+<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
+<p>Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via <a class="reference external" href="https://en.wikipedia.org/wiki/Toboggan">toboggan</a>.</p>
+<p>The shopkeeper at the North Pole Toboggan Rental Shop is having a bad day. “Something’s wrong with our computers; we can’t log in!” You ask if you can take a look.</p>
+<p>Their password database seems to be a little corrupted: some of the passwords wouldn’t have been allowed by the Official Toboggan Corporate Policy that was in effect when they were chosen.</p>
+<p>To try to debug the problem, they have created a list (your puzzle input) of passwords (according to the corrupted database) and the corporate policy when that password was set.</p>
+<p>For example, suppose you have the following list:</p>
+<ul class="simple">
+<li><p>1-3 a: abcde</p></li>
+<li><p>1-3 b: cdefg</p></li>
+<li><p>2-9 c: ccccccccc</p></li>
+</ul>
+<p>Each line gives the password policy and then the password. The password policy indicates the lowest and highest number of times a given letter must appear for the password to be valid. For example, 1-3 a means that the password must contain a at least 1 time and at most 3 times.</p>
+<p>In the above example, 2 passwords are valid. The middle password, cdefg, is not; it contains no instances of b, but needs at least 1. The first and third passwords are valid: they contain one a or nine c, both within the limits of their respective policies.</p>
+<p>How many passwords are valid according to their policies?</p>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<p>My solution consists of a single function that parses and validates a single password and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when the password is valid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks whether the password is valid according to the policy.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">required_count</span><span class="p">,</span> <span class="n">letter</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="n">required_count</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">min_req_count</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_req_count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>  <span class="c1"># Get a count for each letter in the password</span>
+    <span class="k">return</span> <span class="n">min_req_count</span> <span class="o">&lt;=</span> <span class="n">count</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">max_req_count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s validate the password in the example so as to make sure this function is working properly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 a: abcde&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 b: cdefg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;2-9 c: ccccccccc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we are confident this function is working properly, let’s loop over all entries in the input dataset, and count how many passwords are valid:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passwords</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+        <span class="n">valid_passwords</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passwords</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>542
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s1"> are found to be valid.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Out of 1000 passwords, 542 are found to be valid.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-two">
+<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
+<p>While it appears you validated the passwords correctly, they don’t seem to be what the Official Toboggan Corporate Authentication System is expecting.</p>
+<p>The shopkeeper suddenly realizes that he just accidentally explained the password policy rules from his old job at the sled rental place down the street! The Official Toboggan Corporate Policy actually works a little differently.</p>
+<p>Each policy actually describes two positions in the password, where 1 means the first character, 2 means the second character, and so on. (Be careful; Toboggan Corporate Policies have no concept of “index zero”!) <strong>Exactly one of these positions must contain the given letter</strong>. Other occurrences of the letter are irrelevant for the purposes of policy enforcement.</p>
+<p>Given the same example list from above:</p>
+<ul class="simple">
+<li><p>1-3 a: abcde is valid: position 1 contains a and position 3 does not.</p></li>
+<li><p>1-3 b: cdefg is invalid: neither position 1 nor position 3 contains b.</p></li>
+<li><p>2-9 c: ccccccccc is invalid: both position 2 and position 9 contain c.</p></li>
+</ul>
+<p><strong>How many passwords are valid according to the new interpretation of the policies?</strong></p>
+<div class="section" id="id1">
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>My approach to part two is similar to my solution to part one in that I still have a single function for validating a single entry. In this function, I use a <a class="reference external" href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR_2">bitwise XOR operator</a>. The Bitwise XOR sets the bits in the result to 1 if either, but not both, of the corresponding bits in the two operands is 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+    <span class="n">required_positions</span><span class="p">,</span> <span class="n">letter</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="n">required_positions</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_position</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">second_position</span><span class="p">)</span>
+    <span class="c1"># use bitwise XOR to make sure exactly one of the positions contains the given letter</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">first_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">second_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once again, let’s make sure this function is working properly by using the three sample examples above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 a: abcde&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 b: cdefg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;2-9 c: ccccccccc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>It appears that this function is working…. It’s now time to count all valid passwords from our input data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passwords</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+        <span class="n">valid_passwords</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s1"> are found to be valid.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Out of 1000 passwords, 360 are found to be valid.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../2020-12-01-advent-of-code-day-1/">
+      <i class="fa fa-arrow-circle-left"></i> Advent of Code - Day 1: Report Repair
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-91185106-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
+        Last updated on Dec 02, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

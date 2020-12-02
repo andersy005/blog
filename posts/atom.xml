@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2020-12-02T03:29:28.893909+00:00</updated>
+  <updated>2020-12-02T06:44:38.106787+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -63,12 +63,22 @@
   </entry>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2020/2020-12-01-advent-of-code-day-1/</id>
-    <title>Advent of Code Day 1: Report Repair</title>
+    <title>Advent of Code - Day 1: Report Repair</title>
     <updated>2020-12-01T00:00:00+00:00</updated>
     <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/1"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;After saving Christmas five years in a row, you’ve decided to take a vacation at a nice resort on a tropical island. Surely, Christmas will go on without you.&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/2020-12-01-advent-of-code-day-1/" rel="alternate"/>
     <published>2020-12-01T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2020/2020-12-02-advent-of-code-day-2/</id>
+    <title>Advent of Code - Day 2: Password Philosophy</title>
+    <updated>2020-12-02T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/2"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Toboggan"&gt;toboggan&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2020/2020-12-02-advent-of-code-day-2/" rel="alternate"/>
+    <published>2020-12-02T00:00:00+00:00</published>
   </entry>
 </feed>

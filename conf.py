@@ -101,6 +101,9 @@ panels_add_bootstrap_css = False
 # MyST config
 myst_admonition_enable = True
 myst_deflist_enable = True
+myst_amsmath_enable = True
+myst_html_img_enable = True
+myst_url_schemes = ('http', 'https', 'mailto')
 
 # OpenGraph config
 ogp_site_url = 'https://blog.andersonbanihirwe.dev'

@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Advent of Code - Day 4: Passport Processing" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/2020-12-04-advent-of-code-day-4.html" />
+  <meta property="og:description" content="Load Input data: def parse_input_data(data): passports = data.split('\n\n') passports = [passport.strip().replace('\n', ' ').split(' ') for passport in passports] passports = [dict(map(lambda x: x...." />
+  <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
+  <meta property="og:image:alt" content="Advent of Code - Day 4: Passport Processing" />
+  
+    <title>Advent of Code - Day 4: Passport Processing &#8212; Paysage Pythonique  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Paysage Pythonique"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">Paysage Pythonique</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../">Posts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/">About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../talks/">Talks</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://cv.andersonbanihirwe.dev/">CV</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw">Video</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andersy005/" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/andersy005" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  04 December 2020 
+</h2>
+
+<ul>
+      
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../category/coding/">coding</a>,   
+  <a href="../../category/adventofcode/">adventofcode</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../tag/python/">python</a>   
+  <a href="../../tag/adventofcode/">adventofcode</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../2020-12-03-advent-of-code-day-3/"
+      >03 December - Advent of Code - Day 3: Toboggan Trajectory</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-12-02-advent-of-code-day-2/"
+      >02 December - Advent of Code - Day 2: Password Philosophy</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-12-01-advent-of-code-day-1/"
+      >01 December - Advent of Code - Day 1: Report Repair</a
+    >
+  </li>
+  
+  <li>
+    <a href="../chadwick-boseman/"
+      >28 August - Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever</a
+    >
+  </li>
+  
+  <li>
+    <a href="../the-sun-and-her-scorch/"
+      >02 August - Dizzy - The Sun and Her Scorch: You don’t just hear it, you feel it</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../">2020 (7)</a>
+  </li>
+    
+  <li>
+    <a href="../../2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#load-input-data" class="nav-link">Load Input data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#solution" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-two" class="nav-link">Part Two</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="advent-of-code-day-4-passport-processing">
+<h1>Advent of Code - Day 4: Passport Processing<a class="headerlink" href="#advent-of-code-day-4-passport-processing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-input-data">
+<h2>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/4">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_input_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">passports</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">passports</span> <span class="o">=</span> <span class="p">[</span><span class="n">passport</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">passport</span> <span class="ow">in</span> <span class="n">passports</span><span class="p">]</span>
+    <span class="n">passports</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">),</span> <span class="n">passport</span><span class="p">))</span> <span class="k">for</span> <span class="n">passport</span> <span class="ow">in</span> <span class="n">passports</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">passports</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-4-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">passports</span> <span class="o">=</span> <span class="n">parse_input_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">passports</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">passports</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-one">
+<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
+<p>You arrive at the airport only to realize that you grabbed your North Pole Credentials instead of your passport. While these documents are extremely similar, North Pole Credentials aren’t issued by a country and therefore aren’t actually valid documentation for travel in most of the world.</p>
+<p>It seems like you’re not the only one having problems, though; a very long line has formed for the automatic passport scanners, and the delay could upset your travel itinerary.</p>
+<p>Due to some questionable network security, you realize you might be able to solve both of these problems at the same time.</p>
+<p>The automatic passport scanners are slow because they’re having trouble detecting which passports have all required fields. The expected fields are as follows:</p>
+<ul class="simple">
+<li><p>byr (Birth Year)</p></li>
+<li><p>iyr (Issue Year)</p></li>
+<li><p>eyr (Expiration Year)</p></li>
+<li><p>hgt (Height)</p></li>
+<li><p>hcl (Hair Color)</p></li>
+<li><p>ecl (Eye Color)</p></li>
+<li><p>pid (Passport ID)</p></li>
+<li><p>cid (Country ID)</p></li>
+</ul>
+<p>Passport data is validated in batch files (your puzzle input). Each passport is represented as a sequence of key:value pairs separated by spaces or newlines. Passports are separated by blank lines.</p>
+<p>Here is an example batch file containing four passports:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ecl</span><span class="p">:</span><span class="n">gry</span> <span class="n">pid</span><span class="p">:</span><span class="mi">860033327</span> <span class="n">eyr</span><span class="p">:</span><span class="mi">2020</span> <span class="n">hcl</span><span class="p">:</span><span class="c1">#fffffd</span>
+<span class="n">byr</span><span class="p">:</span><span class="mi">1937</span> <span class="n">iyr</span><span class="p">:</span><span class="mi">2017</span> <span class="n">cid</span><span class="p">:</span><span class="mi">147</span> <span class="n">hgt</span><span class="p">:</span><span class="mi">183</span><span class="n">cm</span>
+
+<span class="n">iyr</span><span class="p">:</span><span class="mi">2013</span> <span class="n">ecl</span><span class="p">:</span><span class="n">amb</span> <span class="n">cid</span><span class="p">:</span><span class="mi">350</span> <span class="n">eyr</span><span class="p">:</span><span class="mi">2023</span> <span class="n">pid</span><span class="p">:</span><span class="mi">028048884</span>
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#cfa07d byr:1929</span>
+
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#ae17e1 iyr:2013</span>
+<span class="n">eyr</span><span class="p">:</span><span class="mi">2024</span>
+<span class="n">ecl</span><span class="p">:</span><span class="n">brn</span> <span class="n">pid</span><span class="p">:</span><span class="mi">760753108</span> <span class="n">byr</span><span class="p">:</span><span class="mi">1931</span>
+<span class="n">hgt</span><span class="p">:</span><span class="mi">179</span><span class="n">cm</span>
+
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#cfa07d eyr:2025 pid:166559648</span>
+<span class="n">iyr</span><span class="p">:</span><span class="mi">2011</span> <span class="n">ecl</span><span class="p">:</span><span class="n">brn</span> <span class="n">hgt</span><span class="p">:</span><span class="mi">59</span><span class="ow">in</span>
+</pre></div>
+</div>
+<p>The first passport is valid - all eight fields are present. The second passport is invalid - it is missing hgt (the Height field).</p>
+<p>The third passport is interesting; the only missing field is cid, so it looks like data from North Pole Credentials, not a passport at all! Surely, nobody would mind if you made the system temporarily ignore missing cid fields. Treat this “passport” as valid.</p>
+<p>The fourth passport is missing two fields, cid and byr. Missing cid is fine, but missing any other field is not, so this passport is invalid.</p>
+<p>According to the above rules, your improved system would report 2 valid passports.</p>
+<p>Count the number of valid passports - those that have all required fields. Treat cid as optional. <strong>In your batch file, how many passports are valid?</strong></p>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">required_fields</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;byr&#39;</span><span class="p">,</span> <span class="s1">&#39;iyr&#39;</span><span class="p">,</span> <span class="s1">&#39;eyr&#39;</span><span class="p">,</span> <span class="s1">&#39;hgt&#39;</span><span class="p">,</span> <span class="s1">&#39;hcl&#39;</span><span class="p">,</span> <span class="s1">&#39;ecl&#39;</span><span class="p">,</span> <span class="s1">&#39;pid&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_data</span> <span class="o">=</span> <span class="n">parse_input_data</span><span class="p">(</span>
+    <span class="sd">&#39;&#39;&#39;ecl:gry pid:860033327 eyr:2020 hcl:#fffffd</span>
+<span class="sd">byr:1937 iyr:2017 cid:147 hgt:183cm</span>
+
+<span class="sd">iyr:2013 ecl:amb cid:350 eyr:2023 pid:028048884</span>
+<span class="sd">hcl:#cfa07d byr:1929</span>
+
+<span class="sd">hcl:#ae17e1 iyr:2013</span>
+<span class="sd">eyr:2024</span>
+<span class="sd">ecl:brn pid:760753108 byr:1931</span>
+<span class="sd">hgt:179cm</span>
+
+<span class="sd">hcl:#cfa07d eyr:2025 pid:166559648</span>
+<span class="sd">iyr:2011 ecl:brn hgt:59in&#39;&#39;&#39;</span>
+<span class="p">)</span>
+<span class="n">test_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_passport_valid</span><span class="p">(</span><span class="n">passport</span><span class="p">,</span> <span class="n">required_fields</span><span class="o">=</span><span class="n">required_fields</span><span class="p">):</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">passport</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">required_fields</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">==</span> <span class="n">required_fields</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_passport_valid</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_passport_valid</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_passport_valid</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">valid_passport_counter</span><span class="p">(</span><span class="n">passports</span><span class="p">,</span> <span class="n">pass_validator</span><span class="o">=</span><span class="n">is_passport_valid</span><span class="p">):</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">passport</span> <span class="ow">in</span> <span class="n">passports</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pass_validator</span><span class="p">(</span><span class="n">passport</span><span class="p">):</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">counter</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passport_counter</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">passports</span><span class="p">)</span><span class="si">}</span><span class="s1"> passports, </span><span class="si">{</span><span class="n">valid_passport_counter</span><span class="p">(</span><span class="n">passports</span><span class="p">)</span><span class="si">}</span><span class="s1"> were found to be valid.&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Out of 260 passports, 222 were found to be valid.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-two">
+<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
+<p>The line is moving more quickly now, but you overhear airport security talking about how passports with invalid data are getting through. Better add some data validation, quick!</p>
+<p>You can continue to ignore the cid field, but each other field has strict rules about what values are valid for automatic validation:</p>
+<ul class="simple">
+<li><p>byr (Birth Year) - four digits; at least 1920 and at most 2002.</p></li>
+<li><p>iyr (Issue Year) - four digits; at least 2010 and at most 2020.</p></li>
+<li><p>eyr (Expiration Year) - four digits; at least 2020 and at most 2030.</p></li>
+<li><p>hgt (Height) - a number followed by either cm or in:</p>
+<ul>
+<li><p>If cm, the number must be at least 150 and at most 193.</p></li>
+<li><p>If in, the number must be at least 59 and at most 76.</p></li>
+</ul>
+</li>
+<li><p>hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.</p></li>
+<li><p>ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.</p></li>
+<li><p>pid (Passport ID) - a nine-digit number, including leading zeroes.</p></li>
+<li><p>cid (Country ID) - ignored, missing or not.</p></li>
+</ul>
+<p>Your job is to count the passports where all required fields are both present and valid according to the above rules. Here are some example values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">byr</span> <span class="n">valid</span><span class="p">:</span>   <span class="mi">2002</span>
+<span class="n">byr</span> <span class="n">invalid</span><span class="p">:</span> <span class="mi">2003</span>
+
+<span class="n">hgt</span> <span class="n">valid</span><span class="p">:</span>   <span class="mi">60</span><span class="ow">in</span>
+<span class="n">hgt</span> <span class="n">valid</span><span class="p">:</span>   <span class="mi">190</span><span class="n">cm</span>
+<span class="n">hgt</span> <span class="n">invalid</span><span class="p">:</span> <span class="mi">190</span><span class="ow">in</span>
+<span class="n">hgt</span> <span class="n">invalid</span><span class="p">:</span> <span class="mi">190</span>
+
+<span class="n">hcl</span> <span class="n">valid</span><span class="p">:</span>   <span class="c1">#123abc</span>
+<span class="n">hcl</span> <span class="n">invalid</span><span class="p">:</span> <span class="c1">#123abz</span>
+<span class="n">hcl</span> <span class="n">invalid</span><span class="p">:</span> <span class="mi">123</span><span class="n">abc</span>
+
+<span class="n">ecl</span> <span class="n">valid</span><span class="p">:</span>   <span class="n">brn</span>
+<span class="n">ecl</span> <span class="n">invalid</span><span class="p">:</span> <span class="n">wat</span>
+
+<span class="n">pid</span> <span class="n">valid</span><span class="p">:</span>   <span class="mi">000000001</span>
+<span class="n">pid</span> <span class="n">invalid</span><span class="p">:</span> <span class="mi">0123456789</span>
+</pre></div>
+</div>
+<p>Here are some invalid passports:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eyr</span><span class="p">:</span><span class="mi">1972</span> <span class="n">cid</span><span class="p">:</span><span class="mi">100</span>
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926</span>
+
+<span class="n">iyr</span><span class="p">:</span><span class="mi">2019</span>
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#602927 eyr:1967 hgt:170cm</span>
+<span class="n">ecl</span><span class="p">:</span><span class="n">grn</span> <span class="n">pid</span><span class="p">:</span><span class="mi">012533040</span> <span class="n">byr</span><span class="p">:</span><span class="mi">1946</span>
+
+<span class="n">hcl</span><span class="p">:</span><span class="n">dab227</span> <span class="n">iyr</span><span class="p">:</span><span class="mi">2012</span>
+<span class="n">ecl</span><span class="p">:</span><span class="n">brn</span> <span class="n">hgt</span><span class="p">:</span><span class="mi">182</span><span class="n">cm</span> <span class="n">pid</span><span class="p">:</span><span class="mi">021572410</span> <span class="n">eyr</span><span class="p">:</span><span class="mi">2020</span> <span class="n">byr</span><span class="p">:</span><span class="mi">1992</span> <span class="n">cid</span><span class="p">:</span><span class="mi">277</span>
+
+<span class="n">hgt</span><span class="p">:</span><span class="mi">59</span><span class="n">cm</span> <span class="n">ecl</span><span class="p">:</span><span class="n">zzz</span>
+<span class="n">eyr</span><span class="p">:</span><span class="mi">2038</span> <span class="n">hcl</span><span class="p">:</span><span class="mi">74454</span><span class="n">a</span> <span class="n">iyr</span><span class="p">:</span><span class="mi">2023</span>
+<span class="n">pid</span><span class="p">:</span><span class="mi">3556412378</span> <span class="n">byr</span><span class="p">:</span><span class="mi">2007</span>
+</pre></div>
+</div>
+<p>Here are some valid passports:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pid</span><span class="p">:</span><span class="mi">087499704</span> <span class="n">hgt</span><span class="p">:</span><span class="mi">74</span><span class="ow">in</span> <span class="n">ecl</span><span class="p">:</span><span class="n">grn</span> <span class="n">iyr</span><span class="p">:</span><span class="mi">2012</span> <span class="n">eyr</span><span class="p">:</span><span class="mi">2030</span> <span class="n">byr</span><span class="p">:</span><span class="mi">1980</span>
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#623a2f</span>
+
+<span class="n">eyr</span><span class="p">:</span><span class="mi">2029</span> <span class="n">ecl</span><span class="p">:</span><span class="n">blu</span> <span class="n">cid</span><span class="p">:</span><span class="mi">129</span> <span class="n">byr</span><span class="p">:</span><span class="mi">1989</span>
+<span class="n">iyr</span><span class="p">:</span><span class="mi">2014</span> <span class="n">pid</span><span class="p">:</span><span class="mi">896056539</span> <span class="n">hcl</span><span class="p">:</span><span class="c1">#a97842 hgt:165cm</span>
+
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#888785</span>
+<span class="n">hgt</span><span class="p">:</span><span class="mi">164</span><span class="n">cm</span> <span class="n">byr</span><span class="p">:</span><span class="mi">2001</span> <span class="n">iyr</span><span class="p">:</span><span class="mi">2015</span> <span class="n">cid</span><span class="p">:</span><span class="mi">88</span>
+<span class="n">pid</span><span class="p">:</span><span class="mi">545766238</span> <span class="n">ecl</span><span class="p">:</span><span class="n">hzl</span>
+<span class="n">eyr</span><span class="p">:</span><span class="mi">2022</span>
+
+<span class="n">iyr</span><span class="p">:</span><span class="mi">2010</span> <span class="n">hgt</span><span class="p">:</span><span class="mi">158</span><span class="n">cm</span> <span class="n">hcl</span><span class="p">:</span><span class="c1">#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719</span>
+
+</pre></div>
+</div>
+<p>Count the number of valid passports - those that have all required fields and valid values. Continue to treat cid as optional. In your batch file, <strong>how many passports are valid?</strong></p>
+<div class="section" id="id1">
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_byr</span><span class="p">(</span><span class="n">byr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1920</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">byr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2002</span>
+
+
+<span class="k">def</span> <span class="nf">validate_iyr</span><span class="p">(</span><span class="n">iyr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2010</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">iyr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2020</span>
+
+
+<span class="k">def</span> <span class="nf">validate_eyr</span><span class="p">(</span><span class="n">eyr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2020</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">eyr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2030</span>
+
+
+<span class="k">def</span> <span class="nf">validate_hgt</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+    <span class="n">hgt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">height</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">hgt_unit</span> <span class="o">=</span> <span class="n">height</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="n">hgt_validator</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">hgt_unit</span> <span class="o">==</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span>
+        <span class="n">hgt_validator</span> <span class="o">=</span> <span class="mi">59</span> <span class="o">&lt;=</span> <span class="n">hgt</span> <span class="o">&lt;=</span> <span class="mi">76</span>
+    <span class="k">elif</span> <span class="n">hgt_unit</span> <span class="o">==</span> <span class="s1">&#39;cm&#39;</span><span class="p">:</span>
+        <span class="n">hgt_validator</span> <span class="o">=</span> <span class="mi">150</span> <span class="o">&lt;=</span> <span class="n">hgt</span> <span class="o">&lt;=</span> <span class="mi">193</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hgt_validator</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">hgt_validator</span>
+
+
+<span class="k">def</span> <span class="nf">validate_hcl</span><span class="p">(</span><span class="n">hcl</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">hcl</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">hcl</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">!=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">hcl</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;0123456789abcdef&#39;</span><span class="p">))):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">validate_ecl</span><span class="p">(</span><span class="n">ecl</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ecl</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;amb&#39;</span><span class="p">,</span> <span class="s1">&#39;blu&#39;</span><span class="p">,</span> <span class="s1">&#39;brn&#39;</span><span class="p">,</span> <span class="s1">&#39;gry&#39;</span><span class="p">,</span> <span class="s1">&#39;grn&#39;</span><span class="p">,</span> <span class="s1">&#39;hzl&#39;</span><span class="p">,</span> <span class="s1">&#39;oth&#39;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">validate_pid</span><span class="p">(</span><span class="n">pid</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;0123456789&#39;</span><span class="p">)))</span>
+
+
+<span class="k">def</span> <span class="nf">is_passport_valid_enhanced</span><span class="p">(</span><span class="n">passport</span><span class="p">,</span> <span class="n">required_fields</span><span class="o">=</span><span class="n">required_fields</span><span class="p">):</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">passport</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">required_fields</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">==</span> <span class="n">required_fields</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="n">validate_byr</span><span class="p">(</span><span class="n">passport</span><span class="p">[</span><span class="s1">&#39;byr&#39;</span><span class="p">])</span>
+                <span class="ow">and</span> <span class="n">validate_iyr</span><span class="p">(</span><span class="n">passport</span><span class="p">[</span><span class="s1">&#39;iyr&#39;</span><span class="p">])</span>
+                <span class="ow">and</span> <span class="n">validate_eyr</span><span class="p">(</span><span class="n">passport</span><span class="p">[</span><span class="s1">&#39;eyr&#39;</span><span class="p">])</span>
+                <span class="ow">and</span> <span class="n">validate_hgt</span><span class="p">(</span><span class="n">passport</span><span class="p">[</span><span class="s1">&#39;hgt&#39;</span><span class="p">])</span>
+                <span class="ow">and</span> <span class="n">validate_hcl</span><span class="p">(</span><span class="n">passport</span><span class="p">[</span><span class="s1">&#39;hcl&#39;</span><span class="p">])</span>
+                <span class="ow">and</span> <span class="n">validate_ecl</span><span class="p">(</span><span class="n">passport</span><span class="p">[</span><span class="s1">&#39;ecl&#39;</span><span class="p">])</span>
+                <span class="ow">and</span> <span class="n">validate_pid</span><span class="p">(</span><span class="n">passport</span><span class="p">[</span><span class="s1">&#39;pid&#39;</span><span class="p">])</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_data_invalid</span> <span class="o">=</span> <span class="n">parse_input_data</span><span class="p">(</span>
+    <span class="sd">&#39;&#39;&#39;eyr:1972 cid:100</span>
+<span class="sd">hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926</span>
+
+<span class="sd">iyr:2019</span>
+<span class="sd">hcl:#602927 eyr:1967 hgt:170cm</span>
+<span class="sd">ecl:grn pid:012533040 byr:1946</span>
+
+<span class="sd">hcl:dab227 iyr:2012</span>
+<span class="sd">ecl:brn hgt:182cm pid:021572410 eyr:2020 byr:1992 cid:277</span>
+
+<span class="sd">hgt:59cm ecl:zzz</span>
+<span class="sd">eyr:2038 hcl:74454a iyr:2023</span>
+<span class="sd">pid:3556412378 byr:2007&#39;&#39;&#39;</span>
+<span class="p">)</span>
+
+<span class="n">test_data_valid</span> <span class="o">=</span> <span class="n">parse_input_data</span><span class="p">(</span>
+    <span class="sd">&#39;&#39;&#39;pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980</span>
+<span class="sd">hcl:#623a2f</span>
+
+<span class="sd">eyr:2029 ecl:blu cid:129 byr:1989</span>
+<span class="sd">iyr:2014 pid:896056539 hcl:#a97842 hgt:165cm</span>
+
+<span class="sd">hcl:#888785</span>
+<span class="sd">hgt:164cm byr:2001 iyr:2015 cid:88</span>
+<span class="sd">pid:545766238 ecl:hzl</span>
+<span class="sd">eyr:2022</span>
+
+<span class="sd">iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">test_data_invalid</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_data_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_passport_valid_enhanced</span><span class="p">(</span><span class="n">test_data_invalid</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passport_counter</span><span class="p">(</span><span class="n">test_data_invalid</span><span class="p">,</span> <span class="n">pass_validator</span><span class="o">=</span><span class="n">is_passport_valid_enhanced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_passport_valid_enhanced</span><span class="p">(</span><span class="n">test_data_valid</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passport_counter</span><span class="p">(</span><span class="n">test_data_valid</span><span class="p">,</span> <span class="n">pass_validator</span><span class="o">=</span><span class="n">is_passport_valid_enhanced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">passports</span><span class="p">)</span><span class="si">}</span><span class="s1"> passports, </span><span class="si">{</span><span class="n">valid_passport_counter</span><span class="p">(</span><span class="n">passports</span><span class="p">,</span> <span class="n">pass_validator</span><span class="o">=</span><span class="n">is_passport_valid_enhanced</span><span class="p">)</span><span class="si">}</span><span class="s1"> were found to be valid.&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Out of 260 passports, 140 were found to be valid.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../2020-12-03-advent-of-code-day-3/">
+      <i class="fa fa-arrow-circle-left"></i> Advent of Code - Day 3: Toboggan Trajectory
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-91185106-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
+        Last updated on Dec 05, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

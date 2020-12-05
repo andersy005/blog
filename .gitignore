@@ -113,3 +113,6 @@ _build/
 pip-wheel-metadata/*
 .DS_Store
 dask-worker-space/
+posts/2020/2020-12-03-advent-of-code-day-3-Copy1.ipynb
+.gitignore
+posts/2020/2020-12-xx-advent-of-code-day-xx-Copy1.ipynb

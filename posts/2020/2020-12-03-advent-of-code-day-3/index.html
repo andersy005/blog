@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Advent of Code - Day 3: Toboggan Trajectory" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/2020-12-03-advent-of-code-day-3.html" />
+  <meta property="og:description" content="Load Input data: import copy with open('../../data/advent-of-code/2020/day-3-input') as fid: data = fid.readlines() data = [list(x.strip()) for x in data if x != '\n'] print(len(data)) print(data[0..." />
+  <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
+  <meta property="og:image:alt" content="Advent of Code - Day 3: Toboggan Trajectory" />
+  
+    <title>Advent of Code - Day 3: Toboggan Trajectory &#8212; Paysage Pythonique  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Paysage Pythonique"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">Paysage Pythonique</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../">Posts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/">About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../talks/">Talks</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://cv.andersonbanihirwe.dev/">CV</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw">Video</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andersy005/" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/andersy005" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  03 December 2020 
+</h2>
+
+<ul>
+      
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../category/coding/">coding</a>,   
+  <a href="../../category/adventofcode/">adventofcode</a>  
+</li>
+  
+</ul>
+
+<h3>
+  <a href="../../">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../2020-12-02-advent-of-code-day-2/"
+      >02 December - Advent of Code - Day 2: Password Philosophy</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-12-01-advent-of-code-day-1/"
+      >01 December - Advent of Code - Day 1: Report Repair</a
+    >
+  </li>
+  
+  <li>
+    <a href="../chadwick-boseman/"
+      >28 August - Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever</a
+    >
+  </li>
+  
+  <li>
+    <a href="../the-sun-and-her-scorch/"
+      >02 August - Dizzy - The Sun and Her Scorch: You don’t just hear it, you feel it</a
+    >
+  </li>
+  
+  <li>
+    <a href="../a-knitting-weekend-with-dash/"
+      >21 January - A Knitting Weekend with Dash and Python</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../">2020 (6)</a>
+  </li>
+    
+  <li>
+    <a href="../../2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#load-input-data" class="nav-link">Load Input data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#solution" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-two" class="nav-link">Part Two</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="advent-of-code-day-3-toboggan-trajectory">
+<h1>Advent of Code - Day 3: Toboggan Trajectory<a class="headerlink" href="#advent-of-code-day-3-toboggan-trajectory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-input-data">
+<h2>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/3">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-3-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>323
+[&#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;#&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;#&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-one">
+<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
+<p>With the toboggan login problems resolved, you set off toward the airport. While travel by toboggan might be easy, it’s certainly not safe: there’s very minimal steering and the area is covered in trees. You’ll need to see which angles will take you near the fewest trees.</p>
+<p>Due to the local geology, trees in this area only grow on exact integer coordinates in a grid. You make a map (your puzzle input) of the open squares (.) and trees (#) you can see. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span><span class="c1">##.......</span>
+<span class="c1">#...#...#..</span>
+<span class="o">.</span><span class="c1">#....#..#.</span>
+<span class="o">..</span><span class="c1">#.#...#.#</span>
+<span class="o">.</span><span class="c1">#...##..#.</span>
+<span class="o">..</span><span class="c1">#.##.....</span>
+<span class="o">.</span><span class="c1">#.#.#....#</span>
+<span class="o">.</span><span class="c1">#........#</span>
+<span class="c1">#.##...#...</span>
+<span class="c1">#...##....#</span>
+<span class="o">.</span><span class="c1">#..#...#.#</span>
+</pre></div>
+</div>
+<p>These aren’t the only trees, though; due to something you read about once involving arboreal genetics and biome stability, the same pattern repeats to the right many times:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span><span class="c1">##.........##.........##.........##.........##.........##.......  ---&gt;</span>
+<span class="c1">#...#...#..#...#...#..#...#...#..#...#...#..#...#...#..#...#...#..</span>
+<span class="o">.</span><span class="c1">#....#..#..#....#..#..#....#..#..#....#..#..#....#..#..#....#..#.</span>
+<span class="o">..</span><span class="c1">#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#</span>
+<span class="o">.</span><span class="c1">#...##..#..#...##..#..#...##..#..#...##..#..#...##..#..#...##..#.</span>
+<span class="o">..</span><span class="c1">#.##.......#.##.......#.##.......#.##.......#.##.......#.##.....  ---&gt;</span>
+<span class="o">.</span><span class="c1">#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#</span>
+<span class="o">.</span><span class="c1">#........#.#........#.#........#.#........#.#........#.#........#</span>
+<span class="c1">#.##...#...#.##...#...#.##...#...#.##...#...#.##...#...#.##...#...</span>
+<span class="c1">#...##....##...##....##...##....##...##....##...##....##...##....#</span>
+<span class="o">.</span><span class="c1">#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#  ---&gt;</span>
+</pre></div>
+</div>
+<p>You start on the open square (.) in the top-left corner and need to reach the bottom (below the bottom-most row on your map).</p>
+<p>The toboggan can only follow a few specific slopes (you opted for a cheaper model that prefers rational numbers); start by counting all the trees you would encounter for the slope right 3, down 1:</p>
+<p>From your starting position at the top-left, check the position that is right 3 and down 1. Then, check the position that is right 3 and down 1 from there, and so on until you go past the bottom of the map.</p>
+<p>The locations you’d check in the above example are marked here with O where there was an open square and X where there was a tree:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span><span class="c1">##.........##.........##.........##.........##.........##.......  ---&gt;</span>
+<span class="c1">#..O#...#..#...#...#..#...#...#..#...#...#..#...#...#..#...#...#..</span>
+<span class="o">.</span><span class="c1">#....X..#..#....#..#..#....#..#..#....#..#..#....#..#..#....#..#.</span>
+<span class="o">..</span><span class="c1">#.#...#O#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#</span>
+<span class="o">.</span><span class="c1">#...##..#..X...##..#..#...##..#..#...##..#..#...##..#..#...##..#.</span>
+<span class="o">..</span><span class="c1">#.##.......#.X#.......#.##.......#.##.......#.##.......#.##.....  ---&gt;</span>
+<span class="o">.</span><span class="c1">#.#.#....#.#.#.#.O..#.#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#</span>
+<span class="o">.</span><span class="c1">#........#.#........X.#........#.#........#.#........#.#........#</span>
+<span class="c1">#.##...#...#.##...#...#.X#...#...#.##...#...#.##...#...#.##...#...</span>
+<span class="c1">#...##....##...##....##...#X....##...##....##...##....##...##....#</span>
+<span class="o">.</span><span class="c1">#..#...#.#.#..#...#.#.#..#...X.#.#..#...#.#.#..#...#.#.#..#...#.#  ---&gt;</span>
+</pre></div>
+</div>
+<p>In this example, traversing the map using this slope would cause you to encounter 7 trees.</p>
+<p>Starting at the top-left corner of your map and following a slope of right 3 and down 1, <strong>how many trees would you encounter?</strong></p>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tree_counter</span><span class="p">(</span><span class="n">terrain</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Count how many trees we encounter&quot;&quot;&quot;</span>
+    <span class="n">right_step</span><span class="p">,</span> <span class="n">down_step</span> <span class="o">=</span> <span class="n">slope</span>
+    <span class="n">tree_count</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">terrain</span><span class="p">[</span><span class="n">down_step</span><span class="p">::</span><span class="n">down_step</span><span class="p">]:</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="n">right_step</span>
+        <span class="n">indexer</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="n">indexer</span><span class="p">]</span> <span class="o">==</span> <span class="n">tree</span><span class="p">:</span>
+            <span class="n">tree_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">tree_count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s create a small test sample to use for validating the solution above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_data</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;..##.........##.........##.........##.........##.........##.......</span>
+<span class="s1">#...#...#..#...#...#..#...#...#..#...#...#..#...#...#..#...#...#..</span>
+<span class="s1">.#....#..#..#....#..#..#....#..#..#....#..#..#....#..#..#....#..#.</span>
+<span class="s1">..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#</span>
+<span class="s1">.#...##..#..#...##..#..#...##..#..#...##..#..#...##..#..#...##..#.</span>
+<span class="s1">..#.##.......#.##.......#.##.......#.##.......#.##.......#.##.....</span>
+<span class="s1">.#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#</span>
+<span class="s1">.#........#.#........#.#........#.#........#.#........#.#........#</span>
+<span class="s1">#.##...#...#.##...#...#.##...#...#.##...#...#.##...#...#.##...#...</span>
+<span class="s1">#...##....##...##....##...##....##...##....##...##....##...##....#</span>
+<span class="s1">.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#&#39;&#39;&#39;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="n">test_data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">test_data</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Running the <code class="docutils literal notranslate"><span class="pre">tree_counter</span></code> function with a slope of <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">1)</span></code> produces the right output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_counter</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we are somewhat confident about the validity of our solution, let’s use our full input data to count how many trees we will encounter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Found </span><span class="si">{</span><span class="n">tree_counter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="si">}</span><span class="s1"> Trees&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 148 Trees
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-two">
+<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
+<p>Time to check the rest of the slopes - you need to minimize the probability of a sudden arboreal stop, after all.</p>
+<p>Determine the number of trees you would encounter if, for each of the following slopes, you start at the top-left corner and traverse the map all the way to the bottom:</p>
+<ul class="simple">
+<li><p>Right 1, down 1.</p></li>
+<li><p>Right 3, down 1. (This is the slope you already checked.)</p></li>
+<li><p>Right 5, down 1.</p></li>
+<li><p>Right 7, down 1.</p></li>
+<li><p>Right 1, down 2.</p></li>
+</ul>
+<p>In the above example, these slopes would find 2, 7, 3, 4, and 2 tree(s) respectively; multiplied together, these produce the answer 336.</p>
+<p><strong>What do you get if you multiply together the number of trees encountered on each of the listed slopes?</strong></p>
+<div class="section" id="id1">
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>For part two, all we have to do is compute the number of trees for each slope, and use the <code class="docutils literal notranslate"><span class="pre">math.prod</span></code> function to multiply together the number of trees found. Here’s a code cell that demonstrates that this logic works as expected when using the test sample data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">slopes</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">tree_counter</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span> <span class="k">for</span> <span class="n">slope</span> <span class="ow">in</span> <span class="n">slopes</span><span class="p">]</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([2, 7, 3, 4, 2], 336)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s now time to get the value for the full input data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">tree_counter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span> <span class="k">for</span> <span class="n">slope</span> <span class="ow">in</span> <span class="n">slopes</span><span class="p">]</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;Counts for the given slopes </span><span class="si">{</span><span class="n">slopes</span><span class="si">}</span><span class="s1">: </span><span class="se">\n\t\t\t\t</span><span class="si">{</span><span class="n">counts</span><span class="si">}</span><span class="se">\n</span><span class="s1">The total number of trees encountered: </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counts for the given slopes [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]: 
+				[50, 148, 53, 64, 29]
+The total number of trees encountered: 727923200
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../2020-12-02-advent-of-code-day-2/">
+      <i class="fa fa-arrow-circle-left"></i> Advent of Code - Day 2: Password Philosophy
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-91185106-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
+        Last updated on Dec 05, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

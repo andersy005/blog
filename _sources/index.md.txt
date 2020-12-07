@@ -1,6 +1,6 @@
 # Anderson Banihirwe
 
-Currently, I am working as a software engineer in Computational & Information Systems Lab (CISL) at the National Center for Atmospheric Research (NCAR). On the interwebs, I go by [@andersy005](https://github.com/andersy005)
+Currently, I am working as a software engineer in Computational & Information Systems Lab (CISL) at the National Center for Atmospheric Research (NCAR). On the interwebs, I go by [@andersy005](https://github.com/andersy005).
 
 I’ve been extremely lucky to work in realms that allow me to cross institutional and geographic boundaries to collaborate on tools and research software. More generally I contribute to and maintain several libraries within the open source scientific Python stack, particularly around improving scalability of Python tools in order to (1) handle terabyte to petabyte scale datasets on both High Performance Computing (HPC) and cloud platforms and (2) move science forward.
 

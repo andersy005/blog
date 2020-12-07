@@ -19,7 +19,7 @@ Below is a timeline of what I've been up to over the past several years.
 ---
 :column: +entry left
 
-2020: Promoted to **Software Engineer ||**
+**Sept 2020**: Promoted to Software Engineer ||
 ^^^
 
 I continued leading the intake-ESM project. In addition, I joined the [Jupyter Meets Earth](https://pangeo-data.github.io/jupyter-earth/) project as a contributor. During this time, I helped with the development of the following projects:
@@ -33,7 +33,7 @@ I continued leading the intake-ESM project. In addition, I joined the [Jupyter M
 ---
 :column: +entry right
 
-**2018** Joined NCAR as **Software Engineer |**
+**Oct 2018**: Joined NCAR as Software Engineer |
 ^^^
 
 After my work at Quansight, I joined NCAR as a fulltime Software Engineer I focusing my work around developing Python tools for climate data analysis. Here are a few of the main things I did during this time:
@@ -49,7 +49,7 @@ After my work at Quansight, I joined NCAR as a fulltime Software Engineer I focu
 ---
 :column: +entry left
 
-**2018** Joined Quansight
+**June 2018**: Joined Quansight
 ^^^
 
 After graduating I joined [Quansight](https://www.quansight.com/) as a software developer intern. At Quansight, I developed [xndframes](https://github.com/xnd-project/xndframes), an experimental Pandas extension array backed by xnd. In addition to xndframes, I worked on [cuDF](https://github.com/rapidsai/cudf) a GPU dataframe library.
@@ -61,7 +61,7 @@ After graduating I joined [Quansight](https://www.quansight.com/) as a software 
 ---
 :column: +entry right
 
-**2018** Graduated from UA-Little Rock
+**May 2018**: Graduated from UA-Little Rock
 ^^^
 
 Graduated from [University of Arkansas at Little Rock](http://ualr.edu/systemsengineering/) with a B.S. in Systems Engineering.

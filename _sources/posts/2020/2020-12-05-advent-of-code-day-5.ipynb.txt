@@ -1,0 +1,332 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Advent of Code - Day 5: Binary Boarding"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Load Input data"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    ":::{note}\n",
+    "The input data can be found [here](https://adventofcode.com/2020/day/5).\n",
+    ":::"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "846\n",
+      "FBBFFBBLLL\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "with open('../../data/advent-of-code/2020/day-5-input') as fid:\n",
+    "    data = fid.readlines()\n",
+    "\n",
+    "print(len(data))\n",
+    "print(data[0])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Part One\n",
+    "\n",
+    "You board your plane only to discover a new problem: you dropped your boarding pass! You aren't sure which seat is yours, and all of the flight attendants are busy with the flood of people that suddenly made it through passport control.\n",
+    "\n",
+    "You write a quick program to use your phone's camera to scan all of the nearby boarding passes (your puzzle input); perhaps you can find your seat through process of elimination.\n",
+    "\n",
+    "Instead of [zones or groups](https://www.youtube.com/watch?v=oAHbLRjF0vo), this airline uses binary space partitioning to seat people. A seat might be specified like FBFBBFFRLR, where F means \"front\", B means \"back\", L means \"left\", and R means \"right\".\n",
+    "\n",
+    "The first 7 characters will either be F or B; these specify exactly one of the 128 rows on the plane (numbered 0 through 127). Each letter tells you which half of a region the given seat is in. Start with the whole list of rows; the first letter indicates whether the seat is in the front (0 through 63) or the back (64 through 127). The next letter indicates which half of that region the seat is in, and so on until you're left with exactly one row.\n",
+    "\n",
+    "For example, consider just the first seven characters of FBFBBFFRLR:\n",
+    "\n",
+    "Start by considering the whole range, rows 0 through 127.\n",
+    "- F means to take the lower half, keeping rows 0 through 63.\n",
+    "- B means to take the upper half, keeping rows 32 through 63.\n",
+    "- F means to take the lower half, keeping rows 32 through 47.\n",
+    "- B means to take the upper half, keeping rows 40 through 47.\n",
+    "- B keeps rows 44 through 47.\n",
+    "- F keeps rows 44 through 45.\n",
+    "\n",
+    "The final F keeps the lower of the two, row 44.\n",
+    "The last three characters will be either L or R; these specify exactly one of the 8 columns of seats on the plane (numbered 0 through 7). The same process as above proceeds again, this time with only three steps. L means to keep the lower half, while R means to keep the upper half.\n",
+    "\n",
+    "For example, consider just the last 3 characters of FBFBBFFRLR:\n",
+    "\n",
+    "- Start by considering the whole range, columns 0 through 7.\n",
+    "- R means to take the upper half, keeping columns 4 through 7.\n",
+    "- L means to take the lower half, keeping columns 4 through 5.\n",
+    "- The final R keeps the upper of the two, column 5.\n",
+    "So, decoding FBFBBFFRLR reveals that it is the seat at row 44, column 5.\n",
+    "\n",
+    "Every seat also has a unique seat ID: multiply the row by 8, then add the column. In this example, the seat has ID 44 * 8 + 5 = 357.\n",
+    "\n",
+    "Here are some other boarding passes:\n",
+    "\n",
+    "- BFFFBBFRRR: row 70, column 7, seat ID 567.\n",
+    "- FFFBBBFRRR: row 14, column 7, seat ID 119.\n",
+    "- BBFFBBFRLL: row 102, column 4, seat ID 820.\n",
+    "\n",
+    "As a sanity check, look through your list of boarding passes. **What is the highest seat ID on a boarding pass?**\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Solution"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import math\n",
+    "\n",
+    "\n",
+    "def find_seat_info(seat_number, nrows, ncols, row_identifiers, col_identifiers):\n",
+    "    \"\"\"Function to decode the seat_id when given the seat number\"\"\"\n",
+    "\n",
+    "    def decode_seat(seat, n_entries, identifiers):\n",
+    "        lo, hi = 0, n_entries\n",
+    "        for letter in seat:\n",
+    "            if letter == identifiers[0]:\n",
+    "                lo, hi = lo, math.floor((lo + hi) / 2)\n",
+    "            elif letter == identifiers[1]:\n",
+    "                lo, hi = math.ceil((lo + hi) / 2), hi\n",
+    "\n",
+    "        return lo\n",
+    "\n",
+    "    row = decode_seat(seat_number[:7], nrows, row_identifiers)\n",
+    "    col = decode_seat(seat_number[7:], ncols, col_identifiers)\n",
+    "    return {'seat_number': seat_number, 'row': row, 'column': col, 'seat_id': row * 8 + col}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nrows, ncols = 128, 8\n",
+    "row_identifiers = ('F', 'B')\n",
+    "col_identifiers = ('L', 'R')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'seat_number': 'FBFBBFFRLR', 'row': 44, 'column': 5, 'seat_id': 357}"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Test our function on sample input seat number\n",
+    "find_seat_info('FBFBBFFRLR', nrows, ncols, row_identifiers, col_identifiers)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Everything appears to be working.... Let's loop over all the seat numbers and collect the ids:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(12, 858)"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ids = [\n",
+    "    find_seat_info(seat, nrows, ncols, row_identifiers, col_identifiers)['seat_id'] for seat in data\n",
+    "]\n",
+    "min(ids), max(ids)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Part Two\n",
+    "\n",
+    "\n",
+    "Ding! The \"fasten seat belt\" signs have turned on. Time to find your seat.\n",
+    "\n",
+    "It's a completely full flight, so your seat should be the only missing boarding pass in your list. However, there's a catch: some of the seats at the very front and back of the plane don't exist on this aircraft, so they'll be missing from your list as well.\n",
+    "\n",
+    "Your seat wasn't at the very front or back, though; the seats with IDs +1 and -1 from yours will be in your list.\n",
+    "\n",
+    "**What is the ID of your seat?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Solution\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "178"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Find missing ids\n",
+    "missing_ids = [seat_id for seat_id in range(5, nrows * 8 + 5) if seat_id not in set(ids)]\n",
+    "len(missing_ids)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[11, 557, 859]"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Loop over missing ids, and find possible candidates\n",
+    "possible_candidates = []\n",
+    "for idx in range(1, len(missing_ids) - 1):\n",
+    "    if not (\n",
+    "        (missing_ids[idx - 1] == missing_ids[idx] - 1)\n",
+    "        and (missing_ids[idx + 1] == missing_ids[idx] + 1)\n",
+    "    ):\n",
+    "        possible_candidates.append(missing_ids[idx])\n",
+    "possible_candidates"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can use a process of elimination to get the ID of our seat by checking for the ids of the front and back seats:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(12, 858)"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "min(ids), max(ids)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Since it was pointed out that our seat wasn't at the very front or back, we can eliminate `11` and `859`. So, the id our seat is **`557`**"
+   ]
+  }
+ ],
+ "metadata": {
+  "category": "coding,adventofcode",
+  "date": "2020-12-05",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  },
+  "tags": "python,adventofcode",
+  "title": "Advent of Code - Day 5: Binary Boarding",
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {},
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

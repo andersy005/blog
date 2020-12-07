@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2020-12-07T04:01:32.034450+00:00</updated>
+  <updated>2020-12-07T05:30:18.462423+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -100,5 +100,15 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/2020-12-04-advent-of-code-day-4/" rel="alternate"/>
     <published>2020-12-04T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2020/2020-12-05-advent-of-code-day-5/</id>
+    <title>Advent of Code - Day 5: Binary Boarding</title>
+    <updated>2020-12-05T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/5"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You board your plane only to discover a new problem: you dropped your boarding pass! You aren’t sure which seat is yours, and all of the flight attendants are busy with the flood of people that suddenly made it through passport control.&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2020/2020-12-05-advent-of-code-day-5/" rel="alternate"/>
+    <published>2020-12-05T00:00:00+00:00</published>
   </entry>
 </feed>

@@ -2,7 +2,27 @@
 
 I work as a software engineer in the [Computational & Information Systems Lab (CISL)](https://www2.cisl.ucar.edu/) at the [National Center for Atmospheric Research (NCAR)](https://ncar.ucar.edu/).
 
-As part of my work at the National Center for Atmospheric Research, I contribute to multiple open-source projects such as dask, xarray, jupyter, and intake. Most projects that I work on can be found on my [{fa}`github,style=fab` GitHub page](https://github.com/andersy005).
+## Software
+
+As part of my work at the National Center for Atmospheric Research, I contribute to multiple open-source projects such as dask, xarray, jupyter, and intake. A complete record of projects that I have contributed to is available on my [{fa}`github,style=fab` GitHub page](https://github.com/andersy005).
+
+- intake-esm — an intake plugin for working with Earth System Model catalogs
+
+  [Documentation](https://intake-esm.readthedocs.io/)|[GitHub](https://github.com/intake/intake-esm)|[PyPI](https://pypi.org/project/intake-esm)|[Conda](https://anaconda.org/conda-forge/intake-esm)
+
+- jupyter-forward — Jupyter Lab Port Forwarding Utility
+
+  [Documentation](https://anaconda.org/conda-forge/jupyter-forward)|[GitHub](https://github.com/NCAR/jupyter-forward)|[PyPI](https://pypi.org/project/jupyter-forward)|[Conda](https://anaconda.org/conda-forge/jupyter-forward)
+
+- repo2singularity — wrapper around repo2docker producing producing Jupyter enabled Singularity images
+
+  [Documentation]()|[GitHub](https://github.com/andersy005/repo2singularity)|[PyPI](https://pypi.org/project/repo2singularity/)|[Conda]()
+
+- panelify - wrapper around panel that makes it to create dashboards from static images/plots/charts.
+
+  [Documentation](https://panelify.readthedocs.io/en/latest/?badge=latest)|[GitHub](https://github.com/andersy005/panelify)|[PyPI](https://pypi.org/project/panelify)|[Conda](https://anaconda.org/conda-forge/panelify)
+
+## Publications
 
 For a list of publications in which I've been involved,
 check out [my ORCID page](https://orcid.org/0000-0001-6583-571X) or [my Google Scholar page](https://scholar.google.com/citations?user=vrlgltgAAAAJ&hl=en&oi=ao).

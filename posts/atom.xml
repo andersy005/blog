@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2020-12-07T05:30:18.462423+00:00</updated>
+  <updated>2020-12-08T00:01:25.392261+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -60,6 +60,19 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/chadwick-boseman/" rel="alternate"/>
     <published>2020-08-28T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2020/sphinx-based-redesign/</id>
+    <title>Migrating from fastpages to sphinx-based blog</title>
+    <updated>2020-11-30T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
+    <content type="html">&lt;p&gt;After a few months on &lt;a class="reference external" href="https://fastpages.fast.ai/"&gt;fastpages&lt;/a&gt; hosted on GitHub pages, all the content I have published on my blog is now being built with sphinx hosted on Github pages. This sphinx-based redesign was inspired by &lt;a class="reference external" href="https://predictablynoisy.com/posts/2020/sphinx-blogging/"&gt;this blog post by Chris Holdgraf&lt;/a&gt;. Thank you 🙏🏽, Chris!&lt;/p&gt;
+&lt;p&gt;The Sphinx source for this blog is hosted on Github in this &lt;a class="reference external" href="https://github.com/andersy005/blog"&gt;repo&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2020/sphinx-based-redesign/" rel="alternate"/>
+    <published>2020-11-30T00:00:00+00:00</published>
   </entry>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2020/2020-12-01-advent-of-code-day-1/</id>

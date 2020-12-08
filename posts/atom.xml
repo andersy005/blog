@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2020-12-08T00:01:25.392261+00:00</updated>
+  <updated>2020-12-08T02:47:28.322926+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -123,5 +123,15 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/2020-12-05-advent-of-code-day-5/" rel="alternate"/>
     <published>2020-12-05T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2020/2020-12-06-advent-of-code-day-6/</id>
+    <title>Advent of Code - Day 6: Custom Customs</title>
+    <updated>2020-12-06T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/6"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As your flight approaches the regional airport where you’ll switch to a much larger plane, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Customs_declaration"&gt;customs declaration forms&lt;/a&gt; are distributed to the passengers.&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2020/2020-12-06-advent-of-code-day-6/" rel="alternate"/>
+    <published>2020-12-06T00:00:00+00:00</published>
   </entry>
 </feed>

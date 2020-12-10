@@ -5,14 +5,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever" />
+  <meta property="og:title" content="Advent of Code - Day 7: Handy Haversacks" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/chadwick-boseman.html" />
-  <meta property="og:description" content="Chadwick Boseman: Thank you for teaching and showing us how to serve others, while quietly understanding their pain.. Thank you for being the light to so many people, sharing your beautiful spirit ..." />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-7.html" />
+  <meta property="og:description" content="Load Input data: with open('../../data/advent-of-code/2020/day-7-input') as fid: data = fid.readlines() data = [x.strip() for x in data] print(len(data)) print(data[0:2]) 594 ['light salmon bags co..." />
   <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
-  <meta property="og:image:alt" content="Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever" />
+  <meta property="og:image:alt" content="Advent of Code - Day 7: Handy Haversacks" />
   
-    <title>Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever &#8212; Paysage Pythonique  documentation</title>
+    <title>Advent of Code - Day 7: Handy Haversacks &#8212; Paysage Pythonique  documentation</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -165,28 +165,27 @@
           <div class="col-12 col-md-3 bd-sidebar">  
 <h2>
    <i class="fa fa-calendar"></i>
-  28 August 2020 
+  03 December 2020 
 </h2>
 
 <ul>
-   
-<li id="author">
+      
+<li id="category">
   <span
-    ><i class="fa-fw fa fa-user"></i></span
+    ><i class="fa-fw fa fa-folder-open"></i></span
   >
    
-  <a href="../../author/anderson-banihirwe/">Anderson Banihirwe</a>  
+  <a href="../../category/coding/">coding</a>,   
+  <a href="../../category/adventofcode/">adventofcode</a>  
 </li>
-    
+ 
 <li id="tags">
   <span
-    ><i
-      class="fa-fw fa fa-tag"
-    ></i
-    ></span
+    ><i class="fa-fw fa fa-tags"></i> </span
   >
    
-  <a href="../../tag/life/">life</a>  
+  <a href="../../tag/python/">python</a>   
+  <a href="../../tag/adventofcode/">adventofcode</a>  
 </li>
  
 </ul>
@@ -221,8 +220,8 @@
   </li>
   
   <li>
-    <a href="../advent-of-code-day-7/"
-      >03 December - Advent of Code - Day 3: Toboggan Trajectory</a
+    <a href="../advent-of-code-day-2/"
+      >02 December - Advent of Code - Day 2: Password Philosophy</a
     >
   </li>
   
@@ -249,9 +248,36 @@
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
               
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#load-input-data" class="nav-link">Load Input data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#solution" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-two" class="nav-link">Part Two</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
     
     </ul>
 </nav>
@@ -265,27 +291,86 @@
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="section" id="chadwick-boseman-rest-easy-king-tchalla-wakanda-forever">
-<h1>Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever<a class="headerlink" href="#chadwick-boseman-rest-easy-king-tchalla-wakanda-forever" title="Permalink to this headline">¶</a></h1>
-<p>Chadwick Boseman:</p>
+                 <div class="section" id="advent-of-code-day-7-handy-haversacks">
+<h1>Advent of Code - Day 7: Handy Haversacks<a class="headerlink" href="#advent-of-code-day-7-handy-haversacks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-input-data">
+<h2>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/7">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-7-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>594
+[&#39;light salmon bags contain 5 dotted olive bags, 4 wavy lavender bags.&#39;, &#39;dark purple bags contain 5 striped maroon bags, 1 wavy maroon bag.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-one">
+<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
+<p>You land at the regional airport in time for your next flight. In fact, it looks like you’ll even have time to grab some food: all flights are currently delayed due to issues in luggage processing.</p>
+<p>Due to recent aviation regulations, many rules (your puzzle input) are being enforced about bags and their contents; bags must be color-coded and must contain specific quantities of other color-coded bags. Apparently, nobody responsible for these regulations considered how long they would take to enforce!</p>
+<p>For example, consider the following rules:</p>
 <ul class="simple">
-<li><p><strong>Thank you for teaching and showing us how to serve others, while quietly understanding their pain.</strong></p></li>
+<li><p>light red bags contain 1 bright white bag, 2 muted yellow bags.</p></li>
+<li><p>dark orange bags contain 3 bright white bags, 4 muted yellow bags.</p></li>
+<li><p>bright white bags contain 1 shiny gold bag.</p></li>
+<li><p>muted yellow bags contain 2 shiny gold bags, 9 faded blue bags.</p></li>
+<li><p>shiny gold bags contain 1 dark olive bag, 2 vibrant plum bags.</p></li>
+<li><p>dark olive bags contain 3 faded blue bags, 4 dotted black bags.</p></li>
+<li><p>vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.</p></li>
+<li><p>faded blue bags contain no other bags.</p></li>
+<li><p>dotted black bags contain no other bags.</p></li>
 </ul>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It’s not every day that St. Jude gets a visit from an Avenger! Thank you <a href="https://twitter.com/chadwickboseman?ref_src=twsrc%5Etfw">@ChadwickBoseman</a> for stopping by to bring joy to our patients and learn more about our lifesaving mission! ❤ 🎉 <a href="https://t.co/7RwPO7qgPD">pic.twitter.com/7RwPO7qgPD</a></p>&mdash; St. Jude (@StJude) <a href="https://twitter.com/StJude/status/1040003392444264464?ref_src=twsrc%5Etfw">September 12, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>These rules specify the required contents for 9 bag types. In this example, every faded blue bag is empty, every vibrant plum bag contains 11 bags (5 faded blue and 6 dotted black), and so on.</p>
+<p>You have a <strong>shiny gold</strong> bag. If you wanted to carry it in at least one other bag, how many different bag colors would be valid for the outermost bag? (In other words: how many colors can, eventually, contain at least one shiny gold bag?)</p>
+<p>In the above rules, the following options would be available to you:</p>
 <ul class="simple">
-<li><p><strong>Thank you for being the light to so many people, sharing your beautiful spirit and talent with the world! We will miss you so …. ✊🏾 ❤️ 🙅🏾‍♂️ forever and ever …</strong></p></li>
+<li><p>A bright white bag, which can hold your shiny gold bag directly.</p></li>
+<li><p>A muted yellow bag, which can hold your shiny gold bag directly, plus some other bags.</p></li>
+<li><p>A dark orange bag, which can hold bright white and muted yellow bags, either of which could then hold your shiny gold bag.</p></li>
+<li><p>A light red bag, which can hold bright white and muted yellow bags, either of which could then hold your shiny gold bag.</p></li>
 </ul>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/expKmfdoo28" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<ul class="simple">
-<li><p><strong>Throughout it all you found the courage and the will to persevere while uplifting those around you. You didn’t just play a hero, you were truly one!</strong></p></li>
-</ul>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I interviewed Chadwick Boseman in 2017, and to think he was going through cancer while satisfying the physical demands of a Marvel movie...<a href="https://t.co/MAB1ZYdcGS">https://t.co/MAB1ZYdcGS</a> <a href="https://t.co/eLdear66IU">pic.twitter.com/eLdear66IU</a></p>&mdash; Matt Jacobs (@tarantallegra) <a href="https://twitter.com/tarantallegra/status/1299544269099802624?ref_src=twsrc%5Etfw">August 29, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Yes this was our king. Not because we served him or because he ruled. But because of how he served us in everything he did. He played a hero on screen and lived like one in real life. He made so many of us proud of who we are. Hamba kahle Chadwick...Sizoku bona phambili. <a href="https://t.co/60v9Pz9lym">pic.twitter.com/60v9Pz9lym</a></p>&mdash; Trevor Noah (@Trevornoah) <a href="https://twitter.com/Trevornoah/status/1299771378745462784?ref_src=twsrc%5Etfw">August 29, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>Repose en paix, Chadwick Boseman. Tu nous manques déjà…</p>
-<p><img alt="black-panther" src="../../../_images/black-panther.jpeg" /></p>
-<blockquote>
-<div><p>“He who has gone, so we but cherish his memory, abides with us, more potent, nay, more present than the living man.” — Antoine de Saint-Exupery</p>
-</div></blockquote>
+<p>So, in this example, the number of bag colors that can eventually contain at least one shiny gold bag is 4.</p>
+<p><strong>How many bag colors can eventually contain at least one shiny gold bag?</strong> (The list of rules is quite long; make sure you get all of it.)</p>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-two">
+<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <div class="section">
@@ -293,16 +378,16 @@
 <div class="section">
   <span style="float: left">
      
-    <a href="../the-sun-and-her-scorch/">
-      <i class="fa fa-arrow-circle-left"></i> Dizzy - The Sun and Her Scorch: You don’t just hear it, you feel it
+    <a href="../advent-of-code-day-3/">
+      <i class="fa fa-arrow-circle-left"></i> Advent of Code - Day 3: Toboggan Trajectory
     </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
      
-    <a href="../sphinx-based-redesign/">
-      Migrating from fastpages to sphinx-based blog <i
+    <a href="../advent-of-code-day-4/">
+      Advent of Code - Day 4: Passport Processing <i
         class="fa fa-arrow-circle-right"
       ></i
       >

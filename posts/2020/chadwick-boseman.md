@@ -1,7 +1,7 @@
 ---
 author: Anderson Banihirwe
 date: 2020-08-28
-tags: life
+tags: life, people
 ---
 
 # Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever

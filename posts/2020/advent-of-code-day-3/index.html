@@ -8,7 +8,7 @@
   <meta property="og:title" content="Advent of Code - Day 3: Toboggan Trajectory" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-3.html" />
-  <meta property="og:description" content="Load Input data: with open('../../data/advent-of-code/2020/day-3-input') as fid: data = fid.readlines() data = [list(x.strip()) for x in data if x != '\n'] print(len(data)) print(data[0]) 323 ['.',..." />
+  <meta property="og:description" content="Part One: With the toboggan login problems resolved, you set off toward the airport. While travel by toboggan might be easy, it’s certainly not safe: there’s very minimal steering and the area is c..." />
   <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
   <meta property="og:image:alt" content="Advent of Code - Day 3: Toboggan Trajectory" />
   
@@ -201,6 +201,12 @@
   </li>
   
   <li>
+    <a href="../advent-of-code-day-7/"
+      >07 December - Advent of Code - Day 7: Handy Haversacks</a
+    >
+  </li>
+  
+  <li>
     <a href="../advent-of-code-day-6/"
       >06 December - Advent of Code - Day 6: Custom Customs</a
     >
@@ -215,12 +221,6 @@
   <li>
     <a href="../advent-of-code-day-4/"
       >04 December - Advent of Code - Day 4: Passport Processing</a
-    >
-  </li>
-  
-  <li>
-    <a href="../advent-of-code-day-7/"
-      >03 December - Advent of Code - Day 3: Toboggan Trajectory</a
     >
   </li>
   
@@ -255,12 +255,12 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
             <a href="#load-input-data" class="nav-link">Load Input data</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
-                
         <li class="nav-item toc-entry toc-h3">
             <a href="#solution" class="nav-link">Solution</a>
         </li>
@@ -292,31 +292,6 @@
               <div>
                  <div class="section" id="advent-of-code-day-3-toboggan-trajectory">
 <h1>Advent of Code - Day 3: Toboggan Trajectory<a class="headerlink" href="#advent-of-code-day-3-toboggan-trajectory" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="load-input-data">
-<h2>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/3">here</a>.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-3-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>323
-[&#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;#&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;#&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="part-one">
 <h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
 <p>With the toboggan login problems resolved, you set off toward the airport. While travel by toboggan might be easy, it’s certainly not safe: there’s very minimal steering and the area is covered in trees. You’ll need to see which angles will take you near the fewest trees.</p>
@@ -367,6 +342,31 @@
 </div>
 <p>In this example, traversing the map using this slope would cause you to encounter 7 trees.</p>
 <p>Starting at the top-left corner of your map and following a slope of right 3 and down 1, <strong>how many trees would you encounter?</strong></p>
+<div class="section" id="load-input-data">
+<h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/3">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-3-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>323
+[&#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;#&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;#&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
@@ -502,8 +502,8 @@ The total number of trees encountered: 727923200
   <span>&nbsp;</span>
   <span style="float: right">
      
-    <a href="../advent-of-code-day-7/">
-      Advent of Code - Day 3: Toboggan Trajectory <i
+    <a href="../advent-of-code-day-4/">
+      Advent of Code - Day 4: Passport Processing <i
         class="fa fa-arrow-circle-right"
       ></i
       >
@@ -546,8 +546,8 @@ The total number of trees encountered: 727923200
   <div class="container">
     <p>
           &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
-        Last updated on Dec 22, 2020.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.0.<br/>
+        Last updated on Dec 27, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.1.<br/>
     </p>
   </div>
 </footer>

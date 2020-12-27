@@ -8,7 +8,7 @@
   <meta property="og:title" content="Advent of Code - Day 4: Passport Processing" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-4.html" />
-  <meta property="og:description" content="Load Input data: def parse_input_data(data): passports = data.split('\n\n') passports = [passport.strip().replace('\n', ' ').split(' ') for passport in passports] passports = [dict(map(lambda x: x...." />
+  <meta property="og:description" content="Part One: You arrive at the airport only to realize that you grabbed your North Pole Credentials instead of your passport. While these documents are extremely similar, North Pole Credentials aren’t..." />
   <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
   <meta property="og:image:alt" content="Advent of Code - Day 4: Passport Processing" />
   
@@ -201,6 +201,12 @@
   </li>
   
   <li>
+    <a href="../advent-of-code-day-7/"
+      >07 December - Advent of Code - Day 7: Handy Haversacks</a
+    >
+  </li>
+  
+  <li>
     <a href="../advent-of-code-day-6/"
       >06 December - Advent of Code - Day 6: Custom Customs</a
     >
@@ -214,12 +220,6 @@
   
   <li>
     <a href="../advent-of-code-day-3/"
-      >03 December - Advent of Code - Day 3: Toboggan Trajectory</a
-    >
-  </li>
-  
-  <li>
-    <a href="../advent-of-code-day-7/"
       >03 December - Advent of Code - Day 3: Toboggan Trajectory</a
     >
   </li>
@@ -255,12 +255,12 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
             <a href="#load-input-data" class="nav-link">Load Input data</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
-                
         <li class="nav-item toc-entry toc-h3">
             <a href="#solution" class="nav-link">Solution</a>
         </li>
@@ -292,8 +292,46 @@
               <div>
                  <div class="section" id="advent-of-code-day-4-passport-processing">
 <h1>Advent of Code - Day 4: Passport Processing<a class="headerlink" href="#advent-of-code-day-4-passport-processing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="part-one">
+<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
+<p>You arrive at the airport only to realize that you grabbed your North Pole Credentials instead of your passport. While these documents are extremely similar, North Pole Credentials aren’t issued by a country and therefore aren’t actually valid documentation for travel in most of the world.</p>
+<p>It seems like you’re not the only one having problems, though; a very long line has formed for the automatic passport scanners, and the delay could upset your travel itinerary.</p>
+<p>Due to some questionable network security, you realize you might be able to solve both of these problems at the same time.</p>
+<p>The automatic passport scanners are slow because they’re having trouble detecting which passports have all required fields. The expected fields are as follows:</p>
+<ul class="simple">
+<li><p>byr (Birth Year)</p></li>
+<li><p>iyr (Issue Year)</p></li>
+<li><p>eyr (Expiration Year)</p></li>
+<li><p>hgt (Height)</p></li>
+<li><p>hcl (Hair Color)</p></li>
+<li><p>ecl (Eye Color)</p></li>
+<li><p>pid (Passport ID)</p></li>
+<li><p>cid (Country ID)</p></li>
+</ul>
+<p>Passport data is validated in batch files (your puzzle input). Each passport is represented as a sequence of key:value pairs separated by spaces or newlines. Passports are separated by blank lines.</p>
+<p>Here is an example batch file containing four passports:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ecl</span><span class="p">:</span><span class="n">gry</span> <span class="n">pid</span><span class="p">:</span><span class="mi">860033327</span> <span class="n">eyr</span><span class="p">:</span><span class="mi">2020</span> <span class="n">hcl</span><span class="p">:</span><span class="c1">#fffffd</span>
+<span class="n">byr</span><span class="p">:</span><span class="mi">1937</span> <span class="n">iyr</span><span class="p">:</span><span class="mi">2017</span> <span class="n">cid</span><span class="p">:</span><span class="mi">147</span> <span class="n">hgt</span><span class="p">:</span><span class="mi">183</span><span class="n">cm</span>
+
+<span class="n">iyr</span><span class="p">:</span><span class="mi">2013</span> <span class="n">ecl</span><span class="p">:</span><span class="n">amb</span> <span class="n">cid</span><span class="p">:</span><span class="mi">350</span> <span class="n">eyr</span><span class="p">:</span><span class="mi">2023</span> <span class="n">pid</span><span class="p">:</span><span class="mi">028048884</span>
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#cfa07d byr:1929</span>
+
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#ae17e1 iyr:2013</span>
+<span class="n">eyr</span><span class="p">:</span><span class="mi">2024</span>
+<span class="n">ecl</span><span class="p">:</span><span class="n">brn</span> <span class="n">pid</span><span class="p">:</span><span class="mi">760753108</span> <span class="n">byr</span><span class="p">:</span><span class="mi">1931</span>
+<span class="n">hgt</span><span class="p">:</span><span class="mi">179</span><span class="n">cm</span>
+
+<span class="n">hcl</span><span class="p">:</span><span class="c1">#cfa07d eyr:2025 pid:166559648</span>
+<span class="n">iyr</span><span class="p">:</span><span class="mi">2011</span> <span class="n">ecl</span><span class="p">:</span><span class="n">brn</span> <span class="n">hgt</span><span class="p">:</span><span class="mi">59</span><span class="ow">in</span>
+</pre></div>
+</div>
+<p>The first passport is valid - all eight fields are present. The second passport is invalid - it is missing hgt (the Height field).</p>
+<p>The third passport is interesting; the only missing field is cid, so it looks like data from North Pole Credentials, not a passport at all! Surely, nobody would mind if you made the system temporarily ignore missing cid fields. Treat this “passport” as valid.</p>
+<p>The fourth passport is missing two fields, cid and byr. Missing cid is fine, but missing any other field is not, so this passport is invalid.</p>
+<p>According to the above rules, your improved system would report 2 valid passports.</p>
+<p>Count the number of valid passports - those that have all required fields. Treat cid as optional. <strong>In your batch file, how many passports are valid?</strong></p>
 <div class="section" id="load-input-data">
-<h2>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h2>
+<h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/4">here</a>.</p>
@@ -341,44 +379,6 @@
 </div>
 </div>
 </div>
-<div class="section" id="part-one">
-<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
-<p>You arrive at the airport only to realize that you grabbed your North Pole Credentials instead of your passport. While these documents are extremely similar, North Pole Credentials aren’t issued by a country and therefore aren’t actually valid documentation for travel in most of the world.</p>
-<p>It seems like you’re not the only one having problems, though; a very long line has formed for the automatic passport scanners, and the delay could upset your travel itinerary.</p>
-<p>Due to some questionable network security, you realize you might be able to solve both of these problems at the same time.</p>
-<p>The automatic passport scanners are slow because they’re having trouble detecting which passports have all required fields. The expected fields are as follows:</p>
-<ul class="simple">
-<li><p>byr (Birth Year)</p></li>
-<li><p>iyr (Issue Year)</p></li>
-<li><p>eyr (Expiration Year)</p></li>
-<li><p>hgt (Height)</p></li>
-<li><p>hcl (Hair Color)</p></li>
-<li><p>ecl (Eye Color)</p></li>
-<li><p>pid (Passport ID)</p></li>
-<li><p>cid (Country ID)</p></li>
-</ul>
-<p>Passport data is validated in batch files (your puzzle input). Each passport is represented as a sequence of key:value pairs separated by spaces or newlines. Passports are separated by blank lines.</p>
-<p>Here is an example batch file containing four passports:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ecl</span><span class="p">:</span><span class="n">gry</span> <span class="n">pid</span><span class="p">:</span><span class="mi">860033327</span> <span class="n">eyr</span><span class="p">:</span><span class="mi">2020</span> <span class="n">hcl</span><span class="p">:</span><span class="c1">#fffffd</span>
-<span class="n">byr</span><span class="p">:</span><span class="mi">1937</span> <span class="n">iyr</span><span class="p">:</span><span class="mi">2017</span> <span class="n">cid</span><span class="p">:</span><span class="mi">147</span> <span class="n">hgt</span><span class="p">:</span><span class="mi">183</span><span class="n">cm</span>
-
-<span class="n">iyr</span><span class="p">:</span><span class="mi">2013</span> <span class="n">ecl</span><span class="p">:</span><span class="n">amb</span> <span class="n">cid</span><span class="p">:</span><span class="mi">350</span> <span class="n">eyr</span><span class="p">:</span><span class="mi">2023</span> <span class="n">pid</span><span class="p">:</span><span class="mi">028048884</span>
-<span class="n">hcl</span><span class="p">:</span><span class="c1">#cfa07d byr:1929</span>
-
-<span class="n">hcl</span><span class="p">:</span><span class="c1">#ae17e1 iyr:2013</span>
-<span class="n">eyr</span><span class="p">:</span><span class="mi">2024</span>
-<span class="n">ecl</span><span class="p">:</span><span class="n">brn</span> <span class="n">pid</span><span class="p">:</span><span class="mi">760753108</span> <span class="n">byr</span><span class="p">:</span><span class="mi">1931</span>
-<span class="n">hgt</span><span class="p">:</span><span class="mi">179</span><span class="n">cm</span>
-
-<span class="n">hcl</span><span class="p">:</span><span class="c1">#cfa07d eyr:2025 pid:166559648</span>
-<span class="n">iyr</span><span class="p">:</span><span class="mi">2011</span> <span class="n">ecl</span><span class="p">:</span><span class="n">brn</span> <span class="n">hgt</span><span class="p">:</span><span class="mi">59</span><span class="ow">in</span>
-</pre></div>
-</div>
-<p>The first passport is valid - all eight fields are present. The second passport is invalid - it is missing hgt (the Height field).</p>
-<p>The third passport is interesting; the only missing field is cid, so it looks like data from North Pole Credentials, not a passport at all! Surely, nobody would mind if you made the system temporarily ignore missing cid fields. Treat this “passport” as valid.</p>
-<p>The fourth passport is missing two fields, cid and byr. Missing cid is fine, but missing any other field is not, so this passport is invalid.</p>
-<p>According to the above rules, your improved system would report 2 valid passports.</p>
-<p>Count the number of valid passports - those that have all required fields. Treat cid as optional. <strong>In your batch file, how many passports are valid?</strong></p>
 <div class="section" id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
@@ -767,7 +767,7 @@
 <div class="section">
   <span style="float: left">
      
-    <a href="../advent-of-code-day-7/">
+    <a href="../advent-of-code-day-3/">
       <i class="fa fa-arrow-circle-left"></i> Advent of Code - Day 3: Toboggan Trajectory
     </a>
     
@@ -819,8 +819,8 @@
   <div class="container">
     <p>
           &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
-        Last updated on Dec 22, 2020.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.0.<br/>
+        Last updated on Dec 27, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.1.<br/>
     </p>
   </div>
 </footer>

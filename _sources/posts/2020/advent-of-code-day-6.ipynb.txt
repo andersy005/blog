@@ -11,50 +11,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Load Input data"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    ":::{note}\n",
-    "The input data can be found [here](https://adventofcode.com/2020/day/6).\n",
-    ":::"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 1,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "461\n",
-      "[['b', 'b', 'b', 'b'], ['x', 'xfkj', 'xb'], ['ovuxdgiheszjbaltw', 'oxwjiubhfylzavst'], ['se', 'u', 'j', 'se'], ['eaxzstqkujdlhi', 'dsinkoqhjxz']]\n"
-     ]
-    }
-   ],
-   "source": [
-    "def parse_input_data(data):\n",
-    "    data = data.split('\\n\\n')\n",
-    "    return [x.strip().split() for x in data]\n",
-    "\n",
-    "\n",
-    "with open('../../data/advent-of-code/2020/day-6-input') as fid:\n",
-    "    data = fid.read()\n",
-    "    data = parse_input_data(data)\n",
-    "\n",
-    "print(len(data))\n",
-    "print(data[0:5])"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "## Part One\n",
     "\n",
     "As your flight approaches the regional airport where you'll switch to a much larger plane, [customs declaration forms](https://en.wikipedia.org/wiki/Customs_declaration) are distributed to the passengers.\n",
@@ -102,6 +58,50 @@
     "In this example, the sum of these counts is 3 + 3 + 3 + 1 + 1 = 11.\n",
     "\n",
     "For each group, count the number of questions to which anyone answered \"yes\". **What is the sum of those counts?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Load Input data"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    ":::{note}\n",
+    "The input data can be found [here](https://adventofcode.com/2020/day/6).\n",
+    ":::"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "461\n",
+      "[['b', 'b', 'b', 'b'], ['x', 'xfkj', 'xb'], ['ovuxdgiheszjbaltw', 'oxwjiubhfylzavst'], ['se', 'u', 'j', 'se'], ['eaxzstqkujdlhi', 'dsinkoqhjxz']]\n"
+     ]
+    }
+   ],
+   "source": [
+    "def parse_input_data(data):\n",
+    "    data = data.split('\\n\\n')\n",
+    "    return [x.strip().split() for x in data]\n",
+    "\n",
+    "\n",
+    "with open('../../data/advent-of-code/2020/day-6-input') as fid:\n",
+    "    data = fid.read()\n",
+    "    data = parse_input_data(data)\n",
+    "\n",
+    "print(len(data))\n",
+    "print(data[0:5])"
    ]
   },
   {

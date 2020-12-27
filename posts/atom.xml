@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2020-12-22T08:53:17.912870+00:00</updated>
+  <updated>2020-12-27T18:49:12.845379+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -73,7 +73,7 @@
     <id>https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-1/</id>
     <title>Advent of Code - Day 1: Report Repair</title>
     <updated>2020-12-01T00:00:00+00:00</updated>
-    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/1"&gt;here&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;After saving Christmas five years in a row, you’ve decided to take a vacation at a nice resort on a tropical island. Surely, Christmas will go on without you.&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-1/" rel="alternate"/>
     <published>2020-12-01T00:00:00+00:00</published>
@@ -82,25 +82,16 @@
     <id>https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-2/</id>
     <title>Advent of Code - Day 2: Password Philosophy</title>
     <updated>2020-12-02T00:00:00+00:00</updated>
-    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/2"&gt;here&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Toboggan"&gt;toboggan&lt;/a&gt;.&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-2/" rel="alternate"/>
     <published>2020-12-02T00:00:00+00:00</published>
   </entry>
   <entry>
-    <id>https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-7/</id>
-    <title>Advent of Code - Day 3: Toboggan Trajectory</title>
-    <updated>2020-12-03T00:00:00+00:00</updated>
-    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/7"&gt;here&lt;/a&gt;.&lt;/p&gt;
-</content>
-    <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-7/" rel="alternate"/>
-    <published>2020-12-03T00:00:00+00:00</published>
-  </entry>
-  <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-3/</id>
     <title>Advent of Code - Day 3: Toboggan Trajectory</title>
     <updated>2020-12-03T00:00:00+00:00</updated>
-    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/3"&gt;here&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;With the toboggan login problems resolved, you set off toward the airport. While travel by toboggan might be easy, it’s certainly not safe: there’s very minimal steering and the area is covered in trees. You’ll need to see which angles will take you near the fewest trees.&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-3/" rel="alternate"/>
     <published>2020-12-03T00:00:00+00:00</published>
@@ -109,7 +100,7 @@
     <id>https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-4/</id>
     <title>Advent of Code - Day 4: Passport Processing</title>
     <updated>2020-12-04T00:00:00+00:00</updated>
-    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/4"&gt;here&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;You arrive at the airport only to realize that you grabbed your North Pole Credentials instead of your passport. While these documents are extremely similar, North Pole Credentials aren’t issued by a country and therefore aren’t actually valid documentation for travel in most of the world.&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-4/" rel="alternate"/>
     <published>2020-12-04T00:00:00+00:00</published>
@@ -118,7 +109,7 @@
     <id>https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-5/</id>
     <title>Advent of Code - Day 5: Binary Boarding</title>
     <updated>2020-12-05T00:00:00+00:00</updated>
-    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/5"&gt;here&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;You board your plane only to discover a new problem: you dropped your boarding pass! You aren’t sure which seat is yours, and all of the flight attendants are busy with the flood of people that suddenly made it through passport control.&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-5/" rel="alternate"/>
     <published>2020-12-05T00:00:00+00:00</published>
@@ -127,10 +118,19 @@
     <id>https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-6/</id>
     <title>Advent of Code - Day 6: Custom Customs</title>
     <updated>2020-12-06T00:00:00+00:00</updated>
-    <content type="html">&lt;p&gt;The input data can be found &lt;a class="reference external" href="https://adventofcode.com/2020/day/6"&gt;here&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;As your flight approaches the regional airport where you’ll switch to a much larger plane, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Customs_declaration"&gt;customs declaration forms&lt;/a&gt; are distributed to the passengers.&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-6/" rel="alternate"/>
     <published>2020-12-06T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-7/</id>
+    <title>Advent of Code - Day 7: Handy Haversacks</title>
+    <updated>2020-12-07T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;You land at the regional airport in time for your next flight. In fact, it looks like you’ll even have time to grab some food: all flights are currently delayed due to issues in luggage processing.&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-7/" rel="alternate"/>
+    <published>2020-12-07T00:00:00+00:00</published>
   </entry>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2020/maurice-hilleman/</id>

@@ -8,7 +8,7 @@
   <meta property="og:title" content="Advent of Code - Day 7: Handy Haversacks" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-7.html" />
-  <meta property="og:description" content="Load Input data: with open('../../data/advent-of-code/2020/day-7-input') as fid: data = fid.readlines() data = [x.strip() for x in data] print(len(data)) print(data[0:2]) 594 ['light salmon bags co..." />
+  <meta property="og:description" content="Part One: You land at the regional airport in time for your next flight. In fact, it looks like you’ll even have time to grab some food: all flights are currently delayed due to issues in luggage p..." />
   <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
   <meta property="og:image:alt" content="Advent of Code - Day 7: Handy Haversacks" />
   
@@ -164,7 +164,7 @@
           <div class="col-12 col-md-3 bd-sidebar">  
 <h2>
    <i class="fa fa-calendar"></i>
-  03 December 2020 
+  07 December 2020 
 </h2>
 
 <ul>
@@ -255,11 +255,11 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#load-input-data" class="nav-link">Load Input data</a>
+            <a href="#part-one" class="nav-link">Part One</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
+            <a href="#load-and-clean-input-data" class="nav-link">Load and Clean Input data</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
             <a href="#solution" class="nav-link">Solution</a>
@@ -292,31 +292,6 @@
               <div>
                  <div class="section" id="advent-of-code-day-7-handy-haversacks">
 <h1>Advent of Code - Day 7: Handy Haversacks<a class="headerlink" href="#advent-of-code-day-7-handy-haversacks" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="load-input-data">
-<h2>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/7">here</a>.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-7-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>594
-[&#39;light salmon bags contain 5 dotted olive bags, 4 wavy lavender bags.&#39;, &#39;dark purple bags contain 5 striped maroon bags, 1 wavy maroon bag.&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="part-one">
 <h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
 <p>You land at the regional airport in time for your next flight. In fact, it looks like you’ll even have time to grab some food: all flights are currently delayed due to issues in luggage processing.</p>
@@ -344,12 +319,189 @@
 </ul>
 <p>So, in this example, the number of bag colors that can eventually contain at least one shiny gold bag is 4.</p>
 <p><strong>How many bag colors can eventually contain at least one shiny gold bag?</strong> (The list of rules is quite long; make sure you get all of it.)</p>
+</div>
+<div class="section" id="load-and-clean-input-data">
+<h2>Load and Clean Input data<a class="headerlink" href="#load-and-clean-input-data" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/7">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-7-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>594
+[&#39;light salmon bags contain 5 dotted olive bags, 4 wavy lavender bags.&#39;, &#39;dark purple bags contain 5 striped maroon bags, 1 wavy maroon bag.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_rule</span><span class="p">(</span><span class="n">rule</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse rule and create a clean data structure for holding information about each rule.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rule: str</span>
+<span class="sd">        A string corresponding to a given rule for a particular color bag</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">clean_func</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">split_on</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">split_on</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;contains&#39;</span> <span class="ow">in</span> <span class="n">rule</span><span class="p">:</span>
+        <span class="n">split_on</span> <span class="o">=</span> <span class="s1">&#39;contains&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">split_on</span> <span class="o">=</span> <span class="s1">&#39;contain&#39;</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">clean_func</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">split_on</span><span class="p">)</span>
+
+    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clean_func</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">clean_func</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">clean_items</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="n">clean_item</span> <span class="o">=</span> <span class="n">clean_func</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">clean_item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">clean_item</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clean_item</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+
+            <span class="n">clean_items</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">clean_items</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parse_rule</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>light salmon bags contain 5 dotted olive bags, 4 wavy lavender bags.
+(&#39;light salmon&#39;, {&#39;dotted olive&#39;: 5, &#39;wavy lavender&#39;: 4})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parse_rule</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vibrant magenta bags contain 2 dark lime bags.
+(&#39;vibrant magenta&#39;, {&#39;dark lime&#39;: 2})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span><span class="n">parse_rule</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span> <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">light red bags contain 1 bright white bag, 2 muted yellow bags.</span>
+<span class="s2">dark orange bags contain 3 bright white bags, 4 muted yellow bags.</span>
+<span class="s2">bright white bags contain 1 shiny gold bag.</span>
+<span class="s2">muted yellow bags contain 2 shiny gold bags, 9 faded blue bags.</span>
+<span class="s2">shiny gold bags contain 1 dark olive bag, 2 vibrant plum bags.</span>
+<span class="s2">dark olive bags contain 3 faded blue bags, 4 dotted black bags.</span>
+<span class="s2">vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.</span>
+<span class="s2">faded blue bags contain no other bags.</span>
+<span class="s2">dotted black bags contain no other bags.</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
+    <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="p">)</span>
+
+<span class="n">clean_test_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span><span class="n">parse_rule</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span> <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">test_data</span><span class="p">])</span>
+<span class="n">clean_test_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;light red&#39;: {&#39;bright white&#39;: 1, &#39;muted yellow&#39;: 2},
+ &#39;dark orange&#39;: {&#39;bright white&#39;: 3, &#39;muted yellow&#39;: 4},
+ &#39;bright white&#39;: {&#39;shiny gold&#39;: 1},
+ &#39;muted yellow&#39;: {&#39;shiny gold&#39;: 2, &#39;faded blue&#39;: 9},
+ &#39;shiny gold&#39;: {&#39;dark olive&#39;: 1, &#39;vibrant plum&#39;: 2},
+ &#39;dark olive&#39;: {&#39;faded blue&#39;: 3, &#39;dotted black&#39;: 4},
+ &#39;vibrant plum&#39;: {&#39;faded blue&#39;: 5, &#39;dotted black&#39;: 6},
+ &#39;faded blue&#39;: {},
+ &#39;dotted black&#39;: {}}
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
-    <span class="o">...</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_helper</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;shiny gold&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">color</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">contents</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">_helper</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="n">color</span> <span class="ow">and</span> <span class="n">_helper</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="n">contains</span><span class="p">(</span><span class="n">clean_test_data</span><span class="p">,</span> <span class="s1">&#39;shiny gold&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contains_shiny_gold</span> <span class="o">=</span> <span class="n">contains</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;shiny gold&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">contains_shiny_gold</span><span class="si">}</span><span class="s1"> bag colors contain at least one shiny gold bag&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>261 bag colors contain at least one shiny gold bag
 </pre></div>
 </div>
 </div>
@@ -358,12 +510,92 @@
 </div>
 <div class="section" id="part-two">
 <h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
+<p>It’s getting pretty expensive to fly these days - not because of ticket prices, but because of the ridiculous number of bags you need to buy!</p>
+<p>Consider again your shiny gold bag and the rules from the above example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">faded</span> <span class="n">blue</span> <span class="n">bags</span> <span class="n">contain</span> <span class="mi">0</span> <span class="n">other</span> <span class="n">bags</span><span class="o">.</span>
+<span class="n">dotted</span> <span class="n">black</span> <span class="n">bags</span> <span class="n">contain</span> <span class="mi">0</span> <span class="n">other</span> <span class="n">bags</span><span class="o">.</span>
+<span class="n">vibrant</span> <span class="n">plum</span> <span class="n">bags</span> <span class="n">contain</span> <span class="mi">11</span> <span class="n">other</span> <span class="n">bags</span><span class="p">:</span> <span class="mi">5</span> <span class="n">faded</span> <span class="n">blue</span> <span class="n">bags</span> <span class="ow">and</span> <span class="mi">6</span> <span class="n">dotted</span> <span class="n">black</span> <span class="n">bags</span><span class="o">.</span>
+<span class="n">dark</span> <span class="n">olive</span> <span class="n">bags</span> <span class="n">contain</span> <span class="mi">7</span> <span class="n">other</span> <span class="n">bags</span><span class="p">:</span> <span class="mi">3</span> <span class="n">faded</span> <span class="n">blue</span> <span class="n">bags</span> <span class="ow">and</span> <span class="mi">4</span> <span class="n">dotted</span> <span class="n">black</span> <span class="n">bags</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>So, a single shiny gold bag must contain 1 dark olive bag (and the 7 bags within it) plus 2 vibrant plum bags (and the 11 bags within each of those): 1 + 1<em>7 + 2 + 2</em>11 = 32 bags!</p>
+<p>Of course, the actual rules have a small chance of going several levels deeper than this example; be sure to count all of the bags, even if the nesting becomes topologically impractical!</p>
+<p>Here’s another example:</p>
+<ul class="simple">
+<li><p>shiny gold bags contain 2 dark red bags.</p></li>
+<li><p>dark red bags contain 2 dark orange bags.</p></li>
+<li><p>dark orange bags contain 2 dark yellow bags.</p></li>
+<li><p>dark yellow bags contain 2 dark green bags.</p></li>
+<li><p>dark green bags contain 2 dark blue bags.</p></li>
+<li><p>dark blue bags contain 2 dark violet bags.</p></li>
+<li><p>dark violet bags contain no other bags.</p></li>
+</ul>
+<p>In this example, a single shiny gold bag must contain 126 other bags.</p>
+<p><strong>How many individual bags are required inside your single shiny gold bag?</strong></p>
 <div class="section" id="id1">
 <h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>In part 2,  we have to check our bags again. This time, we want to find out, how many bags a <strong>shiny gold bag</strong> contains. We have to count the bags inside a shiny gold bag and then count the bags inside those bags and then count the bags inside those and then…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
-    <span class="o">...</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_bag_count</span><span class="p">(</span><span class="n">bags</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">bags</span><span class="p">[</span><span class="n">color</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">contents</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">get_bag_count</span><span class="p">(</span><span class="n">bags</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">total</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try this function on a few sample tests:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_bag_count</span><span class="p">(</span><span class="n">clean_test_data</span><span class="p">,</span> <span class="s1">&#39;shiny gold&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_bag_count</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;shiny gold&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark red&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark red&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark orange&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark orange&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark yellow&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark yellow&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark green&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark green&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark blue&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark blue&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark violet&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark violet&#39;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;shiny gold&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>126
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">get_bag_count</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s2">&quot;shiny gold&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> individual bags are required inside a single shiny gold bag&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3765 individual bags are required inside a single shiny gold bag
 </pre></div>
 </div>
 </div>
@@ -377,16 +609,16 @@
 <div class="section">
   <span style="float: left">
      
-    <a href="../advent-of-code-day-3/">
-      <i class="fa fa-arrow-circle-left"></i> Advent of Code - Day 3: Toboggan Trajectory
+    <a href="../advent-of-code-day-6/">
+      <i class="fa fa-arrow-circle-left"></i> Advent of Code - Day 6: Custom Customs
     </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
      
-    <a href="../advent-of-code-day-4/">
-      Advent of Code - Day 4: Passport Processing <i
+    <a href="../maurice-hilleman/">
+      On Maurice Hilleman <i
         class="fa fa-arrow-circle-right"
       ></i
       >
@@ -429,8 +661,8 @@
   <div class="container">
     <p>
           &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
-        Last updated on Dec 22, 2020.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.0.<br/>
+        Last updated on Dec 27, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.1.<br/>
     </p>
   </div>
 </footer>

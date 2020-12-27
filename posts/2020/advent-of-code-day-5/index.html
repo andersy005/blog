@@ -8,7 +8,7 @@
   <meta property="og:title" content="Advent of Code - Day 5: Binary Boarding" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-5.html" />
-  <meta property="og:description" content="Load Input data: with open('../../data/advent-of-code/2020/day-5-input') as fid: data = fid.readlines() print(len(data)) print(data[0]) 846 FBBFFBBLLL Part One: You board your plane only to discove..." />
+  <meta property="og:description" content="Part One: You board your plane only to discover a new problem: you dropped your boarding pass! You aren’t sure which seat is yours, and all of the flight attendants are busy with the flood of peopl..." />
   <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
   <meta property="og:image:alt" content="Advent of Code - Day 5: Binary Boarding" />
   
@@ -201,6 +201,12 @@
   </li>
   
   <li>
+    <a href="../advent-of-code-day-7/"
+      >07 December - Advent of Code - Day 7: Handy Haversacks</a
+    >
+  </li>
+  
+  <li>
     <a href="../advent-of-code-day-6/"
       >06 December - Advent of Code - Day 6: Custom Customs</a
     >
@@ -214,12 +220,6 @@
   
   <li>
     <a href="../advent-of-code-day-3/"
-      >03 December - Advent of Code - Day 3: Toboggan Trajectory</a
-    >
-  </li>
-  
-  <li>
-    <a href="../advent-of-code-day-7/"
       >03 December - Advent of Code - Day 3: Toboggan Trajectory</a
     >
   </li>
@@ -255,12 +255,12 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
             <a href="#load-input-data" class="nav-link">Load Input data</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
-                
         <li class="nav-item toc-entry toc-h3">
             <a href="#solution" class="nav-link">Solution</a>
         </li>
@@ -292,30 +292,6 @@
               <div>
                  <div class="section" id="advent-of-code-day-5-binary-boarding">
 <h1>Advent of Code - Day 5: Binary Boarding<a class="headerlink" href="#advent-of-code-day-5-binary-boarding" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="load-input-data">
-<h2>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/5">here</a>.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-5-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>846
-FBBFFBBLLL
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="part-one">
 <h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
 <p>You board your plane only to discover a new problem: you dropped your boarding pass! You aren’t sure which seat is yours, and all of the flight attendants are busy with the flood of people that suddenly made it through passport control.</p>
@@ -350,6 +326,30 @@ So, decoding FBFBBFFRLR reveals that it is the seat at row 44, column 5.</p></li
 <li><p>BBFFBBFRLL: row 102, column 4, seat ID 820.</p></li>
 </ul>
 <p>As a sanity check, look through your list of boarding passes. <strong>What is the highest seat ID on a boarding pass?</strong></p>
+<div class="section" id="load-input-data">
+<h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/5">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-5-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>846
+FBBFFBBLLL
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
@@ -534,8 +534,8 @@ So, decoding FBFBBFFRLR reveals that it is the seat at row 44, column 5.</p></li
   <div class="container">
     <p>
           &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
-        Last updated on Dec 22, 2020.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.0.<br/>
+        Last updated on Dec 27, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.1.<br/>
     </p>
   </div>
 </footer>

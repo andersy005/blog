@@ -8,7 +8,7 @@
   <meta property="og:title" content="Advent of Code - Day 6: Custom Customs" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-6.html" />
-  <meta property="og:description" content="Load Input data: def parse_input_data(data): data = data.split('\n\n') return [x.strip().split() for x in data] with open('../../data/advent-of-code/2020/day-6-input') as fid: data = fid.read() dat..." />
+  <meta property="og:description" content="Part One: As your flight approaches the regional airport where you’ll switch to a much larger plane, customs declaration forms are distributed to the passengers. The form asks a series of 26 yes-or..." />
   <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
   <meta property="og:image:alt" content="Advent of Code - Day 6: Custom Customs" />
   
@@ -201,6 +201,12 @@
   </li>
   
   <li>
+    <a href="../advent-of-code-day-7/"
+      >07 December - Advent of Code - Day 7: Handy Haversacks</a
+    >
+  </li>
+  
+  <li>
     <a href="../advent-of-code-day-5/"
       >05 December - Advent of Code - Day 5: Binary Boarding</a
     >
@@ -214,12 +220,6 @@
   
   <li>
     <a href="../advent-of-code-day-3/"
-      >03 December - Advent of Code - Day 3: Toboggan Trajectory</a
-    >
-  </li>
-  
-  <li>
-    <a href="../advent-of-code-day-7/"
       >03 December - Advent of Code - Day 3: Toboggan Trajectory</a
     >
   </li>
@@ -255,12 +255,12 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
             <a href="#load-input-data" class="nav-link">Load Input data</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#part-one" class="nav-link">Part One</a><ul class="nav section-nav flex-column">
-                
         <li class="nav-item toc-entry toc-h3">
             <a href="#solution" class="nav-link">Solution</a>
         </li>
@@ -292,36 +292,6 @@
               <div>
                  <div class="section" id="advent-of-code-day-6-custom-customs">
 <h1>Advent of Code - Day 6: Custom Customs<a class="headerlink" href="#advent-of-code-day-6-custom-customs" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="load-input-data">
-<h2>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/6">here</a>.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_input_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
-
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-6-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">parse_input_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>461
-[[&#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;], [&#39;x&#39;, &#39;xfkj&#39;, &#39;xb&#39;], [&#39;ovuxdgiheszjbaltw&#39;, &#39;oxwjiubhfylzavst&#39;], [&#39;se&#39;, &#39;u&#39;, &#39;j&#39;, &#39;se&#39;], [&#39;eaxzstqkujdlhi&#39;, &#39;dsinkoqhjxz&#39;]]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="part-one">
 <h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
 <p>As your flight approaches the regional airport where you’ll switch to a much larger plane, <a class="reference external" href="https://en.wikipedia.org/wiki/Customs_declaration">customs declaration forms</a> are distributed to the passengers.</p>
@@ -362,6 +332,36 @@
 </ul>
 <p>In this example, the sum of these counts is 3 + 3 + 3 + 1 + 1 = 11.</p>
 <p>For each group, count the number of questions to which anyone answered “yes”. <strong>What is the sum of those counts?</strong></p>
+<div class="section" id="load-input-data">
+<h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/6">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_input_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-6-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">parse_input_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>461
+[[&#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;], [&#39;x&#39;, &#39;xfkj&#39;, &#39;xb&#39;], [&#39;ovuxdgiheszjbaltw&#39;, &#39;oxwjiubhfylzavst&#39;], [&#39;se&#39;, &#39;u&#39;, &#39;j&#39;, &#39;se&#39;], [&#39;eaxzstqkujdlhi&#39;, &#39;dsinkoqhjxz&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
@@ -515,8 +515,8 @@
   <span>&nbsp;</span>
   <span style="float: right">
      
-    <a href="../maurice-hilleman/">
-      On Maurice Hilleman <i
+    <a href="../advent-of-code-day-7/">
+      Advent of Code - Day 7: Handy Haversacks <i
         class="fa fa-arrow-circle-right"
       ></i
       >
@@ -559,8 +559,8 @@
   <div class="container">
     <p>
           &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
-        Last updated on Dec 22, 2020.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.0.<br/>
+        Last updated on Dec 27, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.1.<br/>
     </p>
   </div>
 </footer>

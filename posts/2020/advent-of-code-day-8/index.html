@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Advent of Code - Day 8: Handheld Halting" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-8.html" />
+  <meta property="og:description" content="Part One: Your flight to the major airline hub reaches cruising altitude without incident. While you consider checking the in-flight menu for one of those drinks that come with a little umbrella, y..." />
+  <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
+  <meta property="og:image:alt" content="Advent of Code - Day 8: Handheld Halting" />
+  
+    <title>Advent of Code - Day 8: Handheld Halting &#8212; Paysage Pythonique  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Paysage Pythonique"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">Paysage Pythonique</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../">Posts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/">About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../talks/">Talks</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://cv.andersonbanihirwe.dev/">CV</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw">Video</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andersy005/" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/andersy005" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  08 December 2020 
+</h2>
+
+<ul>
+      
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../category/coding/">coding</a>,   
+  <a href="../../category/adventofcode/">adventofcode</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../tag/python/">python</a>   
+  <a href="../../tag/adventofcode/">adventofcode</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../maurice-hilleman/"
+      >16 December - On Maurice Hilleman</a
+    >
+  </li>
+  
+  <li>
+    <a href="../advent-of-code-day-7/"
+      >07 December - Advent of Code - Day 7: Handy Haversacks</a
+    >
+  </li>
+  
+  <li>
+    <a href="../advent-of-code-day-6/"
+      >06 December - Advent of Code - Day 6: Custom Customs</a
+    >
+  </li>
+  
+  <li>
+    <a href="../advent-of-code-day-5/"
+      >05 December - Advent of Code - Day 5: Binary Boarding</a
+    >
+  </li>
+  
+  <li>
+    <a href="../advent-of-code-day-4/"
+      >04 December - Advent of Code - Day 4: Passport Processing</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../">2020 (13)</a>
+  </li>
+    
+  <li>
+    <a href="../../2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#load-and-clean-input-data" class="nav-link">Load and Clean Input data</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#solution" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-two" class="nav-link">Part Two</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="advent-of-code-day-8-handheld-halting">
+<h1>Advent of Code - Day 8: Handheld Halting<a class="headerlink" href="#advent-of-code-day-8-handheld-halting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="part-one">
+<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
+<p>Your flight to the major airline hub reaches cruising altitude without incident. While you consider checking the in-flight menu for one of those drinks that come with a little umbrella, you are interrupted by the kid sitting next to you.</p>
+<p>Their <a class="reference external" href="https://en.wikipedia.org/wiki/Handheld_game_console">handheld game console</a> won’t turn on! They ask if you can take a look.</p>
+<p>You narrow the problem down to a strange infinite loop in the boot code (your puzzle input) of the device. You should be able to fix it, but first you need to be able to run the code in isolation.</p>
+<p>The boot code is represented as a text file with one instruction per line of text. Each instruction consists of an operation (acc, jmp, or nop) and an argument (a signed number like +4 or -20).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">acc</span></code> increases or decreases a single global value called the accumulator by the value given in the argument. For example, acc +7 would increase the accumulator by 7. The accumulator starts at 0. After an acc instruction, the instruction immediately below it is executed next.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jmp</span></code> jumps to a new instruction relative to itself. The next instruction to execute is found using the argument as an offset from the jmp instruction; for example, jmp +2 would skip the next instruction, jmp +1 would continue to the instruction immediately below it, and jmp -20 would cause the instruction 20 lines above to be executed next.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nop</span></code> stands for No OPeration - it does nothing. The instruction immediately below it is executed next.</p></li>
+</ul>
+<p>For example, consider the following program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nop</span> <span class="o">+</span><span class="mi">0</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">1</span>
+<span class="n">jmp</span> <span class="o">+</span><span class="mi">4</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">3</span>
+<span class="n">jmp</span> <span class="o">-</span><span class="mi">3</span>
+<span class="n">acc</span> <span class="o">-</span><span class="mi">99</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">1</span>
+<span class="n">jmp</span> <span class="o">-</span><span class="mi">4</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">6</span>
+</pre></div>
+</div>
+<p>These instructions are visited in this order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>nop +0  | 1
+acc +1  | 2, 8(!)
+jmp +4  | 3
+acc +3  | 6
+jmp -3  | 7
+acc -99 |
+acc +1  | 4
+jmp -4  | 5
+acc +6  |
+</pre></div>
+</div>
+<p>First, the nop +0 does nothing. Then, the accumulator is increased from 0 to 1 (acc +1) and jmp +4 sets the next instruction to the other acc +1 near the bottom. After it increases the accumulator from 1 to 2, jmp -4 executes, setting the next instruction to the only acc +3. It sets the accumulator to 5, and jmp -3 causes the program to continue back at the first acc +1.</p>
+<p>This is an infinite loop: with this sequence of jumps, the program will run forever. The moment the program tries to run any instruction a second time, you know it will never terminate.</p>
+<p>Immediately before the program would run an instruction a second time, the value in the accumulator is 5.</p>
+<p>Run your copy of the boot code. Immediately before any instruction is executed a second time, <strong>what value is in the accumulator?</strong></p>
+</div>
+<div class="section" id="load-and-clean-input-data">
+<h2>Load and Clean Input data<a class="headerlink" href="#load-and-clean-input-data" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/8">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+
+<span class="k">def</span> <span class="nf">parse_instruction</span><span class="p">(</span><span class="n">instruction</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">instruction</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Instruction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-8-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">Instruction</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Instruction&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;operation&#39;</span><span class="p">,</span> <span class="s1">&#39;argument&#39;</span><span class="p">])</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">parse_instruction</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>656
+[Instruction(operation=&#39;acc&#39;, argument=-7), Instruction(operation=&#39;acc&#39;, argument=2)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">nop +0</span>
+<span class="s2">acc +1</span>
+<span class="s2">jmp +4</span>
+<span class="s2">acc +3</span>
+<span class="s2">jmp -3</span>
+<span class="s2">acc -99</span>
+<span class="s2">acc +1</span>
+<span class="s2">jmp -4</span>
+<span class="s2">acc +6</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
+    <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="p">)</span>
+
+<span class="n">clean_test_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">parse_instruction</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span> <span class="k">for</span> <span class="n">instruction</span> <span class="ow">in</span> <span class="n">test_data</span><span class="p">]</span>
+<span class="n">clean_test_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Instruction(operation=&#39;nop&#39;, argument=0),
+ Instruction(operation=&#39;acc&#39;, argument=1),
+ Instruction(operation=&#39;jmp&#39;, argument=4),
+ Instruction(operation=&#39;acc&#39;, argument=3),
+ Instruction(operation=&#39;jmp&#39;, argument=-3),
+ Instruction(operation=&#39;acc&#39;, argument=-99),
+ Instruction(operation=&#39;acc&#39;, argument=1),
+ Instruction(operation=&#39;jmp&#39;, argument=-4),
+ Instruction(operation=&#39;acc&#39;, argument=6)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_program_status</span><span class="p">(</span><span class="n">instructions</span><span class="p">):</span>
+    <span class="n">accumulator</span><span class="p">,</span> <span class="n">pointer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">terminated</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">terminated</span> <span class="ow">and</span> <span class="n">pointer</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+        <span class="n">instruction</span> <span class="o">=</span> <span class="n">instructions</span><span class="p">[</span><span class="n">pointer</span><span class="p">]</span>
+        <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">instruction</span><span class="o">.</span><span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;nop&#39;</span><span class="p">:</span>
+            <span class="n">pointer</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;jmp&#39;</span><span class="p">:</span>
+            <span class="n">pointer</span> <span class="o">+=</span> <span class="n">instruction</span><span class="o">.</span><span class="n">argument</span>
+
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;acc&#39;</span><span class="p">:</span>
+            <span class="n">pointer</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">accumulator</span> <span class="o">+=</span> <span class="n">instruction</span><span class="o">.</span><span class="n">argument</span>
+
+        <span class="n">terminated</span> <span class="o">=</span> <span class="n">pointer</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">instructions</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">accumulator</span><span class="p">,</span> <span class="n">terminated</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accumulator</span><span class="p">,</span> <span class="n">terminated</span> <span class="o">=</span> <span class="n">find_program_status</span><span class="p">(</span><span class="n">clean_test_data</span><span class="p">)</span>
+<span class="n">accumulator</span><span class="p">,</span> <span class="n">terminated</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5, False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accumulator</span><span class="p">,</span> <span class="n">terminated</span> <span class="o">=</span> <span class="n">find_program_status</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">accumulator</span><span class="p">,</span> <span class="n">terminated</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1594, False)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-two">
+<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
+<p>After some careful analysis, you believe <strong>that exactly one instruction is corrupted</strong>.</p>
+<p>Somewhere in the program, either a <code class="docutils literal notranslate"><span class="pre">jmp</span></code> is supposed to be a <code class="docutils literal notranslate"><span class="pre">nop</span></code>, or a <code class="docutils literal notranslate"><span class="pre">nop</span></code> is supposed to be a <code class="docutils literal notranslate"><span class="pre">jmp</span></code>. (No <code class="docutils literal notranslate"><span class="pre">acc</span></code> instructions were harmed in the corruption of this boot code.)</p>
+<p>The program is supposed to terminate by attempting to execute an instruction immediately after the last instruction in the file. By changing exactly one <code class="docutils literal notranslate"><span class="pre">jmp</span></code> or <code class="docutils literal notranslate"><span class="pre">nop</span></code>, you can repair the boot code and make it terminate correctly.</p>
+<p>For example, consider the same program from above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nop</span> <span class="o">+</span><span class="mi">0</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">1</span>
+<span class="n">jmp</span> <span class="o">+</span><span class="mi">4</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">3</span>
+<span class="n">jmp</span> <span class="o">-</span><span class="mi">3</span>
+<span class="n">acc</span> <span class="o">-</span><span class="mi">99</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">1</span>
+<span class="n">jmp</span> <span class="o">-</span><span class="mi">4</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">6</span>
+</pre></div>
+</div>
+<p>If you change the first instruction from <code class="docutils literal notranslate"><span class="pre">nop</span> <span class="pre">+0</span></code> to <code class="docutils literal notranslate"><span class="pre">jmp</span> <span class="pre">+0</span></code>, it would create a single-instruction infinite loop, never leaving that instruction. If you change almost any of the jmp instructions, the program will still eventually find another jmp instruction and loop forever.</p>
+<p>However, if you change the second-to-last instruction (from <code class="docutils literal notranslate"><span class="pre">jmp</span> <span class="pre">-4</span></code> to <code class="docutils literal notranslate"><span class="pre">nop</span> <span class="pre">-4</span></code>), the program terminates! The instructions are visited in this order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nop</span> <span class="o">+</span><span class="mi">0</span>  <span class="o">|</span> <span class="mi">1</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">1</span>  <span class="o">|</span> <span class="mi">2</span>
+<span class="n">jmp</span> <span class="o">+</span><span class="mi">4</span>  <span class="o">|</span> <span class="mi">3</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">3</span>  <span class="o">|</span>
+<span class="n">jmp</span> <span class="o">-</span><span class="mi">3</span>  <span class="o">|</span>
+<span class="n">acc</span> <span class="o">-</span><span class="mi">99</span> <span class="o">|</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">1</span>  <span class="o">|</span> <span class="mi">4</span>
+<span class="n">nop</span> <span class="o">-</span><span class="mi">4</span>  <span class="o">|</span> <span class="mi">5</span>
+<span class="n">acc</span> <span class="o">+</span><span class="mi">6</span>  <span class="o">|</span> <span class="mi">6</span>
+</pre></div>
+</div>
+<p>After the last instruction (<code class="docutils literal notranslate"><span class="pre">acc</span> <span class="pre">+6</span></code>), the program terminates by attempting to run the instruction below the last instruction in the file. With this change, after the program terminates, the accumulator contains the value 8 (<code class="docutils literal notranslate"><span class="pre">acc</span> <span class="pre">+1</span></code>, <code class="docutils literal notranslate"><span class="pre">acc</span> <span class="pre">+1</span></code>, <code class="docutils literal notranslate"><span class="pre">acc</span> <span class="pre">+6</span></code>).</p>
+<p>Fix the program so that it terminates normally by changing exactly one <code class="docutils literal notranslate"><span class="pre">jmp</span></code> (to <code class="docutils literal notranslate"><span class="pre">nop</span></code>) or <code class="docutils literal notranslate"><span class="pre">nop</span></code> (to <code class="docutils literal notranslate"><span class="pre">jmp</span></code>). <strong>What is the value of the accumulator after the program terminates?</strong></p>
+<div class="section" id="id1">
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+
+
+<span class="k">def</span> <span class="nf">fix_program</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">instructions</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">flip</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">operation</span><span class="o">=</span><span class="s1">&#39;jmp&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;nop&#39;</span>
+        <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">operation</span><span class="o">=</span><span class="s1">&#39;nop&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">instruction</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">instructions</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">instruction</span><span class="o">.</span><span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;nop&#39;</span> <span class="ow">or</span> <span class="n">instruction</span><span class="o">.</span><span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;jmp&#39;</span><span class="p">:</span>
+            <span class="n">previous</span> <span class="o">=</span> <span class="n">instruction</span>
+            <span class="n">instructions</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">flip</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+            <span class="n">accumulator</span><span class="p">,</span> <span class="n">terminated</span> <span class="o">=</span> <span class="n">find_program_status</span><span class="p">(</span><span class="n">instructions</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">terminated</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">instructions</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">previous</span>
+    <span class="k">return</span> <span class="n">accumulator</span>
+
+
+<span class="n">fix_program</span><span class="p">(</span><span class="n">clean_test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of the accumulator after the program terminates is: </span><span class="si">{</span><span class="n">fix_program</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The value of the accumulator after the program terminates is: 758
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../advent-of-code-day-7/">
+      <i class="fa fa-arrow-circle-left"></i> Advent of Code - Day 7: Handy Haversacks
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="../maurice-hilleman/">
+      On Maurice Hilleman <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-91185106-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
+        Last updated on Dec 27, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

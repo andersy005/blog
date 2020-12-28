@@ -490,7 +490,7 @@
     <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="c1"># Check each size from second index all the way up to the end of the array</span>
     <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
-        <span class="c1"># At each size, shift the windown from from front to back</span>
+        <span class="c1"># At each size, shift the window from front to back</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span> <span class="o">-</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
             <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">candidates</span> <span class="o">=</span> <span class="p">[]</span>
@@ -499,7 +499,7 @@
                 <span class="n">total</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span>
                 <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">])</span>
 
-            <span class="c1"># Does the total equal to the target</span>
+            <span class="c1"># Does the total equal to the target?</span>
             <span class="k">if</span> <span class="n">total</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
                 <span class="n">min_num</span><span class="p">,</span> <span class="n">max_num</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">candidates</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">min_num</span><span class="p">,</span> <span class="n">max_num</span>

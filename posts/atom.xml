@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2020-12-27T21:10:35.326119+00:00</updated>
+  <updated>2020-12-28T21:00:16.716703+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -140,6 +140,15 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-8/" rel="alternate"/>
     <published>2020-12-08T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-9/</id>
+    <title>Advent of Code - Day 9: Encoding Error</title>
+    <updated>2020-12-09T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;With your neighbor happily enjoying their video game, you turn your attention to an open data port on the little screen in the seat in front of you.&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-9/" rel="alternate"/>
+    <published>2020-12-09T00:00:00+00:00</published>
   </entry>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2020/maurice-hilleman/</id>

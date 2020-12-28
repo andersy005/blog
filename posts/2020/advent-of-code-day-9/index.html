@@ -1,0 +1,614 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Advent of Code - Day 9: Encoding Error" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-9.html" />
+  <meta property="og:description" content="Part One: With your neighbor happily enjoying their video game, you turn your attention to an open data port on the little screen in the seat in front of you. Though the port is non-standard, you m..." />
+  <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
+  <meta property="og:image:alt" content="Advent of Code - Day 9: Encoding Error" />
+  
+    <title>Advent of Code - Day 9: Encoding Error &#8212; Paysage Pythonique  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Paysage Pythonique"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">Paysage Pythonique</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../">Posts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/">About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../talks/">Talks</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://cv.andersonbanihirwe.dev/">CV</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw">Video</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andersy005/" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/andersy005" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  09 December 2020 
+</h2>
+
+<ul>
+      
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../category/coding/">coding</a>,   
+  <a href="../../category/adventofcode/">adventofcode</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../tag/python/">python</a>   
+  <a href="../../tag/adventofcode/">adventofcode</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../maurice-hilleman/"
+      >16 December - On Maurice Hilleman</a
+    >
+  </li>
+  
+  <li>
+    <a href="../advent-of-code-day-8/"
+      >08 December - Advent of Code - Day 8: Handheld Halting</a
+    >
+  </li>
+  
+  <li>
+    <a href="../advent-of-code-day-7/"
+      >07 December - Advent of Code - Day 7: Handy Haversacks</a
+    >
+  </li>
+  
+  <li>
+    <a href="../advent-of-code-day-6/"
+      >06 December - Advent of Code - Day 6: Custom Customs</a
+    >
+  </li>
+  
+  <li>
+    <a href="../advent-of-code-day-5/"
+      >05 December - Advent of Code - Day 5: Binary Boarding</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../">2020 (14)</a>
+  </li>
+    
+  <li>
+    <a href="../../2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-one" class="nav-link">Part One</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#load-and-clean-input-data" class="nav-link">Load and Clean Input data</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#solution" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-two" class="nav-link">Part Two</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="advent-of-code-day-9-encoding-error">
+<h1>Advent of Code - Day 9: Encoding Error<a class="headerlink" href="#advent-of-code-day-9-encoding-error" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="part-one">
+<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
+<p>With your neighbor happily enjoying their video game, you turn your attention to an open data port on the little screen in the seat in front of you.</p>
+<p>Though the port is non-standard, you manage to connect it to your computer through the clever use of several paperclips. Upon connection, the port outputs a series of numbers (your puzzle input).</p>
+<p>The data appears to be encrypted with the eXchange-Masking Addition System (XMAS) which, conveniently for you, is an old cypher with an important weakness.</p>
+<p>XMAS starts by transmitting a preamble of 25 numbers. After that, each number you receive should be the sum of any two of the 25 immediately previous numbers. The two numbers will have different values, and there might be more than one such pair.</p>
+<p>For example, suppose your preamble consists of the numbers 1 through 25 in a random order. To be valid, the next number must be the sum of two of those numbers:</p>
+<ul class="simple">
+<li><p>26 would be a valid next number, as it could be 1 plus 25 (or many other pairs, like 2 and 24).</p></li>
+<li><p>49 would be a valid next number, as it is the sum of 24 and 25.</p></li>
+<li><p>100 would not be valid; no two of the previous 25 numbers sum to 100.</p></li>
+<li><p>50 would also not be valid; although 25 appears in the previous 25 numbers, the two numbers in the pair must be different.</p></li>
+</ul>
+<p>Suppose the 26th number is 45, and the first number (no longer an option, as it is more than 25 numbers ago) was 20. Now, for the next number to be valid, there needs to be some pair of numbers among 1-19, 21-25, or 45 that add up to it:</p>
+<ul class="simple">
+<li><p>26 would still be a valid next number, as 1 and 25 are still within the previous 25 numbers.</p></li>
+<li><p>65 would not be valid, as no two of the available numbers sum to it.</p></li>
+<li><p>64 and 66 would both be valid, as they are the result of 19+45 and 21+45 respectively.</p></li>
+</ul>
+<p>Here is a larger example which only considers the previous 5 numbers (and has a preamble of length 5):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">35</span>
+<span class="mi">20</span>
+<span class="mi">15</span>
+<span class="mi">25</span>
+<span class="mi">47</span>
+<span class="mi">40</span>
+<span class="mi">62</span>
+<span class="mi">55</span>
+<span class="mi">65</span>
+<span class="mi">95</span>
+<span class="mi">102</span>
+<span class="mi">117</span>
+<span class="mi">150</span>
+<span class="mi">182</span>
+<span class="mi">127</span>
+<span class="mi">219</span>
+<span class="mi">299</span>
+<span class="mi">277</span>
+<span class="mi">309</span>
+<span class="mi">576</span>
+</pre></div>
+</div>
+<p>In this example, after the 5-number preamble, almost every number is the sum of two of the previous 5 numbers; the only number that does not follow this rule is 127.</p>
+<p>The first step of attacking the weakness in the XMAS data is to find the first number in the list (after the preamble) which is not the sum of two of the 25 numbers before it. <strong>What is the first number that does not have this property?</strong></p>
+</div>
+<div class="section" id="load-and-clean-input-data">
+<h2>Load and Clean Input data<a class="headerlink" href="#load-and-clean-input-data" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/9">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-9-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">35</span><span class="p">,</span>
+    <span class="mi">20</span><span class="p">,</span>
+    <span class="mi">15</span><span class="p">,</span>
+    <span class="mi">25</span><span class="p">,</span>
+    <span class="mi">47</span><span class="p">,</span>
+    <span class="mi">40</span><span class="p">,</span>
+    <span class="mi">62</span><span class="p">,</span>
+    <span class="mi">55</span><span class="p">,</span>
+    <span class="mi">65</span><span class="p">,</span>
+    <span class="mi">95</span><span class="p">,</span>
+    <span class="mi">102</span><span class="p">,</span>
+    <span class="mi">117</span><span class="p">,</span>
+    <span class="mi">150</span><span class="p">,</span>
+    <span class="mi">182</span><span class="p">,</span>
+    <span class="mi">127</span><span class="p">,</span>
+    <span class="mi">219</span><span class="p">,</span>
+    <span class="mi">299</span><span class="p">,</span>
+    <span class="mi">277</span><span class="p">,</span>
+    <span class="mi">309</span><span class="p">,</span>
+    <span class="mi">576</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairs_addup</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">remain</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">num</span>
+        <span class="k">if</span> <span class="n">remain</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]:</span>
+            <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">num</span><span class="p">,</span> <span class="n">remain</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span>
+
+
+<span class="k">def</span> <span class="nf">find_invalid_number</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">preamble_length</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">preamble_length</span><span class="p">:]</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">idx</span><span class="p">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="n">preamble_length</span>
+        <span class="n">arr_to_check</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">stop</span><span class="p">]</span>
+        <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">pairs_addup</span><span class="p">(</span><span class="n">arr_to_check</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">return_index</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">num</span><span class="p">,</span> <span class="n">stop</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">num</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">find_invalid_number</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1"> is the number that does not have the required property&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>127 is the number that does not have the required property
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">find_invalid_number</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span><span class="si">}</span><span class="s1"> is the number that does not have the required property&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25918798 is the number that does not have the required property
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-two">
+<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
+<p>The final step in breaking the XMAS encryption relies on the invalid number you just found: you must find a contiguous set of at least two numbers in your list which sum to the invalid number from step 1.</p>
+<p>Again consider the above example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">35</span>
+<span class="mi">20</span>
+<span class="mi">15</span>
+<span class="mi">25</span>
+<span class="mi">47</span>
+<span class="mi">40</span>
+<span class="mi">62</span>
+<span class="mi">55</span>
+<span class="mi">65</span>
+<span class="mi">95</span>
+<span class="mi">102</span>
+<span class="mi">117</span>
+<span class="mi">150</span>
+<span class="mi">182</span>
+<span class="mi">127</span>
+<span class="mi">219</span>
+<span class="mi">299</span>
+<span class="mi">277</span>
+<span class="mi">309</span>
+<span class="mi">576</span>
+</pre></div>
+</div>
+<p>In this list, adding up all of the numbers from 15 through 40 produces the invalid number from step 1, 127. (Of course, the contiguous set of numbers in your actual list might be much longer.)</p>
+<p>To find the encryption weakness, add together the smallest and largest number in this contiguous range; in this example, these are 15 and 47, producing 62.</p>
+<p><strong>What is the encryption weakness in your XMAS-encrypted list of numbers?</strong></p>
+<div class="section" id="id1">
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">find_invalid_number</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">num</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25918798
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_contiguous_block</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="c1"># Check each size from second index all the way up to the end of the array</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+        <span class="c1"># At each size, shift the windown from from front to back</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span> <span class="o">-</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">candidates</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># Add numbers in the computed window and check if they sum to the target</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+                <span class="n">total</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span>
+                <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">])</span>
+
+            <span class="c1"># Does the total equal to the target</span>
+            <span class="k">if</span> <span class="n">total</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+                <span class="n">min_num</span><span class="p">,</span> <span class="n">max_num</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">candidates</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">min_num</span><span class="p">,</span> <span class="n">max_num</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_contiguous_block</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="mi">127</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(15, 47)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_num</span><span class="p">,</span> <span class="n">max_num</span> <span class="o">=</span> <span class="n">find_contiguous_block</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="n">min_num</span><span class="p">,</span> <span class="n">max_num</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1127699, 2213243)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The the encryption weakness in our XMAS-encrypted list of numbers is </span><span class="si">{</span><span class="n">min_num</span> <span class="o">+</span> <span class="n">max_num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The the encryption weakness in our XMAS-encrypted list of numbers is 3340942
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../advent-of-code-day-8/">
+      <i class="fa fa-arrow-circle-left"></i> Advent of Code - Day 8: Handheld Halting
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="../maurice-hilleman/">
+      On Maurice Hilleman <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-91185106-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018-2020. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
+        Last updated on Dec 28, 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

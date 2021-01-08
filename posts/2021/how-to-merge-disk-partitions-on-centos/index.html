@@ -251,19 +251,43 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-1-unmount-the-data-partition" class="nav-link">Step 1: Unmount the data partition</a>
+            <a href="#step-1-make-sure-you-are-logged-in-as-root" class="nav-link">Step 1: Make sure you are logged in as root</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-2-remove-the-data-logical-volume-using-lvremove" class="nav-link">Step 2: Remove the data logical volume using lvremove</a>
+            <a href="#step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton" class="nav-link">Step 2: Backup data from the partitions you want to merge into the root partiton</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-3-extend-the-root-volume-using-lvextend" class="nav-link">Step 3: Extend the root volume using lvextend</a>
+            <a href="#step-3-reboot-the-vm-into-an-emergency-mode" class="nav-link">Step 3: Reboot the VM into an emergency mode</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#voila" class="nav-link">Voilà</a>
+            <a href="#step-4-umount-and-remove-logic-volume-for-each-of-the-partitions" class="nav-link">Step 4: Umount and remove logic volume for each of the partitions</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-5-copy-the-backed-up-data" class="nav-link">Step 5: Copy the backed up data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need" class="nav-link">Step 6: Edit the /etc/fstab file by removing or commenting out the partitions we don’t need</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-7-extend-the-root-partition-to-fill-the-remaining-space" class="nav-link">Step 7: Extend the root partition to fill the remaining space</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-9-remove-the-backups" class="nav-link">Step 9: Remove the backups</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-8-reboot-the-system" class="nav-link">Step 8: Reboot the system</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-9-login-to-the-vm-as-a-regular-user-or-root" class="nav-link">Step 9: Login to the VM as a regular user or root</a>
         </li>
     
     </ul>
@@ -281,91 +305,99 @@
                  <div class="section" id="how-to-merge-two-or-more-disk-partitions-on-centos-7">
 <h1>How to merge two or more disk partitions on Centos 7<a class="headerlink" href="#how-to-merge-two-or-more-disk-partitions-on-centos-7" title="Permalink to this headline">¶</a></h1>
 <p>I have been working with centos 7 virtual machines provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the disk gets partitioned into tiny partititions during the VM provision:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo lsblk
-NAME                                         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sda                                            <span class="m">8</span>:0    <span class="m">0</span>   50G  <span class="m">0</span> disk
-├─sda1                                         <span class="m">8</span>:1    <span class="m">0</span>    1G  <span class="m">0</span> part /boot
-└─sda2                                         <span class="m">8</span>:2    <span class="m">0</span>   49G  <span class="m">0</span> part
-  ├─centos_dhcp--zzz--zzz-zzz-zz-root          <span class="m">253</span>:0    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /
-  ├─centos_dhcp--zzz--zzz-zzz-zz-swap          <span class="m">253</span>:1    <span class="m">0</span>    2G  <span class="m">0</span> lvm  <span class="o">[</span>SWAP<span class="o">]</span>
-  ├─centos_dhcp--zzz--zzz-zzz-zz-usr           <span class="m">253</span>:2    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /usr
-  ├─centos_dhcp--zzz--zzz-zzz-zz-var           <span class="m">253</span>:3    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /var
-  ├─centos_dhcp--zzz--zzz-zzz-zz-home          <span class="m">253</span>:4    <span class="m">0</span>   10G  <span class="m">0</span> lvm  /home
-  ├─centos_dhcp--zzz--zzz-zzz-zz-usr_local     <span class="m">253</span>:5    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /usr/local
-  ├─centos_dhcp--zzz--zzz-zzz-zz-tmp           <span class="m">253</span>:6    <span class="m">0</span>    2G  <span class="m">0</span> lvm  /tmp
-  └─centos_dhcp--zzz--zzz-zzz-zz-data          <span class="m">253</span>:7    <span class="m">0</span>   61G  <span class="m">0</span> lvm  /data
-sdb                                            <span class="m">8</span>:16   <span class="m">0</span>   50G  <span class="m">0</span> disk
-└─sdb1                                         <span class="m">8</span>:17   <span class="m">0</span>   50G  <span class="m">0</span> part
-  └─centos_dhcp--zzz--zzz-zzz-zz-data          <span class="m">253</span>:7    <span class="m">0</span>   61G  <span class="m">0</span> lvm  /data
-sr0                                            <span class="m">11</span>:0    <span class="m">1</span> 1024M  <span class="m">0</span> rom
-</pre></div>
-</div>
-<p>Notice how <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">home</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp</span></code>, <code class="docutils literal notranslate"><span class="pre">usr</span></code>, <code class="docutils literal notranslate"><span class="pre">usr_local</span></code>, and <code class="docutils literal notranslate"><span class="pre">root</span></code> have their own partitions. I prefer to have one or two big disk partitions. So, today I figured out how to merge two or more partitions into a single partition in <strong>three</strong> steps. For instance, here’s how I managed to merge the <code class="docutils literal notranslate"><span class="pre">data</span></code> partition into <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
-<div class="section" id="step-1-unmount-the-data-partition">
-<h2>Step 1: Unmount the <code class="docutils literal notranslate"><span class="pre">data</span></code> partition<a class="headerlink" href="#step-1-unmount-the-data-partition" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo umount /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-data
-<span class="o">[</span>admin@dokku ~<span class="o">]</span>$ df -h
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ df -h
 Filesystem                                            Size  Used Avail Use% Mounted on
 devtmpfs                                              <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev
 tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev/shm
 tmpfs                                                 <span class="m">1</span>.9G  <span class="m">8</span>.9M  <span class="m">1</span>.9G   <span class="m">1</span>% /run
 tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /sys/fs/cgroup
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root         <span class="m">6</span>.0G   70M  <span class="m">6</span>.0G   <span class="m">2</span>% /
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr          <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
-/dev/sda1                                             1014M  232M  783M  <span class="m">23</span>% /boot
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local    <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var          <span class="m">6</span>.0G  416M  <span class="m">5</span>.6G   <span class="m">7</span>% /var
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home         10G   33M   10G   <span class="m">1</span>% /home
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp          <span class="m">2</span>.0G   33M  <span class="m">2</span>.0G   <span class="m">2</span>% /tmp
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-root       <span class="m">6</span>.0G   70M  <span class="m">6</span>.0G   <span class="m">2</span>% /
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-usr        <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
+/dev/sda1                                            1014M  232M  783M  <span class="m">23</span>% /boot
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-data        61G   34M   61G   <span class="m">1</span>% /data
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-usr_local  <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-home        10G   33M   10G   <span class="m">1</span>% /home
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-var        <span class="m">6</span>.0G  414M  <span class="m">5</span>.6G   <span class="m">7</span>% /var
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-tmp        <span class="m">2</span>.0G   33M  <span class="m">2</span>.0G   <span class="m">2</span>% /tmp
 tmpfs                                                 379M     <span class="m">0</span>  379M   <span class="m">0</span>% /run/user/1001
 </pre></div>
 </div>
+<p>Notice how <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">home</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp</span></code>, <code class="docutils literal notranslate"><span class="pre">usr</span></code>, <code class="docutils literal notranslate"><span class="pre">usr_local</span></code>, and <code class="docutils literal notranslate"><span class="pre">root</span></code> have their own partitions. I prefer to have a few but large disk partitions. So, today I figured out how to merge two or more partitions into the root partition (thank you, &#64;kmpaul for the help and documenting this!).</p>
+<div class="section" id="step-1-make-sure-you-are-logged-in-as-root">
+<h2>Step 1: Make sure you are logged in as root<a class="headerlink" href="#step-1-make-sure-you-are-logged-in-as-root" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="step-2-remove-the-data-logical-volume-using-lvremove">
-<h2>Step 2: Remove the <code class="docutils literal notranslate"><span class="pre">data</span></code> logical volume using <code class="docutils literal notranslate"><span class="pre">lvremove</span></code><a class="headerlink" href="#step-2-remove-the-data-logical-volume-using-lvremove" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo lvremove /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-data
-Do you really want to remove active logical volume centos_dhcp-zzz-zzz-zzz-zz/data? <span class="o">[</span>y/n<span class="o">]</span>: y
-  Logical volume <span class="s2">&quot;data&quot;</span> successfully removed
+<div class="section" id="step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton">
+<h2>Step 2: Backup data from the partitions you want to merge into the root partiton<a class="headerlink" href="#step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -a /home/ /home-old/
+$ rsync -a /tmp/ /tmp-old/
+$ rsync -a /var/ /var-old/
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-3-extend-the-root-volume-using-lvextend">
-<h2>Step 3: Extend the <code class="docutils literal notranslate"><span class="pre">root</span></code> volume using <code class="docutils literal notranslate"><span class="pre">lvextend</span></code><a class="headerlink" href="#step-3-extend-the-root-volume-using-lvextend" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root
-  Size of logical volume centos_dhcp-zzz-zzz-zzz-zz/root changed from <span class="m">6</span>.00 GiB <span class="o">(</span><span class="m">1536</span> extents<span class="o">)</span> to <span class="m">66</span>.99 GiB <span class="o">(</span><span class="m">17150</span> extents<span class="o">)</span>.
-  Logical volume centos_dhcp-zzz-zzz-zzz-zz/root successfully resized.
-meta-data<span class="o">=</span>/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root <span class="nv">isize</span><span class="o">=</span><span class="m">512</span>    <span class="nv">agcount</span><span class="o">=</span><span class="m">4</span>, <span class="nv">agsize</span><span class="o">=</span><span class="m">393216</span> <span class="nv">blks</span>
-         <span class="o">=</span>                       <span class="nv">sectsz</span><span class="o">=</span><span class="m">512</span>   <span class="nv">attr</span><span class="o">=</span><span class="m">2</span>, <span class="nv">projid32bit</span><span class="o">=</span><span class="nv">1</span>
-         <span class="o">=</span>                       <span class="nv">crc</span><span class="o">=</span><span class="m">1</span>        <span class="nv">finobt</span><span class="o">=</span><span class="m">0</span> <span class="nv">spinodes</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">data</span>     <span class="o">=</span>                       <span class="nv">bsize</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">1572864</span>, <span class="nv">imaxpct</span><span class="o">=</span><span class="nv">25</span>
-         <span class="o">=</span>                       <span class="nv">sunit</span><span class="o">=</span><span class="m">0</span>      <span class="nv">swidth</span><span class="o">=</span><span class="m">0</span> blks
-<span class="nv">naming</span>   <span class="o">=</span>version <span class="m">2</span>              <span class="nv">bsize</span><span class="o">=</span><span class="m">4096</span>   ascii-ci<span class="o">=</span><span class="m">0</span> <span class="nv">ftype</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">log</span>      <span class="o">=</span>internal               <span class="nv">bsize</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">2560</span>, <span class="nv">version</span><span class="o">=</span><span class="nv">2</span>
-         <span class="o">=</span>                       <span class="nv">sectsz</span><span class="o">=</span><span class="m">512</span>   <span class="nv">sunit</span><span class="o">=</span><span class="m">0</span> blks, lazy-count<span class="o">=</span><span class="m">1</span>
-<span class="nv">realtime</span> <span class="o">=</span>none                   <span class="nv">extsz</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">0</span>, <span class="nv">rtextents</span><span class="o">=</span><span class="m">0</span>
-data blocks changed from <span class="m">1572864</span> to <span class="m">17561600</span>
+<div class="section" id="step-3-reboot-the-vm-into-an-emergency-mode">
+<h2>Step 3: Reboot the VM into an emergency mode<a class="headerlink" href="#step-3-reboot-the-vm-into-an-emergency-mode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl emergency
 </pre></div>
 </div>
 </div>
-<div class="section" id="voila">
-<h2>Voilà<a class="headerlink" href="#voila" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-4-umount-and-remove-logic-volume-for-each-of-the-partitions">
+<h2>Step 4: Umount and remove logic volume for each of the partitions<a class="headerlink" href="#step-4-umount-and-remove-logic-volume-for-each-of-the-partitions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-data
+$ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-home
+$ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-var
+$ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-tmp
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5-copy-the-backed-up-data">
+<h2>Step 5: Copy the backed up data<a class="headerlink" href="#step-5-copy-the-backed-up-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -a /home-old/ /home/
+$ rsync -a /var-old/ /var/
+$ rsync -a /tmp-old/ /tmp/
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need">
+<h2>Step 6: Edit the <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> file by removing or commenting out the partitions we don’t need<a class="headerlink" href="#step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vi /etc/fstab
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-7-extend-the-root-partition-to-fill-the-remaining-space">
+<h2>Step 7: Extend the root partition to fill the remaining space<a class="headerlink" href="#step-7-extend-the-root-partition-to-fill-the-remaining-space" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-root
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-9-remove-the-backups">
+<h2>Step 9: Remove the backups<a class="headerlink" href="#step-9-remove-the-backups" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rm -rf /home-old/ /tmp-old/ /var-old/
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-8-reboot-the-system">
+<h2>Step 8: Reboot the system<a class="headerlink" href="#step-8-reboot-the-system" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ reboot
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-9-login-to-the-vm-as-a-regular-user-or-root">
+<h2>Step 9: Login to the VM as a regular user or root<a class="headerlink" href="#step-9-login-to-the-vm-as-a-regular-user-or-root" title="Permalink to this headline">¶</a></h2>
 <p>Let’s check that our <code class="docutils literal notranslate"><span class="pre">/</span></code> root partition size has increased:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ df -h
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ df -h
 Filesystem                                            Size  Used Avail Use% Mounted on
 devtmpfs                                              <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev
 tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev/shm
 tmpfs                                                 <span class="m">1</span>.9G  <span class="m">8</span>.9M  <span class="m">1</span>.9G   <span class="m">1</span>% /run
 tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /sys/fs/cgroup
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root         67G   72M   67G   <span class="m">1</span>% /
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr          <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
-/dev/sda1                                             1014M  232M  783M  <span class="m">23</span>% /boot
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local    <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var          <span class="m">6</span>.0G  417M  <span class="m">5</span>.6G   <span class="m">7</span>% /var
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home         10G   33M   10G   <span class="m">1</span>% /home
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp          <span class="m">2</span>.0G   33M  <span class="m">2</span>.0G   <span class="m">2</span>% /tmp
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-root        85G  474M   85G   <span class="m">1</span>% /
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-usr        <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
+/dev/sda1                                            1014M  232M  783M  <span class="m">23</span>% /boot
+/dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-usr_local  <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
 tmpfs                                                 379M     <span class="m">0</span>  379M   <span class="m">0</span>% /run/user/1001
 </pre></div>
 </div>
+<p>Voilà! 🙌</p>
 </div>
 </div>
 

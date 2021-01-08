@@ -55,6 +55,11 @@ tmpfs                                                 379M     0  379M   0% /run
 [admin@dokku ~]$ sudo lvremove /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-data
 Do you really want to remove active logical volume centos_dhcp-zzz-zzz-zzz-zz/data? [y/n]: y
   Logical volume "data" successfully removed
+```
+
+## Step 3: Extend the `root` volume using `lvextend`
+
+```bash
 [admin@dokku ~]$ sudo lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root
   Size of logical volume centos_dhcp-zzz-zzz-zzz-zz/root changed from 6.00 GiB (1536 extents) to 66.99 GiB (17150 extents).
   Logical volume centos_dhcp-zzz-zzz-zzz-zz/root successfully resized.
@@ -68,12 +73,6 @@ log      =internal               bsize=4096   blocks=2560, version=2
          =                       sectsz=512   sunit=0 blks, lazy-count=1
 realtime =none                   extsz=4096   blocks=0, rtextents=0
 data blocks changed from 1572864 to 17561600
-```
-
-## Step 3: Extend the `root` volume using `lvextend`
-
-```bash
-[admin@dokku ~]$ lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root
 ```
 
 ## Voilà

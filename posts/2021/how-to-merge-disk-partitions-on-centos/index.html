@@ -326,7 +326,12 @@ tmpfs                                                 379M     <span class="m">0
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo lvremove /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-data
 Do you really want to remove active logical volume centos_dhcp-zzz-zzz-zzz-zz/data? <span class="o">[</span>y/n<span class="o">]</span>: y
   Logical volume <span class="s2">&quot;data&quot;</span> successfully removed
-<span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-extend-the-root-volume-using-lvextend">
+<h2>Step 3: Extend the <code class="docutils literal notranslate"><span class="pre">root</span></code> volume using <code class="docutils literal notranslate"><span class="pre">lvextend</span></code><a class="headerlink" href="#step-3-extend-the-root-volume-using-lvextend" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root
   Size of logical volume centos_dhcp-zzz-zzz-zzz-zz/root changed from <span class="m">6</span>.00 GiB <span class="o">(</span><span class="m">1536</span> extents<span class="o">)</span> to <span class="m">66</span>.99 GiB <span class="o">(</span><span class="m">17150</span> extents<span class="o">)</span>.
   Logical volume centos_dhcp-zzz-zzz-zzz-zz/root successfully resized.
 meta-data<span class="o">=</span>/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root <span class="nv">isize</span><span class="o">=</span><span class="m">512</span>    <span class="nv">agcount</span><span class="o">=</span><span class="m">4</span>, <span class="nv">agsize</span><span class="o">=</span><span class="m">393216</span> <span class="nv">blks</span>
@@ -339,12 +344,6 @@ meta-data<span class="o">=</span>/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root <
          <span class="o">=</span>                       <span class="nv">sectsz</span><span class="o">=</span><span class="m">512</span>   <span class="nv">sunit</span><span class="o">=</span><span class="m">0</span> blks, lazy-count<span class="o">=</span><span class="m">1</span>
 <span class="nv">realtime</span> <span class="o">=</span>none                   <span class="nv">extsz</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">0</span>, <span class="nv">rtextents</span><span class="o">=</span><span class="m">0</span>
 data blocks changed from <span class="m">1572864</span> to <span class="m">17561600</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="step-3-extend-the-root-volume-using-lvextend">
-<h2>Step 3: Extend the <code class="docutils literal notranslate"><span class="pre">root</span></code> volume using <code class="docutils literal notranslate"><span class="pre">lvextend</span></code><a class="headerlink" href="#step-3-extend-the-root-volume-using-lvextend" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root
 </pre></div>
 </div>
 </div>

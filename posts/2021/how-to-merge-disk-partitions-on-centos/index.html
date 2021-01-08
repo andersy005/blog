@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="How to merge two or more disk partitions on Centos 7" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2021/how-to-merge-disk-partitions-on-centos.html" />
+  <meta property="og:description" content="I have been working with centos 7 virtual machines provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the disk gets partitioned into tiny partititions during the VM pro..." />
+  <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
+  <meta property="og:image:alt" content="How to merge two or more disk partitions on Centos 7" />
+  
+    <title>How to merge two or more disk partitions on Centos 7 &#8212; Paysage Pythonique  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Paysage Pythonique"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">Paysage Pythonique</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../">Posts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/">About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../talks/">Talks</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://cv.andersonbanihirwe.dev/">CV</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw">Video</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andersy005/" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/andersy005" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  07 January 2021 
+</h2>
+
+<ul>
+      
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../category/todayilearned/">todayilearned</a>,   
+  <a href="../../category/linux/">linux</a>,   
+  <a href="../../category/centos/">centos</a>  
+</li>
+  
+</ul>
+
+<h3>
+  <a href="../../">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../2020/maurice-hilleman/"
+      >16 December - On Maurice Hilleman</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/advent-of-code-day-9/"
+      >09 December - Advent of Code - Day 9: Encoding Error</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/advent-of-code-day-8/"
+      >08 December - Advent of Code - Day 8: Handheld Halting</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/advent-of-code-day-7/"
+      >07 December - Advent of Code - Day 7: Handy Haversacks</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/advent-of-code-day-6/"
+      >06 December - Advent of Code - Day 6: Custom Customs</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../">2021 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../2020/">2020 (14)</a>
+  </li>
+    
+  <li>
+    <a href="../../2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-1-unmount-the-data-partition" class="nav-link">Step 1: Unmount the data partition</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-2-remove-the-data-logical-volume-using-lvremove" class="nav-link">Step 2: Remove the data logical volume using lvremove</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-3-extend-the-root-volume-using-lvextend" class="nav-link">Step 3: Extend the root volume using lvextend</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#voila" class="nav-link">Voilà</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="how-to-merge-two-or-more-disk-partitions-on-centos-7">
+<h1>How to merge two or more disk partitions on Centos 7<a class="headerlink" href="#how-to-merge-two-or-more-disk-partitions-on-centos-7" title="Permalink to this headline">¶</a></h1>
+<p>I have been working with centos 7 virtual machines provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the disk gets partitioned into tiny partititions during the VM provision:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo lsblk
+NAME                                         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                                            <span class="m">8</span>:0    <span class="m">0</span>   50G  <span class="m">0</span> disk
+├─sda1                                         <span class="m">8</span>:1    <span class="m">0</span>    1G  <span class="m">0</span> part /boot
+└─sda2                                         <span class="m">8</span>:2    <span class="m">0</span>   49G  <span class="m">0</span> part
+  ├─centos_dhcp--zzz--zzz-zzz-zz-root      <span class="m">253</span>:0    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /
+  ├─centos_dhcp--zzz--zzz-zzz-zz-swap      <span class="m">253</span>:1    <span class="m">0</span>    2G  <span class="m">0</span> lvm  <span class="o">[</span>SWAP<span class="o">]</span>
+  ├─centos_dhcp--zzz--zzz-zzz-zz-usr       <span class="m">253</span>:2    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /usr
+  ├─centos_dhcp--zzz--zzz-zzz-zz-var       <span class="m">253</span>:3    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /var
+  ├─centos_dhcp--zzz--zzz-zzz-zz-home      <span class="m">253</span>:4    <span class="m">0</span>   10G  <span class="m">0</span> lvm  /home
+  ├─centos_dhcp--zzz--zzz-zzz-zz-usr_local <span class="m">253</span>:5    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /usr/local
+  ├─centos_dhcp--zzz--zzz-zzz-zz-tmp       <span class="m">253</span>:6    <span class="m">0</span>    2G  <span class="m">0</span> lvm  /tmp
+  └─centos_dhcp--zzz--zzz-zzz-zz-data      <span class="m">253</span>:7    <span class="m">0</span>   61G  <span class="m">0</span> lvm  /data
+sdb                                            <span class="m">8</span>:16   <span class="m">0</span>   50G  <span class="m">0</span> disk
+└─sdb1                                         <span class="m">8</span>:17   <span class="m">0</span>   50G  <span class="m">0</span> part
+  └─centos_dhcp--zzz--zzz-zzz-zz-data      <span class="m">253</span>:7    <span class="m">0</span>   61G  <span class="m">0</span> lvm  /data
+sr0                                           <span class="m">11</span>:0    <span class="m">1</span> 1024M  <span class="m">0</span> rom
+</pre></div>
+</div>
+<p>Notice how <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">home</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp</span></code>, <code class="docutils literal notranslate"><span class="pre">usr</span></code>, <code class="docutils literal notranslate"><span class="pre">usr_local</span></code>, and <code class="docutils literal notranslate"><span class="pre">root</span></code> have their own partitions. I prefer to have one or two big disk partitions. So, today I figured out how to merge two or more partitions into a single partition in <strong>three</strong> steps. For instance, here’s how I managed to merge the <code class="docutils literal notranslate"><span class="pre">data</span></code> partition into <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+<div class="section" id="step-1-unmount-the-data-partition">
+<h2>Step 1: Unmount the <code class="docutils literal notranslate"><span class="pre">data</span></code> partition<a class="headerlink" href="#step-1-unmount-the-data-partition" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo umount /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-data
+<span class="o">[</span>admin@dokku ~<span class="o">]</span>$ df -h
+Filesystem                                            Size  Used Avail Use% Mounted on
+devtmpfs                                              <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev
+tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev/shm
+tmpfs                                                 <span class="m">1</span>.9G  <span class="m">8</span>.9M  <span class="m">1</span>.9G   <span class="m">1</span>% /run
+tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /sys/fs/cgroup
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root       <span class="m">6</span>.0G   70M  <span class="m">6</span>.0G   <span class="m">2</span>% /
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr        <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
+/dev/sda1                                            1014M  232M  783M  <span class="m">23</span>% /boot
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local  <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var        <span class="m">6</span>.0G  416M  <span class="m">5</span>.6G   <span class="m">7</span>% /var
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home        10G   33M   10G   <span class="m">1</span>% /home
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp        <span class="m">2</span>.0G   33M  <span class="m">2</span>.0G   <span class="m">2</span>% /tmp
+tmpfs                                                 379M     <span class="m">0</span>  379M   <span class="m">0</span>% /run/user/1001
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-remove-the-data-logical-volume-using-lvremove">
+<h2>Step 2: Remove the <code class="docutils literal notranslate"><span class="pre">data</span></code> logical volume using <code class="docutils literal notranslate"><span class="pre">lvremove</span></code><a class="headerlink" href="#step-2-remove-the-data-logical-volume-using-lvremove" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo lvremove /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-data
+Do you really want to remove active logical volume centos_dhcp-zzz-zzz-zzz-zz/data? <span class="o">[</span>y/n<span class="o">]</span>: y
+  Logical volume <span class="s2">&quot;data&quot;</span> successfully removed
+<span class="o">[</span>admin@dokku ~<span class="o">]</span>$ sudo lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root
+  Size of logical volume centos_dhcp-zzz-zzz-zzz-zz/root changed from <span class="m">6</span>.00 GiB <span class="o">(</span><span class="m">1536</span> extents<span class="o">)</span> to <span class="m">66</span>.99 GiB <span class="o">(</span><span class="m">17150</span> extents<span class="o">)</span>.
+  Logical volume centos_dhcp-zzz-zzz-zzz-zz/root successfully resized.
+meta-data<span class="o">=</span>/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root <span class="nv">isize</span><span class="o">=</span><span class="m">512</span>    <span class="nv">agcount</span><span class="o">=</span><span class="m">4</span>, <span class="nv">agsize</span><span class="o">=</span><span class="m">393216</span> <span class="nv">blks</span>
+         <span class="o">=</span>                       <span class="nv">sectsz</span><span class="o">=</span><span class="m">512</span>   <span class="nv">attr</span><span class="o">=</span><span class="m">2</span>, <span class="nv">projid32bit</span><span class="o">=</span><span class="nv">1</span>
+         <span class="o">=</span>                       <span class="nv">crc</span><span class="o">=</span><span class="m">1</span>        <span class="nv">finobt</span><span class="o">=</span><span class="m">0</span> <span class="nv">spinodes</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">data</span>     <span class="o">=</span>                       <span class="nv">bsize</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">1572864</span>, <span class="nv">imaxpct</span><span class="o">=</span><span class="nv">25</span>
+         <span class="o">=</span>                       <span class="nv">sunit</span><span class="o">=</span><span class="m">0</span>      <span class="nv">swidth</span><span class="o">=</span><span class="m">0</span> blks
+<span class="nv">naming</span>   <span class="o">=</span>version <span class="m">2</span>              <span class="nv">bsize</span><span class="o">=</span><span class="m">4096</span>   ascii-ci<span class="o">=</span><span class="m">0</span> <span class="nv">ftype</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">log</span>      <span class="o">=</span>internal               <span class="nv">bsize</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">2560</span>, <span class="nv">version</span><span class="o">=</span><span class="nv">2</span>
+         <span class="o">=</span>                       <span class="nv">sectsz</span><span class="o">=</span><span class="m">512</span>   <span class="nv">sunit</span><span class="o">=</span><span class="m">0</span> blks, lazy-count<span class="o">=</span><span class="m">1</span>
+<span class="nv">realtime</span> <span class="o">=</span>none                   <span class="nv">extsz</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">0</span>, <span class="nv">rtextents</span><span class="o">=</span><span class="m">0</span>
+data blocks changed from <span class="m">1572864</span> to <span class="m">17561600</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-extend-the-root-volume-using-lvextend">
+<h2>Step 3: Extend the <code class="docutils literal notranslate"><span class="pre">root</span></code> volume using <code class="docutils literal notranslate"><span class="pre">lvextend</span></code><a class="headerlink" href="#step-3-extend-the-root-volume-using-lvextend" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root
+</pre></div>
+</div>
+</div>
+<div class="section" id="voila">
+<h2>Voilà<a class="headerlink" href="#voila" title="Permalink to this headline">¶</a></h2>
+<p>Let’s check that our <code class="docutils literal notranslate"><span class="pre">/</span></code> root partition size has increased:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>admin@dokku ~<span class="o">]</span>$ df -h
+Filesystem                                            Size  Used Avail Use% Mounted on
+devtmpfs                                              <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev
+tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev/shm
+tmpfs                                                 <span class="m">1</span>.9G  <span class="m">8</span>.9M  <span class="m">1</span>.9G   <span class="m">1</span>% /run
+tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /sys/fs/cgroup
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root        67G   72M   67G   <span class="m">1</span>% /
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr        <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
+/dev/sda1                                            1014M  232M  783M  <span class="m">23</span>% /boot
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local  <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var        <span class="m">6</span>.0G  417M  <span class="m">5</span>.6G   <span class="m">7</span>% /var
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home        10G   33M   10G   <span class="m">1</span>% /home
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp        <span class="m">2</span>.0G   33M  <span class="m">2</span>.0G   <span class="m">2</span>% /tmp
+tmpfs                                                 379M     <span class="m">0</span>  379M   <span class="m">0</span>% /run/user/1001
+</pre></div>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../../2020/maurice-hilleman/">
+      <i class="fa fa-arrow-circle-left"></i> On Maurice Hilleman
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-91185106-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
+        Last updated on Jan 08, 2021.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

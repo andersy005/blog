@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2020-12-28T21:04:40.332256+00:00</updated>
+  <updated>2021-01-08T03:40:15.498598+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -161,5 +161,14 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/maurice-hilleman/" rel="alternate"/>
     <published>2020-12-16T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2021/how-to-merge-disk-partitions-on-centos/</id>
+    <title>How to merge two or more disk partitions on Centos 7</title>
+    <updated>2021-01-07T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;I have been working with centos 7 virtual machines provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the disk gets partitioned into tiny partititions during the VM provision:&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2021/how-to-merge-disk-partitions-on-centos/" rel="alternate"/>
+    <published>2021-01-07T00:00:00+00:00</published>
   </entry>
 </feed>

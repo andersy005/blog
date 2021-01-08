@@ -1,7 +1,8 @@
 ---
 author: Anderson Banihirwe
 date: 2020-01-21
-tags: python, dash, documentation, docset
+category: python
+tags: dash, documentation, docset
 ---
 
 # A Knitting Weekend with Dash and Python

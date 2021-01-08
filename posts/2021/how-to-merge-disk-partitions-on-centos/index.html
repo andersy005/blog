@@ -286,18 +286,18 @@ NAME                                         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 sda                                            <span class="m">8</span>:0    <span class="m">0</span>   50G  <span class="m">0</span> disk
 ├─sda1                                         <span class="m">8</span>:1    <span class="m">0</span>    1G  <span class="m">0</span> part /boot
 └─sda2                                         <span class="m">8</span>:2    <span class="m">0</span>   49G  <span class="m">0</span> part
-  ├─centos_dhcp--zzz--zzz-zzz-zz-root      <span class="m">253</span>:0    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /
-  ├─centos_dhcp--zzz--zzz-zzz-zz-swap      <span class="m">253</span>:1    <span class="m">0</span>    2G  <span class="m">0</span> lvm  <span class="o">[</span>SWAP<span class="o">]</span>
-  ├─centos_dhcp--zzz--zzz-zzz-zz-usr       <span class="m">253</span>:2    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /usr
-  ├─centos_dhcp--zzz--zzz-zzz-zz-var       <span class="m">253</span>:3    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /var
-  ├─centos_dhcp--zzz--zzz-zzz-zz-home      <span class="m">253</span>:4    <span class="m">0</span>   10G  <span class="m">0</span> lvm  /home
-  ├─centos_dhcp--zzz--zzz-zzz-zz-usr_local <span class="m">253</span>:5    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /usr/local
-  ├─centos_dhcp--zzz--zzz-zzz-zz-tmp       <span class="m">253</span>:6    <span class="m">0</span>    2G  <span class="m">0</span> lvm  /tmp
-  └─centos_dhcp--zzz--zzz-zzz-zz-data      <span class="m">253</span>:7    <span class="m">0</span>   61G  <span class="m">0</span> lvm  /data
+  ├─centos_dhcp--zzz--zzz-zzz-zz-root          <span class="m">253</span>:0    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /
+  ├─centos_dhcp--zzz--zzz-zzz-zz-swap          <span class="m">253</span>:1    <span class="m">0</span>    2G  <span class="m">0</span> lvm  <span class="o">[</span>SWAP<span class="o">]</span>
+  ├─centos_dhcp--zzz--zzz-zzz-zz-usr           <span class="m">253</span>:2    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /usr
+  ├─centos_dhcp--zzz--zzz-zzz-zz-var           <span class="m">253</span>:3    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /var
+  ├─centos_dhcp--zzz--zzz-zzz-zz-home          <span class="m">253</span>:4    <span class="m">0</span>   10G  <span class="m">0</span> lvm  /home
+  ├─centos_dhcp--zzz--zzz-zzz-zz-usr_local     <span class="m">253</span>:5    <span class="m">0</span>    6G  <span class="m">0</span> lvm  /usr/local
+  ├─centos_dhcp--zzz--zzz-zzz-zz-tmp           <span class="m">253</span>:6    <span class="m">0</span>    2G  <span class="m">0</span> lvm  /tmp
+  └─centos_dhcp--zzz--zzz-zzz-zz-data          <span class="m">253</span>:7    <span class="m">0</span>   61G  <span class="m">0</span> lvm  /data
 sdb                                            <span class="m">8</span>:16   <span class="m">0</span>   50G  <span class="m">0</span> disk
 └─sdb1                                         <span class="m">8</span>:17   <span class="m">0</span>   50G  <span class="m">0</span> part
-  └─centos_dhcp--zzz--zzz-zzz-zz-data      <span class="m">253</span>:7    <span class="m">0</span>   61G  <span class="m">0</span> lvm  /data
-sr0                                           <span class="m">11</span>:0    <span class="m">1</span> 1024M  <span class="m">0</span> rom
+  └─centos_dhcp--zzz--zzz-zzz-zz-data          <span class="m">253</span>:7    <span class="m">0</span>   61G  <span class="m">0</span> lvm  /data
+sr0                                            <span class="m">11</span>:0    <span class="m">1</span> 1024M  <span class="m">0</span> rom
 </pre></div>
 </div>
 <p>Notice how <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">home</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp</span></code>, <code class="docutils literal notranslate"><span class="pre">usr</span></code>, <code class="docutils literal notranslate"><span class="pre">usr_local</span></code>, and <code class="docutils literal notranslate"><span class="pre">root</span></code> have their own partitions. I prefer to have one or two big disk partitions. So, today I figured out how to merge two or more partitions into a single partition in <strong>three</strong> steps. For instance, here’s how I managed to merge the <code class="docutils literal notranslate"><span class="pre">data</span></code> partition into <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
@@ -310,13 +310,13 @@ devtmpfs                                              <span class="m">1</span>.9
 tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev/shm
 tmpfs                                                 <span class="m">1</span>.9G  <span class="m">8</span>.9M  <span class="m">1</span>.9G   <span class="m">1</span>% /run
 tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /sys/fs/cgroup
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root       <span class="m">6</span>.0G   70M  <span class="m">6</span>.0G   <span class="m">2</span>% /
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr        <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
-/dev/sda1                                            1014M  232M  783M  <span class="m">23</span>% /boot
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local  <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var        <span class="m">6</span>.0G  416M  <span class="m">5</span>.6G   <span class="m">7</span>% /var
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home        10G   33M   10G   <span class="m">1</span>% /home
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp        <span class="m">2</span>.0G   33M  <span class="m">2</span>.0G   <span class="m">2</span>% /tmp
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root         <span class="m">6</span>.0G   70M  <span class="m">6</span>.0G   <span class="m">2</span>% /
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr          <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
+/dev/sda1                                             1014M  232M  783M  <span class="m">23</span>% /boot
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local    <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var          <span class="m">6</span>.0G  416M  <span class="m">5</span>.6G   <span class="m">7</span>% /var
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home         10G   33M   10G   <span class="m">1</span>% /home
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp          <span class="m">2</span>.0G   33M  <span class="m">2</span>.0G   <span class="m">2</span>% /tmp
 tmpfs                                                 379M     <span class="m">0</span>  379M   <span class="m">0</span>% /run/user/1001
 </pre></div>
 </div>
@@ -356,13 +356,13 @@ devtmpfs                                              <span class="m">1</span>.9
 tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /dev/shm
 tmpfs                                                 <span class="m">1</span>.9G  <span class="m">8</span>.9M  <span class="m">1</span>.9G   <span class="m">1</span>% /run
 tmpfs                                                 <span class="m">1</span>.9G     <span class="m">0</span>  <span class="m">1</span>.9G   <span class="m">0</span>% /sys/fs/cgroup
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root        67G   72M   67G   <span class="m">1</span>% /
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr        <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
-/dev/sda1                                            1014M  232M  783M  <span class="m">23</span>% /boot
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local  <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var        <span class="m">6</span>.0G  417M  <span class="m">5</span>.6G   <span class="m">7</span>% /var
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home        10G   33M   10G   <span class="m">1</span>% /home
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp        <span class="m">2</span>.0G   33M  <span class="m">2</span>.0G   <span class="m">2</span>% /tmp
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root         67G   72M   67G   <span class="m">1</span>% /
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr          <span class="m">6</span>.0G  <span class="m">1</span>.5G  <span class="m">4</span>.6G  <span class="m">24</span>% /usr
+/dev/sda1                                             1014M  232M  783M  <span class="m">23</span>% /boot
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local    <span class="m">6</span>.0G   33M  <span class="m">6</span>.0G   <span class="m">1</span>% /usr/local
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var          <span class="m">6</span>.0G  417M  <span class="m">5</span>.6G   <span class="m">7</span>% /var
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home         10G   33M   10G   <span class="m">1</span>% /home
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp          <span class="m">2</span>.0G   33M  <span class="m">2</span>.0G   <span class="m">2</span>% /tmp
 tmpfs                                                 379M     <span class="m">0</span>  379M   <span class="m">0</span>% /run/user/1001
 </pre></div>
 </div>

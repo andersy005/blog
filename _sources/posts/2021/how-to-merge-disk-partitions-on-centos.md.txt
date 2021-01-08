@@ -13,18 +13,18 @@ NAME                                         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 sda                                            8:0    0   50G  0 disk
 ├─sda1                                         8:1    0    1G  0 part /boot
 └─sda2                                         8:2    0   49G  0 part
-  ├─centos_dhcp--zzz--zzz-zzz-zz-root      253:0    0    6G  0 lvm  /
-  ├─centos_dhcp--zzz--zzz-zzz-zz-swap      253:1    0    2G  0 lvm  [SWAP]
-  ├─centos_dhcp--zzz--zzz-zzz-zz-usr       253:2    0    6G  0 lvm  /usr
-  ├─centos_dhcp--zzz--zzz-zzz-zz-var       253:3    0    6G  0 lvm  /var
-  ├─centos_dhcp--zzz--zzz-zzz-zz-home      253:4    0   10G  0 lvm  /home
-  ├─centos_dhcp--zzz--zzz-zzz-zz-usr_local 253:5    0    6G  0 lvm  /usr/local
-  ├─centos_dhcp--zzz--zzz-zzz-zz-tmp       253:6    0    2G  0 lvm  /tmp
-  └─centos_dhcp--zzz--zzz-zzz-zz-data      253:7    0   61G  0 lvm  /data
+  ├─centos_dhcp--zzz--zzz-zzz-zz-root          253:0    0    6G  0 lvm  /
+  ├─centos_dhcp--zzz--zzz-zzz-zz-swap          253:1    0    2G  0 lvm  [SWAP]
+  ├─centos_dhcp--zzz--zzz-zzz-zz-usr           253:2    0    6G  0 lvm  /usr
+  ├─centos_dhcp--zzz--zzz-zzz-zz-var           253:3    0    6G  0 lvm  /var
+  ├─centos_dhcp--zzz--zzz-zzz-zz-home          253:4    0   10G  0 lvm  /home
+  ├─centos_dhcp--zzz--zzz-zzz-zz-usr_local     253:5    0    6G  0 lvm  /usr/local
+  ├─centos_dhcp--zzz--zzz-zzz-zz-tmp           253:6    0    2G  0 lvm  /tmp
+  └─centos_dhcp--zzz--zzz-zzz-zz-data          253:7    0   61G  0 lvm  /data
 sdb                                            8:16   0   50G  0 disk
 └─sdb1                                         8:17   0   50G  0 part
-  └─centos_dhcp--zzz--zzz-zzz-zz-data      253:7    0   61G  0 lvm  /data
-sr0                                           11:0    1 1024M  0 rom
+  └─centos_dhcp--zzz--zzz-zzz-zz-data          253:7    0   61G  0 lvm  /data
+sr0                                            11:0    1 1024M  0 rom
 ```
 
 Notice how `var`, `data`, `home`, `tmp`, `usr`, `usr_local`, and `root` have their own partitions. I prefer to have one or two big disk partitions. So, today I figured out how to merge two or more partitions into a single partition in **three** steps. For instance, here's how I managed to merge the `data` partition into `root`.
@@ -39,13 +39,13 @@ devtmpfs                                              1.9G     0  1.9G   0% /dev
 tmpfs                                                 1.9G     0  1.9G   0% /dev/shm
 tmpfs                                                 1.9G  8.9M  1.9G   1% /run
 tmpfs                                                 1.9G     0  1.9G   0% /sys/fs/cgroup
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root       6.0G   70M  6.0G   2% /
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr        6.0G  1.5G  4.6G  24% /usr
-/dev/sda1                                            1014M  232M  783M  23% /boot
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local  6.0G   33M  6.0G   1% /usr/local
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var        6.0G  416M  5.6G   7% /var
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home        10G   33M   10G   1% /home
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp        2.0G   33M  2.0G   2% /tmp
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root         6.0G   70M  6.0G   2% /
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr          6.0G  1.5G  4.6G  24% /usr
+/dev/sda1                                             1014M  232M  783M  23% /boot
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local    6.0G   33M  6.0G   1% /usr/local
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var          6.0G  416M  5.6G   7% /var
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home         10G   33M   10G   1% /home
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp          2.0G   33M  2.0G   2% /tmp
 tmpfs                                                 379M     0  379M   0% /run/user/1001
 ```
 
@@ -86,12 +86,12 @@ devtmpfs                                              1.9G     0  1.9G   0% /dev
 tmpfs                                                 1.9G     0  1.9G   0% /dev/shm
 tmpfs                                                 1.9G  8.9M  1.9G   1% /run
 tmpfs                                                 1.9G     0  1.9G   0% /sys/fs/cgroup
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root        67G   72M   67G   1% /
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr        6.0G  1.5G  4.6G  24% /usr
-/dev/sda1                                            1014M  232M  783M  23% /boot
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local  6.0G   33M  6.0G   1% /usr/local
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var        6.0G  417M  5.6G   7% /var
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home        10G   33M   10G   1% /home
-/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp        2.0G   33M  2.0G   2% /tmp
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-root         67G   72M   67G   1% /
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr          6.0G  1.5G  4.6G  24% /usr
+/dev/sda1                                             1014M  232M  783M  23% /boot
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-usr_local    6.0G   33M  6.0G   1% /usr/local
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-var          6.0G  417M  5.6G   7% /var
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-home         10G   33M   10G   1% /home
+/dev/mapper/centos_dhcp--zzz--zzz-zzz-zz-tmp          2.0G   33M  2.0G   2% /tmp
 tmpfs                                                 379M     0  379M   0% /run/user/1001
 ```

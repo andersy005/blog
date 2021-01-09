@@ -15,19 +15,23 @@ Currently, I happen to own a domain on [Google Domains](https://domains.google/)
 I'm using `example.com` as a dummy domain for demonstration purposes.
 :::
 
-## Step 1: Create a Dynamic DNS record in Synthetic Records
+## Server/VM with a dynamic IP address
+
+For a server with a dynamic IP address, we need to create a dynamic DNS record and a CNAME record in our DNS settings.
+
+### Step 1: Create a Dynamic DNS record in Synthetic Records
 
 Create a synthetic record for **dokku.example.com** instead of **\*.dokku.example.com**:
 
 ![](../../_static/images/google-domains-dynamic-dns.png)
 
-## Step 2: Create a CNAME record of the subdomain
+### Step 2: Create a CNAME record of the subdomain
 
 Create a CNAME record of the subdomain **\*dokku.example.com** and point it to the synthetic records subdomain **dokku.example.com**:
 
 ![](../../_static/images/google-domains-wildcard-subdomain.png)
 
-## Step 3: Set up ddclient on your server
+### Step 3: Set up ddclient on your server
 
 First, make sure [`ddclient`](https://github.com/ddclient/ddclient) is installed on your server and the `ddclient` service is up and running.
 
@@ -67,7 +71,7 @@ Verify that the `ddclient` is working by trying:
 sudo ddclient -daemon=0 -debug -verbose -noquiet
 ```
 
-## Step 4: Verify that our changes have taken effect
+### Step 4: Verify that our changes have taken effect
 
 We can verify our changes on a UNIX machine by trying one or more of the following commands:
 
@@ -81,3 +85,9 @@ Once we have a confirmation that our top level subdomain works, we should be abl
 - `dig +short '*.dokku.example.com'`
 
 Credits: Thank you [StackExchange](https://serverfault.com/questions/670066/google-dynamic-dns-wildcard-subdomains) 🙏🏽!
+
+## Server/VM with a static IP address
+
+For a server/VM with a static IP address, the process is much simpler. Creating an `A record` pointing to the IP address of the server/VM suffices:
+
+![](../../_static/images/google-domains-static-ip.png)

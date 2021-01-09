@@ -251,19 +251,29 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
+            <a href="#server-vm-with-a-dynamic-ip-address" class="nav-link">Server/VM with a dynamic IP address</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
             <a href="#step-1-create-a-dynamic-dns-record-in-synthetic-records" class="nav-link">Step 1: Create a Dynamic DNS record in Synthetic Records</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
+        <li class="nav-item toc-entry toc-h3">
             <a href="#step-2-create-a-cname-record-of-the-subdomain" class="nav-link">Step 2: Create a CNAME record of the subdomain</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
+        <li class="nav-item toc-entry toc-h3">
             <a href="#step-3-set-up-ddclient-on-your-server" class="nav-link">Step 3: Set up ddclient on your server</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
+        <li class="nav-item toc-entry toc-h3">
             <a href="#step-4-verify-that-our-changes-have-taken-effect" class="nav-link">Step 4: Verify that our changes have taken effect</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#server-vm-with-a-static-ip-address" class="nav-link">Server/VM with a static IP address</a>
         </li>
     
     </ul>
@@ -287,18 +297,21 @@
 <p class="admonition-title">Note</p>
 <p>I’m using <code class="docutils literal notranslate"><span class="pre">example.com</span></code> as a dummy domain for demonstration purposes.</p>
 </div>
+<div class="section" id="server-vm-with-a-dynamic-ip-address">
+<h2>Server/VM with a dynamic IP address<a class="headerlink" href="#server-vm-with-a-dynamic-ip-address" title="Permalink to this headline">¶</a></h2>
+<p>For a server with a dynamic IP address, we need to create a dynamic DNS record and a CNAME record in our DNS settings.</p>
 <div class="section" id="step-1-create-a-dynamic-dns-record-in-synthetic-records">
-<h2>Step 1: Create a Dynamic DNS record in Synthetic Records<a class="headerlink" href="#step-1-create-a-dynamic-dns-record-in-synthetic-records" title="Permalink to this headline">¶</a></h2>
+<h3>Step 1: Create a Dynamic DNS record in Synthetic Records<a class="headerlink" href="#step-1-create-a-dynamic-dns-record-in-synthetic-records" title="Permalink to this headline">¶</a></h3>
 <p>Create a synthetic record for <strong>dokku.example.com</strong> instead of <strong>*.dokku.example.com</strong>:</p>
 <p><img alt="" src="../../../_images/google-domains-dynamic-dns.png" /></p>
 </div>
 <div class="section" id="step-2-create-a-cname-record-of-the-subdomain">
-<h2>Step 2: Create a CNAME record of the subdomain<a class="headerlink" href="#step-2-create-a-cname-record-of-the-subdomain" title="Permalink to this headline">¶</a></h2>
+<h3>Step 2: Create a CNAME record of the subdomain<a class="headerlink" href="#step-2-create-a-cname-record-of-the-subdomain" title="Permalink to this headline">¶</a></h3>
 <p>Create a CNAME record of the subdomain <strong>*dokku.example.com</strong> and point it to the synthetic records subdomain <strong>dokku.example.com</strong>:</p>
 <p><img alt="" src="../../../_images/google-domains-wildcard-subdomain.png" /></p>
 </div>
 <div class="section" id="step-3-set-up-ddclient-on-your-server">
-<h2>Step 3: Set up ddclient on your server<a class="headerlink" href="#step-3-set-up-ddclient-on-your-server" title="Permalink to this headline">¶</a></h2>
+<h3>Step 3: Set up ddclient on your server<a class="headerlink" href="#step-3-set-up-ddclient-on-your-server" title="Permalink to this headline">¶</a></h3>
 <p>First, make sure <a class="reference external" href="https://github.com/ddclient/ddclient"><code class="docutils literal notranslate"><span class="pre">ddclient</span></code></a> is installed on your server and the <code class="docutils literal notranslate"><span class="pre">ddclient</span></code> service is up and running.</p>
 <p>Second,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo nano /etc/ddclient.conf
@@ -332,7 +345,7 @@ dokku.example.com
 </div>
 </div>
 <div class="section" id="step-4-verify-that-our-changes-have-taken-effect">
-<h2>Step 4: Verify that our changes have taken effect<a class="headerlink" href="#step-4-verify-that-our-changes-have-taken-effect" title="Permalink to this headline">¶</a></h2>
+<h3>Step 4: Verify that our changes have taken effect<a class="headerlink" href="#step-4-verify-that-our-changes-have-taken-effect" title="Permalink to this headline">¶</a></h3>
 <p>We can verify our changes on a UNIX machine by trying one or more of the following commands:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">host</span> <span class="pre">dokku.example.com</span></code></p></li>
@@ -345,6 +358,12 @@ dokku.example.com
 <li><p><code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">+short</span> <span class="pre">'*.dokku.example.com'</span></code></p></li>
 </ul>
 <p>Credits: Thank you <a class="reference external" href="https://serverfault.com/questions/670066/google-dynamic-dns-wildcard-subdomains">StackExchange</a> 🙏🏽!</p>
+</div>
+</div>
+<div class="section" id="server-vm-with-a-static-ip-address">
+<h2>Server/VM with a static IP address<a class="headerlink" href="#server-vm-with-a-static-ip-address" title="Permalink to this headline">¶</a></h2>
+<p>For a server/VM with a static IP address, the process is much simpler. Creating an <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">record</span></code> pointing to the IP address of the server/VM suffices:</p>
+<p><img alt="" src="../../../_images/google-domains-static-ip.png" /></p>
 </div>
 </div>
 

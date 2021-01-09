@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="How to set up a wildcard subdomain on Google Domains" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2021/google-dynamic-dns-wildcard-subdomains.html" />
+  <meta property="og:description" content="Today, I was working with dokku, and I found myself in need of a wildcard subdomain. A wildcard DNS record is a record that will match requests for non-existent subdomains. For instance, if you set..." />
+  <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
+  <meta property="og:image:alt" content="How to set up a wildcard subdomain on Google Domains" />
+  
+    <title>How to set up a wildcard subdomain on Google Domains &#8212; Paysage Pythonique  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Paysage Pythonique"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">Paysage Pythonique</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../">Posts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/">About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../talks/">Talks</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://cv.andersonbanihirwe.dev/">CV</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw">Video</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andersy005/" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/andersy005" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  09 January 2021 
+</h2>
+
+<ul>
+      
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../category/todayilearned/">todayilearned</a>,   
+  <a href="../../category/dns/">dns</a>,   
+  <a href="../../category/domains/">domains</a>  
+</li>
+  
+</ul>
+
+<h3>
+  <a href="../../">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../how-to-merge-disk-partitions-on-centos/"
+      >07 January - How to merge two or more disk partitions on Centos 7</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/maurice-hilleman/"
+      >16 December - On Maurice Hilleman</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/advent-of-code-day-9/"
+      >09 December - Advent of Code - Day 9: Encoding Error</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/advent-of-code-day-8/"
+      >08 December - Advent of Code - Day 8: Handheld Halting</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../2020/advent-of-code-day-7/"
+      >07 December - Advent of Code - Day 7: Handy Haversacks</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../">2021 (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../2020/">2020 (14)</a>
+  </li>
+    
+  <li>
+    <a href="../../2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-1-create-a-dynamic-dns-record-in-synthetic-records" class="nav-link">Step 1: Create a Dynamic DNS record in Synthetic Records</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-2-create-a-cname-record-of-the-subdomain" class="nav-link">Step 2: Create a CNAME record of the subdomain</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-3-set-up-ddclient-on-your-server" class="nav-link">Step 3: Set up ddclient on your server</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-4-verify-that-our-changes-have-taken-effect" class="nav-link">Step 4: Verify that our changes have taken effect</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="how-to-set-up-a-wildcard-subdomain-on-google-domains">
+<h1>How to set up a wildcard subdomain on Google Domains<a class="headerlink" href="#how-to-set-up-a-wildcard-subdomain-on-google-domains" title="Permalink to this headline">¶</a></h1>
+<p>Today, I was working with <a class="reference external" href="https://github.com/dokku/dokku/">dokku</a>, and I found myself in need of a wildcard subdomain. A <a class="reference external" href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">wildcard DNS record</a> is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to <code class="docutils literal notranslate"><span class="pre">*.example.com</span></code>, if a user requests <code class="docutils literal notranslate"><span class="pre">random.example.com</span></code> or <code class="docutils literal notranslate"><span class="pre">foo.example.com</span></code>, etc.. the requests will be forwarded to whichever server <code class="docutils literal notranslate"><span class="pre">*.example.com</span></code> points to.</p>
+<p>For my use case, I wanted to host multiple applications on a single server, and wanted to map each app to a subdomain such as <code class="docutils literal notranslate"><span class="pre">app1-name.dokku.example.com</span></code>, <code class="docutils literal notranslate"><span class="pre">app2-name.dokku.example.com</span></code>, etc. To achieve this, I needed to set up a wildcard DNS record for <code class="docutils literal notranslate"><span class="pre">*.dokku.example.com</span></code>.</p>
+<p>Currently, I happen to own a domain on <a class="reference external" href="https://domains.google/">Google Domains</a>. Below are the steps I followed to set up the <code class="docutils literal notranslate"><span class="pre">*.dokku.example.com</span></code> wildcard DNS record.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I’m using <code class="docutils literal notranslate"><span class="pre">example.com</span></code> as a dummy domain for demonstration purposes.</p>
+</div>
+<div class="section" id="step-1-create-a-dynamic-dns-record-in-synthetic-records">
+<h2>Step 1: Create a Dynamic DNS record in Synthetic Records<a class="headerlink" href="#step-1-create-a-dynamic-dns-record-in-synthetic-records" title="Permalink to this headline">¶</a></h2>
+<p>Create a synthetic record for <strong>dokku.example.com</strong> instead of <strong>*.dokku.example.com</strong>:</p>
+<p><img alt="" src="../../../_images/google-domains-dynamic-dns.png" /></p>
+</div>
+<div class="section" id="step-2-create-a-cname-record-of-the-subdomain">
+<h2>Step 2: Create a CNAME record of the subdomain<a class="headerlink" href="#step-2-create-a-cname-record-of-the-subdomain" title="Permalink to this headline">¶</a></h2>
+<p>Create a CNAME record of the subdomain <strong>*dokku.example.com</strong> and point it to the synthetic records subdomain <strong>dokku.example.com</strong>:</p>
+<p><img alt="" src="../../../_images/google-domains-wildcard-subdomain.png" /></p>
+</div>
+<div class="section" id="step-3-set-up-ddclient-on-your-server">
+<h2>Step 3: Set up ddclient on your server<a class="headerlink" href="#step-3-set-up-ddclient-on-your-server" title="Permalink to this headline">¶</a></h2>
+<p>First, make sure <a class="reference external" href="https://github.com/ddclient/ddclient"><code class="docutils literal notranslate"><span class="pre">ddclient</span></code></a> is installed on your server and the <code class="docutils literal notranslate"><span class="pre">ddclient</span></code> service is up and running.</p>
+<p>Second,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo nano /etc/ddclient.conf
+</pre></div>
+</div>
+<p>And edit these lines using the credentials from the created Google Domains dynamic DNS record:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">##</span>
+<span class="c1">## Google Domains (www.google.com/domains)</span>
+<span class="c1">##</span>
+<span class="c1"># protocol=googledomains,</span>
+<span class="c1"># login=my-auto-generated-username,</span>
+<span class="c1"># password=my-auto-generated-password</span>
+<span class="c1"># my.domain.tld, otherhost.domain.tld</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">daemon</span><span class="o">=</span><span class="m">3600</span> <span class="c1"># Check every 1 hour</span>
+<span class="nv">ssl</span><span class="o">=</span>yes
+<span class="nv">use</span><span class="o">=</span>web, <span class="nv">web</span><span class="o">=</span>checkip.dyndns.com/, web-skip<span class="o">=</span><span class="s1">&#39;IP Address&#39;</span>
+<span class="nv">protocol</span><span class="o">=</span>googledomains
+<span class="nv">login</span><span class="o">=</span>xxzzzxxxxxxzzzzzz
+<span class="nv">password</span><span class="o">=</span>xxzzzzxxxxzzzzz
+dokku.example.com
+</pre></div>
+</div>
+<p>Verify that the <code class="docutils literal notranslate"><span class="pre">ddclient</span></code> is working by trying:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ddclient -daemon<span class="o">=</span><span class="m">0</span> -debug -verbose -noquiet
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-4-verify-that-our-changes-have-taken-effect">
+<h2>Step 4: Verify that our changes have taken effect<a class="headerlink" href="#step-4-verify-that-our-changes-have-taken-effect" title="Permalink to this headline">¶</a></h2>
+<p>We can verify our changes in Linux by trying one or more of the following commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">host</span> <span class="pre">dokku.example.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">dokku.example.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nslookup</span> <span class="pre">dokku.example.com</span></code></p></li>
+</ul>
+<p>Once we have a confirmation that our top level subdomain works, we should be able to query any other name under <code class="docutils literal notranslate"><span class="pre">dokku.example.com</span></code> and get back an IP address of our server. Try:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">host</span> <span class="pre">myapp.dokku.example.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">+short</span> <span class="pre">'*.dokku.example.com'</span></code></p></li>
+</ul>
+<p>Credits: Thank you <a class="reference external" href="https://serverfault.com/questions/670066/google-dynamic-dns-wildcard-subdomains">StackExchange</a> 🙏🏽!</p>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../how-to-merge-disk-partitions-on-centos/">
+      <i class="fa fa-arrow-circle-left"></i> How to merge two or more disk partitions on Centos 7
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-91185106-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
+        Last updated on Jan 09, 2021.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

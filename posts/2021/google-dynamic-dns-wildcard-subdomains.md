@@ -69,7 +69,7 @@ sudo ddclient -daemon=0 -debug -verbose -noquiet
 
 ## Step 4: Verify that our changes have taken effect
 
-We can verify our changes in Linux by trying one or more of the following commands:
+We can verify our changes on a UNIX machine by trying one or more of the following commands:
 
 - `host dokku.example.com`
 - `dig dokku.example.com`

@@ -5,7 +5,7 @@ category: todayilearned, dns, domains
 
 # How to set up a wildcard subdomain on Google Domains
 
-Today, I was working with [dokku](https://github.com/dokku/dokku/), and I found myself in need of a wildcard subdomain. A [wildcard DNS record](https://en.wikipedia.org/wiki/Wildcard_DNS_record) is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to `*.example.com`, if a user requests `random.example.com` or `foo.example.com`, etc.. the requests will be forwarded to whichever server `*.example.com` points to.
+Today, I was working with [dokku](https://github.com/dokku/dokku/), and I found myself in need of a wildcard subdomain. A [wildcard DNS record](https://en.wikipedia.org/wiki/Wildcard_DNS_record) is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to `*.example.com`, and a user requests `random.example.com` or `foo.example.com`, etc.. the requests will be forwarded to whichever server `*.example.com` points to.
 
 For my use case, I wanted to host multiple applications on a single server, and wanted to map each app to a subdomain such as `app1-name.dokku.example.com`, `app2-name.dokku.example.com`, etc. To achieve this, I needed to set up a wildcard DNS record for `*.dokku.example.com`.
 

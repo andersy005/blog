@@ -5,7 +5,7 @@ category: todayilearned, linux, centos
 
 # How to merge two or more disk partitions on Centos 7
 
-I have been working with centos 7 virtual machines provisioned via VMware's vrealize suite. One thing I particulary dislike is how the disk gets partitioned into tiny partititions during the VM provision:
+I've been working with centos 7 virtual machine provisioned via VMware's vrealize suite. One thing I particulary dislike is how the storage disk gets partitioned into tiny partititions during the VM provisioning:
 
 ```bash
 $ df -h

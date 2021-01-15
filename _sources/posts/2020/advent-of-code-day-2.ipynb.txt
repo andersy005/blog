@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Advent of Code - Day 2: Password Philosophy"
+    "# Advent of Code - Day 2: Password Philosophy\n"
    ]
   },
   {
@@ -13,14 +13,21 @@
    "source": [
     "## Part One\n",
     "\n",
+    "Your flight departs in a few days from the coastal airport; the easiest way down\n",
+    "to the coast from here is via\n",
+    "[toboggan](https://en.wikipedia.org/wiki/Toboggan).\n",
     "\n",
-    "Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via [toboggan](https://en.wikipedia.org/wiki/Toboggan).\n",
+    "The shopkeeper at the North Pole Toboggan Rental Shop is having a bad day.\n",
+    "\"Something's wrong with our computers; we can't log in!\" You ask if you can take\n",
+    "a look.\n",
     "\n",
-    "The shopkeeper at the North Pole Toboggan Rental Shop is having a bad day. \"Something's wrong with our computers; we can't log in!\" You ask if you can take a look.\n",
+    "Their password database seems to be a little corrupted: some of the passwords\n",
+    "wouldn't have been allowed by the Official Toboggan Corporate Policy that was in\n",
+    "effect when they were chosen.\n",
     "\n",
-    "Their password database seems to be a little corrupted: some of the passwords wouldn't have been allowed by the Official Toboggan Corporate Policy that was in effect when they were chosen.\n",
-    "\n",
-    "To try to debug the problem, they have created a list (your puzzle input) of passwords (according to the corrupted database) and the corporate policy when that password was set.\n",
+    "To try to debug the problem, they have created a list (your puzzle input) of\n",
+    "passwords (according to the corrupted database) and the corporate policy when\n",
+    "that password was set.\n",
     "\n",
     "For example, suppose you have the following list:\n",
     "\n",
@@ -28,27 +35,32 @@
     "- 1-3 b: cdefg\n",
     "- 2-9 c: ccccccccc\n",
     "\n",
-    "Each line gives the password policy and then the password. The password policy indicates the lowest and highest number of times a given letter must appear for the password to be valid. For example, 1-3 a means that the password must contain a at least 1 time and at most 3 times.\n",
+    "Each line gives the password policy and then the password. The password policy\n",
+    "indicates the lowest and highest number of times a given letter must appear for\n",
+    "the password to be valid. For example, 1-3 a means that the password must\n",
+    "contain a at least 1 time and at most 3 times.\n",
     "\n",
-    "In the above example, 2 passwords are valid. The middle password, cdefg, is not; it contains no instances of b, but needs at least 1. The first and third passwords are valid: they contain one a or nine c, both within the limits of their respective policies.\n",
+    "In the above example, 2 passwords are valid. The middle password, cdefg, is not;\n",
+    "it contains no instances of b, but needs at least 1. The first and third\n",
+    "passwords are valid: they contain one a or nine c, both within the limits of\n",
+    "their respective policies.\n",
     "\n",
-    "How many passwords are valid according to their policies?"
+    "How many passwords are valid according to their policies?\n"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Load Input data"
+    "### Load Input data\n"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    ":::{note}\n",
-    "The input data can be found [here](https://adventofcode.com/2020/day/2).\n",
-    ":::"
+    ":::{note} The input data can be found\n",
+    "[here](https://adventofcode.com/2020/day/2). :::\n"
    ]
   },
   {
@@ -57,9 +69,9 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "with open('../../data/advent-of-code/2020/day-2-input') as fid:\n",
+    "with open(\"../../data/advent-of-code/2020/day-2-input\") as fid:\n",
     "    data = fid.readlines()\n",
-    "    data = [x.strip() for x in data if x != '\\n']"
+    "    data = [x.strip() for x in data if x != \"\\n\"]"
    ]
   },
   {
@@ -92,7 +104,8 @@
    "source": [
     "### Solution\n",
     "\n",
-    "My solution consists of a single function that parses and validates a single password and returns `True` when the password is valid. "
+    "My solution consists of a single function that parses and validates a single\n",
+    "password and returns `True` when the password is valid.\n"
    ]
   },
   {
@@ -115,10 +128,12 @@
     "    Checks whether the password is valid according to the policy.\n",
     "    \"\"\"\n",
     "    required_count, letter, password = entry.split()\n",
-    "    letter = letter.split(':')[0]\n",
-    "    min_req_count, max_req_count = required_count.split('-')\n",
+    "    letter = letter.split(\":\")[0]\n",
+    "    min_req_count, max_req_count = required_count.split(\"-\")\n",
     "    min_req_count, max_req_count = int(min_req_count), int(max_req_count)\n",
-    "    count = collections.Counter(password)  # Get a count for each letter in the password\n",
+    "    count = collections.Counter(\n",
+    "        password\n",
+    "    )  # Get a count for each letter in the password\n",
     "    return min_req_count <= count[letter] <= max_req_count"
    ]
   },
@@ -126,7 +141,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Let's validate the password in the example so as to make sure this function is working properly:"
+    "Let's validate the password in the example so as to make sure this function is\n",
+    "working properly:\n"
    ]
   },
   {
@@ -146,7 +162,7 @@
     }
    ],
    "source": [
-    "is_valid_password('1-3 a: abcde')"
+    "is_valid_password(\"1-3 a: abcde\")"
    ]
   },
   {
@@ -166,7 +182,7 @@
     }
    ],
    "source": [
-    "is_valid_password('1-3 b: cdefg')"
+    "is_valid_password(\"1-3 b: cdefg\")"
    ]
   },
   {
@@ -186,14 +202,15 @@
     }
    ],
    "source": [
-    "is_valid_password('2-9 c: ccccccccc')"
+    "is_valid_password(\"2-9 c: ccccccccc\")"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Now that we are confident this function is working properly, let's loop over all entries in the input dataset, and count how many passwords are valid:"
+    "Now that we are confident this function is working properly, let's loop over all\n",
+    "entries in the input dataset, and count how many passwords are valid:\n"
    ]
   },
   {
@@ -242,7 +259,7 @@
     }
    ],
    "source": [
-    "print(f'Out of {len(data)} passwords, {valid_passwords} are found to be valid.')"
+    "print(f\"Out of {len(data)} passwords, {valid_passwords} are found to be valid.\")"
    ]
   },
   {
@@ -251,11 +268,18 @@
    "source": [
     "## Part Two\n",
     "\n",
-    "While it appears you validated the passwords correctly, they don't seem to be what the Official Toboggan Corporate Authentication System is expecting.\n",
+    "While it appears you validated the passwords correctly, they don't seem to be\n",
+    "what the Official Toboggan Corporate Authentication System is expecting.\n",
     "\n",
-    "The shopkeeper suddenly realizes that he just accidentally explained the password policy rules from his old job at the sled rental place down the street! The Official Toboggan Corporate Policy actually works a little differently.\n",
+    "The shopkeeper suddenly realizes that he just accidentally explained the\n",
+    "password policy rules from his old job at the sled rental place down the street!\n",
+    "The Official Toboggan Corporate Policy actually works a little differently.\n",
     "\n",
-    "Each policy actually describes two positions in the password, where 1 means the first character, 2 means the second character, and so on. (Be careful; Toboggan Corporate Policies have no concept of \"index zero\"!) **Exactly one of these positions must contain the given letter**. Other occurrences of the letter are irrelevant for the purposes of policy enforcement.\n",
+    "Each policy actually describes two positions in the password, where 1 means the\n",
+    "first character, 2 means the second character, and so on. (Be careful; Toboggan\n",
+    "Corporate Policies have no concept of \"index zero\"!) **Exactly one of these\n",
+    "positions must contain the given letter**. Other occurrences of the letter are\n",
+    "irrelevant for the purposes of policy enforcement.\n",
     "\n",
     "Given the same example list from above:\n",
     "\n",
@@ -263,7 +287,8 @@
     "- 1-3 b: cdefg is invalid: neither position 1 nor position 3 contains b.\n",
     "- 2-9 c: ccccccccc is invalid: both position 2 and position 9 contain c.\n",
     "\n",
-    "**How many passwords are valid according to the new interpretation of the policies?**"
+    "**How many passwords are valid according to the new interpretation of the\n",
+    "policies?**\n"
    ]
   },
   {
@@ -272,7 +297,11 @@
    "source": [
     "### Solution\n",
     "\n",
-    "My approach to part two is similar to my solution to part one in that I still have a single function for validating a single entry. In this function, I use a [bitwise XOR operator](https://en.wikipedia.org/wiki/Bitwise_operation#XOR_2). The Bitwise XOR sets the bits in the result to 1 if either, but not both, of the corresponding bits in the two operands is 1:"
+    "My approach to part two is similar to my solution to part one in that I still\n",
+    "have a single function for validating a single entry. In this function, I use a\n",
+    "[bitwise XOR operator](https://en.wikipedia.org/wiki/Bitwise_operation#XOR_2).\n",
+    "The Bitwise XOR sets the bits in the result to 1 if either, but not both, of the\n",
+    "corresponding bits in the two operands is 1:\n"
    ]
   },
   {
@@ -283,11 +312,13 @@
    "source": [
     "def is_valid_password(entry):\n",
     "    required_positions, letter, password = entry.split()\n",
-    "    letter = letter.split(':')[0]\n",
-    "    first_position, second_position = required_positions.split('-')\n",
+    "    letter = letter.split(\":\")[0]\n",
+    "    first_position, second_position = required_positions.split(\"-\")\n",
     "    first_position, second_position = int(first_position), int(second_position)\n",
     "    # use bitwise XOR to make sure exactly one of the positions contains the given letter\n",
-    "    if (password[first_position - 1] == letter) ^ (password[second_position - 1] == letter):\n",
+    "    if (password[first_position - 1] == letter) ^ (\n",
+    "        password[second_position - 1] == letter\n",
+    "    ):\n",
     "        return True\n",
     "    return False"
    ]
@@ -296,7 +327,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Once again, let's make sure this function is working properly by using the three sample examples above:"
+    "Once again, let's make sure this function is working properly by using the three\n",
+    "sample examples above:\n"
    ]
   },
   {
@@ -316,7 +348,7 @@
     }
    ],
    "source": [
-    "is_valid_password('1-3 a: abcde')"
+    "is_valid_password(\"1-3 a: abcde\")"
    ]
   },
   {
@@ -336,7 +368,7 @@
     }
    ],
    "source": [
-    "is_valid_password('1-3 b: cdefg')"
+    "is_valid_password(\"1-3 b: cdefg\")"
    ]
   },
   {
@@ -356,14 +388,15 @@
     }
    ],
    "source": [
-    "is_valid_password('2-9 c: ccccccccc')"
+    "is_valid_password(\"2-9 c: ccccccccc\")"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "It appears that this function is working.... It's now time to count all valid passwords from our input data:"
+    "It appears that this function is working.... It's now time to count all valid\n",
+    "passwords from our input data:\n"
    ]
   },
   {
@@ -385,7 +418,7 @@
     "    if is_valid_password(entry):\n",
     "        valid_passwords += 1\n",
     "\n",
-    "print(f'Out of {len(data)} passwords, {valid_passwords} are found to be valid.')"
+    "print(f\"Out of {len(data)} passwords, {valid_passwords} are found to be valid.\")"
    ]
   }
  ],

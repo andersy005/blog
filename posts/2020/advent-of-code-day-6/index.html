@@ -195,6 +195,12 @@
 <ul>
    
   <li>
+    <a href="../../2021/function-expressions-in-js/"
+      >14 January - Function Expressions in JavaScript</a
+    >
+  </li>
+  
+  <li>
     <a href="../../2021/google-dynamic-dns-wildcard-subdomains/"
       >09 January - How to set up a wildcard subdomain on Google Domains</a
     >
@@ -218,12 +224,6 @@
     >
   </li>
   
-  <li>
-    <a href="../advent-of-code-day-8/"
-      >08 December - Advent of Code - Day 8: Handheld Halting</a
-    >
-  </li>
-  
 </ul>
 
 <h3>
@@ -232,7 +232,7 @@
 <ul>
    
   <li>
-    <a href="../../2021/">2021 (2)</a>
+    <a href="../../2021/">2021 (3)</a>
   </li>
     
   <li>
@@ -298,16 +298,28 @@
 <h1>Advent of Code - Day 6: Custom Customs<a class="headerlink" href="#advent-of-code-day-6-custom-customs" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="part-one">
 <h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
-<p>As your flight approaches the regional airport where you’ll switch to a much larger plane, <a class="reference external" href="https://en.wikipedia.org/wiki/Customs_declaration">customs declaration forms</a> are distributed to the passengers.</p>
-<p>The form asks a series of 26 yes-or-no questions marked a through z. All you need to do is identify the questions for which anyone in your group answers “yes”. Since your group is just you, this doesn’t take very long.</p>
-<p>However, the person sitting next to you seems to be experiencing a language barrier and asks if you can help. For each of the people in their group, you write down the questions for which they answer “yes”, one per line. For example:</p>
+<p>As your flight approaches the regional airport where you’ll switch to a much
+larger plane,
+<a class="reference external" href="https://en.wikipedia.org/wiki/Customs_declaration">customs declaration forms</a>
+are distributed to the passengers.</p>
+<p>The form asks a series of 26 yes-or-no questions marked a through z. All you
+need to do is identify the questions for which anyone in your group answers
+“yes”. Since your group is just you, this doesn’t take very long.</p>
+<p>However, the person sitting next to you seems to be experiencing a language
+barrier and asks if you can help. For each of the people in their group, you
+write down the questions for which they answer “yes”, one per line. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abcx</span>
 <span class="n">abcy</span>
 <span class="n">abcz</span>
 </pre></div>
 </div>
-<p>In this group, there are 6 questions to which anyone answered “yes”: a, b, c, x, y, and z. (Duplicate answers to the same question don’t count extra; each question counts at most once.)</p>
-<p>Another group asks for your help, then another, and eventually you’ve collected answers from every group on the plane (your puzzle input). Each group’s answers are separated by a blank line, and within each group, each person’s answers are on a single line. For example:</p>
+<p>In this group, there are 6 questions to which anyone answered “yes”: a, b, c, x,
+y, and z. (Duplicate answers to the same question don’t count extra; each
+question counts at most once.)</p>
+<p>Another group asks for your help, then another, and eventually you’ve collected
+answers from every group on the plane (your puzzle input). Each group’s answers
+are separated by a blank line, and within each group, each person’s answers are
+on a single line. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abc</span>
 
 <span class="n">a</span>
@@ -328,28 +340,34 @@
 </div>
 <p>This list represents answers from five groups:</p>
 <ul class="simple">
-<li><p>The first group contains one person who answered “yes” to 3 questions: a, b, and c.</p></li>
-<li><p>The second group contains three people; combined, they answered “yes” to 3 questions: a, b, and c.</p></li>
-<li><p>The third group contains two people; combined, they answered “yes” to 3 questions: a, b, and c.</p></li>
-<li><p>The fourth group contains four people; combined, they answered “yes” to only 1 question, a.</p></li>
+<li><p>The first group contains one person who answered “yes” to 3 questions: a, b,
+and c.</p></li>
+<li><p>The second group contains three people; combined, they answered “yes” to 3
+questions: a, b, and c.</p></li>
+<li><p>The third group contains two people; combined, they answered “yes” to 3
+questions: a, b, and c.</p></li>
+<li><p>The fourth group contains four people; combined, they answered “yes” to only 1
+question, a.</p></li>
 <li><p>The last group contains one person who answered “yes” to only 1 question, b.</p></li>
 </ul>
 <p>In this example, the sum of these counts is 3 + 3 + 3 + 1 + 1 = 11.</p>
-<p>For each group, count the number of questions to which anyone answered “yes”. <strong>What is the sum of those counts?</strong></p>
+<p>For each group, count the number of questions to which anyone answered “yes”.
+<strong>What is the sum of those counts?</strong></p>
 <div class="section" id="load-input-data">
 <h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/6">here</a>.</p>
+<p>The input data can be found
+<a class="reference external" href="https://adventofcode.com/2020/day/6">here</a>. :::</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_input_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
 
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-6-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/advent-of-code/2020/day-6-input&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">parse_input_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
@@ -371,7 +389,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">counter</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">group</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">group</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -379,7 +397,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_sample</span> <span class="o">=</span> <span class="n">parse_input_data</span><span class="p">(</span>
-    <span class="sd">&#39;&#39;&#39;abc</span>
+    <span class="sd">&quot;&quot;&quot;abc</span>
 
 <span class="sd">a</span>
 <span class="sd">b</span>
@@ -393,7 +411,7 @@
 <span class="sd">a</span>
 <span class="sd">a</span>
 
-<span class="sd">b&#39;&#39;&#39;</span>
+<span class="sd">b&quot;&quot;&quot;</span>
 <span class="p">)</span>
 <span class="n">test_sample</span>
 </pre></div>
@@ -433,8 +451,10 @@
 </div>
 <div class="section" id="part-two">
 <h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
-<p>As you finish the last group’s customs declaration, you notice that you misread one word in the instructions:</p>
-<p>You don’t need to identify the questions to which anyone answered “yes”; you need to identify the questions to which everyone answered “yes”!</p>
+<p>As you finish the last group’s customs declaration, you notice that you misread
+one word in the instructions:</p>
+<p>You don’t need to identify the questions to which anyone answered “yes”; you
+need to identify the questions to which everyone answered “yes”!</p>
 <p>Using the same example as above:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abc</span>
 
@@ -456,20 +476,23 @@
 </div>
 <p>This list represents answers from five groups:</p>
 <ul class="simple">
-<li><p>In the first group, everyone (all 1 person) answered “yes” to 3 questions: a, b, and c.</p></li>
+<li><p>In the first group, everyone (all 1 person) answered “yes” to 3 questions: a,
+b, and c.</p></li>
 <li><p>In the second group, there is no question to which everyone answered “yes”.</p></li>
-<li><p>In the third group, everyone answered yes to only 1 question, a. Since some people did not answer “yes” to b or c, they don’t count.</p></li>
+<li><p>In the third group, everyone answered yes to only 1 question, a. Since some
+people did not answer “yes” to b or c, they don’t count.</p></li>
 <li><p>In the fourth group, everyone answered yes to only 1 question, a.</p></li>
 <li><p>In the fifth group, everyone (all 1 person) answered “yes” to 1 question, b.</p></li>
 </ul>
 <p>In this example, the sum of these counts is 3 + 0 + 1 + 1 + 1 = 6.</p>
-<p>For each group, count the number of questions to which everyone answered “yes”. <strong>What is the sum of those counts?</strong></p>
+<p>For each group, count the number of questions to which everyone answered “yes”.
+<strong>What is the sum of those counts?</strong></p>
 <div class="section" id="id1">
 <h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">counter</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
-    <span class="n">answers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">group</span><span class="p">))</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">group</span><span class="p">))</span>
     <span class="n">inter</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
         <span class="n">inter</span> <span class="o">=</span> <span class="n">inter</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">entry</span><span class="p">))</span>
@@ -563,7 +586,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
-        Last updated on Jan 09, 2021.<br/>
+        Last updated on Jan 15, 2021.<br/>
         Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>

@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Advent of Code - Day 5: Binary Boarding"
+    "# Advent of Code - Day 5: Binary Boarding\n"
    ]
   },
   {
@@ -13,17 +13,30 @@
    "source": [
     "## Part One\n",
     "\n",
-    "You board your plane only to discover a new problem: you dropped your boarding pass! You aren't sure which seat is yours, and all of the flight attendants are busy with the flood of people that suddenly made it through passport control.\n",
+    "You board your plane only to discover a new problem: you dropped your boarding\n",
+    "pass! You aren't sure which seat is yours, and all of the flight attendants are\n",
+    "busy with the flood of people that suddenly made it through passport control.\n",
     "\n",
-    "You write a quick program to use your phone's camera to scan all of the nearby boarding passes (your puzzle input); perhaps you can find your seat through process of elimination.\n",
+    "You write a quick program to use your phone's camera to scan all of the nearby\n",
+    "boarding passes (your puzzle input); perhaps you can find your seat through\n",
+    "process of elimination.\n",
     "\n",
-    "Instead of [zones or groups](https://www.youtube.com/watch?v=oAHbLRjF0vo), this airline uses binary space partitioning to seat people. A seat might be specified like FBFBBFFRLR, where F means \"front\", B means \"back\", L means \"left\", and R means \"right\".\n",
+    "Instead of [zones or groups](https://www.youtube.com/watch?v=oAHbLRjF0vo), this\n",
+    "airline uses binary space partitioning to seat people. A seat might be specified\n",
+    "like FBFBBFFRLR, where F means \"front\", B means \"back\", L means \"left\", and R\n",
+    "means \"right\".\n",
     "\n",
-    "The first 7 characters will either be F or B; these specify exactly one of the 128 rows on the plane (numbered 0 through 127). Each letter tells you which half of a region the given seat is in. Start with the whole list of rows; the first letter indicates whether the seat is in the front (0 through 63) or the back (64 through 127). The next letter indicates which half of that region the seat is in, and so on until you're left with exactly one row.\n",
+    "The first 7 characters will either be F or B; these specify exactly one of the\n",
+    "128 rows on the plane (numbered 0 through 127). Each letter tells you which half\n",
+    "of a region the given seat is in. Start with the whole list of rows; the first\n",
+    "letter indicates whether the seat is in the front (0 through 63) or the back (64\n",
+    "through 127). The next letter indicates which half of that region the seat is\n",
+    "in, and so on until you're left with exactly one row.\n",
     "\n",
     "For example, consider just the first seven characters of FBFBBFFRLR:\n",
     "\n",
     "Start by considering the whole range, rows 0 through 127.\n",
+    "\n",
     "- F means to take the lower half, keeping rows 0 through 63.\n",
     "- B means to take the upper half, keeping rows 32 through 63.\n",
     "- F means to take the lower half, keeping rows 32 through 47.\n",
@@ -31,18 +44,22 @@
     "- B keeps rows 44 through 47.\n",
     "- F keeps rows 44 through 45.\n",
     "\n",
-    "The final F keeps the lower of the two, row 44.\n",
-    "The last three characters will be either L or R; these specify exactly one of the 8 columns of seats on the plane (numbered 0 through 7). The same process as above proceeds again, this time with only three steps. L means to keep the lower half, while R means to keep the upper half.\n",
+    "The final F keeps the lower of the two, row 44. The last three characters will\n",
+    "be either L or R; these specify exactly one of the 8 columns of seats on the\n",
+    "plane (numbered 0 through 7). The same process as above proceeds again, this\n",
+    "time with only three steps. L means to keep the lower half, while R means to\n",
+    "keep the upper half.\n",
     "\n",
     "For example, consider just the last 3 characters of FBFBBFFRLR:\n",
     "\n",
     "- Start by considering the whole range, columns 0 through 7.\n",
     "- R means to take the upper half, keeping columns 4 through 7.\n",
     "- L means to take the lower half, keeping columns 4 through 5.\n",
-    "- The final R keeps the upper of the two, column 5.\n",
-    "So, decoding FBFBBFFRLR reveals that it is the seat at row 44, column 5.\n",
+    "- The final R keeps the upper of the two, column 5. So, decoding FBFBBFFRLR\n",
+    "  reveals that it is the seat at row 44, column 5.\n",
     "\n",
-    "Every seat also has a unique seat ID: multiply the row by 8, then add the column. In this example, the seat has ID 44 * 8 + 5 = 357.\n",
+    "Every seat also has a unique seat ID: multiply the row by 8, then add the\n",
+    "column. In this example, the seat has ID 44 \\* 8 + 5 = 357.\n",
     "\n",
     "Here are some other boarding passes:\n",
     "\n",
@@ -50,24 +67,23 @@
     "- FFFBBBFRRR: row 14, column 7, seat ID 119.\n",
     "- BBFFBBFRLL: row 102, column 4, seat ID 820.\n",
     "\n",
-    "As a sanity check, look through your list of boarding passes. **What is the highest seat ID on a boarding pass?**\n",
-    "\n"
+    "As a sanity check, look through your list of boarding passes. **What is the\n",
+    "highest seat ID on a boarding pass?**\n"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Load Input data"
+    "### Load Input data\n"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    ":::{note}\n",
-    "The input data can be found [here](https://adventofcode.com/2020/day/5).\n",
-    ":::"
+    ":::{note} The input data can be found\n",
+    "[here](https://adventofcode.com/2020/day/5). :::\n"
    ]
   },
   {
@@ -86,7 +102,7 @@
     }
    ],
    "source": [
-    "with open('../../data/advent-of-code/2020/day-5-input') as fid:\n",
+    "with open(\"../../data/advent-of-code/2020/day-5-input\") as fid:\n",
     "    data = fid.readlines()\n",
     "\n",
     "print(len(data))\n",
@@ -97,7 +113,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Solution"
+    "### Solution\n"
    ]
   },
   {
@@ -124,7 +140,12 @@
     "\n",
     "    row = decode_seat(seat_number[:7], nrows, row_identifiers)\n",
     "    col = decode_seat(seat_number[7:], ncols, col_identifiers)\n",
-    "    return {'seat_number': seat_number, 'row': row, 'column': col, 'seat_id': row * 8 + col}"
+    "    return {\n",
+    "        \"seat_number\": seat_number,\n",
+    "        \"row\": row,\n",
+    "        \"column\": col,\n",
+    "        \"seat_id\": row * 8 + col,\n",
+    "    }"
    ]
   },
   {
@@ -134,8 +155,8 @@
    "outputs": [],
    "source": [
     "nrows, ncols = 128, 8\n",
-    "row_identifiers = ('F', 'B')\n",
-    "col_identifiers = ('L', 'R')"
+    "row_identifiers = (\"F\", \"B\")\n",
+    "col_identifiers = (\"L\", \"R\")"
    ]
   },
   {
@@ -156,14 +177,15 @@
    ],
    "source": [
     "# Test our function on sample input seat number\n",
-    "find_seat_info('FBFBBFFRLR', nrows, ncols, row_identifiers, col_identifiers)"
+    "find_seat_info(\"FBFBBFFRLR\", nrows, ncols, row_identifiers, col_identifiers)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Everything appears to be working.... Let's loop over all the seat numbers and collect the ids:"
+    "Everything appears to be working.... Let's loop over all the seat numbers and\n",
+    "collect the ids:\n"
    ]
   },
   {
@@ -184,7 +206,10 @@
    ],
    "source": [
     "ids = [\n",
-    "    find_seat_info(seat, nrows, ncols, row_identifiers, col_identifiers)['seat_id'] for seat in data\n",
+    "    find_seat_info(seat, nrows, ncols, row_identifiers, col_identifiers)[\n",
+    "        \"seat_id\"\n",
+    "    ]\n",
+    "    for seat in data\n",
     "]\n",
     "min(ids), max(ids)"
    ]
@@ -195,14 +220,17 @@
    "source": [
     "## Part Two\n",
     "\n",
-    "\n",
     "Ding! The \"fasten seat belt\" signs have turned on. Time to find your seat.\n",
     "\n",
-    "It's a completely full flight, so your seat should be the only missing boarding pass in your list. However, there's a catch: some of the seats at the very front and back of the plane don't exist on this aircraft, so they'll be missing from your list as well.\n",
+    "It's a completely full flight, so your seat should be the only missing boarding\n",
+    "pass in your list. However, there's a catch: some of the seats at the very front\n",
+    "and back of the plane don't exist on this aircraft, so they'll be missing from\n",
+    "your list as well.\n",
     "\n",
-    "Your seat wasn't at the very front or back, though; the seats with IDs +1 and -1 from yours will be in your list.\n",
+    "Your seat wasn't at the very front or back, though; the seats with IDs +1 and -1\n",
+    "from yours will be in your list.\n",
     "\n",
-    "**What is the ID of your seat?**"
+    "**What is the ID of your seat?**\n"
    ]
   },
   {
@@ -230,7 +258,9 @@
    ],
    "source": [
     "# Find missing ids\n",
-    "missing_ids = [seat_id for seat_id in range(5, nrows * 8 + 5) if seat_id not in set(ids)]\n",
+    "missing_ids = [\n",
+    "    seat_id for seat_id in range(5, nrows * 8 + 5) if seat_id not in set(ids)\n",
+    "]\n",
     "len(missing_ids)"
    ]
   },
@@ -266,7 +296,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "We can use a process of elimination to get the ID of our seat by checking for the ids of the front and back seats:"
+    "We can use a process of elimination to get the ID of our seat by checking for\n",
+    "the ids of the front and back seats:\n"
    ]
   },
   {
@@ -293,7 +324,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Since it was pointed out that our seat wasn't at the very front or back, we can eliminate `11` and `859`. So, the id our seat is **`557`**"
+    "Since it was pointed out that our seat wasn't at the very front or back, we can\n",
+    "eliminate `11` and `859`. So, the id our seat is **`557`**\n"
    ]
   }
  ],

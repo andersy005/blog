@@ -1,0 +1,223 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Function Expressions in JavaScript\n",
+    "\n",
+    "I'm currently learning JavaScript, and here are a few things I learned about\n",
+    "function expressions in JavaScript ;)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Anonymous vs Named Functions\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "// An anonymous function ==> lambda function in Python\n",
+    "const clickHandler = function(){\n",
+    "    console.log('The user clicked this button.')\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "// Named Function \n",
+    "const keyHandler = function keyHandler() {\n",
+    "    console.log('This is a named function.')\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The user clicked this button.\n"
+     ]
+    }
+   ],
+   "source": [
+    "clickHandler()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "This is a named function.\n"
+     ]
+    }
+   ],
+   "source": [
+    "keyHandler()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "const cars = [{make: 'toyota', id: 'Rav4'}, {make: 'tesla', id: 'S'}]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[ \u001b[32m'Rav4'\u001b[39m, \u001b[32m'S'\u001b[39m ]\n"
+     ]
+    }
+   ],
+   "source": [
+    "// Arrow Function \n",
+    "let ids = cars.map(car => car.id)\n",
+    "console.log(ids)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[ \u001b[32m'Rav4'\u001b[39m, \u001b[32m'S'\u001b[39m ]\n"
+     ]
+    }
+   ],
+   "source": [
+    "// An equivalent named function\n",
+    "ids = cars.map(function getId(car){\n",
+    "    return car.id\n",
+    "})\n",
+    "console.log(ids)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Takeaways:\n",
+    "\n",
+    "- When it comes to\n",
+    "  [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions),\n",
+    "  I often find myself having to carefully read the function body to figure out\n",
+    "  what's going on.\n",
+    "- IMHO, named functions are the best because they tell us in their name what\n",
+    "  they do.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Immediately Invoked Function Expressions (IIFE)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "const school = 'MIT'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "CMU\n"
+     ]
+    }
+   ],
+   "source": [
+    "(function anotherSchool(){\n",
+    "    const school = 'CMU'\n",
+    "    console.log(school)\n",
+    "})()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "MIT\n"
+     ]
+    }
+   ],
+   "source": [
+    "console.log(school)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Takeaways:\n",
+    "\n",
+    "- IIFEs are typically used in places in our code where we need to collect a set\n",
+    "  of variables and protect them from intruding an outer scope.\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "category": "javascript,todayilearned",
+  "date": "2021-01-14",
+  "kernelspec": {
+   "display_name": "JavaScript",
+   "language": "javascript",
+   "name": "jslab"
+  },
+  "language_info": {
+   "file_extension": ".js",
+   "mimetype": "text/javascript",
+   "name": "javascript",
+   "version": ""
+  },
+  "title": "Function Expressions in JavaScript"
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

@@ -195,6 +195,12 @@
 <ul>
    
   <li>
+    <a href="../../2021/function-expressions-in-js/"
+      >14 January - Function Expressions in JavaScript</a
+    >
+  </li>
+  
+  <li>
     <a href="../../2021/google-dynamic-dns-wildcard-subdomains/"
       >09 January - How to set up a wildcard subdomain on Google Domains</a
     >
@@ -218,12 +224,6 @@
     >
   </li>
   
-  <li>
-    <a href="../advent-of-code-day-8/"
-      >08 December - Advent of Code - Day 8: Handheld Halting</a
-    >
-  </li>
-  
 </ul>
 
 <h3>
@@ -232,7 +232,7 @@
 <ul>
    
   <li>
-    <a href="../../2021/">2021 (2)</a>
+    <a href="../../2021/">2021 (3)</a>
   </li>
     
   <li>
@@ -298,10 +298,22 @@
 <h1>Advent of Code - Day 5: Binary Boarding<a class="headerlink" href="#advent-of-code-day-5-binary-boarding" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="part-one">
 <h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
-<p>You board your plane only to discover a new problem: you dropped your boarding pass! You aren’t sure which seat is yours, and all of the flight attendants are busy with the flood of people that suddenly made it through passport control.</p>
-<p>You write a quick program to use your phone’s camera to scan all of the nearby boarding passes (your puzzle input); perhaps you can find your seat through process of elimination.</p>
-<p>Instead of <a class="reference external" href="https://www.youtube.com/watch?v=oAHbLRjF0vo">zones or groups</a>, this airline uses binary space partitioning to seat people. A seat might be specified like FBFBBFFRLR, where F means “front”, B means “back”, L means “left”, and R means “right”.</p>
-<p>The first 7 characters will either be F or B; these specify exactly one of the 128 rows on the plane (numbered 0 through 127). Each letter tells you which half of a region the given seat is in. Start with the whole list of rows; the first letter indicates whether the seat is in the front (0 through 63) or the back (64 through 127). The next letter indicates which half of that region the seat is in, and so on until you’re left with exactly one row.</p>
+<p>You board your plane only to discover a new problem: you dropped your boarding
+pass! You aren’t sure which seat is yours, and all of the flight attendants are
+busy with the flood of people that suddenly made it through passport control.</p>
+<p>You write a quick program to use your phone’s camera to scan all of the nearby
+boarding passes (your puzzle input); perhaps you can find your seat through
+process of elimination.</p>
+<p>Instead of <a class="reference external" href="https://www.youtube.com/watch?v=oAHbLRjF0vo">zones or groups</a>, this
+airline uses binary space partitioning to seat people. A seat might be specified
+like FBFBBFFRLR, where F means “front”, B means “back”, L means “left”, and R
+means “right”.</p>
+<p>The first 7 characters will either be F or B; these specify exactly one of the
+128 rows on the plane (numbered 0 through 127). Each letter tells you which half
+of a region the given seat is in. Start with the whole list of rows; the first
+letter indicates whether the seat is in the front (0 through 63) or the back (64
+through 127). The next letter indicates which half of that region the seat is
+in, and so on until you’re left with exactly one row.</p>
 <p>For example, consider just the first seven characters of FBFBBFFRLR:</p>
 <p>Start by considering the whole range, rows 0 through 127.</p>
 <ul class="simple">
@@ -312,33 +324,39 @@
 <li><p>B keeps rows 44 through 47.</p></li>
 <li><p>F keeps rows 44 through 45.</p></li>
 </ul>
-<p>The final F keeps the lower of the two, row 44.
-The last three characters will be either L or R; these specify exactly one of the 8 columns of seats on the plane (numbered 0 through 7). The same process as above proceeds again, this time with only three steps. L means to keep the lower half, while R means to keep the upper half.</p>
+<p>The final F keeps the lower of the two, row 44. The last three characters will
+be either L or R; these specify exactly one of the 8 columns of seats on the
+plane (numbered 0 through 7). The same process as above proceeds again, this
+time with only three steps. L means to keep the lower half, while R means to
+keep the upper half.</p>
 <p>For example, consider just the last 3 characters of FBFBBFFRLR:</p>
 <ul class="simple">
 <li><p>Start by considering the whole range, columns 0 through 7.</p></li>
 <li><p>R means to take the upper half, keeping columns 4 through 7.</p></li>
 <li><p>L means to take the lower half, keeping columns 4 through 5.</p></li>
-<li><p>The final R keeps the upper of the two, column 5.
-So, decoding FBFBBFFRLR reveals that it is the seat at row 44, column 5.</p></li>
+<li><p>The final R keeps the upper of the two, column 5. So, decoding FBFBBFFRLR
+reveals that it is the seat at row 44, column 5.</p></li>
 </ul>
-<p>Every seat also has a unique seat ID: multiply the row by 8, then add the column. In this example, the seat has ID 44 * 8 + 5 = 357.</p>
+<p>Every seat also has a unique seat ID: multiply the row by 8, then add the
+column. In this example, the seat has ID 44 * 8 + 5 = 357.</p>
 <p>Here are some other boarding passes:</p>
 <ul class="simple">
 <li><p>BFFFBBFRRR: row 70, column 7, seat ID 567.</p></li>
 <li><p>FFFBBBFRRR: row 14, column 7, seat ID 119.</p></li>
 <li><p>BBFFBBFRLL: row 102, column 4, seat ID 820.</p></li>
 </ul>
-<p>As a sanity check, look through your list of boarding passes. <strong>What is the highest seat ID on a boarding pass?</strong></p>
+<p>As a sanity check, look through your list of boarding passes. <strong>What is the
+highest seat ID on a boarding pass?</strong></p>
 <div class="section" id="load-input-data">
 <h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/5">here</a>.</p>
+<p>The input data can be found
+<a class="reference external" href="https://adventofcode.com/2020/day/5">here</a>. :::</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-5-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/advent-of-code/2020/day-5-input&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
@@ -376,7 +394,12 @@ FBBFFBBLLL
 
     <span class="n">row</span> <span class="o">=</span> <span class="n">decode_seat</span><span class="p">(</span><span class="n">seat_number</span><span class="p">[:</span><span class="mi">7</span><span class="p">],</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">)</span>
     <span class="n">col</span> <span class="o">=</span> <span class="n">decode_seat</span><span class="p">(</span><span class="n">seat_number</span><span class="p">[</span><span class="mi">7</span><span class="p">:],</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;seat_number&#39;</span><span class="p">:</span> <span class="n">seat_number</span><span class="p">,</span> <span class="s1">&#39;row&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">,</span> <span class="s1">&#39;column&#39;</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span> <span class="s1">&#39;seat_id&#39;</span><span class="p">:</span> <span class="n">row</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">col</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;seat_number&quot;</span><span class="p">:</span> <span class="n">seat_number</span><span class="p">,</span>
+        <span class="s2">&quot;row&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">,</span>
+        <span class="s2">&quot;column&quot;</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span>
+        <span class="s2">&quot;seat_id&quot;</span><span class="p">:</span> <span class="n">row</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">col</span><span class="p">,</span>
+    <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -384,8 +407,8 @@ FBBFFBBLLL
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">8</span>
-<span class="n">row_identifiers</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
-<span class="n">col_identifiers</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">)</span>
+<span class="n">row_identifiers</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="n">col_identifiers</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -393,7 +416,7 @@ FBBFFBBLLL
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test our function on sample input seat number</span>
-<span class="n">find_seat_info</span><span class="p">(</span><span class="s1">&#39;FBFBBFFRLR&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)</span>
+<span class="n">find_seat_info</span><span class="p">(</span><span class="s2">&quot;FBFBBFFRLR&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -403,11 +426,15 @@ FBBFFBBLLL
 </div>
 </div>
 </div>
-<p>Everything appears to be working…. Let’s loop over all the seat numbers and collect the ids:</p>
+<p>Everything appears to be working…. Let’s loop over all the seat numbers and
+collect the ids:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">find_seat_info</span><span class="p">(</span><span class="n">seat</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)[</span><span class="s1">&#39;seat_id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">seat</span> <span class="ow">in</span> <span class="n">data</span>
+    <span class="n">find_seat_info</span><span class="p">(</span><span class="n">seat</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)[</span>
+        <span class="s2">&quot;seat_id&quot;</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">seat</span> <span class="ow">in</span> <span class="n">data</span>
 <span class="p">]</span>
 <span class="nb">min</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 </pre></div>
@@ -424,15 +451,21 @@ FBBFFBBLLL
 <div class="section" id="part-two">
 <h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
 <p>Ding! The “fasten seat belt” signs have turned on. Time to find your seat.</p>
-<p>It’s a completely full flight, so your seat should be the only missing boarding pass in your list. However, there’s a catch: some of the seats at the very front and back of the plane don’t exist on this aircraft, so they’ll be missing from your list as well.</p>
-<p>Your seat wasn’t at the very front or back, though; the seats with IDs +1 and -1 from yours will be in your list.</p>
+<p>It’s a completely full flight, so your seat should be the only missing boarding
+pass in your list. However, there’s a catch: some of the seats at the very front
+and back of the plane don’t exist on this aircraft, so they’ll be missing from
+your list as well.</p>
+<p>Your seat wasn’t at the very front or back, though; the seats with IDs +1 and -1
+from yours will be in your list.</p>
 <p><strong>What is the ID of your seat?</strong></p>
 <div class="section" id="id1">
 <h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find missing ids</span>
-<span class="n">missing_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">seat_id</span> <span class="k">for</span> <span class="n">seat_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">nrows</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="k">if</span> <span class="n">seat_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)]</span>
+<span class="n">missing_ids</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">seat_id</span> <span class="k">for</span> <span class="n">seat_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">nrows</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="k">if</span> <span class="n">seat_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+<span class="p">]</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">missing_ids</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -463,7 +496,8 @@ FBBFFBBLLL
 </div>
 </div>
 </div>
-<p>We can use a process of elimination to get the ID of our seat by checking for the ids of the front and back seats:</p>
+<p>We can use a process of elimination to get the ID of our seat by checking for
+the ids of the front and back seats:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
@@ -476,7 +510,8 @@ FBBFFBBLLL
 </div>
 </div>
 </div>
-<p>Since it was pointed out that our seat wasn’t at the very front or back, we can eliminate <code class="docutils literal notranslate"><span class="pre">11</span></code> and <code class="docutils literal notranslate"><span class="pre">859</span></code>. So, the id our seat is <strong><code class="docutils literal notranslate"><span class="pre">557</span></code></strong></p>
+<p>Since it was pointed out that our seat wasn’t at the very front or back, we can
+eliminate <code class="docutils literal notranslate"><span class="pre">11</span></code> and <code class="docutils literal notranslate"><span class="pre">859</span></code>. So, the id our seat is <strong><code class="docutils literal notranslate"><span class="pre">557</span></code></strong></p>
 </div>
 </div>
 </div>
@@ -538,7 +573,7 @@ FBBFFBBLLL
   <div class="container">
     <p>
           &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
-        Last updated on Jan 09, 2021.<br/>
+        Last updated on Jan 15, 2021.<br/>
         Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>

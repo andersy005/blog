@@ -195,6 +195,12 @@
 <ul>
    
   <li>
+    <a href="../../2021/function-expressions-in-js/"
+      >14 January - Function Expressions in JavaScript</a
+    >
+  </li>
+  
+  <li>
     <a href="../../2021/google-dynamic-dns-wildcard-subdomains/"
       >09 January - How to set up a wildcard subdomain on Google Domains</a
     >
@@ -218,12 +224,6 @@
     >
   </li>
   
-  <li>
-    <a href="../advent-of-code-day-8/"
-      >08 December - Advent of Code - Day 8: Handheld Halting</a
-    >
-  </li>
-  
 </ul>
 
 <h3>
@@ -232,7 +232,7 @@
 <ul>
    
   <li>
-    <a href="../../2021/">2021 (2)</a>
+    <a href="../../2021/">2021 (3)</a>
   </li>
     
   <li>
@@ -298,30 +298,45 @@
 <h1>Advent of Code - Day 2: Password Philosophy<a class="headerlink" href="#advent-of-code-day-2-password-philosophy" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="part-one">
 <h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
-<p>Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via <a class="reference external" href="https://en.wikipedia.org/wiki/Toboggan">toboggan</a>.</p>
-<p>The shopkeeper at the North Pole Toboggan Rental Shop is having a bad day. “Something’s wrong with our computers; we can’t log in!” You ask if you can take a look.</p>
-<p>Their password database seems to be a little corrupted: some of the passwords wouldn’t have been allowed by the Official Toboggan Corporate Policy that was in effect when they were chosen.</p>
-<p>To try to debug the problem, they have created a list (your puzzle input) of passwords (according to the corrupted database) and the corporate policy when that password was set.</p>
+<p>Your flight departs in a few days from the coastal airport; the easiest way down
+to the coast from here is via
+<a class="reference external" href="https://en.wikipedia.org/wiki/Toboggan">toboggan</a>.</p>
+<p>The shopkeeper at the North Pole Toboggan Rental Shop is having a bad day.
+“Something’s wrong with our computers; we can’t log in!” You ask if you can take
+a look.</p>
+<p>Their password database seems to be a little corrupted: some of the passwords
+wouldn’t have been allowed by the Official Toboggan Corporate Policy that was in
+effect when they were chosen.</p>
+<p>To try to debug the problem, they have created a list (your puzzle input) of
+passwords (according to the corrupted database) and the corporate policy when
+that password was set.</p>
 <p>For example, suppose you have the following list:</p>
 <ul class="simple">
 <li><p>1-3 a: abcde</p></li>
 <li><p>1-3 b: cdefg</p></li>
 <li><p>2-9 c: ccccccccc</p></li>
 </ul>
-<p>Each line gives the password policy and then the password. The password policy indicates the lowest and highest number of times a given letter must appear for the password to be valid. For example, 1-3 a means that the password must contain a at least 1 time and at most 3 times.</p>
-<p>In the above example, 2 passwords are valid. The middle password, cdefg, is not; it contains no instances of b, but needs at least 1. The first and third passwords are valid: they contain one a or nine c, both within the limits of their respective policies.</p>
+<p>Each line gives the password policy and then the password. The password policy
+indicates the lowest and highest number of times a given letter must appear for
+the password to be valid. For example, 1-3 a means that the password must
+contain a at least 1 time and at most 3 times.</p>
+<p>In the above example, 2 passwords are valid. The middle password, cdefg, is not;
+it contains no instances of b, but needs at least 1. The first and third
+passwords are valid: they contain one a or nine c, both within the limits of
+their respective policies.</p>
 <p>How many passwords are valid according to their policies?</p>
 <div class="section" id="load-input-data">
 <h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The input data can be found <a class="reference external" href="https://adventofcode.com/2020/day/2">here</a>.</p>
+<p>The input data can be found
+<a class="reference external" href="https://adventofcode.com/2020/day/2">here</a>. :::</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-2-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/advent-of-code/2020/day-2-input&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -345,7 +360,8 @@
 </div>
 <div class="section" id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
-<p>My solution consists of a single function that parses and validates a single password and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when the password is valid.</p>
+<p>My solution consists of a single function that parses and validates a single
+password and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when the password is valid.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
@@ -360,19 +376,22 @@
 <span class="sd">    Checks whether the password is valid according to the policy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">required_count</span><span class="p">,</span> <span class="n">letter</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="n">required_count</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="n">required_count</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
     <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">min_req_count</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_req_count</span><span class="p">)</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>  <span class="c1"># Get a count for each letter in the password</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span>
+        <span class="n">password</span>
+    <span class="p">)</span>  <span class="c1"># Get a count for each letter in the password</span>
     <span class="k">return</span> <span class="n">min_req_count</span> <span class="o">&lt;=</span> <span class="n">count</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">max_req_count</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s validate the password in the example so as to make sure this function is working properly:</p>
+<p>Let’s validate the password in the example so as to make sure this function is
+working properly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 a: abcde&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;1-3 a: abcde&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -384,7 +403,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 b: cdefg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;1-3 b: cdefg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -396,7 +415,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;2-9 c: ccccccccc&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;2-9 c: ccccccccc&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -406,7 +425,8 @@
 </div>
 </div>
 </div>
-<p>Now that we are confident this function is working properly, let’s loop over all entries in the input dataset, and count how many passwords are valid:</p>
+<p>Now that we are confident this function is working properly, let’s loop over all
+entries in the input dataset, and count how many passwords are valid:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passwords</span> <span class="o">=</span> <span class="mi">0</span>
@@ -431,7 +451,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s1"> are found to be valid.&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s2"> are found to be valid.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -445,38 +465,53 @@
 </div>
 <div class="section" id="part-two">
 <h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
-<p>While it appears you validated the passwords correctly, they don’t seem to be what the Official Toboggan Corporate Authentication System is expecting.</p>
-<p>The shopkeeper suddenly realizes that he just accidentally explained the password policy rules from his old job at the sled rental place down the street! The Official Toboggan Corporate Policy actually works a little differently.</p>
-<p>Each policy actually describes two positions in the password, where 1 means the first character, 2 means the second character, and so on. (Be careful; Toboggan Corporate Policies have no concept of “index zero”!) <strong>Exactly one of these positions must contain the given letter</strong>. Other occurrences of the letter are irrelevant for the purposes of policy enforcement.</p>
+<p>While it appears you validated the passwords correctly, they don’t seem to be
+what the Official Toboggan Corporate Authentication System is expecting.</p>
+<p>The shopkeeper suddenly realizes that he just accidentally explained the
+password policy rules from his old job at the sled rental place down the street!
+The Official Toboggan Corporate Policy actually works a little differently.</p>
+<p>Each policy actually describes two positions in the password, where 1 means the
+first character, 2 means the second character, and so on. (Be careful; Toboggan
+Corporate Policies have no concept of “index zero”!) <strong>Exactly one of these
+positions must contain the given letter</strong>. Other occurrences of the letter are
+irrelevant for the purposes of policy enforcement.</p>
 <p>Given the same example list from above:</p>
 <ul class="simple">
 <li><p>1-3 a: abcde is valid: position 1 contains a and position 3 does not.</p></li>
 <li><p>1-3 b: cdefg is invalid: neither position 1 nor position 3 contains b.</p></li>
 <li><p>2-9 c: ccccccccc is invalid: both position 2 and position 9 contain c.</p></li>
 </ul>
-<p><strong>How many passwords are valid according to the new interpretation of the policies?</strong></p>
+<p><strong>How many passwords are valid according to the new interpretation of the
+policies?</strong></p>
 <div class="section" id="id1">
 <h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>My approach to part two is similar to my solution to part one in that I still have a single function for validating a single entry. In this function, I use a <a class="reference external" href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR_2">bitwise XOR operator</a>. The Bitwise XOR sets the bits in the result to 1 if either, but not both, of the corresponding bits in the two operands is 1:</p>
+<p>My approach to part two is similar to my solution to part one in that I still
+have a single function for validating a single entry. In this function, I use a
+<a class="reference external" href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR_2">bitwise XOR operator</a>.
+The Bitwise XOR sets the bits in the result to 1 if either, but not both, of the
+corresponding bits in the two operands is 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
     <span class="n">required_positions</span><span class="p">,</span> <span class="n">letter</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="n">required_positions</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="n">required_positions</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
     <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_position</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">second_position</span><span class="p">)</span>
     <span class="c1"># use bitwise XOR to make sure exactly one of the positions contains the given letter</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">first_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">second_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">first_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span>
+        <span class="n">password</span><span class="p">[</span><span class="n">second_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span>
+    <span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Once again, let’s make sure this function is working properly by using the three sample examples above:</p>
+<p>Once again, let’s make sure this function is working properly by using the three
+sample examples above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 a: abcde&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;1-3 a: abcde&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -488,7 +523,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 b: cdefg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;1-3 b: cdefg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -500,7 +535,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;2-9 c: ccccccccc&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;2-9 c: ccccccccc&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -510,7 +545,8 @@
 </div>
 </div>
 </div>
-<p>It appears that this function is working…. It’s now time to count all valid passwords from our input data:</p>
+<p>It appears that this function is working…. It’s now time to count all valid
+passwords from our input data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passwords</span> <span class="o">=</span> <span class="mi">0</span>
@@ -518,7 +554,7 @@
     <span class="k">if</span> <span class="n">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
         <span class="n">valid_passwords</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s1"> are found to be valid.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s2"> are found to be valid.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -589,7 +625,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Zero License.<br/>
-        Last updated on Jan 09, 2021.<br/>
+        Last updated on Jan 15, 2021.<br/>
         Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>

@@ -48,15 +48,15 @@ repos:
             '--keep-execution-count',
             '--keep-empty',
           ]
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 0.5.6
-    hooks:
-      - id: nbqa-black
-        additional_dependencies: [black==20.8b1]
-        exclude: posts/2021/function-expressions-in-js.ipynb
-      - id: nbqa-pyupgrade
-        additional_dependencies: [pyupgrade==2.7.3]
-        exclude: posts/2021/function-expressions-in-js.ipynb
-      - id: nbqa-isort
-        additional_dependencies: [isort==5.6.4]
-        exclude: posts/2021/function-expressions-in-js.ipynb
+  # - repo: https://github.com/nbQA-dev/nbQA
+  #   rev: 0.5.6
+  #   hooks:
+  #     - id: nbqa-black
+  #       additional_dependencies: [black==20.8b1]
+  #       exclude: posts/2021/function-expressions-in-js.ipynb
+  #     - id: nbqa-pyupgrade
+  #       additional_dependencies: [pyupgrade==2.7.3]
+  #       exclude: posts/2021/function-expressions-in-js.ipynb
+  #     - id: nbqa-isort
+  #       additional_dependencies: [isort==5.6.4]
+  #       exclude: posts/2021/function-expressions-in-js.ipynb

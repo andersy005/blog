@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2021-01-15T05:41:04.543038+00:00</updated>
+  <updated>2021-02-21T04:48:20.329974+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
-  <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/</id>
     <title>Reflecting on SciPy 2019: My first SciPy, definitely not my last</title>

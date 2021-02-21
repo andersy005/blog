@@ -19,7 +19,8 @@ import datetime
 
 project = 'Paysage Pythonique'
 license_message = (
-    'Except where otherwise noted, this work is licensed under ' 'a Creative Commons Zero License'
+    'Except where otherwise noted, this work is licensed under '
+    'a Creative Commons Attribution-ShareAlike 4.0 International License'
 )
 copyright = f'2018-{datetime.datetime.now().year}. {license_message}'
 author = 'Anderson Banihirwe'

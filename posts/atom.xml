@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2021-02-21T04:48:20.329974+00:00</updated>
+  <updated>2021-02-22T05:36:01.977613+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -206,5 +206,14 @@ function expressions in JavaScript ;)&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/function-expressions-in-js/" rel="alternate"/>
     <published>2021-01-14T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2021/freedom-of-cryptography/</id>
+    <title>Freedom of Cryptography</title>
+    <updated>2021-02-21T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;Today I learned that if you could travel back to the early 1990s with the contents of this &lt;a class="reference external" href="https://github.com/pyca/cryptography"&gt;git repository&lt;/a&gt;, you would have had to become a licensed arms dealer 😮 —the govt certainly would have denied you an export license— before you could post the source code (or any work that featured the source code) on the internet.&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2021/freedom-of-cryptography/" rel="alternate"/>
+    <published>2021-02-21T00:00:00+00:00</published>
   </entry>
 </feed>

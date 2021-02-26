@@ -15,7 +15,7 @@ repos:
       - id: black
 
   - repo: https://github.com/keewis/blackdoc
-    rev: v0.3.2
+    rev: v0.3.3
     hooks:
       - id: blackdoc
 
@@ -37,26 +37,26 @@ repos:
     rev: v2.2.1
     hooks:
       - id: prettier
-  - repo: https://github.com/deathbeds/prenotebook
-    rev: f5bdb72a400f1a56fe88109936c83aa12cc349fa
-    hooks:
-      - id: prenotebook
-        args:
-          [
-            '--keep-output',
-            '--keep-metadata',
-            '--keep-execution-count',
-            '--keep-empty',
-          ]
-  # - repo: https://github.com/nbQA-dev/nbQA
-  #   rev: 0.5.6
+  # - repo: https://github.com/deathbeds/prenotebook
+  #   rev: f5bdb72a400f1a56fe88109936c83aa12cc349fa
   #   hooks:
-  #     - id: nbqa-black
-  #       additional_dependencies: [black==20.8b1]
-  #       exclude: posts/2021/function-expressions-in-js.ipynb
-  #     - id: nbqa-pyupgrade
-  #       additional_dependencies: [pyupgrade==2.7.3]
-  #       exclude: posts/2021/function-expressions-in-js.ipynb
-  #     - id: nbqa-isort
-  #       additional_dependencies: [isort==5.6.4]
-  #       exclude: posts/2021/function-expressions-in-js.ipynb
+  #     - id: prenotebook
+  #       args:
+  #         [
+  #           '--keep-output',
+  #           '--keep-metadata',
+  #           '--keep-execution-count',
+  #           '--keep-empty',
+  #         ]
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 0.5.9
+    hooks:
+      - id: nbqa-black
+        additional_dependencies: [black==20.8b1]
+        exclude: posts/2021/function-expressions-in-js.ipynb
+      - id: nbqa-pyupgrade
+        additional_dependencies: [pyupgrade==2.7.3]
+        exclude: posts/2021/function-expressions-in-js.ipynb
+      - id: nbqa-isort
+        additional_dependencies: [isort==5.7.0]
+        exclude: posts/2021/function-expressions-in-js.ipynb

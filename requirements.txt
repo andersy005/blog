@@ -12,6 +12,6 @@ scipy
 seaborn
 sphinx
 sphinx-panels
-sphinxcontrib-bibtex<=2.0.0
+sphinxcontrib-bibtex<2.0.0
 sphinxext-opengraph
 xarray

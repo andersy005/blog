@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2021/lets-encrypt-wildcard-ssl-certificate-on-centos.html" />
+  <meta property="og:description" content="Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for mor..." />
+  <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg" />
+  <meta property="og:image:alt" content="How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS" />
+  
+    <title>How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS &#8212; Paysage Pythonique  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Paysage Pythonique"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">Paysage Pythonique</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../">Posts</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/">About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../talks/">Talks</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://cv.andersonbanihirwe.dev/">CV</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw">Video</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andersy005/" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/andersy005" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  27 February 2021 
+</h2>
+
+<ul>
+      
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../category/todayilearned/">todayilearned</a>,   
+  <a href="../../category/dns/">dns</a>,   
+  <a href="../../category/domains/">domains</a>,   
+  <a href="../../category/letsencrypt/">letsencrypt</a>  
+</li>
+  
+</ul>
+
+<h3>
+  <a href="../../">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../new-in-xarray-v0.17/"
+      >26 February - 🚀 Xarray v0.17.0 is here!</a
+    >
+  </li>
+  
+  <li>
+    <a href="../freedom-of-cryptography/"
+      >21 February - Freedom of Cryptography</a
+    >
+  </li>
+  
+  <li>
+    <a href="../function-expressions-in-js/"
+      >14 January - Function Expressions in JavaScript</a
+    >
+  </li>
+  
+  <li>
+    <a href="../google-dynamic-dns-wildcard-subdomains/"
+      >09 January - How to set up a wildcard subdomain on Google Domains</a
+    >
+  </li>
+  
+  <li>
+    <a href="../how-to-merge-disk-partitions-on-centos/"
+      >07 January - How to merge two or more disk partitions on Centos 7</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../">2021 (6)</a>
+  </li>
+    
+  <li>
+    <a href="../../2020/">2020 (14)</a>
+  </li>
+    
+  <li>
+    <a href="../../2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-1-installing-the-certbot-lets-encrypt-client" class="nav-link">Step 1 — Installing the Certbot Let’s Encrypt Client</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-2-obtaining-a-wildcard-certificate" class="nav-link">Step 2 — Obtaining a Wildcard Certificate</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-3-testing-the-certificate-and-ssl-configuration" class="nav-link">Step 3 — Testing the Certificate and SSL Configuration</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="how-to-generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-on-centos">
+<h1>How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS<a class="headerlink" href="#how-to-generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-on-centos" title="Permalink to this headline">¶</a></h1>
+<p>Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see <a class="reference external" href="https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578">this post</a>). Below are the steps I used to generate a wildcard certificate.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This article describes the process for Centos 7/8 but can also be used for other Linux distros (with small changes in step 1). Also, <code class="docutils literal notranslate"><span class="pre">{subdomain}</span></code> and <code class="docutils literal notranslate"><span class="pre">{domain}</span></code> are placeholders. Remember to replace them with your own values. For instance, <code class="docutils literal notranslate"><span class="pre">{subdomain}</span></code>-&gt; <code class="docutils literal notranslate"><span class="pre">mycloud</span></code>, and <code class="docutils literal notranslate"><span class="pre">{domain}</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">example.com</span></code></p>
+</div>
+<div class="section" id="step-1-installing-the-certbot-lets-encrypt-client">
+<h2>Step 1 — Installing the Certbot Let’s Encrypt Client<a class="headerlink" href="#step-1-installing-the-certbot-lets-encrypt-client" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo dfn install epel-release
+$ sudo dfn install certbot
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This step assumes that you are using CentOS 7/8.</p>
+</div>
+</div>
+<div class="section" id="step-2-obtaining-a-wildcard-certificate">
+<h2>Step 2 — Obtaining a Wildcard Certificate<a class="headerlink" href="#step-2-obtaining-a-wildcard-certificate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo certbot certonly -d *.<span class="o">{</span>subdomain<span class="o">}</span>.<span class="o">{</span>domain<span class="o">}</span> <span class="se">\</span>
+&gt; --manual <span class="se">\</span>
+&gt; --preferred-challenges dns <span class="se">\</span>
+&gt; --server https://acme-v02.api.letsencrypt.org/directory
+</pre></div>
+</div>
+<p>The certbot prompts you for some personal information. Once everything is done, certbot provides a DNS TXT record to add to your DNS settings. At this point, head over to your DNS settings ( I was using google domains) and enter your TXT DNS record:</p>
+<p><img alt="google-domains-acme-challenge" src="../../../_images/google-domains-acme-challenge.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">{subdomain}</span></code> and <code class="docutils literal notranslate"><span class="pre">{domain}</span></code> are placeholders. Remember to replace them with your own values. For instance, <code class="docutils literal notranslate"><span class="pre">{subdomain}</span></code>-&gt; <code class="docutils literal notranslate"><span class="pre">mycloud</span></code>, and <code class="docutils literal notranslate"><span class="pre">{domain}</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">example.com</span></code></p>
+</div>
+<p>At this point,</p>
+<ul class="simple">
+<li><p>Go back to your command line command (which should have been blocking after the DNS TXT record instructions).</p></li>
+<li><p>Then Hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
+</ul>
+<p>Cerbot will retrieve your DNS records to verify that the entries are correct. If the verification is successful, you get following output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Before continuing, verify the record is deployed.</span>
+<span class="go">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="go">Press Enter to Continue</span>
+<span class="go">Waiting for verification...</span>
+<span class="go">Cleaning up challenges</span>
+
+<span class="go">IMPORTANT NOTES:</span>
+<span class="go"> - Congratulations! Your certificate and chain have been saved at:</span>
+<span class="go">   /etc/letsencrypt/live/mycloud.example.com/fullchain.pem</span>
+<span class="go">   Your key file has been saved at:</span>
+<span class="go">   /etc/letsencrypt/live/mycloud.example.com/privkey.pem</span>
+<span class="go">   Your certificate will expire on 2021-05-28. To obtain a new or</span>
+<span class="go">   tweaked version of this certificate in the future, simply run</span>
+<span class="go">   certbot again. To non-interactively renew *all* of your</span>
+<span class="go">   certificates, run &quot;certbot renew&quot;</span>
+<span class="go"> - If you like Certbot, please consider supporting our work by:</span>
+
+<span class="go">   Donating to ISRG / Let&#39;s Encrypt:   https://letsencrypt.org/donate</span>
+<span class="go">   Donating to EFF:                    https://eff.org/donate-le</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-testing-the-certificate-and-ssl-configuration">
+<h2>Step 3 — Testing the Certificate and SSL Configuration<a class="headerlink" href="#step-3-testing-the-certificate-and-ssl-configuration" title="Permalink to this headline">¶</a></h2>
+<p>At this point, you can ensure that Certbot created your SSL certificate correctly by using the <a class="reference external" href="https://www.ssllabs.com/ssltest/">SSL Server Test</a> from the cloud security company Qualys.</p>
+<p>Open your browser, and point it to the following link, replacing <code class="docutils literal notranslate"><span class="pre">mycloud.example.com</span></code> with your domain:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">https://www.ssllabs.com/ssltest/analyze.html?d=mycloud.example.com</span>
+</pre></div>
+</div>
+<p>Voilà 🎉🎉🎉🎉!</p>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../new-in-xarray-v0.17/">
+      <i class="fa fa-arrow-circle-left"></i> 🚀 Xarray v0.17.0 is here!
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-91185106-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br/>
+        Last updated on Feb 27, 2021.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2021-02-27T06:19:49.323223+00:00</updated>
+  <updated>2021-02-27T11:49:28.445218+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -224,5 +224,15 @@ function expressions in JavaScript ;)&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/new-in-xarray-v0.17/" rel="alternate"/>
     <published>2021-02-26T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2021/lets-encrypt-wildcard-ssl-certificate-on-centos/</id>
+    <title>How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS</title>
+    <updated>2021-02-27T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see &lt;a class="reference external" href="https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578"&gt;this post&lt;/a&gt;). Below are the steps I used to generate a wildcard certificate.&lt;/p&gt;
+&lt;img alt="google-domains-acme-challenge" src="../_images/google-domains-acme-challenge.png" /&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2021/lets-encrypt-wildcard-ssl-certificate-on-centos/" rel="alternate"/>
+    <published>2021-02-27T00:00:00+00:00</published>
   </entry>
 </feed>

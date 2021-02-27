@@ -377,9 +377,7 @@
     }
    ],
    "source": [
-    "print(\n",
-    "    f\"The value of the accumulator after the program terminates is: {fix_program(data)}\"\n",
-    ")"
+    "print(f\"The value of the accumulator after the program terminates is: {fix_program(data)}\")"
    ]
   }
  ],

@@ -193,6 +193,12 @@
 <ul>
    
   <li>
+    <a href="../../2021/new-in-xarray-v0.17/"
+      >26 February - 🚀 Xarray v0.17.0 is here!</a
+    >
+  </li>
+  
+  <li>
     <a href="../../2021/freedom-of-cryptography/"
       >21 February - Freedom of Cryptography</a
     >
@@ -216,12 +222,6 @@
     >
   </li>
   
-  <li>
-    <a href="../maurice-hilleman/"
-      >16 December - On Maurice Hilleman</a
-    >
-  </li>
-  
 </ul>
 
 <h3>
@@ -230,7 +230,7 @@
 <ul>
    
   <li>
-    <a href="../../2021/">2021 (4)</a>
+    <a href="../../2021/">2021 (5)</a>
   </li>
     
   <li>
@@ -429,10 +429,7 @@ collect the ids:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">find_seat_info</span><span class="p">(</span><span class="n">seat</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)[</span>
-        <span class="s2">&quot;seat_id&quot;</span>
-    <span class="p">]</span>
-    <span class="k">for</span> <span class="n">seat</span> <span class="ow">in</span> <span class="n">data</span>
+    <span class="n">find_seat_info</span><span class="p">(</span><span class="n">seat</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)[</span><span class="s2">&quot;seat_id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">seat</span> <span class="ow">in</span> <span class="n">data</span>
 <span class="p">]</span>
 <span class="nb">min</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 </pre></div>
@@ -461,9 +458,7 @@ from yours will be in your list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find missing ids</span>
-<span class="n">missing_ids</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">seat_id</span> <span class="k">for</span> <span class="n">seat_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">nrows</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="k">if</span> <span class="n">seat_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
-<span class="p">]</span>
+<span class="n">missing_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">seat_id</span> <span class="k">for</span> <span class="n">seat_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">nrows</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="k">if</span> <span class="n">seat_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)]</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">missing_ids</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -571,7 +566,7 @@ eliminate <code class="docutils literal notranslate"><span class="pre">11</span>
   <div class="container">
     <p>
           &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br/>
-        Last updated on Feb 22, 2021.<br/>
+        Last updated on Feb 27, 2021.<br/>
         Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>

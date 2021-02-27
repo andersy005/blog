@@ -131,9 +131,7 @@
     "    letter = letter.split(\":\")[0]\n",
     "    min_req_count, max_req_count = required_count.split(\"-\")\n",
     "    min_req_count, max_req_count = int(min_req_count), int(max_req_count)\n",
-    "    count = collections.Counter(\n",
-    "        password\n",
-    "    )  # Get a count for each letter in the password\n",
+    "    count = collections.Counter(password)  # Get a count for each letter in the password\n",
     "    return min_req_count <= count[letter] <= max_req_count"
    ]
   },
@@ -316,9 +314,7 @@
     "    first_position, second_position = required_positions.split(\"-\")\n",
     "    first_position, second_position = int(first_position), int(second_position)\n",
     "    # use bitwise XOR to make sure exactly one of the positions contains the given letter\n",
-    "    if (password[first_position - 1] == letter) ^ (\n",
-    "        password[second_position - 1] == letter\n",
-    "    ):\n",
+    "    if (password[first_position - 1] == letter) ^ (password[second_position - 1] == letter):\n",
     "        return True\n",
     "    return False"
    ]

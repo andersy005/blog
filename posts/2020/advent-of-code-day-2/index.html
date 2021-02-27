@@ -193,6 +193,12 @@
 <ul>
    
   <li>
+    <a href="../../2021/new-in-xarray-v0.17/"
+      >26 February - 🚀 Xarray v0.17.0 is here!</a
+    >
+  </li>
+  
+  <li>
     <a href="../../2021/freedom-of-cryptography/"
       >21 February - Freedom of Cryptography</a
     >
@@ -216,12 +222,6 @@
     >
   </li>
   
-  <li>
-    <a href="../maurice-hilleman/"
-      >16 December - On Maurice Hilleman</a
-    >
-  </li>
-  
 </ul>
 
 <h3>
@@ -230,7 +230,7 @@
 <ul>
    
   <li>
-    <a href="../../2021/">2021 (4)</a>
+    <a href="../../2021/">2021 (5)</a>
   </li>
     
   <li>
@@ -377,9 +377,7 @@ password and returns <code class="docutils literal notranslate"><span class="pre
     <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="n">required_count</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
     <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">min_req_count</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_req_count</span><span class="p">)</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span>
-        <span class="n">password</span>
-    <span class="p">)</span>  <span class="c1"># Get a count for each letter in the password</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>  <span class="c1"># Get a count for each letter in the password</span>
     <span class="k">return</span> <span class="n">min_req_count</span> <span class="o">&lt;=</span> <span class="n">count</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">max_req_count</span>
 </pre></div>
 </div>
@@ -496,9 +494,7 @@ corresponding bits in the two operands is 1:</p>
     <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="n">required_positions</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
     <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_position</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">second_position</span><span class="p">)</span>
     <span class="c1"># use bitwise XOR to make sure exactly one of the positions contains the given letter</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">first_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span>
-        <span class="n">password</span><span class="p">[</span><span class="n">second_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span>
-    <span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">first_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">second_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
@@ -623,7 +619,7 @@ passwords from our input data:</p>
   <div class="container">
     <p>
           &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br/>
-        Last updated on Feb 22, 2021.<br/>
+        Last updated on Feb 27, 2021.<br/>
         Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>

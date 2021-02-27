@@ -367,9 +367,7 @@
    "source": [
     "n1, n2, n3 = triplets_addup(data, 2020)\n",
     "if n1 is not None:\n",
-    "    print(\n",
-    "        f\"Three numbers: {n1} and {n2} and {n3}\\nTheir product: {n1 * n2 * n3}\"\n",
-    "    )\n",
+    "    print(f\"Three numbers: {n1} and {n2} and {n3}\\nTheir product: {n1 * n2 * n3}\")\n",
     "else:\n",
     "    print(\"Found Nothing....\")"
    ]

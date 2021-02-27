@@ -193,6 +193,12 @@
 <ul>
    
   <li>
+    <a href="../../2021/new-in-xarray-v0.17/"
+      >26 February - 🚀 Xarray v0.17.0 is here!</a
+    >
+  </li>
+  
+  <li>
     <a href="../../2021/freedom-of-cryptography/"
       >21 February - Freedom of Cryptography</a
     >
@@ -216,12 +222,6 @@
     >
   </li>
   
-  <li>
-    <a href="../maurice-hilleman/"
-      >16 December - On Maurice Hilleman</a
-    >
-  </li>
-  
 </ul>
 
 <h3>
@@ -230,7 +230,7 @@
 <ul>
    
   <li>
-    <a href="../../2021/">2021 (4)</a>
+    <a href="../../2021/">2021 (5)</a>
   </li>
     
   <li>
@@ -360,12 +360,8 @@ cid as optional. <strong>In your batch file, how many passports are valid?</stro
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_input_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">passports</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">passports</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">passport</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">passport</span> <span class="ow">in</span> <span class="n">passports</span>
-    <span class="p">]</span>
-    <span class="n">passports</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="nb">dict</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">),</span> <span class="n">passport</span><span class="p">))</span> <span class="k">for</span> <span class="n">passport</span> <span class="ow">in</span> <span class="n">passports</span>
-    <span class="p">]</span>
+    <span class="n">passports</span> <span class="o">=</span> <span class="p">[</span><span class="n">passport</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">passport</span> <span class="ow">in</span> <span class="n">passports</span><span class="p">]</span>
+    <span class="n">passports</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">),</span> <span class="n">passport</span><span class="p">))</span> <span class="k">for</span> <span class="n">passport</span> <span class="ow">in</span> <span class="n">passports</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">passports</span>
 
 
@@ -740,9 +736,7 @@ passports are valid?</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passport_counter</span><span class="p">(</span>
-    <span class="n">test_data_invalid</span><span class="p">,</span> <span class="n">pass_validator</span><span class="o">=</span><span class="n">is_passport_valid_enhanced</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passport_counter</span><span class="p">(</span><span class="n">test_data_invalid</span><span class="p">,</span> <span class="n">pass_validator</span><span class="o">=</span><span class="n">is_passport_valid_enhanced</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -766,9 +760,7 @@ passports are valid?</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passport_counter</span><span class="p">(</span>
-    <span class="n">test_data_valid</span><span class="p">,</span> <span class="n">pass_validator</span><span class="o">=</span><span class="n">is_passport_valid_enhanced</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_passport_counter</span><span class="p">(</span><span class="n">test_data_valid</span><span class="p">,</span> <span class="n">pass_validator</span><span class="o">=</span><span class="n">is_passport_valid_enhanced</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -853,7 +845,7 @@ passports are valid?</strong></p>
   <div class="container">
     <p>
           &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br/>
-        Last updated on Feb 22, 2021.<br/>
+        Last updated on Feb 27, 2021.<br/>
         Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>

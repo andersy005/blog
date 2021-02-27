@@ -195,9 +195,7 @@
     }
    ],
    "source": [
-    "print(\n",
-    "    f\"{find_invalid_number(test_data, 5)} is the number that does not have the required property\"\n",
-    ")"
+    "print(f\"{find_invalid_number(test_data, 5)} is the number that does not have the required property\")"
    ]
   },
   {
@@ -214,9 +212,7 @@
     }
    ],
    "source": [
-    "print(\n",
-    "    f\"{find_invalid_number(data, 25)} is the number that does not have the required property\"\n",
-    ")"
+    "print(f\"{find_invalid_number(data, 25)} is the number that does not have the required property\")"
    ]
   },
   {
@@ -373,9 +369,7 @@
     }
    ],
    "source": [
-    "print(\n",
-    "    f\"The the encryption weakness in our XMAS-encrypted list of numbers is {min_num + max_num}\"\n",
-    ")"
+    "print(f\"The the encryption weakness in our XMAS-encrypted list of numbers is {min_num + max_num}\")"
    ]
   }
  ],

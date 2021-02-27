@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2021-02-22T05:36:01.977613+00:00</updated>
+  <updated>2021-02-27T06:19:49.323223+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -215,5 +215,14 @@ function expressions in JavaScript ;)&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/freedom-of-cryptography/" rel="alternate"/>
     <published>2021-02-21T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2021/new-in-xarray-v0.17/</id>
+    <title>🚀 Xarray v0.17.0 is here!</title>
+    <updated>2021-02-26T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;The new version of xarray comes with plenty of bug fixes and support for a number of great new features. In this post, I am going to discuss some of the new features I am most excited about.&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2021/new-in-xarray-v0.17/" rel="alternate"/>
+    <published>2021-02-26T00:00:00+00:00</published>
   </entry>
 </feed>

@@ -100,10 +100,7 @@ post_auto_excerpt = 1
 panels_add_bootstrap_css = False
 
 # MyST config
-myst_admonition_enable = True
-myst_deflist_enable = True
-myst_amsmath_enable = True
-myst_html_img_enable = True
+myst_enable_extensions = ['amsmath', 'colon_fence', 'deflist', 'html_image']
 myst_url_schemes = ('http', 'https', 'mailto')
 
 # OpenGraph config

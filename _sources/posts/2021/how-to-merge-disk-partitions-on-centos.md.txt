@@ -27,9 +27,9 @@ tmpfs                                                 379M     0  379M   0% /run
 
 Notice how `var`, `data`, `home`, `tmp`, `usr`, `usr_local`, and `root` have their own partitions. I prefer to have a few but large disk partitions. So, today I figured out how to merge two or more partitions into the root partition (thank you, @kmpaul for the help and documenting this!).
 
-## Step 1: Make sure you are logged in as root
+## Step 1 — Make sure you are logged in as root
 
-## Step 2: Backup data from the partitions you want to merge into the root partiton
+## Step 2 — Backup data from the partitions you want to merge into the root partiton
 
 ```bash
 $ rsync -a /home/ /home-old/
@@ -37,13 +37,13 @@ $ rsync -a /tmp/ /tmp-old/
 $ rsync -a /var/ /var-old/
 ```
 
-## Step 3: Reboot the VM into an emergency mode
+## Step 3 — Reboot the VM into an emergency mode
 
 ```bash
 $ systemctl emergency
 ```
 
-## Step 4: Umount and remove logic volume for each of the partitions
+## Step 4 — Umount and remove logic volume for each of the partitions
 
 ```bash
 $ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-data
@@ -52,7 +52,14 @@ $ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-var
 $ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-tmp
 ```
 
-## Step 5: Copy the backed up data
+```bash
+$ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-data
+$ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-home
+$ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-var
+$ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-tmp
+```
+
+## Step 5 — Copy the backed up data
 
 ```bash
 $ rsync -a /home-old/ /home/
@@ -60,31 +67,31 @@ $ rsync -a /var-old/ /var/
 $ rsync -a /tmp-old/ /tmp/
 ```
 
-## Step 6: Edit the `/etc/fstab` file by removing or commenting out the partitions we don't need
+## Step 6 — Edit the `/etc/fstab` file by removing or commenting out the partitions we don't need
 
 ```bash
 $ vi /etc/fstab
 ```
 
-## Step 7: Extend the root partition to fill the remaining space
+## Step 7 — Extend the root partition to fill the remaining space
 
 ```bash
 $ lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-root
 ```
 
-## Step 9: Remove the backups
+## Step 8 — Remove the backups
 
 ```bash
 $ rm -rf /home-old/ /tmp-old/ /var-old/
 ```
 
-## Step 8: Reboot the system
+## Step 9 — Reboot the system
 
 ```bash
 $ reboot
 ```
 
-## Step 9: Login to the VM as a regular user or root
+## Step 10 — Login to the VM as a regular user or root
 
 Let's check that our `/` root partition size has increased:
 

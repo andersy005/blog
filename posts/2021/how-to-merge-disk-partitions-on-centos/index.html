@@ -249,43 +249,43 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-1-make-sure-you-are-logged-in-as-root" class="nav-link">Step 1: Make sure you are logged in as root</a>
+            <a href="#step-1-make-sure-you-are-logged-in-as-root" class="nav-link">Step 1 — Make sure you are logged in as root</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton" class="nav-link">Step 2: Backup data from the partitions you want to merge into the root partiton</a>
+            <a href="#step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton" class="nav-link">Step 2 — Backup data from the partitions you want to merge into the root partiton</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-3-reboot-the-vm-into-an-emergency-mode" class="nav-link">Step 3: Reboot the VM into an emergency mode</a>
+            <a href="#step-3-reboot-the-vm-into-an-emergency-mode" class="nav-link">Step 3 — Reboot the VM into an emergency mode</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-4-umount-and-remove-logic-volume-for-each-of-the-partitions" class="nav-link">Step 4: Umount and remove logic volume for each of the partitions</a>
+            <a href="#step-4-umount-and-remove-logic-volume-for-each-of-the-partitions" class="nav-link">Step 4 — Umount and remove logic volume for each of the partitions</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-5-copy-the-backed-up-data" class="nav-link">Step 5: Copy the backed up data</a>
+            <a href="#step-5-copy-the-backed-up-data" class="nav-link">Step 5 — Copy the backed up data</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need" class="nav-link">Step 6: Edit the /etc/fstab file by removing or commenting out the partitions we don’t need</a>
+            <a href="#step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need" class="nav-link">Step 6 — Edit the /etc/fstab file by removing or commenting out the partitions we don’t need</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-7-extend-the-root-partition-to-fill-the-remaining-space" class="nav-link">Step 7: Extend the root partition to fill the remaining space</a>
+            <a href="#step-7-extend-the-root-partition-to-fill-the-remaining-space" class="nav-link">Step 7 — Extend the root partition to fill the remaining space</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-9-remove-the-backups" class="nav-link">Step 9: Remove the backups</a>
+            <a href="#step-8-remove-the-backups" class="nav-link">Step 8 — Remove the backups</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-8-reboot-the-system" class="nav-link">Step 8: Reboot the system</a>
+            <a href="#step-9-reboot-the-system" class="nav-link">Step 9 — Reboot the system</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#step-9-login-to-the-vm-as-a-regular-user-or-root" class="nav-link">Step 9: Login to the VM as a regular user or root</a>
+            <a href="#step-10-login-to-the-vm-as-a-regular-user-or-root" class="nav-link">Step 10 — Login to the VM as a regular user or root</a>
         </li>
     
     </ul>
@@ -322,10 +322,10 @@ tmpfs                                                 379M     <span class="m">0
 </div>
 <p>Notice how <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">home</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp</span></code>, <code class="docutils literal notranslate"><span class="pre">usr</span></code>, <code class="docutils literal notranslate"><span class="pre">usr_local</span></code>, and <code class="docutils literal notranslate"><span class="pre">root</span></code> have their own partitions. I prefer to have a few but large disk partitions. So, today I figured out how to merge two or more partitions into the root partition (thank you, &#64;kmpaul for the help and documenting this!).</p>
 <div class="section" id="step-1-make-sure-you-are-logged-in-as-root">
-<h2>Step 1: Make sure you are logged in as root<a class="headerlink" href="#step-1-make-sure-you-are-logged-in-as-root" title="Permalink to this headline">¶</a></h2>
+<h2>Step 1 — Make sure you are logged in as root<a class="headerlink" href="#step-1-make-sure-you-are-logged-in-as-root" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton">
-<h2>Step 2: Backup data from the partitions you want to merge into the root partiton<a class="headerlink" href="#step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton" title="Permalink to this headline">¶</a></h2>
+<h2>Step 2 — Backup data from the partitions you want to merge into the root partiton<a class="headerlink" href="#step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -a /home/ /home-old/
 $ rsync -a /tmp/ /tmp-old/
 $ rsync -a /var/ /var-old/
@@ -333,22 +333,28 @@ $ rsync -a /var/ /var-old/
 </div>
 </div>
 <div class="section" id="step-3-reboot-the-vm-into-an-emergency-mode">
-<h2>Step 3: Reboot the VM into an emergency mode<a class="headerlink" href="#step-3-reboot-the-vm-into-an-emergency-mode" title="Permalink to this headline">¶</a></h2>
+<h2>Step 3 — Reboot the VM into an emergency mode<a class="headerlink" href="#step-3-reboot-the-vm-into-an-emergency-mode" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl emergency
 </pre></div>
 </div>
 </div>
 <div class="section" id="step-4-umount-and-remove-logic-volume-for-each-of-the-partitions">
-<h2>Step 4: Umount and remove logic volume for each of the partitions<a class="headerlink" href="#step-4-umount-and-remove-logic-volume-for-each-of-the-partitions" title="Permalink to this headline">¶</a></h2>
+<h2>Step 4 — Umount and remove logic volume for each of the partitions<a class="headerlink" href="#step-4-umount-and-remove-logic-volume-for-each-of-the-partitions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-data
 $ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-home
 $ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-var
 $ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-tmp
 </pre></div>
 </div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-data
+$ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-home
+$ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-var
+$ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-tmp
+</pre></div>
+</div>
 </div>
 <div class="section" id="step-5-copy-the-backed-up-data">
-<h2>Step 5: Copy the backed up data<a class="headerlink" href="#step-5-copy-the-backed-up-data" title="Permalink to this headline">¶</a></h2>
+<h2>Step 5 — Copy the backed up data<a class="headerlink" href="#step-5-copy-the-backed-up-data" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -a /home-old/ /home/
 $ rsync -a /var-old/ /var/
 $ rsync -a /tmp-old/ /tmp/
@@ -356,31 +362,31 @@ $ rsync -a /tmp-old/ /tmp/
 </div>
 </div>
 <div class="section" id="step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need">
-<h2>Step 6: Edit the <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> file by removing or commenting out the partitions we don’t need<a class="headerlink" href="#step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need" title="Permalink to this headline">¶</a></h2>
+<h2>Step 6 — Edit the <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> file by removing or commenting out the partitions we don’t need<a class="headerlink" href="#step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vi /etc/fstab
 </pre></div>
 </div>
 </div>
 <div class="section" id="step-7-extend-the-root-partition-to-fill-the-remaining-space">
-<h2>Step 7: Extend the root partition to fill the remaining space<a class="headerlink" href="#step-7-extend-the-root-partition-to-fill-the-remaining-space" title="Permalink to this headline">¶</a></h2>
+<h2>Step 7 — Extend the root partition to fill the remaining space<a class="headerlink" href="#step-7-extend-the-root-partition-to-fill-the-remaining-space" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-root
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-9-remove-the-backups">
-<h2>Step 9: Remove the backups<a class="headerlink" href="#step-9-remove-the-backups" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-8-remove-the-backups">
+<h2>Step 8 — Remove the backups<a class="headerlink" href="#step-8-remove-the-backups" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rm -rf /home-old/ /tmp-old/ /var-old/
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-8-reboot-the-system">
-<h2>Step 8: Reboot the system<a class="headerlink" href="#step-8-reboot-the-system" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-9-reboot-the-system">
+<h2>Step 9 — Reboot the system<a class="headerlink" href="#step-9-reboot-the-system" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ reboot
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-9-login-to-the-vm-as-a-regular-user-or-root">
-<h2>Step 9: Login to the VM as a regular user or root<a class="headerlink" href="#step-9-login-to-the-vm-as-a-regular-user-or-root" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-10-login-to-the-vm-as-a-regular-user-or-root">
+<h2>Step 10 — Login to the VM as a regular user or root<a class="headerlink" href="#step-10-login-to-the-vm-as-a-regular-user-or-root" title="Permalink to this headline">¶</a></h2>
 <p>Let’s check that our <code class="docutils literal notranslate"><span class="pre">/</span></code> root partition size has increased:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ df -h
 Filesystem                                            Size  Used Avail Use% Mounted on
@@ -456,7 +462,7 @@ tmpfs                                                 379M     <span class="m">0
   <div class="container">
     <p>
           &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br/>
-        Last updated on Feb 27, 2021.<br/>
+        Last updated on Mar 02, 2021.<br/>
         Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>

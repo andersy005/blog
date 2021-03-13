@@ -71,7 +71,8 @@ html_theme_options = {
     'search_bar_position': 'navbar',
 }
 
-html_favicon = '_static/favicon.ico'
+html_favicon = '_static/share.png'
+html_title = ''
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -106,7 +107,13 @@ myst_url_schemes = ('http', 'https', 'mailto')
 
 # OpenGraph config
 ogp_site_url = 'https://blog.andersonbanihirwe.dev'
-ogp_image = 'https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg'
+ogp_image = 'https://blog.andersonbanihirwe.dev/_static/share.png'
+ogp_site_name = f' {blog_title} | Anderson Banihirwe'
+ogp_custom_meta_tags = [
+    '<meta name="twitter:card" content="summary_large_image" />',
+    '<meta name="twitter:site" content="@andersy005" />',
+    '<meta name="twitter:creator" content="@andersy005" />',
+]
 
 # Temporarily stored as off until we fix it
 jupyter_execute_notebooks = 'off'

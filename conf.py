@@ -38,6 +38,7 @@ extensions = [
     'sphinx_panels',
     'sphinxcontrib.bibtex',
     'sphinxext.opengraph',
+    'sphinx_comments',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -109,6 +110,14 @@ ogp_image = 'https://blog.andersonbanihirwe.dev/_static/anderson-profile.jpeg'
 
 # Temporarily stored as off until we fix it
 jupyter_execute_notebooks = 'off'
+
+comments_config = {
+    'utterances': {
+        'repo': 'andersy005/blog',
+        'optional': 'config',
+    },
+    'hypothesis': True,
+}
 
 
 def setup(app):

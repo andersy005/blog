@@ -1,6 +1,7 @@
 ---
+author: Anderson Banihirwe
 date: 2021-01-07
-category: todayilearned, linux, centos
+tags: todayilearned, linux, centos
 ---
 
 # How to merge two or more disk partitions on Centos 7

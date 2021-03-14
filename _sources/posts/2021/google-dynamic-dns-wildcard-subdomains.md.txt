@@ -1,6 +1,7 @@
 ---
+author: Anderson Banihirwe
 date: 2021-01-09
-category: todayilearned, dns, domains
+tags: todayilearned, dns, domains
 ---
 
 # How to set up a wildcard subdomain on Google Domains

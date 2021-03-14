@@ -1,6 +1,7 @@
 ---
+author: Anderson Banihirwe
 date: 2021-02-27
-category: todayilearned, dns, domains, letsencrypt
+tags: todayilearned, dns, domains, letsencrypt
 ---
 
 # How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS

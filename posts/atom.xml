@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2021-03-14T05:08:28.821565+00:00</updated>
+  <updated>2021-03-14T05:37:25.287367+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -48,6 +48,9 @@
     <id>https://blog.andersonbanihirwe.dev/posts/2020/chadwick-boseman/</id>
     <title>Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever</title>
     <updated>2020-08-28T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
     <content type="html">&lt;p&gt;Chadwick Boseman:&lt;/p&gt;
 &lt;img alt="black-panther" src="../_images/black-panther.jpeg" /&gt;
 </content>
@@ -182,6 +185,9 @@ an open data port on the little screen in the seat in front of you.&lt;/p&gt;
     <id>https://blog.andersonbanihirwe.dev/posts/2021/how-to-merge-disk-partitions-on-centos/</id>
     <title>How to merge two or more disk partitions on Centos 7</title>
     <updated>2021-01-07T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
     <content type="html">&lt;p&gt;I’ve been working with centos 7 virtual machine provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the storage disk gets partitioned into tiny partititions during the VM provisioning:&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/how-to-merge-disk-partitions-on-centos/" rel="alternate"/>
@@ -191,6 +197,9 @@ an open data port on the little screen in the seat in front of you.&lt;/p&gt;
     <id>https://blog.andersonbanihirwe.dev/posts/2021/google-dynamic-dns-wildcard-subdomains/</id>
     <title>How to set up a wildcard subdomain on Google Domains</title>
     <updated>2021-01-09T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
     <content type="html">&lt;p&gt;Today, I was working with &lt;a class="reference external" href="https://github.com/dokku/dokku/"&gt;dokku&lt;/a&gt;, and I found myself in need of a wildcard subdomain. A &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Wildcard_DNS_record"&gt;wildcard DNS record&lt;/a&gt; is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;*.example.com&lt;/span&gt;&lt;/code&gt;, and a user requests &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;random.example.com&lt;/span&gt;&lt;/code&gt; or &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;foo.example.com&lt;/span&gt;&lt;/code&gt;, etc.. the requests will be forwarded to whichever server &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;*.example.com&lt;/span&gt;&lt;/code&gt; points to.&lt;/p&gt;
 &lt;img alt="" src="../_images/google-domains-dynamic-dns.png" /&gt;
 </content>
@@ -211,6 +220,9 @@ function expressions in JavaScript ;)&lt;/p&gt;
     <id>https://blog.andersonbanihirwe.dev/posts/2021/freedom-of-cryptography/</id>
     <title>Freedom of Cryptography</title>
     <updated>2021-02-21T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
     <content type="html">&lt;p&gt;Today I learned that if you could travel back to the early 1990s with the contents of this &lt;a class="reference external" href="https://github.com/pyca/cryptography"&gt;git repository&lt;/a&gt;, you would have had to become a licensed arms dealer 😮 —the govt certainly would have denied you an export license— before you could post the source code (or any work that featured the source code) on the internet.&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/freedom-of-cryptography/" rel="alternate"/>
@@ -229,6 +241,9 @@ function expressions in JavaScript ;)&lt;/p&gt;
     <id>https://blog.andersonbanihirwe.dev/posts/2021/lets-encrypt-wildcard-ssl-certificate-on-centos/</id>
     <title>How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS</title>
     <updated>2021-02-27T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
     <content type="html">&lt;p&gt;Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see &lt;a class="reference external" href="https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578"&gt;this post&lt;/a&gt;). Below are the steps I used to generate a wildcard certificate.&lt;/p&gt;
 &lt;img alt="google-domains-acme-challenge" src="../_images/google-domains-acme-challenge.png" /&gt;
 </content>

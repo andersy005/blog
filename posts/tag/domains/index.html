@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Posts tagged people</title>
+    <title>Posts tagged domains</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
@@ -83,7 +83,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   rel="alternate"
   type="application/atom+xml"
   href="../../../posts/atom.xml"
-  title="Posts tagged people"
+  title="Posts tagged domains"
 />
  
 <style type="text/css">
@@ -275,20 +275,20 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
 <div class="section">
   <h1>
-     Posts tagged  people 
+     Posts tagged  domains 
   </h1>
    
 
   <div class="section">
     <h2>
-      <a href="../../2020/maurice-hilleman/"
-        >On Maurice Hilleman</a
+      <a href="../../2021/lets-encrypt-wildcard-ssl-certificate-on-centos/"
+        >How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS</a
       >
     </h2>
 
     <ul class="ablog-archive">
       <li>
-         <i class="fa fa-calendar"></i> 16 December 2020 
+         <i class="fa fa-calendar"></i> 27 February 2021 
       </li>
        
 <li id="author">
@@ -304,30 +304,31 @@ commentsRunWhenDOMLoaded(addUtterances);
     ><i class="fa-fw fa fa-tags"></i> </span
   >
    
-  <a href="../life/">life</a>   
-  <a href="../science/">science</a>   
-  <a href="#">people</a>   
-  <a href="../podcast/">podcast</a>  
+  <a href="../todayilearned/">todayilearned</a>   
+  <a href="../dns/">dns</a>   
+  <a href="#">domains</a>   
+  <a href="../letsencrypt/">letsencrypt</a>  
 </li>
  
     </ul>
-    <p>I spent today’s evening listening to <a class="reference external" href="https://www.wnycstudios.org/podcasts/radiolab/articles/great_vaccinator"><em>The Great Vaccinator</em></a> episode from Radiolab podcast. This episode is about <a class="reference external" href="https://en.wikipedia.org/wiki/Maurice_Hilleman">Maurice Hilleman</a>, an amazing microbiologist who is known today as the father of modern vaccine. Hilleman is credited with having saved more lives than any other scientist because he was responsible for developing more than half of the vaccines (measles, mumps, meningitis, etc…) children receive today.</p>
+    <p>Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see <a class="reference external" href="https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578">this post</a>). Below are the steps I used to generate a wildcard certificate.</p>
+<img alt="google-domains-acme-challenge" src="../../../_images/google-domains-acme-challenge.png" />
 
-    <p><a href="../../2020/maurice-hilleman/">Read more ...</a></p>
+    <p><a href="../../2021/lets-encrypt-wildcard-ssl-certificate-on-centos/">Read more ...</a></p>
     <hr />
   </div>
   
 
   <div class="section">
     <h2>
-      <a href="../../2020/chadwick-boseman/"
-        >Chadwick Boseman: Rest Easy King T’Challa. Wakanda 🙅🏾‍♂️ forever</a
+      <a href="../../2021/google-dynamic-dns-wildcard-subdomains/"
+        >How to set up a wildcard subdomain on Google Domains</a
       >
     </h2>
 
     <ul class="ablog-archive">
       <li>
-         <i class="fa fa-calendar"></i> 28 August 2020 
+         <i class="fa fa-calendar"></i> 09 January 2021 
       </li>
        
 <li id="author">
@@ -343,15 +344,16 @@ commentsRunWhenDOMLoaded(addUtterances);
     ><i class="fa-fw fa fa-tags"></i> </span
   >
    
-  <a href="../life/">life</a>   
-  <a href="#">people</a>  
+  <a href="../todayilearned/">todayilearned</a>   
+  <a href="../dns/">dns</a>   
+  <a href="#">domains</a>  
 </li>
  
     </ul>
-    <p>Chadwick Boseman:</p>
-<img alt="black-panther" src="../../../_images/black-panther.jpeg" />
+    <p>Today, I was working with <a class="reference external" href="https://github.com/dokku/dokku/">dokku</a>, and I found myself in need of a wildcard subdomain. A <a class="reference external" href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">wildcard DNS record</a> is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to <code class="docutils literal notranslate"><span class="pre">*.example.com</span></code>, and a user requests <code class="docutils literal notranslate"><span class="pre">random.example.com</span></code> or <code class="docutils literal notranslate"><span class="pre">foo.example.com</span></code>, etc.. the requests will be forwarded to whichever server <code class="docutils literal notranslate"><span class="pre">*.example.com</span></code> points to.</p>
+<img alt="" src="../../../_images/google-domains-dynamic-dns.png" />
 
-    <p><a href="../../2020/chadwick-boseman/">Read more ...</a></p>
+    <p><a href="../../2021/google-dynamic-dns-wildcard-subdomains/">Read more ...</a></p>
     <hr />
   </div>
    

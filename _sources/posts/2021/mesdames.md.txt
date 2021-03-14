@@ -14,10 +14,6 @@ Mon excuse numéro un, c'est que je réside dans un pays anglophone. Et à cause
 
 Ce blog post est ma première tentative de blogger en français. Je vais essayer d'écrire en français chaque fois que l' occasion se présentera. Dans ce blog post, je veux parler du nouvel album de [Grand Corps Malade](https://en.wikipedia.org/wiki/Grand_Corps_Malade) baptisé **["Mesdames"](<https://fr.wikipedia.org/wiki/Mesdames_(album)>)**. Je viens d'ecouter à l'intégralité de cet album. L'album est formidable et il est avant tout un hommage aux femmes. Voici mes morceaux préférés:
 
-:::{note}
-Il semble que le propriétaire de la chaîne YouTube ait désactivé l'option d'integration des videos sur d'autre sites. Une solution à ce problème est d'ouvrir le lien vidéo dans un nouvel tab de vôtre navigateur.
-:::
-
 - **Une sœur**: _Il y a peu de monde qui te permette de donner au mot famille un vrai sens_ ... 🎶
 
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/saADG5xXYpY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

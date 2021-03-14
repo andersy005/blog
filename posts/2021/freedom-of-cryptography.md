@@ -1,6 +1,7 @@
 ---
+author: Anderson Banihirwe
 date: 2021-02-21
-category: todayilearned, cryptography
+tags: todayilearned, cryptography
 ---
 
 # Freedom of Cryptography

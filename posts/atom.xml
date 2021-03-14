@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2021-03-13T05:21:20.742537+00:00</updated>
+  <updated>2021-03-14T05:08:28.821565+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -234,5 +234,18 @@ function expressions in JavaScript ;)&lt;/p&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/lets-encrypt-wildcard-ssl-certificate-on-centos/" rel="alternate"/>
     <published>2021-02-27T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2021/mesdames/</id>
+    <title>« Mesdames » - Parce que l’avenir appartient à celles qu’on aime trop 🎶</title>
+    <updated>2021-03-13T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
+    <content type="html">&lt;p&gt;Ça fait des années que je n’ai pas parlé français ou que j’ai écrit en français.
+Mon excuse numéro un, c’est que je réside dans un pays anglophone. Et à cause de ça, je n’ai pas l’occasion d’utiliser (parler, écrir) la langue régulièrement. Pourtant, j’ai plein d’occasions de savourer:&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2021/mesdames/" rel="alternate"/>
+    <published>2021-03-13T00:00:00+00:00</published>
   </entry>
 </feed>

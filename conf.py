@@ -120,7 +120,7 @@ jupyter_execute_notebooks = 'off'
 
 comments_config = {
     'utterances': {'repo': 'andersy005/blog', 'optional': 'config', 'label': '💬 comment'},
-    'hypothesis': True,
+    'hypothesis': False,
 }
 
 

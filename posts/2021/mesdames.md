@@ -22,17 +22,21 @@ Ce blog post est ma première tentative de blogger en français. Je vais essayer
 
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/TC7aA1WIkyQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-- **Mais je t'aime**: _Pourquoi lorsque l'amour est fort il nous rend vulnérables et fragiles_...🎶
+- **Enfants du désordre**: _La violence est une rancœur qu'on a laissé grandir
+Une colère prisonnière qui ne veut plus partir_ ... 🎶
+
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/FJm11a6YrwQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- **Mais je t'aime**: _Ces flammes nous ont rendus fous
+On a oublié qu'au final, le feu ça brûle.... Pourquoi lorsque l'amour est fort il nous rend vulnérables et fragiles_...🎶
 
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/7ss-xmvLGFw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**Cet album est un vrai chef-d'œuvre! Musique, voix, textes, etc... tout est magnifique.**
-
-## Bonus
-
-- Voici l'album complet sur Spotify. Enjoy 😊
+**Cet album est un vrai chef-d'œuvre! Musique, voix, textes, etc... tout est magnifique!** Pour les amoureux de la musique, voici l'album complet sur Spotify. Enjoy 😊...
 
   <iframe src="https://open.spotify.com/embed/album/4gIMb5IlzfwqagJr3yEqjX?si=EH8KPGZvR7GV_ygat7Wcuw" width="100%" height="315" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+## Bonus
 
 - Pour une dose de bonne humeur, voici **"Mais j'te tej"**, une parodie trop drôle de **"Mais je t'aime"**. Je me suis bien marré 😂😂😂
 

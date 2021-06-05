@@ -1,0 +1,28 @@
+name: blog
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - ablog
+  - cftime
+  - colorspacious
+  - dask
+  - dask-labextension
+  - distributed
+  - ipywidgets
+  - jupyterlab>=3
+  - matplotlib
+  - myst-nb>=0.12.0
+  - netcdf4
+  - pip
+  - pydata-sphinx-theme>=0.4.3
+  - python=3.9
+  - scipy
+  - seaborn
+  - sphinx
+  - sphinx-comments
+  - sphinx-panels
+  - sphinxcontrib-bibtex<2.0.0
+  - xarray>=0.18.2
+  - pip:
+      - sphinxext-opengraph

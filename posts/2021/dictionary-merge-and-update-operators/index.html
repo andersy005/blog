@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="Dictionary Merge and Update Operators in Python" />
+  <meta property="og:title" content="Dictionary Merge and Update Operators in Python 3.9" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2021/dictionary-merge-and-update-operators.html" />
   <meta property="og:site_name" content=" Paysage Pythonique | Anderson Banihirwe" />
@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@andersy005" />
 <meta name="twitter:creator" content="@andersy005" />
-    <title>Dictionary Merge and Update Operators in Python</title>
+    <title>Dictionary Merge and Update Operators in Python 3.9</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -329,8 +329,8 @@ commentsRunWhenDOMLoaded(addUtterances);
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="section" id="dictionary-merge-and-update-operators-in-python">
-<h1>Dictionary Merge and Update Operators in Python<a class="headerlink" href="#dictionary-merge-and-update-operators-in-python" title="Permalink to this headline">¶</a></h1>
+                 <div class="section" id="dictionary-merge-and-update-operators-in-python-3-9">
+<h1>Dictionary Merge and Update Operators in Python 3.9<a class="headerlink" href="#dictionary-merge-and-update-operators-in-python-3-9" title="Permalink to this headline">¶</a></h1>
 <p>When it comes to merging two dictinaries in Python, I find myself googling “how to merge two dictionaries” very often. Every time I land on this <a class="reference external" href="https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-taking-union-of-dictiona">StackOverflow answer</a>. This answers recommends using the <strong>dictionary unpacking</strong> feature:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -353,7 +353,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>Even though I have seen dictionary unpacking used for unpacking keyword arguments in functions, I’ve rarely seen it being used as a method for merging dictionaries. I was delighted when I found out that Python 3.9 introduced a dedicated binary operator that permits merging two dictionaries. In Python 3.9, we can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> (bitwise <code class="docutils literal notranslate"><span class="pre">OR</span></code>) to  perform a dictionary merge:</p>
+<p>Even though I have seen dictionary unpacking used for unpacking keyword arguments in functions, I’ve <strong>rarely seen it being used as a method for merging dictionaries</strong>, and this makes it a <strong>bit confusing</strong> if you haven’t seen it used in this context. I was delighted when I found out that Python 3.9 introduced a dedicated binary operator that permits merging two dictionaries. In Python 3.9, we can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> (bitwise <code class="docutils literal notranslate"><span class="pre">OR</span></code>) to  perform a dictionary merge:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">|</span> <span class="n">y</span>
@@ -388,7 +388,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>I really dig this new <code class="docutils literal notranslate"><span class="pre">|</span></code> operator. I find the syntax easy to remember and understand compared with the <strong>dictionary unpacking</strong> feature that I used prior to Python 3.9.</p>
+<p>I really dig this new <code class="docutils literal notranslate"><span class="pre">|</span></code> operator. I find the syntax easy to remember and understand compared with the <strong>dictionary unpacking</strong> feature that I used prior to Python 3.9. There’s one problem though. This operator is only available for Python 3.9+ and I have to write code for older versions of Python for the time being 😞.</p>
 </div>
 
 <div class="section">

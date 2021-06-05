@@ -5,7 +5,7 @@
    "id": "difficult-gather",
    "metadata": {},
    "source": [
-    "# Dictionary Merge and Update Operators in Python \n",
+    "# Dictionary Merge and Update Operators in Python 3.9\n",
     "\n",
     "When it comes to merging two dictinaries in Python, I find myself googling \"how to merge two dictionaries\" very often. Every time I land on this [StackOverflow answer](https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-taking-union-of-dictiona). This answers recommends using the **dictionary unpacking** feature:"
    ]
@@ -48,7 +48,7 @@
    "id": "610a134b-99c6-40a6-b840-61f14e1ab183",
    "metadata": {},
    "source": [
-    "Even though I have seen dictionary unpacking used for unpacking keyword arguments in functions, I've rarely seen it being used as a method for merging dictionaries. I was delighted when I found out that Python 3.9 introduced a dedicated binary operator that permits merging two dictionaries. In Python 3.9, we can use the `|` (bitwise `OR`) to  perform a dictionary merge:"
+    "Even though I have seen dictionary unpacking used for unpacking keyword arguments in functions, I've **rarely seen it being used as a method for merging dictionaries**, and this makes it a **bit confusing** if you haven't seen it used in this context. I was delighted when I found out that Python 3.9 introduced a dedicated binary operator that permits merging two dictionaries. In Python 3.9, we can use the `|` (bitwise `OR`) to  perform a dictionary merge:"
    ]
   },
   {
@@ -125,7 +125,7 @@
    "id": "727bce58-99fc-45e9-bf14-ca0f7a30b55d",
    "metadata": {},
    "source": [
-    "I really dig this new `|` operator. I find the syntax easy to remember and understand compared with the **dictionary unpacking** feature that I used prior to Python 3.9. "
+    "I really dig this new `|` operator. I find the syntax easy to remember and understand compared with the **dictionary unpacking** feature that I used prior to Python 3.9. There's one problem though. This operator is only available for Python 3.9+ and I have to write code for older versions of Python for the time being 😞."
    ]
   }
  ],
@@ -150,7 +150,7 @@
    "version": "3.9.4"
   },
   "tags": "python,todayilearned",
-  "title": "Dictionary Merge and Update Operators",
+  "title": "Dictionary Merge and Update Operators in Python 3.9",
   "widgets": {
    "application/vnd.jupyter.widget-state+json": {
     "state": {},

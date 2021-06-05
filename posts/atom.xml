@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2021-06-05T04:37:38.103553+00:00</updated>
+  <updated>2021-06-05T04:49:46.099535+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
@@ -390,7 +390,7 @@ Mon excuse numéro un, c’est que je réside dans un pays anglophone. Et à cau
   </entry>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2021/dictionary-merge-and-update-operators/</id>
-    <title>Dictionary Merge and Update Operators</title>
+    <title>Dictionary Merge and Update Operators in Python 3.9</title>
     <updated>2021-06-04T00:00:00+00:00</updated>
     <author>
       <name>Anderson Banihirwe</name>

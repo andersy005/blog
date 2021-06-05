@@ -5,17 +5,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="Function Expressions in JavaScript" />
+  <meta property="og:title" content="Dictionary Merge and Update Operators in Python" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2021/function-expressions-in-js.html" />
+  <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2021/dictionary-merge-and-update-operators.html" />
   <meta property="og:site_name" content=" Paysage Pythonique | Anderson Banihirwe" />
-  <meta property="og:description" content="I’m currently learning JavaScript, and here are a few things I learned about function expressions in JavaScript ;) Anonymous vs Named Functions:// An anonymous function ==> lambda function in Pytho..." />
+  <meta property="og:description" content="When it comes to merging two dictinaries in Python, I find myself googling “how to merge two dictionaries” very often. Every time I land on this StackOverflow answer. This answers recommends using ..." />
   <meta property="og:image" content="https://blog.andersonbanihirwe.dev/_static/share.png" />
   <meta property="og:image:alt" content=" Paysage Pythonique | Anderson Banihirwe" />
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@andersy005" />
 <meta name="twitter:creator" content="@andersy005" />
-    <title>Function Expressions in JavaScript</title>
+    <title>Dictionary Merge and Update Operators in Python</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -218,7 +218,7 @@ commentsRunWhenDOMLoaded(addUtterances);
             <div class="col-12 col-md-3 bd-sidebar">  
 <h2>
    <i class="fa fa-calendar"></i>
-  14 January 2021 
+  04 June 2021 
 </h2>
 
 <ul>
@@ -236,7 +236,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     ><i class="fa-fw fa fa-tags"></i> </span
   >
    
-  <a href="../../tag/javascript/">javascript</a>   
+  <a href="../../tag/python/">python</a>   
   <a href="../../tag/todayilearned/">todayilearned</a>  
 </li>
  
@@ -247,12 +247,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 </h3>
 <ul>
    
-  <li>
-    <a href="../dictionary-merge-and-update-operators/"
-      >04 June - Dictionary Merge and Update Operators</a
-    >
-  </li>
-  
   <li>
     <a href="../mesdames/"
       >13 March - « Mesdames » - Parce que l’avenir appartient à celles qu’on aime trop 🎶</a
@@ -274,6 +268,12 @@ commentsRunWhenDOMLoaded(addUtterances);
   <li>
     <a href="../freedom-of-cryptography/"
       >21 February - Freedom of Cryptography</a
+    >
+  </li>
+  
+  <li>
+    <a href="../function-expressions-in-js/"
+      >14 January - Function Expressions in JavaScript</a
     >
   </li>
   
@@ -308,38 +308,9 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
 
 <nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anonymous-vs-named-functions">
-   Anonymous vs Named Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#takeaways">
-     Takeaways:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#immediately-invoked-function-expressions-iife">
-   Immediately Invoked Function Expressions (IIFE)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Takeaways:
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
+    
 </nav>
               </div>
               
@@ -358,149 +329,66 @@ commentsRunWhenDOMLoaded(addUtterances);
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="section" id="function-expressions-in-javascript">
-<h1>Function Expressions in JavaScript<a class="headerlink" href="#function-expressions-in-javascript" title="Permalink to this headline">¶</a></h1>
-<p>I’m currently learning JavaScript, and here are a few things I learned about
-function expressions in JavaScript ;)</p>
-<div class="section" id="anonymous-vs-named-functions">
-<h2>Anonymous vs Named Functions<a class="headerlink" href="#anonymous-vs-named-functions" title="Permalink to this headline">¶</a></h2>
+                 <div class="section" id="dictionary-merge-and-update-operators-in-python">
+<h1>Dictionary Merge and Update Operators in Python<a class="headerlink" href="#dictionary-merge-and-update-operators-in-python" title="Permalink to this headline">¶</a></h1>
+<p>When it comes to merging two dictinaries in Python, I find myself googling “how to merge two dictionaries” very often. Every time I land on this <a class="reference external" href="https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-taking-union-of-dictiona">StackOverflow answer</a>. This answers recommends using the <strong>dictionary unpacking</strong> feature:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// An anonymous function ==&gt; lambda function in Python</span>
-<span class="kd">const</span> <span class="nx">clickHandler</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;The user clicked this button.&#39;</span><span class="p">)</span>
-<span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;earth&#39;</span><span class="p">:</span> <span class="mf">5.97</span><span class="p">,</span> <span class="s1">&#39;mercury&#39;</span><span class="p">:</span> <span class="mf">0.330</span><span class="p">}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uranus&#39;</span><span class="p">:</span> <span class="mf">86.8</span><span class="p">,</span> <span class="s1">&#39;mars&#39;</span><span class="p">:</span> <span class="mf">0.642</span><span class="p">,</span> <span class="s1">&#39;earth&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">999</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Named Function </span>
-<span class="kd">const</span> <span class="nx">keyHandler</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">keyHandler</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;This is a named function.&#39;</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">clickHandler</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">y</span><span class="p">}</span>
+<span class="n">a</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The user clicked this button.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;earth&#39;: -999, &#39;mercury&#39;: 0.33, &#39;uranus&#39;: 86.8, &#39;mars&#39;: 0.642}
 </pre></div>
 </div>
 </div>
 </div>
+<p>Even though I have seen dictionary unpacking used for unpacking keyword arguments in functions, I’ve rarely seen it being used as a method for merging dictionaries. I was delighted when I found out that Python 3.9 introduced a dedicated binary operator that permits merging two dictionaries. In Python 3.9, we can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> (bitwise <code class="docutils literal notranslate"><span class="pre">OR</span></code>) to  perform a dictionary merge:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">keyHandler</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">|</span> <span class="n">y</span>
+<span class="n">b</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a named function.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;earth&#39;: -999, &#39;mercury&#39;: 0.33, &#39;uranus&#39;: 86.8, &#39;mars&#39;: 0.642}
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the resulting dictionary consists of a new dictionary with all the keys of both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> dictionaries. Because <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> have overlapping key <code class="docutils literal notranslate"><span class="pre">earth</span></code>, the new dictionary uses the values from the rightmost dictionary (i.e. <code class="docutils literal notranslate"><span class="pre">y</span></code>)</p>
+<p>If we prefer to update one of the dictionary inplace (i.e. without needing to create a new dictionary), we can use the <code class="docutils literal notranslate"><span class="pre">|=</span></code> (in-place bitwise <code class="docutils literal notranslate"><span class="pre">OR</span></code>) operator</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">|=</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">cars</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">make</span><span class="o">:</span> <span class="s1">&#39;toyota&#39;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;Rav4&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">make</span><span class="o">:</span> <span class="s1">&#39;tesla&#39;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;S&#39;</span><span class="p">}]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Arrow Function </span>
-<span class="kd">let</span> <span class="nx">ids</span> <span class="o">=</span> <span class="nx">cars</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">car</span> <span class="p">=&gt;</span> <span class="nx">car</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ids</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ <span class=" -Color -Color-Green">&#39;Rav4&#39;</span>, <span class=" -Color -Color-Green">&#39;S&#39;</span> ]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;earth&#39;: -999, &#39;mercury&#39;: 0.33, &#39;uranus&#39;: 86.8, &#39;mars&#39;: 0.642}
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// An equivalent named function</span>
-<span class="nx">ids</span> <span class="o">=</span> <span class="nx">cars</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="nx">getId</span><span class="p">(</span><span class="nx">car</span><span class="p">){</span>
-    <span class="k">return</span> <span class="nx">car</span><span class="p">.</span><span class="nx">id</span>
-<span class="p">})</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ids</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ <span class=" -Color -Color-Green">&#39;Rav4&#39;</span>, <span class=" -Color -Color-Green">&#39;S&#39;</span> ]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="takeaways">
-<h3>Takeaways:<a class="headerlink" href="#takeaways" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>When it comes to
-<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow functions</a>,
-I often find myself having to carefully read the function body to figure out
-what’s going on.</p></li>
-<li><p>IMHO, named functions are the best because they tell us in their name what
-they do.</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="immediately-invoked-function-expressions-iife">
-<h2>Immediately Invoked Function Expressions (IIFE)<a class="headerlink" href="#immediately-invoked-function-expressions-iife" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="nx">school</span> <span class="o">=</span> <span class="s1">&#39;MIT&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">function</span> <span class="nx">anotherSchool</span><span class="p">(){</span>
-    <span class="kd">const</span> <span class="nx">school</span> <span class="o">=</span> <span class="s1">&#39;CMU&#39;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">school</span><span class="p">)</span>
-<span class="p">})()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CMU
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">school</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MIT
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id1">
-<h3>Takeaways:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>IIFEs are typically used in places in our code where we need to collect a set
-of variables and protect them from intruding an outer scope.</p></li>
-</ul>
-</div>
-</div>
+<p>I really dig this new <code class="docutils literal notranslate"><span class="pre">|</span></code> operator. I find the syntax easy to remember and understand compared with the <strong>dictionary unpacking</strong> feature that I used prior to Python 3.9.</p>
 </div>
 
 <div class="section">
@@ -508,20 +396,13 @@ of variables and protect them from intruding an outer scope.</p></li>
 <div class="section">
   <span style="float: left">
      
-    <a href="../google-dynamic-dns-wildcard-subdomains/">
-      <i class="fa fa-arrow-circle-left"></i> How to set up a wildcard subdomain on Google Domains
+    <a href="../mesdames/">
+      <i class="fa fa-arrow-circle-left"></i> « Mesdames » - Parce que l’avenir appartient à celles qu’on aime trop 🎶
     </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
-     
-    <a href="../freedom-of-cryptography/">
-      Freedom of Cryptography <i
-        class="fa fa-arrow-circle-right"
-      ></i
-      >
-    </a>
     
   </span>
 </div>

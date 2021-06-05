@@ -1,0 +1,164 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "difficult-gather",
+   "metadata": {},
+   "source": [
+    "# Dictionary Merge and Update Operators in Python \n",
+    "\n",
+    "When it comes to merging two dictinaries in Python, I find myself googling \"how to merge two dictionaries\" very often. Every time I land on this [StackOverflow answer](https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-taking-union-of-dictiona). This answers recommends using the **dictionary unpacking** feature:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "705af7b6-2a9c-48b8-997e-0085065f2506",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = {'earth': 5.97, 'mercury': 0.330}\n",
+    "y = {'uranus': 86.8, 'mars': 0.642, 'earth': -999}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "e1b0c166-f93f-4b98-812f-1b53d5f19c4c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'earth': -999, 'mercury': 0.33, 'uranus': 86.8, 'mars': 0.642}"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a = {**x, **y}\n",
+    "a"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "610a134b-99c6-40a6-b840-61f14e1ab183",
+   "metadata": {},
+   "source": [
+    "Even though I have seen dictionary unpacking used for unpacking keyword arguments in functions, I've rarely seen it being used as a method for merging dictionaries. I was delighted when I found out that Python 3.9 introduced a dedicated binary operator that permits merging two dictionaries. In Python 3.9, we can use the `|` (bitwise `OR`) to  perform a dictionary merge:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "c8ec51c4-9d85-4acd-b95a-ff9fe39c5142",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'earth': -999, 'mercury': 0.33, 'uranus': 86.8, 'mars': 0.642}"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "b = x | y\n",
+    "b"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bccd2266-d5dc-4c7b-aa47-166022184e32",
+   "metadata": {},
+   "source": [
+    "As you can see, the resulting dictionary consists of a new dictionary with all the keys of both `x` and `y` dictionaries. Because `x` and `y` have overlapping key `earth`, the new dictionary uses the values from the rightmost dictionary (i.e. `y`)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "830c0a36-e825-4753-9845-e3a4aa0e47f6",
+   "metadata": {},
+   "source": [
+    "If we prefer to update one of the dictionary inplace (i.e. without needing to create a new dictionary), we can use the `|=` (in-place bitwise `OR`) operator"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "daaf995f-d201-4945-b9a7-e4c17b582054",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x |= y"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "fab77b58-cc3d-4ea1-83bd-f6752a993447",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'earth': -999, 'mercury': 0.33, 'uranus': 86.8, 'mars': 0.642}"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "727bce58-99fc-45e9-bf14-ca0f7a30b55d",
+   "metadata": {},
+   "source": [
+    "I really dig this new `|` operator. I find the syntax easy to remember and understand compared with the **dictionary unpacking** feature that I used prior to Python 3.9. "
+   ]
+  }
+ ],
+ "metadata": {
+  "author": "Anderson Banihirwe",
+  "date": "2021-06-04",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.4"
+  },
+  "tags": "python,todayilearned",
+  "title": "Dictionary Merge and Update Operators",
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {},
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2021-05-23T10:03:30.954615+00:00</updated>
+  <updated>2021-06-05T04:37:38.103553+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/</id>
     <title>Reflecting on SciPy 2019: My first SciPy, definitely not my last</title>
@@ -387,5 +387,20 @@ Mon excuse numéro un, c’est que je réside dans un pays anglophone. Et à cau
 Mon excuse numéro un, c’est que je réside dans un pays anglophone. Et à cause de ça, je n’ai pas l’occasion d’utiliser (parler, écrir) la langue régulièrement. Pourtant, j’ai plein d’occasions de savourer:</summary>
     <category term="music" label="music"/>
     <published>2021-03-13T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2021/dictionary-merge-and-update-operators/</id>
+    <title>Dictionary Merge and Update Operators</title>
+    <updated>2021-06-04T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
+    <content type="html">&lt;p&gt;When it comes to merging two dictinaries in Python, I find myself googling “how to merge two dictionaries” very often. Every time I land on this &lt;a class="reference external" href="https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-taking-union-of-dictiona"&gt;StackOverflow answer&lt;/a&gt;. This answers recommends using the &lt;strong&gt;dictionary unpacking&lt;/strong&gt; feature:&lt;/p&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2021/dictionary-merge-and-update-operators/" rel="alternate"/>
+    <summary>When it comes to merging two dictinaries in Python, I find myself googling “how to merge two dictionaries” very often. Every time I land on this StackOverflow answer. This answers recommends using the dictionary unpacking feature:</summary>
+    <category term="python" label="python"/>
+    <category term="todayilearned" label="todayilearned"/>
+    <published>2021-06-04T00:00:00+00:00</published>
   </entry>
 </feed>

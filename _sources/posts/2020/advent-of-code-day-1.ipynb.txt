@@ -151,7 +151,7 @@
     }
    ],
    "source": [
-    "a = %timeit -qo pairs_addup(data, 2020)\n",
+    "a = get_ipython().run_line_magic('timeit', '-qo pairs_addup(data, 2020)')\n",
     "a"
    ]
   },
@@ -233,7 +233,7 @@
     }
    ],
    "source": [
-    "b = %timeit -qo pairs_addup(data, 2020)\n",
+    "b = get_ipython().run_line_magic('timeit', '-qo pairs_addup(data, 2020)')\n",
     "b"
    ]
   },
@@ -397,7 +397,7 @@
     }
    ],
    "source": [
-    "c = %timeit -qo triplets_addup(data, 2020)\n",
+    "c = get_ipython().run_line_magic('timeit', '-qo triplets_addup(data, 2020)')\n",
     "c"
    ]
   },
@@ -478,7 +478,7 @@
     }
    ],
    "source": [
-    "d = %timeit -qo triplets_addup(data, 2020)\n",
+    "d = get_ipython().run_line_magic('timeit', '-qo triplets_addup(data, 2020)')\n",
     "d"
    ]
   },

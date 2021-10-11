@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta property="og:title" content="Advent of Code - Day 3: Toboggan Trajectory" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-3.html" />
@@ -17,8 +18,8 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>Advent of Code - Day 3: Toboggan Trajectory</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -33,14 +34,14 @@
 
     
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -87,8 +88,21 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-     
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-91185106-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+ 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -363,9 +377,9 @@ commentsRunWhenDOMLoaded(addUtterances);
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="advent-of-code-day-3-toboggan-trajectory">
+                 <section class="tex2jax_ignore mathjax_ignore" id="advent-of-code-day-3-toboggan-trajectory">
 <h1>Advent of Code - Day 3: Toboggan Trajectory<a class="headerlink" href="#advent-of-code-day-3-toboggan-trajectory" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="part-one">
+<section id="part-one">
 <h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
 <p>With the toboggan login problems resolved, you set off toward the airport. While
 travel by toboggan might be easy, it’s certainly not safe: there’s very minimal
@@ -430,7 +444,7 @@ there was an open square and X where there was a tree:</p>
 encounter 7 trees.</p>
 <p>Starting at the top-left corner of your map and following a slope of right 3 and
 down 1, <strong>how many trees would you encounter?</strong></p>
-<div class="section" id="load-input-data">
+<section id="load-input-data">
 <h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -455,8 +469,8 @@ down 1, <strong>how many trees would you encounter?</strong></p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="solution">
+</section>
+<section id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -522,9 +536,9 @@ our full input data to count how many trees we will encounter:</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="part-two">
+</section>
+</section>
+<section id="part-two">
 <h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
 <p>Time to check the rest of the slopes - you need to minimize the probability of a
 sudden arboreal stop, after all.</p>
@@ -542,7 +556,7 @@ bottom:</p>
 respectively; multiplied together, these produce the answer 336.</p>
 <p><strong>What do you get if you multiply together the number of trees encountered on
 each of the listed slopes?</strong></p>
-<div class="section" id="id1">
+<section id="id1">
 <h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>For part two, all we have to do is compute the number of trees for each slope,
 and use the <code class="docutils literal notranslate"><span class="pre">math.prod</span></code> function to multiply together the number of trees found.
@@ -584,9 +598,9 @@ The total number of trees encountered: 727923200
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 <div class="section">
      
@@ -616,10 +630,9 @@ The total number of trees encountered: 727923200
               </div>
               
               
-              <div class='prev-next-bottom'>
-                
-
-              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
               
           </main>
           
@@ -627,30 +640,19 @@ The total number of trees encountered: 727923200
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-91185106-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 <footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br/>
+    &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br>
 </p>
     </div>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
 </p>
     </div>
     

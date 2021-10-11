@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta property="og:title" content="🚀 Xarray v0.17.0 is here!" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2021/new-in-xarray-v0.17.html" />
@@ -17,8 +18,8 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>🚀 Xarray v0.17.0 is here!</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -33,14 +34,14 @@
 
     
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -87,8 +88,21 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-     
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-91185106-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+ 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -369,7 +383,7 @@ commentsRunWhenDOMLoaded(addUtterances);
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="xarray-v0-17-0-is-here">
+                 <section class="tex2jax_ignore mathjax_ignore" id="xarray-v0-17-0-is-here">
 <h1>🚀 Xarray v0.17.0 is here!<a class="headerlink" href="#xarray-v0-17-0-is-here" title="Permalink to this headline">¶</a></h1>
 <p>The new version of xarray comes with plenty of bug fixes and support for a number of great new features. In this post, I am going to discuss some of the new features I am most excited about.</p>
 <div class="admonition note">
@@ -392,7 +406,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<div class="section" id="support-for-milliseond-and-microsecond-frequencies-in-cftime-range">
+<section id="support-for-milliseond-and-microsecond-frequencies-in-cftime-range">
 <h2>Support for milliseond and microsecond frequencies in <code class="docutils literal notranslate"><span class="pre">cftime_range()</span></code><a class="headerlink" href="#support-for-milliseond-and-microsecond-frequencies-in-cftime-range" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">cftime_range()</span></code> function in previous versions of xarray supported time
 offsets not smaller than seconds. With v0.17.0, users are able to generate
@@ -435,8 +449,8 @@ cftime indices with millisecond and microsecond frequencies:</p>
 <p class="admonition-title">Note</p>
 <p><a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.cftime_range.html#xarray.cftime_range"><code class="docutils literal notranslate"><span class="pre">cftime_range()</span></code> API reference</a></p>
 </div>
-</div>
-<div class="section" id="dataset-plot-quiver">
+</section>
+<section id="dataset-plot-quiver">
 <h2><code class="docutils literal notranslate"><span class="pre">Dataset.plot.quiver</span></code><a class="headerlink" href="#dataset-plot-quiver" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Dataset.plot.quiver</span></code> is a new feature in v0.17.0, that allows creating quiver
 plots via matplotlib. Quiver plots are useful when visualizing velocity fields
@@ -1015,8 +1029,8 @@ size…</p>
 <p class="admonition-title">Note</p>
 <p><a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.Dataset.plot.quiver.html#xarray.Dataset.plot.quiver"><code class="docutils literal notranslate"><span class="pre">Dataset.plot.quiver</span></code> API reference</a></p>
 </div>
-</div>
-<div class="section" id="use-fsspec-urls-in-xr-open-dataset-and-xr-open-zarr">
+</section>
+<section id="use-fsspec-urls-in-xr-open-dataset-and-xr-open-zarr">
 <h2>Use fsspec urls in <code class="docutils literal notranslate"><span class="pre">xr.open_dataset()</span></code> and <code class="docutils literal notranslate"><span class="pre">xr.open_zarr()</span></code><a class="headerlink" href="#use-fsspec-urls-in-xr-open-dataset-and-xr-open-zarr" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Previously, when working with fsspec URLS, user had to create object mappers
@@ -1499,8 +1513,8 @@ Attributes: (12/47)
 <p><a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.open_dataset.html#xarray.open_dataset"><code class="docutils literal notranslate"><span class="pre">open_dataset()</span></code> API reference</a></p>
 </div>
 <p>There you have it 🎉🎉🎉🎉!</p>
-</div>
-</div>
+</section>
+</section>
 
 <div class="section">
      
@@ -1530,10 +1544,9 @@ Attributes: (12/47)
               </div>
               
               
-              <div class='prev-next-bottom'>
-                
-
-              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
               
           </main>
           
@@ -1541,30 +1554,19 @@ Attributes: (12/47)
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-91185106-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 <footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br/>
+    &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br>
 </p>
     </div>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
 </p>
     </div>
     

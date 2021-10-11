@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta property="og:title" content="How to merge two or more disk partitions on Centos 7" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2021/how-to-merge-disk-partitions-on-centos.html" />
@@ -17,8 +18,8 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>How to merge two or more disk partitions on Centos 7</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -33,14 +34,14 @@
 
     
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -87,8 +88,21 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-     
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-91185106-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+ 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -391,7 +405,7 @@ commentsRunWhenDOMLoaded(addUtterances);
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="how-to-merge-two-or-more-disk-partitions-on-centos-7">
+                 <section class="tex2jax_ignore mathjax_ignore" id="how-to-merge-two-or-more-disk-partitions-on-centos-7">
 <h1>How to merge two or more disk partitions on Centos 7<a class="headerlink" href="#how-to-merge-two-or-more-disk-partitions-on-centos-7" title="Permalink to this headline">¶</a></h1>
 <p>I’ve been working with centos 7 virtual machine provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the storage disk gets partitioned into tiny partititions during the VM provisioning:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ df -h
@@ -412,24 +426,24 @@ tmpfs                                                 379M     <span class="m">0
 </pre></div>
 </div>
 <p>Notice how <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">home</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp</span></code>, <code class="docutils literal notranslate"><span class="pre">usr</span></code>, <code class="docutils literal notranslate"><span class="pre">usr_local</span></code>, and <code class="docutils literal notranslate"><span class="pre">root</span></code> have their own partitions. I prefer to have a few but large disk partitions. So, today I figured out how to merge two or more partitions into the root partition (thank you, &#64;kmpaul for the help and documenting this!).</p>
-<div class="section" id="step-1-make-sure-you-are-logged-in-as-root">
+<section id="step-1-make-sure-you-are-logged-in-as-root">
 <h2>Step 1 — Make sure you are logged in as root<a class="headerlink" href="#step-1-make-sure-you-are-logged-in-as-root" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton">
+</section>
+<section id="step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton">
 <h2>Step 2 — Backup data from the partitions you want to merge into the root partiton<a class="headerlink" href="#step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -a /home/ /home-old/
 $ rsync -a /tmp/ /tmp-old/
 $ rsync -a /var/ /var-old/
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-3-reboot-the-vm-into-an-emergency-mode">
+</section>
+<section id="step-3-reboot-the-vm-into-an-emergency-mode">
 <h2>Step 3 — Reboot the VM into an emergency mode<a class="headerlink" href="#step-3-reboot-the-vm-into-an-emergency-mode" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl emergency
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-4-umount-and-remove-logic-volume-for-each-of-the-partitions">
+</section>
+<section id="step-4-umount-and-remove-logic-volume-for-each-of-the-partitions">
 <h2>Step 4 — Umount and remove logic volume for each of the partitions<a class="headerlink" href="#step-4-umount-and-remove-logic-volume-for-each-of-the-partitions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-data
 $ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-home
@@ -443,40 +457,40 @@ $ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-var
 $ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-tmp
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-5-copy-the-backed-up-data">
+</section>
+<section id="step-5-copy-the-backed-up-data">
 <h2>Step 5 — Copy the backed up data<a class="headerlink" href="#step-5-copy-the-backed-up-data" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -a /home-old/ /home/
 $ rsync -a /var-old/ /var/
 $ rsync -a /tmp-old/ /tmp/
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need">
+</section>
+<section id="step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need">
 <h2>Step 6 — Edit the <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> file by removing or commenting out the partitions we don’t need<a class="headerlink" href="#step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vi /etc/fstab
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-7-extend-the-root-partition-to-fill-the-remaining-space">
+</section>
+<section id="step-7-extend-the-root-partition-to-fill-the-remaining-space">
 <h2>Step 7 — Extend the root partition to fill the remaining space<a class="headerlink" href="#step-7-extend-the-root-partition-to-fill-the-remaining-space" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-root
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-8-remove-the-backups">
+</section>
+<section id="step-8-remove-the-backups">
 <h2>Step 8 — Remove the backups<a class="headerlink" href="#step-8-remove-the-backups" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rm -rf /home-old/ /tmp-old/ /var-old/
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-9-reboot-the-system">
+</section>
+<section id="step-9-reboot-the-system">
 <h2>Step 9 — Reboot the system<a class="headerlink" href="#step-9-reboot-the-system" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ reboot
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-10-login-to-the-vm-as-a-regular-user-or-root">
+</section>
+<section id="step-10-login-to-the-vm-as-a-regular-user-or-root">
 <h2>Step 10 — Login to the VM as a regular user or root<a class="headerlink" href="#step-10-login-to-the-vm-as-a-regular-user-or-root" title="Permalink to this headline">¶</a></h2>
 <p>Let’s check that our <code class="docutils literal notranslate"><span class="pre">/</span></code> root partition size has increased:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ df -h
@@ -493,8 +507,8 @@ tmpfs                                                 379M     <span class="m">0
 </pre></div>
 </div>
 <p>Voilà! 🙌</p>
-</div>
-</div>
+</section>
+</section>
 
 <div class="section">
      
@@ -524,10 +538,9 @@ tmpfs                                                 379M     <span class="m">0
               </div>
               
               
-              <div class='prev-next-bottom'>
-                
-
-              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
               
           </main>
           
@@ -535,30 +548,19 @@ tmpfs                                                 379M     <span class="m">0
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-91185106-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 <footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br/>
+    &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br>
 </p>
     </div>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
 </p>
     </div>
     

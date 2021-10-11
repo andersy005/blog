@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta property="og:title" content="How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.andersonbanihirwe.dev/posts/2021/lets-encrypt-wildcard-ssl-certificate-on-centos.html" />
@@ -17,8 +18,8 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -33,14 +34,14 @@
 
     
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -87,8 +88,21 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-     
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-91185106-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+ 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -351,14 +365,14 @@ commentsRunWhenDOMLoaded(addUtterances);
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="how-to-generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-on-centos">
+                 <section class="tex2jax_ignore mathjax_ignore" id="how-to-generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-on-centos">
 <h1>How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS<a class="headerlink" href="#how-to-generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-on-centos" title="Permalink to this headline">¶</a></h1>
 <p>Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see <a class="reference external" href="https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578">this post</a>). Below are the steps I used to generate a wildcard certificate.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This article describes the process for Centos 7/8 but can also be used for other Linux distros (with small changes in step 1). Also, <code class="docutils literal notranslate"><span class="pre">{subdomain}</span></code> and <code class="docutils literal notranslate"><span class="pre">{domain}</span></code> are placeholders. Remember to replace them with your own values. For instance, <code class="docutils literal notranslate"><span class="pre">{subdomain}</span></code>-&gt; <code class="docutils literal notranslate"><span class="pre">mycloud</span></code>, and <code class="docutils literal notranslate"><span class="pre">{domain}</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">example.com</span></code></p>
 </div>
-<div class="section" id="step-1-installing-the-certbot-lets-encrypt-client">
+<section id="step-1-installing-the-certbot-lets-encrypt-client">
 <h2>Step 1 — Installing the Certbot Let’s Encrypt Client<a class="headerlink" href="#step-1-installing-the-certbot-lets-encrypt-client" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo dfn install epel-release
 $ sudo dfn install certbot
@@ -368,8 +382,8 @@ $ sudo dfn install certbot
 <p class="admonition-title">Note</p>
 <p>This step assumes that you are using CentOS 7/8.</p>
 </div>
-</div>
-<div class="section" id="step-2-obtaining-a-wildcard-certificate">
+</section>
+<section id="step-2-obtaining-a-wildcard-certificate">
 <h2>Step 2 — Obtaining a Wildcard Certificate<a class="headerlink" href="#step-2-obtaining-a-wildcard-certificate" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo certbot certonly -d *.<span class="o">{</span>subdomain<span class="o">}</span>.<span class="o">{</span>domain<span class="o">}</span> <span class="se">\</span>
 &gt; --manual <span class="se">\</span>
@@ -410,8 +424,8 @@ $ sudo dfn install certbot
 <span class="go">   Donating to EFF:                    https://eff.org/donate-le</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-3-testing-the-certificate-and-ssl-configuration">
+</section>
+<section id="step-3-testing-the-certificate-and-ssl-configuration">
 <h2>Step 3 — Testing the Certificate and SSL Configuration<a class="headerlink" href="#step-3-testing-the-certificate-and-ssl-configuration" title="Permalink to this headline">¶</a></h2>
 <p>At this point, you can ensure that Certbot created your SSL certificate correctly by using the <a class="reference external" href="https://www.ssllabs.com/ssltest/">SSL Server Test</a> from the cloud security company Qualys.</p>
 <p>Open your browser, and point it to the following link, replacing <code class="docutils literal notranslate"><span class="pre">mycloud.example.com</span></code> with your domain:</p>
@@ -419,8 +433,8 @@ $ sudo dfn install certbot
 </pre></div>
 </div>
 <p>Voilà 🎉🎉🎉🎉!</p>
-</div>
-</div>
+</section>
+</section>
 
 <div class="section">
      
@@ -450,10 +464,9 @@ $ sudo dfn install certbot
               </div>
               
               
-              <div class='prev-next-bottom'>
-                
-
-              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
               
           </main>
           
@@ -461,30 +474,19 @@ $ sudo dfn install certbot
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-91185106-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 <footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br/>
+    &copy; Copyright 2018-2021. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.<br>
 </p>
     </div>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br/>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
 </p>
     </div>
     

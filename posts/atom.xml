@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2021-12-28T02:08:12.413352+00:00</updated>
+  <updated>2022-01-17T20:52:13.094124+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.21">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.23">ABlog</generator>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/</id>
     <title>Reflecting on SciPy 2019: My first SciPy, definitely not my last</title>
@@ -13,8 +13,10 @@
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;It’s been a week since SciPy 2019 conference came to a close. I had the pleasure of speaking at SciPy 2019 about &lt;a class="reference external" href="https://andersonbanihirwe.dev/talks/dask-jupyter-scipy-2019.html"&gt;&lt;strong&gt;interactive supercomputing with Dask and Jupyter&lt;/strong&gt;&lt;/a&gt;. I am so thankful for the chance to speak in the Earth, Ocean, Geo and Atmospheric Science track! Here’s a recording of my talk:&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;It’s been a week since SciPy 2019 conference came to a close. I had the pleasure of speaking at SciPy 2019 about &lt;a class="reference external" href="https://andersonbanihirwe.dev/talks/dask-jupyter-scipy-2019.html"&gt;&lt;strong&gt;interactive supercomputing with Dask and Jupyter&lt;/strong&gt;&lt;/a&gt;. I am so thankful for the chance to speak in the Earth, Ocean, Geo and Atmospheric Science track! Here’s a recording of my talk:&lt;/p&gt;
 &lt;img alt="Credit: Karthik Ram: http://inundata.org/talks/sdss" src="../_images/hidden-oss-work.png" /&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/" rel="alternate"/>
     <summary>It’s been a week since SciPy 2019 conference came to a close. I had the pleasure of speaking at SciPy 2019 about interactive supercomputing with Dask and Jupyter. I am so thankful for the chance to speak in the Earth, Ocean, Geo and Atmospheric Science track! Here’s a recording of my talk:Credit: Karthik Ram: http://inundata.org/talks/sdss</summary>
@@ -29,8 +31,10 @@
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;For the last few months, I’ve become a huge fan of the &lt;strong&gt;quiet weekend&lt;/strong&gt;, the weekend when no plan is the plan, and you are in no hurry at all. I woke up on Saturday morning, and I decided that this weekend was going to be a quiet one. After watching a late morning football game from the English Premier League – yup, I refuse to call it soccer 😀 – I decided to write some code-nothing big, just a few lines of codes to improve my experience with &lt;a class="reference external" href="https://kapeli.com/dash"&gt;Dash&lt;/a&gt;, a tool that I’ve been using for a few months.&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;For the last few months, I’ve become a huge fan of the &lt;strong&gt;quiet weekend&lt;/strong&gt;, the weekend when no plan is the plan, and you are in no hurry at all. I woke up on Saturday morning, and I decided that this weekend was going to be a quiet one. After watching a late morning football game from the English Premier League – yup, I refuse to call it soccer 😀 – I decided to write some code-nothing big, just a few lines of codes to improve my experience with &lt;a class="reference external" href="https://kapeli.com/dash"&gt;Dash&lt;/a&gt;, a tool that I’ve been using for a few months.&lt;/p&gt;
 &lt;img alt="" src="../_images/navigate.png" /&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/a-knitting-weekend-with-dash/" rel="alternate"/>
     <summary>For the last few months, I’ve become a huge fan of the quiet weekend, the weekend when no plan is the plan, and you are in no hurry at all. I woke up on Saturday morning, and I decided that this weekend was going to be a quiet one. After watching a late morning football game from the English Premier League – yup, I refuse to call it soccer 😀 – I decided to write some code-nothing big, just a few lines of codes to improve my experience with Dash, a tool that I’ve been using for a few months.</summary>
@@ -47,7 +51,9 @@
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;Two years ago I stumble upon &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Independent_music"&gt;indie music&lt;/a&gt;, and have never looked back since then. Today, I love indie music for how true to the soul it is. One of my favorite indie artists is &lt;a class="reference external" href="https://www.dizzytheband.com/"&gt;&lt;strong&gt;Dizzy&lt;/strong&gt;&lt;/a&gt;, a Canadian indie alt-pop four-piece band. Dizzy recently released their new record &lt;em&gt;The Sun and Her Scorch&lt;/em&gt;. It is so beautiful! My top two songs on this record are:&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Two years ago I stumble upon &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Independent_music"&gt;indie music&lt;/a&gt;, and have never looked back since then. Today, I love indie music for how true to the soul it is. One of my favorite indie artists is &lt;a class="reference external" href="https://www.dizzytheband.com/"&gt;&lt;strong&gt;Dizzy&lt;/strong&gt;&lt;/a&gt;, a Canadian indie alt-pop four-piece band. Dizzy recently released their new record &lt;em&gt;The Sun and Her Scorch&lt;/em&gt;. It is so beautiful! My top two songs on this record are:&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/the-sun-and-her-scorch/" rel="alternate"/>
     <summary>Two years ago I stumble upon indie music, and have never looked back since then. Today, I love indie music for how true to the soul it is. One of my favorite indie artists is Dizzy, a Canadian indie alt-pop four-piece band. Dizzy recently released their new record The Sun and Her Scorch. It is so beautiful! My top two songs on this record are:</summary>
@@ -61,8 +67,10 @@
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;Chadwick Boseman:&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Chadwick Boseman:&lt;/p&gt;
 &lt;img alt="black-panther" src="../_images/black-panther.jpeg" /&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/chadwick-boseman/" rel="alternate"/>
     <summary>Chadwick Boseman:black-panther</summary>
@@ -77,7 +85,9 @@
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;After a few months on &lt;a class="reference external" href="https://fastpages.fast.ai/"&gt;fastpages&lt;/a&gt; hosted on GitHub pages, all the content I have published on my blog is now being built with sphinx hosted on Github pages. This sphinx-based redesign was inspired by &lt;a class="reference external" href="https://predictablynoisy.com/posts/2020/sphinx-blogging/"&gt;this blog post by Chris Holdgraf&lt;/a&gt;. Thank you 🙏🏽, Chris!&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;After a few months on &lt;a class="reference external" href="https://fastpages.fast.ai/"&gt;fastpages&lt;/a&gt; hosted on GitHub pages, all the content I have published on my blog is now being built with sphinx hosted on Github pages. This sphinx-based redesign was inspired by &lt;a class="reference external" href="https://predictablynoisy.com/posts/2020/sphinx-blogging/"&gt;this blog post by Chris Holdgraf&lt;/a&gt;. Thank you 🙏🏽, Chris!&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/sphinx-based-redesign/" rel="alternate"/>
     <summary>After a few months on fastpages hosted on GitHub pages, all the content I have published on my blog is now being built with sphinx hosted on Github pages. This sphinx-based redesign was inspired by this blog post by Chris Holdgraf. Thank you 🙏🏽, Chris!</summary>
@@ -91,8 +101,10 @@
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;After saving Christmas five years in a row, you’ve decided to take a vacation at
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;After saving Christmas five years in a row, you’ve decided to take a vacation at
 a nice resort on a tropical island. Surely, Christmas will go on without you.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-1/" rel="alternate"/>
     <summary>After saving Christmas five years in a row, you’ve decided to take a vacation at
@@ -108,9 +120,11 @@ a nice resort on a tropical island. Surely, Christmas will go on without you.</s
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;Your flight departs in a few days from the coastal airport; the easiest way down
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Your flight departs in a few days from the coastal airport; the easiest way down
 to the coast from here is via
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Toboggan"&gt;toboggan&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-2/" rel="alternate"/>
     <summary>Your flight departs in a few days from the coastal airport; the easiest way down
@@ -127,10 +141,12 @@ toboggan.</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;With the toboggan login problems resolved, you set off toward the airport. While
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;With the toboggan login problems resolved, you set off toward the airport. While
 travel by toboggan might be easy, it’s certainly not safe: there’s very minimal
 steering and the area is covered in trees. You’ll need to see which angles will
 take you near the fewest trees.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-3/" rel="alternate"/>
     <summary>With the toboggan login problems resolved, you set off toward the airport. While
@@ -148,10 +164,12 @@ take you near the fewest trees.</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;You arrive at the airport only to realize that you grabbed your North Pole
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;You arrive at the airport only to realize that you grabbed your North Pole
 Credentials instead of your passport. While these documents are extremely
 similar, North Pole Credentials aren’t issued by a country and therefore aren’t
 actually valid documentation for travel in most of the world.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-4/" rel="alternate"/>
     <summary>You arrive at the airport only to realize that you grabbed your North Pole
@@ -169,9 +187,11 @@ actually valid documentation for travel in most of the world.</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;You board your plane only to discover a new problem: you dropped your boarding
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;You board your plane only to discover a new problem: you dropped your boarding
 pass! You aren’t sure which seat is yours, and all of the flight attendants are
 busy with the flood of people that suddenly made it through passport control.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-5/" rel="alternate"/>
     <summary>You board your plane only to discover a new problem: you dropped your boarding
@@ -188,10 +208,12 @@ busy with the flood of people that suddenly made it through passport control.</s
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;As your flight approaches the regional airport where you’ll switch to a much
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;As your flight approaches the regional airport where you’ll switch to a much
 larger plane,
 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Customs_declaration"&gt;customs declaration forms&lt;/a&gt;
 are distributed to the passengers.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-6/" rel="alternate"/>
     <summary>As your flight approaches the regional airport where you’ll switch to a much
@@ -209,9 +231,11 @@ are distributed to the passengers.</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;You land at the regional airport in time for your next flight. In fact, it looks
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;You land at the regional airport in time for your next flight. In fact, it looks
 like you’ll even have time to grab some food: all flights are currently delayed
 due to issues in luggage processing.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-7/" rel="alternate"/>
     <summary>You land at the regional airport in time for your next flight. In fact, it looks
@@ -228,9 +252,11 @@ due to issues in luggage processing.</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;Your flight to the major airline hub reaches cruising altitude without incident.
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Your flight to the major airline hub reaches cruising altitude without incident.
 While you consider checking the in-flight menu for one of those drinks that come
 with a little umbrella, you are interrupted by the kid sitting next to you.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-8/" rel="alternate"/>
     <summary>Your flight to the major airline hub reaches cruising altitude without incident.
@@ -247,8 +273,10 @@ with a little umbrella, you are interrupted by the kid sitting next to you.</sum
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;With your neighbor happily enjoying their video game, you turn your attention to
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;With your neighbor happily enjoying their video game, you turn your attention to
 an open data port on the little screen in the seat in front of you.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-9/" rel="alternate"/>
     <summary>With your neighbor happily enjoying their video game, you turn your attention to
@@ -264,7 +292,9 @@ an open data port on the little screen in the seat in front of you.</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;I spent today’s evening listening to &lt;a class="reference external" href="https://www.wnycstudios.org/podcasts/radiolab/articles/great_vaccinator"&gt;&lt;em&gt;The Great Vaccinator&lt;/em&gt;&lt;/a&gt; episode from Radiolab podcast. This episode is about &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Maurice_Hilleman"&gt;Maurice Hilleman&lt;/a&gt;, an amazing microbiologist who is known today as the father of modern vaccine. Hilleman is credited with having saved more lives than any other scientist because he was responsible for developing more than half of the vaccines (measles, mumps, meningitis, etc…) children receive today.&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;I spent today’s evening listening to &lt;a class="reference external" href="https://www.wnycstudios.org/podcasts/radiolab/articles/great_vaccinator"&gt;&lt;em&gt;The Great Vaccinator&lt;/em&gt;&lt;/a&gt; episode from Radiolab podcast. This episode is about &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Maurice_Hilleman"&gt;Maurice Hilleman&lt;/a&gt;, an amazing microbiologist who is known today as the father of modern vaccine. Hilleman is credited with having saved more lives than any other scientist because he was responsible for developing more than half of the vaccines (measles, mumps, meningitis, etc…) children receive today.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/maurice-hilleman/" rel="alternate"/>
     <summary>I spent today’s evening listening to The Great Vaccinator episode from Radiolab podcast. This episode is about Maurice Hilleman, an amazing microbiologist who is known today as the father of modern vaccine. Hilleman is credited with having saved more lives than any other scientist because he was responsible for developing more than half of the vaccines (measles, mumps, meningitis, etc…) children receive today.</summary>
@@ -281,7 +311,9 @@ an open data port on the little screen in the seat in front of you.</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;I’ve been working with centos 7 virtual machine provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the storage disk gets partitioned into tiny partititions during the VM provisioning:&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;I’ve been working with centos 7 virtual machine provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the storage disk gets partitioned into tiny partititions during the VM provisioning:&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/how-to-merge-disk-partitions-on-centos/" rel="alternate"/>
     <summary>I’ve been working with centos 7 virtual machine provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the storage disk gets partitioned into tiny partititions during the VM provisioning:</summary>
@@ -297,8 +329,10 @@ an open data port on the little screen in the seat in front of you.</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;Today, I was working with &lt;a class="reference external" href="https://github.com/dokku/dokku/"&gt;dokku&lt;/a&gt;, and I found myself in need of a wildcard subdomain. A &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Wildcard_DNS_record"&gt;wildcard DNS record&lt;/a&gt; is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;*.example.com&lt;/span&gt;&lt;/code&gt;, and a user requests &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;random.example.com&lt;/span&gt;&lt;/code&gt; or &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;foo.example.com&lt;/span&gt;&lt;/code&gt;, etc.. the requests will be forwarded to whichever server &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;*.example.com&lt;/span&gt;&lt;/code&gt; points to.&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Today, I was working with &lt;a class="reference external" href="https://github.com/dokku/dokku/"&gt;dokku&lt;/a&gt;, and I found myself in need of a wildcard subdomain. A &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Wildcard_DNS_record"&gt;wildcard DNS record&lt;/a&gt; is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;*.example.com&lt;/span&gt;&lt;/code&gt;, and a user requests &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;random.example.com&lt;/span&gt;&lt;/code&gt; or &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;foo.example.com&lt;/span&gt;&lt;/code&gt;, etc.. the requests will be forwarded to whichever server &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;*.example.com&lt;/span&gt;&lt;/code&gt; points to.&lt;/p&gt;
 &lt;img alt="" src="../_images/google-domains-dynamic-dns.png" /&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/google-dynamic-dns-wildcard-subdomains/" rel="alternate"/>
     <summary>Today, I was working with dokku, and I found myself in need of a wildcard subdomain. A wildcard DNS record is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to *.example.com, and a user requests random.example.com or foo.example.com, etc.. the requests will be forwarded to whichever server *.example.com points to.</summary>
@@ -314,8 +348,10 @@ an open data port on the little screen in the seat in front of you.</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;I’m currently learning JavaScript, and here are a few things I learned about
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;I’m currently learning JavaScript, and here are a few things I learned about
 function expressions in JavaScript ;)&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/function-expressions-in-js/" rel="alternate"/>
     <summary>I’m currently learning JavaScript, and here are a few things I learned about
@@ -331,7 +367,9 @@ function expressions in JavaScript ;)</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;Today I learned that if you could travel back to the early 1990s with the contents of this &lt;a class="reference external" href="https://github.com/pyca/cryptography"&gt;git repository&lt;/a&gt;, you would have had to become a licensed arms dealer 😮 —the govt certainly would have denied you an export license— before you could post the source code (or any work that featured the source code) on the internet.&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Today I learned that if you could travel back to the early 1990s with the contents of this &lt;a class="reference external" href="https://github.com/pyca/cryptography"&gt;git repository&lt;/a&gt;, you would have had to become a licensed arms dealer 😮 —the govt certainly would have denied you an export license— before you could post the source code (or any work that featured the source code) on the internet.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/freedom-of-cryptography/" rel="alternate"/>
     <summary>Today I learned that if you could travel back to the early 1990s with the contents of this git repository, you would have had to become a licensed arms dealer 😮 —the govt certainly would have denied you an export license— before you could post the source code (or any work that featured the source code) on the internet.</summary>
@@ -346,7 +384,9 @@ function expressions in JavaScript ;)</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;The new version of xarray comes with plenty of bug fixes and support for a number of great new features. In this post, I am going to discuss some of the new features I am most excited about.&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;The new version of xarray comes with plenty of bug fixes and support for a number of great new features. In this post, I am going to discuss some of the new features I am most excited about.&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/new-in-xarray-v0.17/" rel="alternate"/>
     <summary>The new version of xarray comes with plenty of bug fixes and support for a number of great new features. In this post, I am going to discuss some of the new features I am most excited about.</summary>
@@ -361,8 +401,10 @@ function expressions in JavaScript ;)</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see &lt;a class="reference external" href="https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578"&gt;this post&lt;/a&gt;). Below are the steps I used to generate a wildcard certificate.&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see &lt;a class="reference external" href="https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578"&gt;this post&lt;/a&gt;). Below are the steps I used to generate a wildcard certificate.&lt;/p&gt;
 &lt;img alt="google-domains-acme-challenge" src="../_images/google-domains-acme-challenge.png" /&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/lets-encrypt-wildcard-ssl-certificate-on-centos/" rel="alternate"/>
     <summary>Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see this post). Below are the steps I used to generate a wildcard certificate.google-domains-acme-challenge</summary>
@@ -379,8 +421,10 @@ function expressions in JavaScript ;)</summary>
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;Ça fait des années que je n’ai pas parlé français ou que j’ai écrit en français.
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;Ça fait des années que je n’ai pas parlé français ou que j’ai écrit en français.
 Mon excuse numéro un, c’est que je réside dans un pays anglophone. Et à cause de ça, je n’ai pas l’occasion d’utiliser (parler, écrir) la langue régulièrement. Pourtant, j’ai plein d’occasions de savourer:&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/mesdames/" rel="alternate"/>
     <summary>Ça fait des années que je n’ai pas parlé français ou que j’ai écrit en français.
@@ -395,7 +439,9 @@ Mon excuse numéro un, c’est que je réside dans un pays anglophone. Et à cau
     <author>
       <name>Anderson Banihirwe</name>
     </author>
-    <content type="html">&lt;p&gt;When it comes to merging two dictinaries in Python, I find myself googling “how to merge two dictionaries” very often. Every time I land on this &lt;a class="reference external" href="https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-taking-union-of-dictiona"&gt;StackOverflow answer&lt;/a&gt;. This answers recommends using the &lt;strong&gt;dictionary unpacking&lt;/strong&gt; feature:&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;When it comes to merging two dictinaries in Python, I find myself googling “how to merge two dictionaries” very often. Every time I land on this &lt;a class="reference external" href="https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-taking-union-of-dictiona"&gt;StackOverflow answer&lt;/a&gt;. This answers recommends using the &lt;strong&gt;dictionary unpacking&lt;/strong&gt; feature:&lt;/p&gt;
+&lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/dictionary-merge-and-update-operators/" rel="alternate"/>
     <summary>When it comes to merging two dictinaries in Python, I find myself googling “how to merge two dictionaries” very often. Every time I land on this StackOverflow answer. This answers recommends using the dictionary unpacking feature:</summary>

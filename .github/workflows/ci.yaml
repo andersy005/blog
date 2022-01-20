@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   deploy-site:
@@ -15,19 +19,27 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Conda Environment
-        uses: conda-incubator/setup-miniconda@v2
+        uses: conda-incubator/setup-miniconda@v2.1.1
         with:
           environment-file: environment.yml
+          channels: conda-forge,nodefaults
+          channel-priority: strict
           activate-environment: blog
-          auto-activate-base: false
+          auto-update-conda: false
+          python-version: 3.9
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          use-mamba: true
 
       - name: Build
         run: |
           make dirhtml
 
       - name: Deploy
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_build/dirhtml
           cname: blog.andersonbanihirwe.dev
+          enable_jekyll: false

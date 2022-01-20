@@ -64,7 +64,7 @@ SciPy Conference 2019 | Austin, Texas, U.S. | 2019-07-12
 
 [PySpark for "Big" Atmospheric Data Analysis](https://opensky.ucar.edu/islandora/object/conference%3A3443/datastream/PDF/view)
 ^^^
-<iframe width="90%" src="https://ams.confex.com/recording/ams/98Annual/mp4/free/4db77adf5df9fff0d3caf5cafe28f496/paper334546_1.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="90%" src="https://ams.confex.com/recording/ams/98Annual/mp4/free/4db77adf5df9fff0d3caf5cafe28f496/paper334546_1.mp4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 +++
 Eighth Symposium on Advances in Modeling and Analysis Using Python. American Meteorological Society | Austin, Texas, U.S. | 2018-01-08
 

@@ -1,0 +1,63 @@
+- title: 'Community Earth System Model Large Ensemble (CESM LENS) Datasets on AWS'
+  slides: https://talks.andersonbanihirwe.dev/presentations/2022/esip-jan-cesm-lens-aws.html
+  video: ...
+  conference:
+    name: ESIP January 2022 Meeting
+    location: Virtual
+    date: 2022-01-19
+
+- title: 'The Current State of Deploying Dask on HPC systems'
+  slides: https://talks.andersonbanihirwe.dev/deploying-dask-on-hpc-dask-summit-2021.html
+  video: '<iframe width="90%" src="https://www.youtube.com/embed/WOCgWepvqFk?start=200" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  conference:
+    name: Dask Summit 2021
+    location: Virtual
+    date: 2021-05-20
+
+- title: 'Pangeo Use Case: Analyzing Initialized Climate Prediction System Datasets with climpred'
+  slides: https://talks.andersonbanihirwe.dev/climpred-cdpw-2020.html
+  video: ...
+  conference:
+    name: NOAA’s 45th Climate Diagnostics & Prediction Workshop
+    location: Virtual
+    date: 2020-10-20
+
+- title: 'Zarr: chunked, compressed, multidimensional arrays'
+  slides: https://talks.andersonbanihirwe.dev/zarr-cloud-native-geospatial-2020.html
+  video: '<iframe width="90%" src="https://www.youtube.com/embed/cOMkgQssVPk?start=1471" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  conference:
+    name: Cloud Native Geospatial Outreach Day 2020
+    location: Virtual
+    date: 2020-09-08
+
+- title: 'Intake-ESM – Making It Easier To Consume Climate and Weather Data'
+  slides: https://talks.andersonbanihirwe.dev/intake-esm-esip-2020.html
+  video: '<iframe width="90%" src="https://www.youtube.com/embed/OpzF6IwIHRA?start=1402" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  conference:
+    name: ESIP Summer Meeting 2020
+    location: Virtual
+    date: 2020-07-23
+
+- title: 'Turning HPC Systems into Interactive Data Analysis Platforms using Jupyter and Dask'
+  slides: https://talks.andersonbanihirwe.dev/dask-jupyter-scipy-2019.html
+  video: '<iframe width="90%" src="https://www.youtube.com/embed/vhawO8fgD64" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  conference:
+    name: SciPy Conference 2019
+    location: Austin, Texas, U.S.
+    date: 2019-07-12
+
+- title: 'PySpark for "Big" Atmospheric Data Analysis'
+  slides: https://opensky.ucar.edu/islandora/object/conference%3A3443/datastream/PDF/view
+  video: '<iframe width="90%" src="https://ams.confex.com/recording/ams/98Annual/mp4/free/4db77adf5df9fff0d3caf5cafe28f496/paper334546_1.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  conference:
+    name: Eighth Symposium on Advances in Modeling and Analysis Using Python. American Meteorological Society
+    location: Austin, Texas, U.S.
+    date: 2018-01-08
+
+- title: 'PySpark for "Big" Atmospheric and Oceanic Data Analysis'
+  slides: ...
+  video: '<iframe iframe width="90%" src="https://www.youtube.com/embed/lqhYgRnIKTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  conference:
+    name: 2017 NCAR/CISL SIParCS Internship
+    location: Boulder, Colorado, U.S.
+    date: 2017-08-23

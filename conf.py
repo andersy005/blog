@@ -1,19 +1,13 @@
 # Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
 import datetime
+import pathlib
+from textwrap import dedent
+
+import yaml
+from sphinx.application import Sphinx
+from sphinx.util import logging
+
+LOGGER = logging.getLogger('conf')
 
 # -- Project information -----------------------------------------------------
 
@@ -26,12 +20,6 @@ copyright = f'2018-{datetime.datetime.now().year}. {license_message}'
 author = 'Anderson Banihirwe'
 html_last_updated_fmt = '%b %d, %Y'
 
-
-# -- General configuration ---------------------------------------------------
-
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
 extensions = [
     'myst_nb',
     'ablog',
@@ -44,9 +32,6 @@ extensions = [
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
     '_build',
     'Thumbs.db',
@@ -55,12 +40,6 @@ exclude_patterns = [
     '**/pandoc_ipynb/inputs/*',
 ]
 
-
-# -- Options for HTML output -------------------------------------------------
-
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
 html_theme = 'pydata_sphinx_theme'
 
 html_theme_options = {
@@ -103,7 +82,7 @@ panels_add_bootstrap_css = False
 
 # MyST config
 myst_enable_extensions = ['amsmath', 'colon_fence', 'deflist', 'html_image']
-myst_url_schemes = ('http', 'https', 'mailto')
+myst_url_schemes = ['http', 'https', 'mailto']
 
 # OpenGraph config
 ogp_site_url = 'https://blog.andersonbanihirwe.dev'
@@ -124,5 +103,53 @@ comments_config = {
 }
 
 
-def setup(app):
+def build_talks_gallery(app: Sphinx):  # sourcery skip: remove-redundant-fstring
+    LOGGER.info('Building talks gallery')
+    path = pathlib.Path(app.srcdir) / 'config_data/talks.yaml'
+    talks = yaml.safe_load(path.read_text())
+    talks = sorted(talks, key=lambda item: item['conference']['date'], reverse=True)
+    LOGGER.info(f'Found {len(talks)} talks')
+    content = [
+        """\
+# Talks
+
+I’ve given talks at academic and software conferences.
+Some of these are recorded and available online.
+Below are a few highlighted talks that I have given recently.
+
+```{panels}
+:card: text-center
+"""
+    ]
+    for index, item in enumerate(talks):
+        content.append(
+            f"""\
+
+[{item['title']}]({item['slides']})
+^^^
+{item['video']}
++++
+{item['conference']['name']} | {item['conference']['location']} | {item['conference']['date']}
+"""
+        )
+
+        if index < len(talks) - 1:
+            content.append(
+                """\
+---
+"""
+            )
+
+    content.append(
+        """\
+```"""
+    )
+
+    content = dedent('\n'.join(content))
+    out_path = pathlib.Path(app.srcdir) / 'talks.md'
+    out_path.write_text(content)
+
+
+def setup(app: Sphinx):
     app.add_css_file('custom.css')
+    app.connect('builder-inited', build_talks_gallery)

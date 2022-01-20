@@ -20,6 +20,7 @@ See the [blog archives](posts) for a more complete list.
 posts
 about
 talks
+talks_gallery
 CV <https://cv.andersonbanihirwe.dev/>
 Video <https://www.youtube.com/channel/UCb8F9w9OHjRize4-MDbwRMw>
 ```

@@ -16,7 +16,7 @@ Ce blog post est ma première tentative de blogger en français. Je vais essayer
 
 - **Une sœur**: _Il y a peu de monde qui te permette de donner au mot famille un vrai sens_ ... 🎶
 
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/saADG5xXYpY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/8grSK1A4kpA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - **Mesdames**: _Vous êtes infiniment plus subtiles, plus élégantes et plus classes_ ...🎶
 
@@ -25,12 +25,12 @@ Ce blog post est ma première tentative de blogger en français. Je vais essayer
 - **Enfants du désordre**: _La violence est une rancœur qu'on a laissé grandir
 Une colère prisonnière qui ne veut plus partir_ ... 🎶
 
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/FJm11a6YrwQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/eD862wdBKjY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - **Mais je t'aime**: _Ces flammes nous ont rendus fous
 On a oublié qu'au final, le feu ça brûle.... Pourquoi lorsque l'amour est fort il nous rend vulnérables et fragiles_...🎶
 
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/7ss-xmvLGFw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/-mXL5FlvX2U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **Cet album est un vrai chef-d'œuvre! Musique, voix, textes, etc... tout est magnifique!** Pour les amoureux de la musique, voici l'album complet sur Spotify. Enjoy 😊...
 

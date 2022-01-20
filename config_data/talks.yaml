@@ -38,6 +38,14 @@
     location: Virtual
     date: 2020-07-23
 
+- title: 'Dask and Pangeo'
+  slides: https://speakerdeck.com/andersy005/dask-and-pangeo-a-community-platform-for-big-data-geoscience
+  video: ...
+  conference:
+    name: Dask Developer Summit 2020
+    location: Washington, District of Columbia, U.S.
+    date: 2020-02-26
+
 - title: 'Turning HPC Systems into Interactive Data Analysis Platforms using Jupyter and Dask'
   slides: https://talks.andersonbanihirwe.dev/dask-jupyter-scipy-2019.html
   video: '<iframe width="90%" src="https://www.youtube.com/embed/vhawO8fgD64" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
@@ -48,7 +56,7 @@
 
 - title: 'PySpark for "Big" Atmospheric Data Analysis'
   slides: https://opensky.ucar.edu/islandora/object/conference%3A3443/datastream/PDF/view
-  video: '<iframe width="90%" src="https://ams.confex.com/recording/ams/98Annual/mp4/free/4db77adf5df9fff0d3caf5cafe28f496/paper334546_1.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  video: '<iframe width="90%" src="https://ams.confex.com/recording/ams/98Annual/mp4/free/4db77adf5df9fff0d3caf5cafe28f496/paper334546_1.mp4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
   conference:
     name: Eighth Symposium on Advances in Modeling and Analysis Using Python. American Meteorological Society
     location: Austin, Texas, U.S.

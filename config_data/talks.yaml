@@ -64,7 +64,7 @@
 
 - title: 'PySpark for "Big" Atmospheric and Oceanic Data Analysis'
   slides: ...
-  video: '<iframe iframe width="90%" src="https://www.youtube.com/embed/lqhYgRnIKTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  video: '<iframe width="90%" src="https://www.youtube.com/embed/lqhYgRnIKTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
   conference:
     name: 2017 NCAR/CISL SIParCS Internship
     location: Boulder, Colorado, U.S.

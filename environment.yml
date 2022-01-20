@@ -35,4 +35,5 @@ dependencies:
   - pooch
   - pip:
       - ptime
+      - sphinx-design
       - sphinxext-opengraph

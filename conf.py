@@ -2,6 +2,7 @@
 import datetime
 import pathlib
 from textwrap import dedent
+from urllib.parse import urlparse
 
 import yaml
 from sphinx.application import Sphinx
@@ -24,6 +25,7 @@ extensions = [
     'myst_nb',
     'ablog',
     'sphinx_panels',
+    'sphinx_design',
     'sphinxcontrib.bibtex',
     'sphinxext.opengraph',
     'sphinx_comments',
@@ -103,7 +105,70 @@ comments_config = {
 }
 
 
-def build_talks_gallery(app: Sphinx):  # sourcery skip: remove-redundant-fstring
+def build_teaching_gallery(app: Sphinx):
+    LOGGER.info('Building teaching gallery')
+    path = pathlib.Path(app.srcdir) / 'config_data/teaching.yaml'
+    teaching = yaml.safe_load(path.read_text())
+    teaching = sorted(teaching, key=lambda item: item['date'])
+    grid_items = []
+    for item in teaching:
+        if not item.get('video'):
+            item['video'] = '...'
+
+        repo_text = ''
+        star_text = ''
+
+        if item['repository']:
+            repo_text = f'{{bdg-link-secondary}}`repo <{item["repository"]}>`'
+
+            try:
+                url = urlparse(item['repository'])
+                if url.netloc == 'github.com':
+                    _, org, repo = url.path.rstrip('/').split('/')
+                    link = f'https://img.shields.io/github/stars/{org}/{repo}?style=social'
+                    star_text = f"[![GitHub Repo stars]({link})]({item['repository']})"
+            except Exception:
+                pass
+
+        grid_items.append(
+            f"""\
+        `````{{grid-item-card}} {" ".join(item["name"].split())}
+        :text-align: center
+        {item["video"]}
+        +++
+        ````{{grid}} 2 2 2 2
+        :margin: 0 0 0 0
+        :padding: 0 0 0 0
+        :gutter: 1
+        ```{{grid-item}}
+        :child-direction: row
+        :child-align: start
+        :class: sd-fs-5
+        {repo_text}
+        ```
+        ```{{grid-item}}
+        :child-direction: row
+        :child-align: end
+        {star_text}
+        ```
+        ````
+        `````
+        """
+        )
+    grid_items = '\n'.join(grid_items)
+
+    panels = f"""
+# Teaching
+
+``````{{grid}} 2
+:class-container: full-width
+{dedent(grid_items)}
+``````
+    """
+    (pathlib.Path(app.srcdir) / 'teaching.md').write_text(panels)
+
+
+def build_talks_gallery(app: Sphinx):
     LOGGER.info('Building talks gallery')
     path = pathlib.Path(app.srcdir) / 'config_data/talks.yaml'
     talks = yaml.safe_load(path.read_text())
@@ -111,7 +176,7 @@ def build_talks_gallery(app: Sphinx):  # sourcery skip: remove-redundant-fstring
     LOGGER.info(f'Found {len(talks)} talks')
     content = [
         """\
-# Talks
+# 🎙 Talks
 
 I’ve given talks at academic and software conferences.
 Some of these are recorded and available online.
@@ -152,3 +217,4 @@ Below are a few highlighted talks that I have given recently.
 def setup(app: Sphinx):
     app.add_css_file('custom.css')
     app.connect('builder-inited', build_talks_gallery)
+    app.connect('builder-inited', build_teaching_gallery)

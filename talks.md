@@ -1,4 +1,4 @@
-# Talks
+# 🎙 Talks
 
 I’ve given talks at academic and software conferences.
 Some of these are recorded and available online.
@@ -73,7 +73,7 @@ Eighth Symposium on Advances in Modeling and Analysis Using Python. American Met
 
 [PySpark for "Big" Atmospheric and Oceanic Data Analysis](...)
 ^^^
-<iframe iframe width="90%" src="https://www.youtube.com/embed/lqhYgRnIKTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="90%" src="https://www.youtube.com/embed/lqhYgRnIKTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 +++
 2017 NCAR/CISL SIParCS Internship | Boulder, Colorado, U.S. | 2017-08-23
 

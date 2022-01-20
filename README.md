@@ -1,7 +1,8 @@
-# [blog.andersonbanihirwe.dev](https://blog.andersonbanihirwe.dev/)
-
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/andersy005/blog/linting/main?logo=github)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/andersy005/blog/main.svg)](https://results.pre-commit.ci/latest/github/andersy005/blog/main)
+
+# [blog.andersonbanihirwe.dev](https://blog.andersonbanihirwe.dev/)
+
 This repository serves my personal website, technical blog, and a collection of my personal notes. The contents are posted at [blog.andersonbanihirwe.dev](https://blog.andersonbanihirwe.dev/).
 
 ## License

@@ -38,6 +38,14 @@
     location: Virtual
     date: 2020-07-23
 
+- title: 'Dask and Pangeo'
+  slides: https://speakerdeck.com/andersy005/dask-and-pangeo-a-community-platform-for-big-data-geoscience
+  video: ...
+  conference:
+    name: Dask Developer Summit 2020
+    location: Washington, District of Columbia, U.S.
+    date: 2020-02-26
+
 - title: 'Turning HPC Systems into Interactive Data Analysis Platforms using Jupyter and Dask'
   slides: https://talks.andersonbanihirwe.dev/dask-jupyter-scipy-2019.html
   video: '<iframe width="90%" src="https://www.youtube.com/embed/vhawO8fgD64" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'

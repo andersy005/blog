@@ -124,7 +124,6 @@ Below are a few highlighted talks that I have given recently.
     for index, item in enumerate(talks):
         content.append(
             f"""\
-
 [{item['title']}]({item['slides']})
 ^^^
 {item['video']}

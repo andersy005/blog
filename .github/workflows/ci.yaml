@@ -18,18 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Conda Environment
-        uses: conda-incubator/setup-miniconda@v2.1.1
+      - name: Create conda environment
+        uses: mamba-org/provision-with-micromamba@main
         with:
+          cache-downloads: true
+          micromamba-version: 'latest'
           environment-file: environment.yml
-          channels: conda-forge,nodefaults
-          channel-priority: strict
-          activate-environment: blog
-          auto-update-conda: false
-          python-version: 3.9
-          miniforge-variant: Mambaforge
-          miniforge-version: latest
-          use-mamba: true
 
       - name: Build
         run: |

@@ -13,7 +13,7 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 live:
-	sphinx-autobuild --ignore */.github/* --ignore */tmp/* "$(SOURCEDIR)" _build/dirhtml/ --port 9999
+	sphinx-autobuild --ignore */.github/* --ignore */tmp/* --ignore */drafts/* "$(SOURCEDIR)" _build/dirhtml/ --port 9999
 
 .PHONY: help Makefile
 

@@ -1,12 +1,12 @@
 ---
 author: Anderson Banihirwe
 date: 2022-03-06
-tags: music
+tags: music, francais
 ---
 
 # « Multitude de Stromae » - Des morceaux aussi forts sur des sujets si primordials 🎶
 
-J'ai passé le week-end en ecoutant en boucle l'intégralité du nouvel album de Stromae, intitulé [**"Multitude"**](https://music.youtube.com/playlist?list=OLAK5uy_kDes3UKBSh3zb1ZwRE8r3x6-6bDTM6jzY). L'album est sublime. Les morceaux, les instrumentals sont sensationnels. Les rythmes, les thematiques (la dépression, la solitude, le suicide, la maladie, la prostitution, le feminisme, l'abandon, etc...) sont bien équilibrés 👏🏽🙏🏽!
+J'ai passé le week-end en ecoutant en boucle l'intégralité du nouvel album de Stromae, intitulé [**"Multitude"**](https://music.youtube.com/playlist?list=OLAK5uy_kDes3UKBSh3zb1ZwRE8r3x6-6bDTM6jzY). L'album est sublime. Les morceaux, les instrumentals sont sensationnels. Les rythmes, les thematiques (la dépression, la solitude, le suicide, la maladie, la prostitution, le féminisme, l'abandon, etc...) sont bien équilibrés 👏🏽🙏🏽!
 
 ![multitude-cover](https://upload.wikimedia.org/wikipedia/en/6/67/Stromae_Multitude_cover.jpg)
 _© Stromae – Multitude / Universal Music_
@@ -25,7 +25,7 @@ Dans ce blog, je veux partager mes morceaux préférés de cet album.
 
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/YoTZVJgGG94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-- **Riez**: Sûrement le meilleur morceau de mon classement. Le sujet de la chanson est les rêves, les fantasmes de la vie. La chanson se comprend à l'envers: de vouloir la nécessité fondamentale de la vie à tout avoir et pourtant pas satisfait et en vouloir toujours plus. Rions pour le reveur en chacun de nous:
+- **Riez**: Sûrement le meilleur morceau (numero 1 de mon classement). Le sujet de la chanson est les rêves, les fantasmes de la vie. La chanson se comprend à l'envers: de vouloir la nécessité fondamentale de la vie à tout avoir et pourtant pas satisfait et en vouloir toujours plus. Rions pour le reveur en chacun de nous:
 
   > « C’que j’voudrais c’est d’manger à ma faim,
   > Tous les jours de l’année..
@@ -39,7 +39,9 @@ Dans ce blog, je veux partager mes morceaux préférés de cet album.
 
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/CtgayAry54k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-- **Déclaration**: Un délice ce morceau. Stromae plaidoye pour les femmes:
+- **Déclaration**: Un délice ce morceau (numero 2 de mon classement). Dans ce sublime, sobre chanson avec un message clair, Stromae plaidoye pour les femmes ✨🎗. "Déclaration" aborde des sujets sociaux qui reposent entièrement sur les épaules des femmes: enfanter, la contraception et l’endométriose:
+
+  > « Si l’courage avait un visage, il aurait l’tien » ...
 
   > « Toujours obligée d’aimer enfanter, La contraception qui te détruit la santé, Endométriose, enchantée, J'suis mieux payé que toi sans vouloir me vanter » ...
 

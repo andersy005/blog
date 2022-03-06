@@ -23,7 +23,7 @@ Dans ce blog, je veux partager mes morceaux préférés de cet album.
 
   > « Le célibat me fait souffrir de solitude, La vie de couple me fait souffrir de lassitude » ...
 
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/rw0XBin_r9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/YoTZVJgGG94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - **Riez**: Sûrement le meilleur morceau de mon classement. Le sujet de la chanson est les rêves, les fantasmes de la vie. La chanson se comprend à l'envers: de vouloir la nécessité fondamentale de la vie à tout avoir et pourtant pas satisfait et en vouloir toujours plus. Rions pour le reveur en chacun de nous:
 
@@ -37,17 +37,17 @@ Dans ce blog, je veux partager mes morceaux préférés de cet album.
   > J’aurai des sous et tellement je s’rai riche,
   > J’aurai même plein d’amis » ...
 
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/rw0XBin_r9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/CtgayAry54k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-- **Declaration**: Un délice ce morceau. Stromae plaidoye pour les femmes:
+- **Déclaration**: Un délice ce morceau. Stromae plaidoye pour les femmes:
 
-  > « Toujours obligée d’aimer enfanter, La contraception qui te détruit la santé, Endométriose, enchantée » ...
+  > « Toujours obligée d’aimer enfanter, La contraception qui te détruit la santé, Endométriose, enchantée, J'suis mieux payé que toi sans vouloir me vanter » ...
 
   > « T’inquiète pas ça va aller, faudra bien que ça change. Ça prendra quelques années vu que ça nous arrange » ...
 
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/rw0XBin_r9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/xV8pnYE5gxA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-- **Bonne journée**: le morceaux plaisir coupable
+- **Bonne journée**: le morceaux plaisir coupable:
 
   > « Le bonheur est bien la seule chose qui quand on la partage se multiplie
   > Je vois la vie en rose, dis moi, est ce que tu la vois aussi ? » ...
@@ -57,6 +57,6 @@ Dans ce blog, je veux partager mes morceaux préférés de cet album.
 
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/MrLfuXF4fqM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Comme le titre l'indique, l'album est vraiment une multitude de sons, une multitude de themes, instruments, etc... **37 minutes de pure qualité** pour les amoureux de la musique et surtout pour les fans de Stromae. Voici l'album complet sur YouTube. Enjoy 😊...
+Comme le titre l'indique, l'album est vraiment une multitude de sons, une multitude de themes, instruments, etc...L'album valait la peine d'attendre :). **37 minutes de pure qualité** pour les amoureux de la musique et surtout pour les fans de Stromae. Voici l'album complet sur YouTube. Enjoy 😊...
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/videoseries?list=OLAK5uy_n78ploXx-gSUGsEZxW3FW-n1nOMuncfiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

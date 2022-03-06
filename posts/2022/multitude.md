@@ -13,13 +13,15 @@ _© Stromae – Multitude / Universal Music_
 
 Dans ce blog, je veux partager mes morceaux préférés de cet album.
 
-- **Invaincu**: est un morceau puissant sur la survie, alimenté par des beats triomphants:
+- **Invaincu**: est un morceau puissant sur la survie, alimenté par des beats triomphants 🔥🔥:
 
   > « Tant que je suis en vie je suis invaincu » ...
 
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/rw0XBin_r9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - **La solassitude**: l'instrumental est juste phenoménal. Stromae présente l'ironie de la vie et de l'amour (la solitude quand on est célibataire, la lassitude en couple):
+
+  > « Le problème, c'est la routine, quand les jours se ressеmblent... C'qui m'tue, c'est l'еnnui, est-c'qu'on finira ensemble? » ...
 
   > « Le célibat me fait souffrir de solitude, La vie de couple me fait souffrir de lassitude » ...
 
@@ -59,6 +61,6 @@ Dans ce blog, je veux partager mes morceaux préférés de cet album.
 
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/MrLfuXF4fqM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Comme le titre l'indique, l'album est vraiment une multitude de sons, une multitude de themes, instruments, etc...L'album valait la peine d'attendre :). **37 minutes de pure qualité** pour les amoureux de la musique et surtout pour les fans de Stromae. Voici l'album complet sur YouTube. Enjoy 😊...
+Comme le titre l'indique, l'album est vraiment une multitude de sons, une multitude de themes, instruments, etc... **37 minutes de pure qualité** pour les amoureux de la musique et surtout pour les fans de Stromae. L'album est vraiment très propre après plusieurs écoute. Il valait la peine d'attendre :). Voici l'album complet sur YouTube. Enjoy 😊...
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/videoseries?list=OLAK5uy_n78ploXx-gSUGsEZxW3FW-n1nOMuncfiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -136,36 +136,39 @@ def build_teaching_gallery(app: Sphinx):
         :text-align: center
         {item["video"]}
         +++
+
         ````{{grid}} 2 2 2 2
         :margin: 0 0 0 0
         :padding: 0 0 0 0
         :gutter: 1
+
         ```{{grid-item}}
         :child-direction: row
         :child-align: start
         :class: sd-fs-5
         {repo_text}
         ```
+
         ```{{grid-item}}
         :child-direction: row
         :child-align: end
         {star_text}
         ```
+
         ````
+
         `````
         """
         )
     grid_items = '\n'.join(grid_items)
 
-    panels = f"""
-# Teaching
-
-``````{{grid}} 2
+    panels = f"""``````{{grid}} 2
 :class-container: full-width
+
 {dedent(grid_items)}
 ``````
     """
-    (pathlib.Path(app.srcdir) / 'teaching.md').write_text(panels)
+    (pathlib.Path(app.srcdir) / 'teaching_gallery.md').write_text(panels)
 
 
 def build_talks_gallery(app: Sphinx):
@@ -176,12 +179,6 @@ def build_talks_gallery(app: Sphinx):
     LOGGER.info(f'Found {len(talks)} talks')
     content = [
         """\
-# 🎙 Talks
-
-I’ve given talks at academic and software conferences.
-Some of these are recorded and available online.
-Below are a few highlighted talks that I have given recently.
-
 ```{panels}
 :card: text-center
 """
@@ -210,7 +207,7 @@ Below are a few highlighted talks that I have given recently.
     )
 
     content = dedent('\n'.join(content))
-    out_path = pathlib.Path(app.srcdir) / 'talks.md'
+    out_path = pathlib.Path(app.srcdir) / 'talks_gallery.md'
     out_path.write_text(content)
 
 

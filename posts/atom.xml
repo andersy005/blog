@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2022-01-31T16:29:13.807146+00:00</updated>
+  <updated>2022-03-06T14:00:41.297174+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.23">ABlog</generator>
@@ -448,5 +448,23 @@ Mon excuse numéro un, c’est que je réside dans un pays anglophone. Et à cau
     <category term="python" label="python"/>
     <category term="todayilearned" label="todayilearned"/>
     <published>2021-06-04T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.andersonbanihirwe.dev/posts/2022/multitude/</id>
+    <title>« Multitude de Stromae » - Des morceaux aussi forts sur des sujets si primordials 🎶</title>
+    <updated>2022-03-06T00:00:00+00:00</updated>
+    <author>
+      <name>Anderson Banihirwe</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;J’ai passé le week-end en ecoutant en boucle l’intégralité du nouvel album de Stromae, intitulé &lt;a class="reference external" href="https://music.youtube.com/playlist?list=OLAK5uy_kDes3UKBSh3zb1ZwRE8r3x6-6bDTM6jzY"&gt;&lt;strong&gt;“Multitude”&lt;/strong&gt;&lt;/a&gt;. L’album est sublime. Les morceaux, les instrumentals sont sensationnels. Les rythmes, les thèmes abordés (la dépression, la solitude, le suicide, la maladie, la prostitution, le féminisme, l’abandon, etc…) sont bien équilibrés 👏🏽🙏🏽!&lt;/p&gt;
+&lt;img alt="multitude-cover" src="https://upload.wikimedia.org/wikipedia/en/6/67/Stromae_Multitude_cover.jpg" /&gt;
+&lt;/div&gt;
+</content>
+    <link href="https://blog.andersonbanihirwe.dev/posts/2022/multitude/" rel="alternate"/>
+    <summary>J’ai passé le week-end en ecoutant en boucle l’intégralité du nouvel album de Stromae, intitulé “Multitude”. L’album est sublime. Les morceaux, les instrumentals sont sensationnels. Les rythmes, les thèmes abordés (la dépression, la solitude, le suicide, la maladie, la prostitution, le féminisme, l’abandon, etc…) sont bien équilibrés 👏🏽🙏🏽!multitude-cover</summary>
+    <category term="music" label="music"/>
+    <category term="francais" label="francais"/>
+    <published>2022-03-06T00:00:00+00:00</published>
   </entry>
 </feed>

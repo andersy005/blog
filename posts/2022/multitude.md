@@ -6,7 +6,7 @@ tags: music, francais
 
 # « Multitude de Stromae » - Des morceaux aussi forts sur des sujets si primordials 🎶
 
-J'ai passé le week-end en ecoutant en boucle l'intégralité du nouvel album de Stromae, intitulé [**"Multitude"**](https://music.youtube.com/playlist?list=OLAK5uy_kDes3UKBSh3zb1ZwRE8r3x6-6bDTM6jzY). L'album est sublime. Les morceaux, les instrumentals sont sensationnels. Les rythmes, les thematiques (la dépression, la solitude, le suicide, la maladie, la prostitution, le féminisme, l'abandon, etc...) sont bien équilibrés 👏🏽🙏🏽!
+J'ai passé le week-end en ecoutant en boucle l'intégralité du nouvel album de Stromae, intitulé [**"Multitude"**](https://music.youtube.com/playlist?list=OLAK5uy_kDes3UKBSh3zb1ZwRE8r3x6-6bDTM6jzY). L'album est sublime. Les morceaux, les instrumentals sont sensationnels. Les rythmes, les thèmes abordés (la dépression, la solitude, le suicide, la maladie, la prostitution, le féminisme, l'abandon, etc...) sont bien équilibrés 👏🏽🙏🏽!
 
 ![multitude-cover](https://upload.wikimedia.org/wikipedia/en/6/67/Stromae_Multitude_cover.jpg)
 _© Stromae – Multitude / Universal Music_

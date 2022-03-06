@@ -25,7 +25,7 @@ Dans ce blog, je veux partager mes morceaux préférés de cet album.
 
   <iframe width="100%" height="315" src="https://www.youtube.com/embed/rw0XBin_r9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-- **Riez**: Sûrement le meilleur morceau de l'album. Le sujet de la chanson est les rêves, les fantasmes de la vie. La chanson se comprend à l'envers: de vouloir la nécessité fondamentale de la vie à tout avoir et pourtant pas satisfait et en vouloir toujours plus. Rions pour le reveur en chacun de nous:
+- **Riez**: Sûrement le meilleur morceau de mon classement. Le sujet de la chanson est les rêves, les fantasmes de la vie. La chanson se comprend à l'envers: de vouloir la nécessité fondamentale de la vie à tout avoir et pourtant pas satisfait et en vouloir toujours plus. Rions pour le reveur en chacun de nous:
 
   > « C’que j’voudrais c’est d’manger à ma faim,
   > Tous les jours de l’année..

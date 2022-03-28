@@ -25,23 +25,19 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>How to set up a wildcard subdomain on Google Domains</title>
     
-    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -49,8 +45,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     
-    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
@@ -145,7 +142,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -342,7 +339,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -401,7 +398,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="how-to-set-up-a-wildcard-subdomain-on-google-domains">
-<h1>How to set up a wildcard subdomain on Google Domains<a class="headerlink" href="#how-to-set-up-a-wildcard-subdomain-on-google-domains" title="Permalink to this headline">¶</a></h1>
+<h1>How to set up a wildcard subdomain on Google Domains<a class="headerlink" href="#how-to-set-up-a-wildcard-subdomain-on-google-domains" title="Permalink to this headline">#</a></h1>
 <p>Today, I was working with <a class="reference external" href="https://github.com/dokku/dokku/">dokku</a>, and I found myself in need of a wildcard subdomain. A <a class="reference external" href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">wildcard DNS record</a> is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to <code class="docutils literal notranslate"><span class="pre">*.example.com</span></code>, and a user requests <code class="docutils literal notranslate"><span class="pre">random.example.com</span></code> or <code class="docutils literal notranslate"><span class="pre">foo.example.com</span></code>, etc.. the requests will be forwarded to whichever server <code class="docutils literal notranslate"><span class="pre">*.example.com</span></code> points to.</p>
 <p>For my use case, I wanted to host multiple applications on a single server, and wanted to map each app to a subdomain such as <code class="docutils literal notranslate"><span class="pre">app1-name.dokku.example.com</span></code>, <code class="docutils literal notranslate"><span class="pre">app2-name.dokku.example.com</span></code>, etc. To achieve this, I needed to set up a wildcard DNS record for <code class="docutils literal notranslate"><span class="pre">*.dokku.example.com</span></code>.</p>
 <p>Currently, I happen to own a domain on <a class="reference external" href="https://domains.google/">Google Domains</a>. Below are the steps I followed to set up the <code class="docutils literal notranslate"><span class="pre">*.dokku.example.com</span></code> wildcard DNS record.</p>
@@ -410,20 +407,20 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>I’m using <code class="docutils literal notranslate"><span class="pre">example.com</span></code> as a dummy domain for demonstration purposes.</p>
 </div>
 <section id="server-vm-with-a-dynamic-ip-address">
-<h2>Server/VM with a dynamic IP address<a class="headerlink" href="#server-vm-with-a-dynamic-ip-address" title="Permalink to this headline">¶</a></h2>
+<h2>Server/VM with a dynamic IP address<a class="headerlink" href="#server-vm-with-a-dynamic-ip-address" title="Permalink to this headline">#</a></h2>
 <p>For a server with a dynamic IP address, we need to create a dynamic DNS record and a CNAME record in our DNS settings.</p>
 <section id="step-1-create-a-dynamic-dns-record-in-synthetic-records">
-<h3>Step 1: Create a Dynamic DNS record in Synthetic Records<a class="headerlink" href="#step-1-create-a-dynamic-dns-record-in-synthetic-records" title="Permalink to this headline">¶</a></h3>
+<h3>Step 1: Create a Dynamic DNS record in Synthetic Records<a class="headerlink" href="#step-1-create-a-dynamic-dns-record-in-synthetic-records" title="Permalink to this headline">#</a></h3>
 <p>Create a synthetic record for <strong>dokku.example.com</strong> instead of <strong>*.dokku.example.com</strong>:</p>
 <p><img alt="" src="../../../_images/google-domains-dynamic-dns.png" /></p>
 </section>
 <section id="step-2-create-a-cname-record-of-the-subdomain">
-<h3>Step 2: Create a CNAME record of the subdomain<a class="headerlink" href="#step-2-create-a-cname-record-of-the-subdomain" title="Permalink to this headline">¶</a></h3>
+<h3>Step 2: Create a CNAME record of the subdomain<a class="headerlink" href="#step-2-create-a-cname-record-of-the-subdomain" title="Permalink to this headline">#</a></h3>
 <p>Create a CNAME record of the subdomain <strong>*dokku.example.com</strong> and point it to the synthetic records subdomain <strong>dokku.example.com</strong>:</p>
 <p><img alt="" src="../../../_images/google-domains-wildcard-subdomain.png" /></p>
 </section>
 <section id="step-3-set-up-ddclient-on-your-server">
-<h3>Step 3: Set up ddclient on your server<a class="headerlink" href="#step-3-set-up-ddclient-on-your-server" title="Permalink to this headline">¶</a></h3>
+<h3>Step 3: Set up ddclient on your server<a class="headerlink" href="#step-3-set-up-ddclient-on-your-server" title="Permalink to this headline">#</a></h3>
 <p>First, make sure <a class="reference external" href="https://github.com/ddclient/ddclient"><code class="docutils literal notranslate"><span class="pre">ddclient</span></code></a> is installed on your server and the <code class="docutils literal notranslate"><span class="pre">ddclient</span></code> service is up and running.</p>
 <p>Second,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo nano /etc/ddclient.conf
@@ -457,7 +454,7 @@ dokku.example.com
 </div>
 </section>
 <section id="step-4-verify-that-our-changes-have-taken-effect">
-<h3>Step 4: Verify that our changes have taken effect<a class="headerlink" href="#step-4-verify-that-our-changes-have-taken-effect" title="Permalink to this headline">¶</a></h3>
+<h3>Step 4: Verify that our changes have taken effect<a class="headerlink" href="#step-4-verify-that-our-changes-have-taken-effect" title="Permalink to this headline">#</a></h3>
 <p>We can verify our changes on a UNIX machine by trying one or more of the following commands:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">host</span> <span class="pre">dokku.example.com</span></code></p></li>
@@ -473,7 +470,7 @@ dokku.example.com
 </section>
 </section>
 <section id="server-vm-with-a-static-ip-address">
-<h2>Server/VM with a static IP address<a class="headerlink" href="#server-vm-with-a-static-ip-address" title="Permalink to this headline">¶</a></h2>
+<h2>Server/VM with a static IP address<a class="headerlink" href="#server-vm-with-a-static-ip-address" title="Permalink to this headline">#</a></h2>
 <p>For a server/VM with a static IP address, the process is much simpler. Creating an <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">record</span></code> pointing to the IP address of the server/VM suffices:</p>
 <p><img alt="" src="../../../_images/google-domains-static-ip.png" /></p>
 </section>
@@ -518,8 +515,9 @@ dokku.example.com
       </div>
     </div>
   
-    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

@@ -25,23 +25,19 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>Reflecting on SciPy 2019: My first SciPy, definitely not my last</title>
     
-    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -49,8 +45,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     
-    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
@@ -145,7 +142,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -341,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -403,17 +400,17 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="reflecting-on-scipy-2019-my-first-scipy-definitely-not-my-last">
-<h1>Reflecting on SciPy 2019: My first SciPy, definitely not my last<a class="headerlink" href="#reflecting-on-scipy-2019-my-first-scipy-definitely-not-my-last" title="Permalink to this headline">¶</a></h1>
+<h1>Reflecting on SciPy 2019: My first SciPy, definitely not my last<a class="headerlink" href="#reflecting-on-scipy-2019-my-first-scipy-definitely-not-my-last" title="Permalink to this headline">#</a></h1>
 <p>It’s been a week since SciPy 2019 conference came to a close. I had the pleasure of speaking at SciPy 2019 about <a class="reference external" href="https://andersonbanihirwe.dev/talks/dask-jupyter-scipy-2019.html"><strong>interactive supercomputing with Dask and Jupyter</strong></a>. I am so thankful for the chance to speak in the Earth, Ocean, Geo and Atmospheric Science track! Here’s a recording of my talk:</p>
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/vhawO8fgD64" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <p>As I look back at my first <a class="reference external" href="https://www.scipy2019.scipy.org/">SciPy</a>, I can say that it was the most productive conference that I’ve been to so far. So, I wanted to take this opportunity to summarize my key takeaways.</p>
 <section id="the-awesomeness-of-scipy-community">
-<h2>1. The Awesomeness of SciPy Community<a class="headerlink" href="#the-awesomeness-of-scipy-community" title="Permalink to this headline">¶</a></h2>
+<h2>1. The Awesomeness of SciPy Community<a class="headerlink" href="#the-awesomeness-of-scipy-community" title="Permalink to this headline">#</a></h2>
 <p>The biggest highlight of SciPy for me was the <strong>community</strong>.
 <strong>What an authentic, super-talented, enthusiastic and welcoming community!</strong> I met and interacted with a lot of amazing people that I only knew via Github prior the conference :). The community is really what makes SciPy such a special conference.</p>
 </section>
 <section id="invisible-work-in-open-source-software-projects">
-<h2>2. Invisible Work in Open Source Software Projects<a class="headerlink" href="#invisible-work-in-open-source-software-projects" title="Permalink to this headline">¶</a></h2>
+<h2>2. Invisible Work in Open Source Software Projects<a class="headerlink" href="#invisible-work-in-open-source-software-projects" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><p>Because so much of the work in OSS is tracked on public platforms, it is easy to forget about the work that takes place outside of them.</p>
 </div></blockquote>
@@ -426,7 +423,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PM3iltcaIL8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <section id="tell-people-when-you-appreciate-their-work">
-<h2>3. Tell People When You Appreciate Their Work<a class="headerlink" href="#tell-people-when-you-appreciate-their-work" title="Permalink to this headline">¶</a></h2>
+<h2>3. Tell People When You Appreciate Their Work<a class="headerlink" href="#tell-people-when-you-appreciate-their-work" title="Permalink to this headline">#</a></h2>
 <p>Another key lessons I learned is from <a class="reference external" href="https://www.youtube.com/watch?v=s-W-UvGgDco&amp;list=PLYx7XA2nY5GcDQblpQ_M1V3PQPoLWiDAC&amp;index=71">Carol Willing’s keynote</a> is that research shows that meeting someone who has befitted from your work can double your effort and triple your productivity:</p>
 <p><img alt="Credit: Carol Willing: https://speakerdeck.com/willingc/jupyter-always-open-for-learning-and-discovery" src="../../../_images/extract-hidden-value.png" /></p>
 <blockquote>
@@ -434,7 +431,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div></blockquote>
 </section>
 <section id="we-should-think-about-open-source-standards">
-<h2>4. We Should Think About Open Source Standards<a class="headerlink" href="#we-should-think-about-open-source-standards" title="Permalink to this headline">¶</a></h2>
+<h2>4. We Should Think About Open Source Standards<a class="headerlink" href="#we-should-think-about-open-source-standards" title="Permalink to this headline">#</a></h2>
 <p>Matthew Rocklin gave a great talk on <a class="reference external" href="http://matthewrocklin.com/slides/scipy-2019.html">refactoring the SciPy ecosystem for heterogeneous computing</a>.</p>
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/Q0DsdiY-jiw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>My takeaway from his talk is that</p>
@@ -449,13 +446,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 </section>
 <section id="jupyter-notebooks-come-alive-with-jupyter-widgets">
-<h2>5. Jupyter Notebooks Come Alive with Jupyter Widgets<a class="headerlink" href="#jupyter-notebooks-come-alive-with-jupyter-widgets" title="Permalink to this headline">¶</a></h2>
+<h2>5. Jupyter Notebooks Come Alive with Jupyter Widgets<a class="headerlink" href="#jupyter-notebooks-come-alive-with-jupyter-widgets" title="Permalink to this headline">#</a></h2>
 <p>One of my favorite SciPy 2019 talks is Martin and Maarten’s talk on <strong>Dashboarding with Jupyter Notebooks, Voilà and Widgets</strong>. It is really fun and full of cool stuffs.</p>
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/VtchVpoSdoQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>I am looking forward to making my own widgets and dashboards! And exclaiming <strong>voilà!</strong> after I deploy them!</p>
 </section>
 <section id="maslows-hierarchy-of-software-needs">
-<h2>6. Maslow’s Hierarchy of Software Needs<a class="headerlink" href="#maslows-hierarchy-of-software-needs" title="Permalink to this headline">¶</a></h2>
+<h2>6. Maslow’s Hierarchy of Software Needs<a class="headerlink" href="#maslows-hierarchy-of-software-needs" title="Permalink to this headline">#</a></h2>
 <p>Stan’s talk on <strong>How to Accelerate an Existing Codebase with Numba</strong> is also among my favorites. The Key lesson from this talk is the following:</p>
 <blockquote>
 <div><p>Be honest with yourself about where your project is in this hierarchy. If your program doesn’t run, there’s no point in making it faster.</p>
@@ -467,7 +464,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/-4tD8kNHdXs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <section id="final-thoughts">
-<h2>7. Final Thoughts<a class="headerlink" href="#final-thoughts" title="Permalink to this headline">¶</a></h2>
+<h2>7. Final Thoughts<a class="headerlink" href="#final-thoughts" title="Permalink to this headline">#</a></h2>
 <p>I left SciPy 2019 feeling:</p>
 <ul class="simple">
 <li><p><strong>very thankful</strong> that so many amazing people are able to come out and collaborate on the projects that are so vital to the Python scientific ecocystem!</p></li>
@@ -514,8 +511,9 @@ commentsRunWhenDOMLoaded(addUtterances);
       </div>
     </div>
   
-    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

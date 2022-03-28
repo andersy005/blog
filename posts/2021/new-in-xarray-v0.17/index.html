@@ -25,23 +25,19 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>🚀 Xarray v0.17.0 is here!</title>
     
-    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -49,8 +45,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     
-    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
@@ -145,7 +142,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -341,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -403,7 +400,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="xarray-v0-17-0-is-here">
-<h1>🚀 Xarray v0.17.0 is here!<a class="headerlink" href="#xarray-v0-17-0-is-here" title="Permalink to this headline">¶</a></h1>
+<h1>🚀 Xarray v0.17.0 is here!<a class="headerlink" href="#xarray-v0-17-0-is-here" title="Permalink to this headline">#</a></h1>
 <p>The new version of xarray comes with plenty of bug fixes and support for a number of great new features. In this post, I am going to discuss some of the new features I am most excited about.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -426,7 +423,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <section id="support-for-milliseond-and-microsecond-frequencies-in-cftime-range">
-<h2>Support for milliseond and microsecond frequencies in <code class="docutils literal notranslate"><span class="pre">cftime_range()</span></code><a class="headerlink" href="#support-for-milliseond-and-microsecond-frequencies-in-cftime-range" title="Permalink to this headline">¶</a></h2>
+<h2>Support for milliseond and microsecond frequencies in <code class="docutils literal notranslate"><span class="pre">cftime_range()</span></code><a class="headerlink" href="#support-for-milliseond-and-microsecond-frequencies-in-cftime-range" title="Permalink to this headline">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">cftime_range()</span></code> function in previous versions of xarray supported time
 offsets not smaller than seconds. With v0.17.0, users are able to generate
 cftime indices with millisecond and microsecond frequencies:</p>
@@ -470,7 +467,7 @@ cftime indices with millisecond and microsecond frequencies:</p>
 </div>
 </section>
 <section id="dataset-plot-quiver">
-<h2><code class="docutils literal notranslate"><span class="pre">Dataset.plot.quiver</span></code><a class="headerlink" href="#dataset-plot-quiver" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">Dataset.plot.quiver</span></code><a class="headerlink" href="#dataset-plot-quiver" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Dataset.plot.quiver</span></code> is a new feature in v0.17.0, that allows creating quiver
 plots via matplotlib. Quiver plots are useful when visualizing velocity fields
 and/or vector fields in a system of differential equations. To demonstrate the
@@ -1050,7 +1047,7 @@ size…</p>
 </div>
 </section>
 <section id="use-fsspec-urls-in-xr-open-dataset-and-xr-open-zarr">
-<h2>Use fsspec urls in <code class="docutils literal notranslate"><span class="pre">xr.open_dataset()</span></code> and <code class="docutils literal notranslate"><span class="pre">xr.open_zarr()</span></code><a class="headerlink" href="#use-fsspec-urls-in-xr-open-dataset-and-xr-open-zarr" title="Permalink to this headline">¶</a></h2>
+<h2>Use fsspec urls in <code class="docutils literal notranslate"><span class="pre">xr.open_dataset()</span></code> and <code class="docutils literal notranslate"><span class="pre">xr.open_zarr()</span></code><a class="headerlink" href="#use-fsspec-urls-in-xr-open-dataset-and-xr-open-zarr" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Previously, when working with fsspec URLS, user had to create object mappers
 before calling <code class="docutils literal notranslate"><span class="pre">xr.open_dataset()</span></code> and <code class="docutils literal notranslate"><span class="pre">xr.open_zarr()</span></code>. With v0.17.0, we can
@@ -1574,8 +1571,9 @@ Attributes: (12/47)
       </div>
     </div>
   
-    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

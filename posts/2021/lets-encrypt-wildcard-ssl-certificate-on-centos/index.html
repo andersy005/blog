@@ -25,23 +25,19 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS</title>
     
-    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -49,8 +45,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     
-    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
@@ -145,7 +142,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -343,7 +340,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -385,14 +382,14 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="how-to-generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-on-centos">
-<h1>How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS<a class="headerlink" href="#how-to-generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-on-centos" title="Permalink to this headline">¶</a></h1>
+<h1>How to Generate Wildcard SSL Certificate using Let’s Encrypt/Certbot on CentOS<a class="headerlink" href="#how-to-generate-wildcard-ssl-certificate-using-lets-encrypt-certbot-on-centos" title="Permalink to this headline">#</a></h1>
 <p>Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see <a class="reference external" href="https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578">this post</a>). Below are the steps I used to generate a wildcard certificate.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This article describes the process for Centos 7/8 but can also be used for other Linux distros (with small changes in step 1). Also, <code class="docutils literal notranslate"><span class="pre">{subdomain}</span></code> and <code class="docutils literal notranslate"><span class="pre">{domain}</span></code> are placeholders. Remember to replace them with your own values. For instance, <code class="docutils literal notranslate"><span class="pre">{subdomain}</span></code>-&gt; <code class="docutils literal notranslate"><span class="pre">mycloud</span></code>, and <code class="docutils literal notranslate"><span class="pre">{domain}</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">example.com</span></code></p>
 </div>
 <section id="step-1-installing-the-certbot-lets-encrypt-client">
-<h2>Step 1 — Installing the Certbot Let’s Encrypt Client<a class="headerlink" href="#step-1-installing-the-certbot-lets-encrypt-client" title="Permalink to this headline">¶</a></h2>
+<h2>Step 1 — Installing the Certbot Let’s Encrypt Client<a class="headerlink" href="#step-1-installing-the-certbot-lets-encrypt-client" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo dfn install epel-release
 $ sudo dfn install certbot
 </pre></div>
@@ -403,7 +400,7 @@ $ sudo dfn install certbot
 </div>
 </section>
 <section id="step-2-obtaining-a-wildcard-certificate">
-<h2>Step 2 — Obtaining a Wildcard Certificate<a class="headerlink" href="#step-2-obtaining-a-wildcard-certificate" title="Permalink to this headline">¶</a></h2>
+<h2>Step 2 — Obtaining a Wildcard Certificate<a class="headerlink" href="#step-2-obtaining-a-wildcard-certificate" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo certbot certonly -d *.<span class="o">{</span>subdomain<span class="o">}</span>.<span class="o">{</span>domain<span class="o">}</span> <span class="se">\</span>
 &gt; --manual <span class="se">\</span>
 &gt; --preferred-challenges dns <span class="se">\</span>
@@ -445,7 +442,7 @@ $ sudo dfn install certbot
 </div>
 </section>
 <section id="step-3-testing-the-certificate-and-ssl-configuration">
-<h2>Step 3 — Testing the Certificate and SSL Configuration<a class="headerlink" href="#step-3-testing-the-certificate-and-ssl-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>Step 3 — Testing the Certificate and SSL Configuration<a class="headerlink" href="#step-3-testing-the-certificate-and-ssl-configuration" title="Permalink to this headline">#</a></h2>
 <p>At this point, you can ensure that Certbot created your SSL certificate correctly by using the <a class="reference external" href="https://www.ssllabs.com/ssltest/">SSL Server Test</a> from the cloud security company Qualys.</p>
 <p>Open your browser, and point it to the following link, replacing <code class="docutils literal notranslate"><span class="pre">mycloud.example.com</span></code> with your domain:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">https://www.ssllabs.com/ssltest/analyze.html?d=mycloud.example.com</span>
@@ -494,8 +491,9 @@ $ sudo dfn install certbot
       </div>
     </div>
   
-    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

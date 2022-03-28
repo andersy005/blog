@@ -25,23 +25,19 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>Advent of Code - Day 2: Password Philosophy</title>
     
-    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -49,8 +45,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     
-    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
@@ -145,7 +142,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -341,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -397,9 +394,9 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="advent-of-code-day-2-password-philosophy">
-<h1>Advent of Code - Day 2: Password Philosophy<a class="headerlink" href="#advent-of-code-day-2-password-philosophy" title="Permalink to this headline">¶</a></h1>
+<h1>Advent of Code - Day 2: Password Philosophy<a class="headerlink" href="#advent-of-code-day-2-password-philosophy" title="Permalink to this headline">#</a></h1>
 <section id="part-one">
-<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
+<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">#</a></h2>
 <p>Your flight departs in a few days from the coastal airport; the easiest way down
 to the coast from here is via
 <a class="reference external" href="https://en.wikipedia.org/wiki/Toboggan">toboggan</a>.</p>
@@ -428,7 +425,7 @@ passwords are valid: they contain one a or nine c, both within the limits of
 their respective policies.</p>
 <p>How many passwords are valid according to their policies?</p>
 <section id="load-input-data">
-<h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
+<h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The input data can be found
@@ -461,7 +458,7 @@ their respective policies.</p>
 </div>
 </section>
 <section id="solution">
-<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
 <p>My solution consists of a single function that parses and validates a single
 password and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when the password is valid.</p>
 <div class="cell docutils container">
@@ -564,7 +561,7 @@ entries in the input dataset, and count how many passwords are valid:</p>
 </section>
 </section>
 <section id="part-two">
-<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
+<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">#</a></h2>
 <p>While it appears you validated the passwords correctly, they don’t seem to be
 what the Official Toboggan Corporate Authentication System is expecting.</p>
 <p>The shopkeeper suddenly realizes that he just accidentally explained the
@@ -584,7 +581,7 @@ irrelevant for the purposes of policy enforcement.</p>
 <p><strong>How many passwords are valid according to the new interpretation of the
 policies?</strong></p>
 <section id="id1">
-<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>My approach to part two is similar to my solution to part one in that I still
 have a single function for validating a single entry. In this function, I use a
 <a class="reference external" href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR_2">bitwise XOR operator</a>.
@@ -705,8 +702,9 @@ passwords from our input data:</p>
       </div>
     </div>
   
-    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

@@ -25,23 +25,19 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>Advent of Code - Day 3: Toboggan Trajectory</title>
     
-    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -49,8 +45,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     
-    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
@@ -145,7 +142,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -341,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -397,9 +394,9 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="advent-of-code-day-3-toboggan-trajectory">
-<h1>Advent of Code - Day 3: Toboggan Trajectory<a class="headerlink" href="#advent-of-code-day-3-toboggan-trajectory" title="Permalink to this headline">¶</a></h1>
+<h1>Advent of Code - Day 3: Toboggan Trajectory<a class="headerlink" href="#advent-of-code-day-3-toboggan-trajectory" title="Permalink to this headline">#</a></h1>
 <section id="part-one">
-<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">¶</a></h2>
+<h2>Part One<a class="headerlink" href="#part-one" title="Permalink to this headline">#</a></h2>
 <p>With the toboggan login problems resolved, you set off toward the airport. While
 travel by toboggan might be easy, it’s certainly not safe: there’s very minimal
 steering and the area is covered in trees. You’ll need to see which angles will
@@ -464,7 +461,7 @@ encounter 7 trees.</p>
 <p>Starting at the top-left corner of your map and following a slope of right 3 and
 down 1, <strong>how many trees would you encounter?</strong></p>
 <section id="load-input-data">
-<h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">¶</a></h3>
+<h3>Load Input data<a class="headerlink" href="#load-input-data" title="Permalink to this headline">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The input data can be found
@@ -490,7 +487,7 @@ down 1, <strong>how many trees would you encounter?</strong></p>
 </div>
 </section>
 <section id="solution">
-<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tree_counter</span><span class="p">(</span><span class="n">terrain</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
@@ -558,7 +555,7 @@ our full input data to count how many trees we will encounter:</p>
 </section>
 </section>
 <section id="part-two">
-<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">¶</a></h2>
+<h2>Part Two<a class="headerlink" href="#part-two" title="Permalink to this headline">#</a></h2>
 <p>Time to check the rest of the slopes - you need to minimize the probability of a
 sudden arboreal stop, after all.</p>
 <p>Determine the number of trees you would encounter if, for each of the following
@@ -576,7 +573,7 @@ respectively; multiplied together, these produce the answer 336.</p>
 <p><strong>What do you get if you multiply together the number of trees encountered on
 each of the listed slopes?</strong></p>
 <section id="id1">
-<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>For part two, all we have to do is compute the number of trees for each slope,
 and use the <code class="docutils literal notranslate"><span class="pre">math.prod</span></code> function to multiply together the number of trees found.
 Here’s a code cell that demonstrates that this logic works as expected when
@@ -660,8 +657,9 @@ The total number of trees encountered: 727923200
       </div>
     </div>
   
-    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

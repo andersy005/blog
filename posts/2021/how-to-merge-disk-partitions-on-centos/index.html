@@ -25,23 +25,19 @@
 <meta name="twitter:creator" content="@andersy005" />
     <title>How to merge two or more disk partitions on Centos 7</title>
     
-    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -49,8 +45,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     
-    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
@@ -145,7 +142,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -342,7 +339,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -425,7 +422,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="how-to-merge-two-or-more-disk-partitions-on-centos-7">
-<h1>How to merge two or more disk partitions on Centos 7<a class="headerlink" href="#how-to-merge-two-or-more-disk-partitions-on-centos-7" title="Permalink to this headline">¶</a></h1>
+<h1>How to merge two or more disk partitions on Centos 7<a class="headerlink" href="#how-to-merge-two-or-more-disk-partitions-on-centos-7" title="Permalink to this headline">#</a></h1>
 <p>I’ve been working with centos 7 virtual machine provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the storage disk gets partitioned into tiny partititions during the VM provisioning:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ df -h
 Filesystem                                            Size  Used Avail Use% Mounted on
@@ -446,10 +443,10 @@ tmpfs                                                 379M     <span class="m">0
 </div>
 <p>Notice how <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">home</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp</span></code>, <code class="docutils literal notranslate"><span class="pre">usr</span></code>, <code class="docutils literal notranslate"><span class="pre">usr_local</span></code>, and <code class="docutils literal notranslate"><span class="pre">root</span></code> have their own partitions. I prefer to have a few but large disk partitions. So, today I figured out how to merge two or more partitions into the root partition (thank you, &#64;kmpaul for the help and documenting this!).</p>
 <section id="step-1-make-sure-you-are-logged-in-as-root">
-<h2>Step 1 — Make sure you are logged in as root<a class="headerlink" href="#step-1-make-sure-you-are-logged-in-as-root" title="Permalink to this headline">¶</a></h2>
+<h2>Step 1 — Make sure you are logged in as root<a class="headerlink" href="#step-1-make-sure-you-are-logged-in-as-root" title="Permalink to this headline">#</a></h2>
 </section>
 <section id="step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton">
-<h2>Step 2 — Backup data from the partitions you want to merge into the root partiton<a class="headerlink" href="#step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton" title="Permalink to this headline">¶</a></h2>
+<h2>Step 2 — Backup data from the partitions you want to merge into the root partiton<a class="headerlink" href="#step-2-backup-data-from-the-partitions-you-want-to-merge-into-the-root-partiton" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -a /home/ /home-old/
 $ rsync -a /tmp/ /tmp-old/
 $ rsync -a /var/ /var-old/
@@ -457,13 +454,13 @@ $ rsync -a /var/ /var-old/
 </div>
 </section>
 <section id="step-3-reboot-the-vm-into-an-emergency-mode">
-<h2>Step 3 — Reboot the VM into an emergency mode<a class="headerlink" href="#step-3-reboot-the-vm-into-an-emergency-mode" title="Permalink to this headline">¶</a></h2>
+<h2>Step 3 — Reboot the VM into an emergency mode<a class="headerlink" href="#step-3-reboot-the-vm-into-an-emergency-mode" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl emergency
 </pre></div>
 </div>
 </section>
 <section id="step-4-umount-and-remove-logic-volume-for-each-of-the-partitions">
-<h2>Step 4 — Umount and remove logic volume for each of the partitions<a class="headerlink" href="#step-4-umount-and-remove-logic-volume-for-each-of-the-partitions" title="Permalink to this headline">¶</a></h2>
+<h2>Step 4 — Umount and remove logic volume for each of the partitions<a class="headerlink" href="#step-4-umount-and-remove-logic-volume-for-each-of-the-partitions" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-data
 $ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-home
 $ umount /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-var
@@ -478,7 +475,7 @@ $ lvremove /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-tmp
 </div>
 </section>
 <section id="step-5-copy-the-backed-up-data">
-<h2>Step 5 — Copy the backed up data<a class="headerlink" href="#step-5-copy-the-backed-up-data" title="Permalink to this headline">¶</a></h2>
+<h2>Step 5 — Copy the backed up data<a class="headerlink" href="#step-5-copy-the-backed-up-data" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -a /home-old/ /home/
 $ rsync -a /var-old/ /var/
 $ rsync -a /tmp-old/ /tmp/
@@ -486,31 +483,31 @@ $ rsync -a /tmp-old/ /tmp/
 </div>
 </section>
 <section id="step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need">
-<h2>Step 6 — Edit the <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> file by removing or commenting out the partitions we don’t need<a class="headerlink" href="#step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need" title="Permalink to this headline">¶</a></h2>
+<h2>Step 6 — Edit the <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> file by removing or commenting out the partitions we don’t need<a class="headerlink" href="#step-6-edit-the-etc-fstab-file-by-removing-or-commenting-out-the-partitions-we-don-t-need" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vi /etc/fstab
 </pre></div>
 </div>
 </section>
 <section id="step-7-extend-the-root-partition-to-fill-the-remaining-space">
-<h2>Step 7 — Extend the root partition to fill the remaining space<a class="headerlink" href="#step-7-extend-the-root-partition-to-fill-the-remaining-space" title="Permalink to this headline">¶</a></h2>
+<h2>Step 7 — Extend the root partition to fill the remaining space<a class="headerlink" href="#step-7-extend-the-root-partition-to-fill-the-remaining-space" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lvextend -l +100%FREE -r /dev/mapper/centos_dhcp--zzz--zzz--zzz--zz-root
 </pre></div>
 </div>
 </section>
 <section id="step-8-remove-the-backups">
-<h2>Step 8 — Remove the backups<a class="headerlink" href="#step-8-remove-the-backups" title="Permalink to this headline">¶</a></h2>
+<h2>Step 8 — Remove the backups<a class="headerlink" href="#step-8-remove-the-backups" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rm -rf /home-old/ /tmp-old/ /var-old/
 </pre></div>
 </div>
 </section>
 <section id="step-9-reboot-the-system">
-<h2>Step 9 — Reboot the system<a class="headerlink" href="#step-9-reboot-the-system" title="Permalink to this headline">¶</a></h2>
+<h2>Step 9 — Reboot the system<a class="headerlink" href="#step-9-reboot-the-system" title="Permalink to this headline">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ reboot
 </pre></div>
 </div>
 </section>
 <section id="step-10-login-to-the-vm-as-a-regular-user-or-root">
-<h2>Step 10 — Login to the VM as a regular user or root<a class="headerlink" href="#step-10-login-to-the-vm-as-a-regular-user-or-root" title="Permalink to this headline">¶</a></h2>
+<h2>Step 10 — Login to the VM as a regular user or root<a class="headerlink" href="#step-10-login-to-the-vm-as-a-regular-user-or-root" title="Permalink to this headline">#</a></h2>
 <p>Let’s check that our <code class="docutils literal notranslate"><span class="pre">/</span></code> root partition size has increased:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ df -h
 Filesystem                                            Size  Used Avail Use% Mounted on
@@ -568,8 +565,9 @@ tmpfs                                                 379M     <span class="m">0
       </div>
     </div>
   
-    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

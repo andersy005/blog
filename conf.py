@@ -1,4 +1,5 @@
 # Configuration file for the Sphinx documentation builder.
+import contextlib
 import datetime
 import pathlib
 from textwrap import dedent
@@ -121,15 +122,12 @@ def build_teaching_gallery(app: Sphinx):
         if item['repository']:
             repo_text = f'{{bdg-link-secondary}}`repo <{item["repository"]}>`'
 
-            try:
+            with contextlib.suppress(Exception):
                 url = urlparse(item['repository'])
                 if url.netloc == 'github.com':
                     _, org, repo = url.path.rstrip('/').split('/')
                     link = f'https://img.shields.io/github/stars/{org}/{repo}?style=social'
                     star_text = f"[![GitHub Repo stars]({link})]({item['repository']})"
-            except Exception:
-                pass
-
         grid_items.append(
             f"""\
         `````{{grid-item-card}} {" ".join(item["name"].split())}

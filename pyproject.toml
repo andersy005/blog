@@ -13,4 +13,4 @@ black = 1
 pyupgrade = 1
 
 [tool.nbqa.addopts]
-pyupgrade = ["--py37-plus"]
+pyupgrade = ["--py38-plus"]

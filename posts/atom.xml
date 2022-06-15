@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2022-04-11T16:37:54.992482+00:00</updated>
+  <updated>2022-06-15T21:44:32.377638+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.23">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.25">ABlog</generator>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/</id>
     <title>Reflecting on SciPy 2019: My first SciPy, definitely not my last</title>
@@ -386,6 +386,7 @@ function expressions in JavaScript ;)</summary>
     </author>
     <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
 &lt;p&gt;The new version of xarray comes with plenty of bug fixes and support for a number of great new features. In this post, I am going to discuss some of the new features I am most excited about.&lt;/p&gt;
+&lt;img alt="../_images/e156d2ff75b0b71567ac4a3554199395394115fbaa3928305c23c4ce9a06ae3a.png" src="../_images/e156d2ff75b0b71567ac4a3554199395394115fbaa3928305c23c4ce9a06ae3a.png" /&gt;
 &lt;/div&gt;
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/new-in-xarray-v0.17/" rel="alternate"/>

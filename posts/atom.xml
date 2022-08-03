@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2022-07-25T16:47:39.791986+00:00</updated>
+  <updated>2022-08-03T01:29:11.532634+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.26">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.27">ABlog</generator>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/</id>
     <title>Reflecting on SciPy 2019: My first SciPy, definitely not my last</title>
@@ -38,10 +38,10 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/a-knitting-weekend-with-dash/" rel="alternate"/>
     <summary>For the last few months, I’ve become a huge fan of the quiet weekend, the weekend when no plan is the plan, and you are in no hurry at all. I woke up on Saturday morning, and I decided that this weekend was going to be a quiet one. After watching a late morning football game from the English Premier League – yup, I refuse to call it soccer 😀 – I decided to write some code-nothing big, just a few lines of codes to improve my experience with Dash, a tool that I’ve been using for a few months.</summary>
-    <category term="dash" label="dash"/>
-    <category term="documentation" label="documentation"/>
     <category term="docset" label="docset"/>
     <category term="python" label="python"/>
+    <category term="documentation" label="documentation"/>
+    <category term="dash" label="dash"/>
     <published>2020-01-21T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -74,8 +74,8 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/chadwick-boseman/" rel="alternate"/>
     <summary>Chadwick Boseman:black-panther</summary>
-    <category term="life" label="life"/>
     <category term="people" label="people"/>
+    <category term="life" label="life"/>
     <published>2020-08-28T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -298,10 +298,10 @@ an open data port on the little screen in the seat in front of you.</summary>
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/maurice-hilleman/" rel="alternate"/>
     <summary>I spent today’s evening listening to The Great Vaccinator episode from Radiolab podcast. This episode is about Maurice Hilleman, an amazing microbiologist who is known today as the father of modern vaccine. Hilleman is credited with having saved more lives than any other scientist because he was responsible for developing more than half of the vaccines (measles, mumps, meningitis, etc…) children receive today.</summary>
-    <category term="life" label="life"/>
-    <category term="science" label="science"/>
     <category term="people" label="people"/>
+    <category term="science" label="science"/>
     <category term="podcast" label="podcast"/>
+    <category term="life" label="life"/>
     <published>2020-12-16T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -317,9 +317,9 @@ an open data port on the little screen in the seat in front of you.</summary>
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/how-to-merge-disk-partitions-on-centos/" rel="alternate"/>
     <summary>I’ve been working with centos 7 virtual machine provisioned via VMware’s vrealize suite. One thing I particulary dislike is how the storage disk gets partitioned into tiny partititions during the VM provisioning:</summary>
-    <category term="todayilearned" label="todayilearned"/>
-    <category term="linux" label="linux"/>
     <category term="centos" label="centos"/>
+    <category term="linux" label="linux"/>
+    <category term="todayilearned" label="todayilearned"/>
     <published>2021-01-07T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -336,9 +336,9 @@ an open data port on the little screen in the seat in front of you.</summary>
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/google-dynamic-dns-wildcard-subdomains/" rel="alternate"/>
     <summary>Today, I was working with dokku, and I found myself in need of a wildcard subdomain. A wildcard DNS record is a record that will match requests for non-existent subdomains. For instance, if you set a wildcard DNS record to *.example.com, and a user requests random.example.com or foo.example.com, etc.. the requests will be forwarded to whichever server *.example.com points to.</summary>
-    <category term="todayilearned" label="todayilearned"/>
     <category term="dns" label="dns"/>
     <category term="domains" label="domains"/>
+    <category term="todayilearned" label="todayilearned"/>
     <published>2021-01-09T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -373,8 +373,8 @@ function expressions in JavaScript ;)</summary>
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/freedom-of-cryptography/" rel="alternate"/>
     <summary>Today I learned that if you could travel back to the early 1990s with the contents of this git repository, you would have had to become a licensed arms dealer 😮 —the govt certainly would have denied you an export license— before you could post the source code (or any work that featured the source code) on the internet.</summary>
-    <category term="todayilearned" label="todayilearned"/>
     <category term="cryptography" label="cryptography"/>
+    <category term="todayilearned" label="todayilearned"/>
     <published>2021-02-21T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -409,10 +409,10 @@ function expressions in JavaScript ;)</summary>
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/lets-encrypt-wildcard-ssl-certificate-on-centos/" rel="alternate"/>
     <summary>Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see this post). Below are the steps I used to generate a wildcard certificate.google-domains-acme-challenge</summary>
-    <category term="todayilearned" label="todayilearned"/>
+    <category term="letsencrypt" label="letsencrypt"/>
     <category term="dns" label="dns"/>
     <category term="domains" label="domains"/>
-    <category term="letsencrypt" label="letsencrypt"/>
+    <category term="todayilearned" label="todayilearned"/>
     <published>2021-02-27T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -464,8 +464,8 @@ Mon excuse numéro un, c’est que je réside dans un pays anglophone. Et à cau
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2022/multitude/" rel="alternate"/>
     <summary>J’ai passé le week-end en ecoutant en boucle l’intégralité du nouvel album de Stromae, intitulé “Multitude”. L’album est sublime. Les morceaux, les instrumentals sont sensationnels. Les rythmes, les thèmes abordés (la dépression, la solitude, le suicide, la maladie, la prostitution, le féminisme, l’abandon, etc…) sont bien équilibrés 👏🏽🙏🏽!multitude-cover</summary>
-    <category term="music" label="music"/>
     <category term="francais" label="francais"/>
+    <category term="music" label="music"/>
     <published>2022-03-06T00:00:00+00:00</published>
   </entry>
 </feed>

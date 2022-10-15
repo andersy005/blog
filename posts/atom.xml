@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://blog.andersonbanihirwe.dev</id>
   <title>Paysage Pythonique</title>
-  <updated>2022-08-03T01:29:11.532634+00:00</updated>
+  <updated>2022-10-15T02:13:55.969020+00:00</updated>
   <link href="https://blog.andersonbanihirwe.dev"/>
   <link href="https://blog.andersonbanihirwe.dev/posts/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.27">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
   <entry>
     <id>https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/</id>
     <title>Reflecting on SciPy 2019: My first SciPy, definitely not my last</title>
@@ -20,8 +20,8 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2019/scipy-2019/" rel="alternate"/>
     <summary>It’s been a week since SciPy 2019 conference came to a close. I had the pleasure of speaking at SciPy 2019 about interactive supercomputing with Dask and Jupyter. I am so thankful for the chance to speak in the Earth, Ocean, Geo and Atmospheric Science track! Here’s a recording of my talk:Credit: Karthik Ram: http://inundata.org/talks/sdss</summary>
-    <category term="scipy" label="scipy"/>
     <category term="conference" label="conference"/>
+    <category term="scipy" label="scipy"/>
     <published>2019-07-21T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -38,10 +38,10 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/a-knitting-weekend-with-dash/" rel="alternate"/>
     <summary>For the last few months, I’ve become a huge fan of the quiet weekend, the weekend when no plan is the plan, and you are in no hurry at all. I woke up on Saturday morning, and I decided that this weekend was going to be a quiet one. After watching a late morning football game from the English Premier League – yup, I refuse to call it soccer 😀 – I decided to write some code-nothing big, just a few lines of codes to improve my experience with Dash, a tool that I’ve been using for a few months.</summary>
-    <category term="docset" label="docset"/>
-    <category term="python" label="python"/>
-    <category term="documentation" label="documentation"/>
     <category term="dash" label="dash"/>
+    <category term="docset" label="docset"/>
+    <category term="documentation" label="documentation"/>
+    <category term="python" label="python"/>
     <published>2020-01-21T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -74,8 +74,8 @@
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/chadwick-boseman/" rel="alternate"/>
     <summary>Chadwick Boseman:black-panther</summary>
-    <category term="people" label="people"/>
     <category term="life" label="life"/>
+    <category term="people" label="people"/>
     <published>2020-08-28T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -109,8 +109,8 @@ a nice resort on a tropical island. Surely, Christmas will go on without you.&lt
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-1/" rel="alternate"/>
     <summary>After saving Christmas five years in a row, you’ve decided to take a vacation at
 a nice resort on a tropical island. Surely, Christmas will go on without you.</summary>
-    <category term="python" label="python"/>
     <category term="adventofcode" label="adventofcode"/>
+    <category term="python" label="python"/>
     <published>2020-12-01T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -130,8 +130,8 @@ to the coast from here is via
     <summary>Your flight departs in a few days from the coastal airport; the easiest way down
 to the coast from here is via
 toboggan.</summary>
-    <category term="python" label="python"/>
     <category term="adventofcode" label="adventofcode"/>
+    <category term="python" label="python"/>
     <published>2020-12-02T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -153,8 +153,8 @@ take you near the fewest trees.&lt;/p&gt;
 travel by toboggan might be easy, it’s certainly not safe: there’s very minimal
 steering and the area is covered in trees. You’ll need to see which angles will
 take you near the fewest trees.</summary>
-    <category term="python" label="python"/>
     <category term="adventofcode" label="adventofcode"/>
+    <category term="python" label="python"/>
     <published>2020-12-03T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -176,8 +176,8 @@ actually valid documentation for travel in most of the world.&lt;/p&gt;
 Credentials instead of your passport. While these documents are extremely
 similar, North Pole Credentials aren’t issued by a country and therefore aren’t
 actually valid documentation for travel in most of the world.</summary>
-    <category term="python" label="python"/>
     <category term="adventofcode" label="adventofcode"/>
+    <category term="python" label="python"/>
     <published>2020-12-04T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -197,8 +197,8 @@ busy with the flood of people that suddenly made it through passport control.&lt
     <summary>You board your plane only to discover a new problem: you dropped your boarding
 pass! You aren’t sure which seat is yours, and all of the flight attendants are
 busy with the flood of people that suddenly made it through passport control.</summary>
-    <category term="python" label="python"/>
     <category term="adventofcode" label="adventofcode"/>
+    <category term="python" label="python"/>
     <published>2020-12-05T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -220,8 +220,8 @@ are distributed to the passengers.&lt;/p&gt;
 larger plane,
 customs declaration forms
 are distributed to the passengers.</summary>
-    <category term="python" label="python"/>
     <category term="adventofcode" label="adventofcode"/>
+    <category term="python" label="python"/>
     <published>2020-12-06T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -241,8 +241,8 @@ due to issues in luggage processing.&lt;/p&gt;
     <summary>You land at the regional airport in time for your next flight. In fact, it looks
 like you’ll even have time to grab some food: all flights are currently delayed
 due to issues in luggage processing.</summary>
-    <category term="python" label="python"/>
     <category term="adventofcode" label="adventofcode"/>
+    <category term="python" label="python"/>
     <published>2020-12-07T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -262,8 +262,8 @@ with a little umbrella, you are interrupted by the kid sitting next to you.&lt;/
     <summary>Your flight to the major airline hub reaches cruising altitude without incident.
 While you consider checking the in-flight menu for one of those drinks that come
 with a little umbrella, you are interrupted by the kid sitting next to you.</summary>
-    <category term="python" label="python"/>
     <category term="adventofcode" label="adventofcode"/>
+    <category term="python" label="python"/>
     <published>2020-12-08T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -281,8 +281,8 @@ an open data port on the little screen in the seat in front of you.&lt;/p&gt;
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/advent-of-code-day-9/" rel="alternate"/>
     <summary>With your neighbor happily enjoying their video game, you turn your attention to
 an open data port on the little screen in the seat in front of you.</summary>
-    <category term="python" label="python"/>
     <category term="adventofcode" label="adventofcode"/>
+    <category term="python" label="python"/>
     <published>2020-12-09T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -298,10 +298,10 @@ an open data port on the little screen in the seat in front of you.</summary>
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2020/maurice-hilleman/" rel="alternate"/>
     <summary>I spent today’s evening listening to The Great Vaccinator episode from Radiolab podcast. This episode is about Maurice Hilleman, an amazing microbiologist who is known today as the father of modern vaccine. Hilleman is credited with having saved more lives than any other scientist because he was responsible for developing more than half of the vaccines (measles, mumps, meningitis, etc…) children receive today.</summary>
-    <category term="people" label="people"/>
-    <category term="science" label="science"/>
-    <category term="podcast" label="podcast"/>
     <category term="life" label="life"/>
+    <category term="people" label="people"/>
+    <category term="podcast" label="podcast"/>
+    <category term="science" label="science"/>
     <published>2020-12-16T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -409,9 +409,9 @@ function expressions in JavaScript ;)</summary>
 </content>
     <link href="https://blog.andersonbanihirwe.dev/posts/2021/lets-encrypt-wildcard-ssl-certificate-on-centos/" rel="alternate"/>
     <summary>Today I wanted to generate a wildcard SSL certificate for a service I was working on. Luckily, Let’s Encrypt’s ACME v2 production endpoint makes it so easy to generate wilcard certificates (for more details on this feature, see this post). Below are the steps I used to generate a wildcard certificate.google-domains-acme-challenge</summary>
-    <category term="letsencrypt" label="letsencrypt"/>
     <category term="dns" label="dns"/>
     <category term="domains" label="domains"/>
+    <category term="letsencrypt" label="letsencrypt"/>
     <category term="todayilearned" label="todayilearned"/>
     <published>2021-02-27T00:00:00+00:00</published>
   </entry>

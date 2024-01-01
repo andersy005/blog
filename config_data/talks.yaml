@@ -1,4 +1,4 @@
-- title: 'Community Earth System Model Large Ensemble (CESM LENS) Datasets on AWS'
+- title: "Community Earth System Model Large Ensemble (CESM LENS) Datasets on AWS"
   slides: https://talks.andersonbanihirwe.dev/presentations/2022/esip-jan-cesm-lens-aws.html
   video: ...
   conference:
@@ -6,7 +6,7 @@
     location: Virtual
     date: 2022-01-19
 
-- title: 'The Current State of Deploying Dask on HPC systems'
+- title: "The Current State of Deploying Dask on HPC systems"
   slides: https://talks.andersonbanihirwe.dev/deploying-dask-on-hpc-dask-summit-2021.html
   video: '<iframe width="90%" src="https://www.youtube.com/embed/WOCgWepvqFk?start=200" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
   conference:
@@ -14,7 +14,7 @@
     location: Virtual
     date: 2021-05-20
 
-- title: 'Pangeo Use Case: Analyzing Initialized Climate Prediction System Datasets with climpred'
+- title: "Pangeo Use Case: Analyzing Initialized Climate Prediction System Datasets with climpred"
   slides: https://talks.andersonbanihirwe.dev/climpred-cdpw-2020.html
   video: ...
   conference:
@@ -22,7 +22,7 @@
     location: Virtual
     date: 2020-10-20
 
-- title: 'Zarr: chunked, compressed, multidimensional arrays'
+- title: "Zarr: chunked, compressed, multidimensional arrays"
   slides: https://talks.andersonbanihirwe.dev/zarr-cloud-native-geospatial-2020.html
   video: '<iframe width="90%" src="https://www.youtube.com/embed/cOMkgQssVPk?start=1471" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
   conference:
@@ -30,7 +30,7 @@
     location: Virtual
     date: 2020-09-08
 
-- title: 'Intake-ESM – Making It Easier To Consume Climate and Weather Data'
+- title: "Intake-ESM – Making It Easier To Consume Climate and Weather Data"
   slides: https://talks.andersonbanihirwe.dev/intake-esm-esip-2020.html
   video: '<iframe width="90%" src="https://www.youtube.com/embed/OpzF6IwIHRA?start=1402" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
   conference:
@@ -38,7 +38,7 @@
     location: Virtual
     date: 2020-07-23
 
-- title: 'Dask and Pangeo'
+- title: "Dask and Pangeo"
   slides: https://speakerdeck.com/andersy005/dask-and-pangeo-a-community-platform-for-big-data-geoscience
   video: ...
   conference:
@@ -46,7 +46,7 @@
     location: Washington, District of Columbia, U.S.
     date: 2020-02-26
 
-- title: 'Turning HPC Systems into Interactive Data Analysis Platforms using Jupyter and Dask'
+- title: "Turning HPC Systems into Interactive Data Analysis Platforms using Jupyter and Dask"
   slides: https://talks.andersonbanihirwe.dev/dask-jupyter-scipy-2019.html
   video: '<iframe width="90%" src="https://www.youtube.com/embed/vhawO8fgD64" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
   conference:

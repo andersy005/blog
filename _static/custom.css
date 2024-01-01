@@ -86,7 +86,7 @@ div.timeline div.entry::after {
   height: 1em;
   background: white;
   border-radius: 50%;
-  content: '';
+  content: "";
   top: 1em;
   display: block;
   position: absolute;

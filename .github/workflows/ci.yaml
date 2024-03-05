@@ -22,7 +22,7 @@ jobs:
         uses: mamba-org/provision-with-micromamba@main
         with:
           cache-downloads: true
-          micromamba-version: 'latest'
+          micromamba-version: "latest"
           environment-file: environment.yml
 
       - name: Build

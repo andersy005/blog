@@ -1,0 +1,47 @@
+[project]
+name = "blog"
+version = "0.1.0"
+description = "Add a short description here"
+authors = ["Anderson Banihirwe <axbanihirwe@ualr.edu>"]
+channels = ["conda-forge", "nodefaults"]
+platforms = ["osx-arm64"]
+
+[tasks]
+myst = "myst"
+
+[dependencies]
+ablog = "*"
+cftime = "*"
+colorspacious = "*"
+dask = "*"
+dask-labextension = "*"
+distributed = "*"
+hvplot = "*"
+ipywidgets = "*"
+jupyterlab = "*"
+matplotlib = "*"
+myst-nb = "*"
+netcdf4 = "*"
+numba = "*"
+pydantic = "*"
+pydata-sphinx-theme = ">=0.4.3"
+python = "3.12.*"
+scipy = "*"
+seaborn = "*"
+sphinx = "*"
+sphinx-autobuild = "*"
+sphinx-comments = "*"
+sphinx-panels = "*"
+sphinxcontrib-bibtex = "*"
+sympy = "*"
+watermark = "*"
+wrapt = "*"
+xarray = "*"
+pooch = "*"
+pip = "*"
+mystmd = ">=1.1.44,<1.2"
+
+[pypi-dependencies]
+ptime = "*"
+sphinx-design = "*"
+sphinxext-opengraph = "*"

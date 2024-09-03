@@ -654,7 +654,7 @@ list of rules is quite long; make sure you get all of it.)</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/advent-of-code/2020/day-7-input&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-7-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
 
@@ -686,26 +686,26 @@ list of rules is quite long; make sure you get all of it.)</p>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">clean_func</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">split_on</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">clean_func</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">split_on</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">split_on</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="s2">&quot;contains&quot;</span> <span class="ow">in</span> <span class="n">rule</span><span class="p">:</span>
-        <span class="n">split_on</span> <span class="o">=</span> <span class="s2">&quot;contains&quot;</span>
+    <span class="k">if</span> <span class="s1">&#39;contains&#39;</span> <span class="ow">in</span> <span class="n">rule</span><span class="p">:</span>
+        <span class="n">split_on</span> <span class="o">=</span> <span class="s1">&#39;contains&#39;</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">split_on</span> <span class="o">=</span> <span class="s2">&quot;contain&quot;</span>
+        <span class="n">split_on</span> <span class="o">=</span> <span class="s1">&#39;contain&#39;</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">clean_func</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">split_on</span><span class="p">)</span>
 
-    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clean_func</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">items</span> <span class="o">=</span> <span class="n">clean_func</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clean_func</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">clean_func</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
     <span class="n">clean_items</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
         <span class="n">clean_item</span> <span class="o">=</span> <span class="n">clean_func</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">clean_item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;no&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">clean_item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">clean_item</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clean_item</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clean_item</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 
             <span class="n">clean_items</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 
@@ -761,9 +761,7 @@ list of rules is quite long; make sure you get all of it.)</p>
 <span class="s2">vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.</span>
 <span class="s2">faded blue bags contain no other bags.</span>
 <span class="s2">dotted black bags contain no other bags.</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
-    <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="p">)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="n">clean_test_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span><span class="n">parse_rule</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span> <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">test_data</span><span class="p">])</span>
 <span class="n">clean_test_data</span>
@@ -790,7 +788,7 @@ list of rules is quite long; make sure you get all of it.)</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">_helper</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="s2">&quot;shiny gold&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;shiny gold&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
@@ -809,7 +807,7 @@ list of rules is quite long; make sure you get all of it.)</p>
     <span class="k">return</span> <span class="n">total</span>
 
 
-<span class="n">contains</span><span class="p">(</span><span class="n">clean_test_data</span><span class="p">,</span> <span class="s2">&quot;shiny gold&quot;</span><span class="p">)</span>
+<span class="n">contains</span><span class="p">(</span><span class="n">clean_test_data</span><span class="p">,</span> <span class="s1">&#39;shiny gold&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -821,8 +819,8 @@ list of rules is quite long; make sure you get all of it.)</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contains_shiny_gold</span> <span class="o">=</span> <span class="n">contains</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s2">&quot;shiny gold&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">contains_shiny_gold</span><span class="si">}</span><span class="s2"> bag colors contain at least one shiny gold bag&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contains_shiny_gold</span> <span class="o">=</span> <span class="n">contains</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;shiny gold&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">contains_shiny_gold</span><span class="si">}</span><span class="s1"> bag colors contain at least one shiny gold bag&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -887,7 +885,7 @@ inside those and then…</p>
 <p>Let’s try this function on a few sample tests:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_bag_count</span><span class="p">(</span><span class="n">clean_test_data</span><span class="p">,</span> <span class="s2">&quot;shiny gold&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_bag_count</span><span class="p">(</span><span class="n">clean_test_data</span><span class="p">,</span> <span class="s1">&#39;shiny gold&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -901,15 +899,15 @@ inside those and then…</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_bag_count</span><span class="p">(</span>
     <span class="p">{</span>
-        <span class="s2">&quot;shiny gold&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;dark red&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-        <span class="s2">&quot;dark red&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;dark orange&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-        <span class="s2">&quot;dark orange&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;dark yellow&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-        <span class="s2">&quot;dark yellow&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;dark green&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-        <span class="s2">&quot;dark green&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;dark blue&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-        <span class="s2">&quot;dark blue&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;dark violet&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-        <span class="s2">&quot;dark violet&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;shiny gold&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark red&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark red&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark orange&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark orange&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark yellow&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark yellow&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark green&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark green&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark blue&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark blue&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;dark violet&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="s1">&#39;dark violet&#39;</span><span class="p">:</span> <span class="p">{},</span>
     <span class="p">},</span>
-    <span class="s2">&quot;shiny gold&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;shiny gold&#39;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>

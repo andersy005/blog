@@ -581,7 +581,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#348ABD&quot;</span><span class="p">,</span> <span class="s2">&quot;#A60628&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#348ABD&#39;</span><span class="p">,</span> <span class="s1">&#39;#A60628&#39;</span><span class="p">]</span>
 <span class="n">prior</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">21.0</span><span class="p">,</span> <span class="mi">20</span> <span class="o">/</span> <span class="mf">21.0</span><span class="p">]</span>
 <span class="n">posterior</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.087</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.087</span><span class="p">]</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
@@ -591,8 +591,8 @@ document.write(`
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
     <span class="n">width</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;prior distribution&quot;</span><span class="p">,</span>
-    <span class="n">lw</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;prior distribution&#39;</span><span class="p">,</span>
+    <span class="n">lw</span><span class="o">=</span><span class="s1">&#39;3&#39;</span><span class="p">,</span>
     <span class="n">edgecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
@@ -601,16 +601,16 @@ document.write(`
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
     <span class="n">width</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;posterior distribution&quot;</span><span class="p">,</span>
-    <span class="n">lw</span><span class="o">=</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;posterior distribution&#39;</span><span class="p">,</span>
+    <span class="n">lw</span><span class="o">=</span><span class="s1">&#39;3&#39;</span><span class="p">,</span>
     <span class="n">edgecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
     <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">],</span>
-    <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Librarian&quot;</span><span class="p">,</span> <span class="s2">&quot;Farmer&quot;</span><span class="p">],</span>
+    <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Librarian&#39;</span><span class="p">,</span> <span class="s1">&#39;Farmer&#39;</span><span class="p">],</span>
     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Prior and posterior probabilities of Steve&#39;s occupation&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Probability&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Probability&#39;</span><span class="p">,</span>
     <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>

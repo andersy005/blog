@@ -108,13 +108,13 @@
    ],
    "source": [
     "def parse_input_data(data):\n",
-    "    passports = data.split(\"\\n\\n\")\n",
-    "    passports = [passport.strip().replace(\"\\n\", \" \").split(\" \") for passport in passports]\n",
-    "    passports = [dict(map(lambda x: x.split(\":\"), passport)) for passport in passports]\n",
+    "    passports = data.split('\\n\\n')\n",
+    "    passports = [passport.strip().replace('\\n', ' ').split(' ') for passport in passports]\n",
+    "    passports = [dict(map(lambda x: x.split(':'), passport)) for passport in passports]\n",
     "    return passports\n",
     "\n",
     "\n",
-    "with open(\"../../data/advent-of-code/2020/day-4-input\") as fid:\n",
+    "with open('../../data/advent-of-code/2020/day-4-input') as fid:\n",
     "    data = fid.read()\n",
     "    passports = parse_input_data(data)\n",
     "\n",
@@ -161,7 +161,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "required_fields = {\"byr\", \"iyr\", \"eyr\", \"hgt\", \"hcl\", \"ecl\", \"pid\"}"
+    "required_fields = {'byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'}"
    ]
   },
   {
@@ -335,7 +335,7 @@
    ],
    "source": [
     "print(\n",
-    "    f\"Out of {len(passports)} passports, {valid_passport_counter(passports)} were found to be valid.\"\n",
+    "    f'Out of {len(passports)} passports, {valid_passport_counter(passports)} were found to be valid.'\n",
     ")"
    ]
   },
@@ -456,9 +456,9 @@
     "    hgt = int(height[:-2])\n",
     "    hgt_unit = height[-2:]\n",
     "    hgt_validator = False\n",
-    "    if hgt_unit == \"in\":\n",
+    "    if hgt_unit == 'in':\n",
     "        hgt_validator = 59 <= hgt <= 76\n",
-    "    elif hgt_unit == \"cm\":\n",
+    "    elif hgt_unit == 'cm':\n",
     "        hgt_validator = 150 <= hgt <= 193\n",
     "    else:\n",
     "        hgt_validator = False\n",
@@ -466,19 +466,19 @@
     "\n",
     "\n",
     "def validate_hcl(hcl):\n",
-    "    if not hcl.startswith(\"#\") or len(hcl[1:]) != 6:\n",
+    "    if not hcl.startswith('#') or len(hcl[1:]) != 6:\n",
     "        return False\n",
-    "    elif not set(hcl[1:]).difference(set(list(\"0123456789abcdef\"))):\n",
+    "    elif not set(hcl[1:]).difference(set(list('0123456789abcdef'))):\n",
     "        return True\n",
     "    return False\n",
     "\n",
     "\n",
     "def validate_ecl(ecl):\n",
-    "    return ecl in [\"amb\", \"blu\", \"brn\", \"gry\", \"grn\", \"hzl\", \"oth\"]\n",
+    "    return ecl in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']\n",
     "\n",
     "\n",
     "def validate_pid(pid):\n",
-    "    return len(pid) == 9 and not set(pid).difference(set(list(\"0123456789\")))\n",
+    "    return len(pid) == 9 and not set(pid).difference(set(list('0123456789')))\n",
     "\n",
     "\n",
     "def is_passport_valid_enhanced(passport, required_fields=required_fields):\n",
@@ -486,13 +486,13 @@
     "    if required_fields.intersection(keys) == required_fields:\n",
     "        try:\n",
     "            return (\n",
-    "                validate_byr(passport[\"byr\"])\n",
-    "                and validate_iyr(passport[\"iyr\"])\n",
-    "                and validate_eyr(passport[\"eyr\"])\n",
-    "                and validate_hgt(passport[\"hgt\"])\n",
-    "                and validate_hcl(passport[\"hcl\"])\n",
-    "                and validate_ecl(passport[\"ecl\"])\n",
-    "                and validate_pid(passport[\"pid\"])\n",
+    "                validate_byr(passport['byr'])\n",
+    "                and validate_iyr(passport['iyr'])\n",
+    "                and validate_eyr(passport['eyr'])\n",
+    "                and validate_hgt(passport['hgt'])\n",
+    "                and validate_hcl(passport['hcl'])\n",
+    "                and validate_ecl(passport['ecl'])\n",
+    "                and validate_pid(passport['pid'])\n",
     "            )\n",
     "        except Exception:\n",
     "            return False\n",
@@ -645,7 +645,7 @@
    ],
    "source": [
     "print(\n",
-    "    f\"Out of {len(passports)} passports, {valid_passport_counter(passports, pass_validator=is_passport_valid_enhanced)} were found to be valid.\"\n",
+    "    f'Out of {len(passports)} passports, {valid_passport_counter(passports, pass_validator=is_passport_valid_enhanced)} were found to be valid.'\n",
     ")"
    ]
   }

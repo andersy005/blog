@@ -661,7 +661,7 @@ highest seat ID on a boarding pass?</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/advent-of-code/2020/day-5-input&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-5-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
@@ -700,10 +700,10 @@ FBBFFBBLLL
     <span class="n">row</span> <span class="o">=</span> <span class="n">decode_seat</span><span class="p">(</span><span class="n">seat_number</span><span class="p">[:</span><span class="mi">7</span><span class="p">],</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">)</span>
     <span class="n">col</span> <span class="o">=</span> <span class="n">decode_seat</span><span class="p">(</span><span class="n">seat_number</span><span class="p">[</span><span class="mi">7</span><span class="p">:],</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;seat_number&quot;</span><span class="p">:</span> <span class="n">seat_number</span><span class="p">,</span>
-        <span class="s2">&quot;row&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">,</span>
-        <span class="s2">&quot;column&quot;</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span>
-        <span class="s2">&quot;seat_id&quot;</span><span class="p">:</span> <span class="n">row</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">col</span><span class="p">,</span>
+        <span class="s1">&#39;seat_number&#39;</span><span class="p">:</span> <span class="n">seat_number</span><span class="p">,</span>
+        <span class="s1">&#39;row&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">,</span>
+        <span class="s1">&#39;column&#39;</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span>
+        <span class="s1">&#39;seat_id&#39;</span><span class="p">:</span> <span class="n">row</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">col</span><span class="p">,</span>
     <span class="p">}</span>
 </pre></div>
 </div>
@@ -712,8 +712,8 @@ FBBFFBBLLL
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">8</span>
-<span class="n">row_identifiers</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>
-<span class="n">col_identifiers</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">)</span>
+<span class="n">row_identifiers</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">col_identifiers</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -721,7 +721,7 @@ FBBFFBBLLL
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test our function on sample input seat number</span>
-<span class="n">find_seat_info</span><span class="p">(</span><span class="s2">&quot;FBFBBFFRLR&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)</span>
+<span class="n">find_seat_info</span><span class="p">(</span><span class="s1">&#39;FBFBBFFRLR&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -736,7 +736,7 @@ collect the ids:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">find_seat_info</span><span class="p">(</span><span class="n">seat</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)[</span><span class="s2">&quot;seat_id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">seat</span> <span class="ow">in</span> <span class="n">data</span>
+    <span class="n">find_seat_info</span><span class="p">(</span><span class="n">seat</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">row_identifiers</span><span class="p">,</span> <span class="n">col_identifiers</span><span class="p">)[</span><span class="s1">&#39;seat_id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">seat</span> <span class="ow">in</span> <span class="n">data</span>
 <span class="p">]</span>
 <span class="nb">min</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 </pre></div>

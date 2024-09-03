@@ -639,9 +639,9 @@ their respective policies.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/advent-of-code/2020/day-2-input&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/advent-of-code/2020/day-2-input&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -681,8 +681,8 @@ password and returns <code class="docutils literal notranslate"><span class="pre
 <span class="sd">    Checks whether the password is valid according to the policy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">required_count</span><span class="p">,</span> <span class="n">letter</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="n">required_count</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="n">required_count</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
     <span class="n">min_req_count</span><span class="p">,</span> <span class="n">max_req_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">min_req_count</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_req_count</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>  <span class="c1"># Get a count for each letter in the password</span>
     <span class="k">return</span> <span class="n">min_req_count</span> <span class="o">&lt;=</span> <span class="n">count</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">max_req_count</span>
@@ -694,7 +694,7 @@ password and returns <code class="docutils literal notranslate"><span class="pre
 working properly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;1-3 a: abcde&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 a: abcde&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -706,7 +706,7 @@ working properly:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;1-3 b: cdefg&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 b: cdefg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -718,7 +718,7 @@ working properly:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;2-9 c: ccccccccc&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;2-9 c: ccccccccc&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -754,7 +754,7 @@ entries in the input dataset, and count how many passwords are valid:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s2"> are found to be valid.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s1"> are found to be valid.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -797,8 +797,8 @@ corresponding bits in the two operands is 1:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
     <span class="n">required_positions</span><span class="p">,</span> <span class="n">letter</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="n">required_positions</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="n">required_positions</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
     <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_position</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">second_position</span><span class="p">)</span>
     <span class="c1"># use bitwise XOR to make sure exactly one of the positions contains the given letter</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">first_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">password</span><span class="p">[</span><span class="n">second_position</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">):</span>
@@ -812,7 +812,7 @@ corresponding bits in the two operands is 1:</p>
 sample examples above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;1-3 a: abcde&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 a: abcde&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -824,7 +824,7 @@ sample examples above:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;1-3 b: cdefg&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;1-3 b: cdefg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -836,7 +836,7 @@ sample examples above:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s2">&quot;2-9 c: ccccccccc&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid_password</span><span class="p">(</span><span class="s1">&#39;2-9 c: ccccccccc&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -855,7 +855,7 @@ passwords from our input data:</p>
     <span class="k">if</span> <span class="n">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
         <span class="n">valid_passwords</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s2"> are found to be valid.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> passwords, </span><span class="si">{</span><span class="n">valid_passwords</span><span class="si">}</span><span class="s1"> are found to be valid.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

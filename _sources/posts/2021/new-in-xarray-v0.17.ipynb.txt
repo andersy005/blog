@@ -82,7 +82,7 @@
    ],
    "source": [
     "# Generate a cftime index with a frequency of 10 milliseconds\n",
-    "xr.cftime_range(start=\"2021-02-26T02:00:40\", periods=10, freq=\"10ms\")"
+    "xr.cftime_range(start='2021-02-26T02:00:40', periods=10, freq='10ms')"
    ]
   },
   {
@@ -108,7 +108,7 @@
    ],
    "source": [
     "# Generate a cftime index with a frequency of 20 microseconds\n",
-    "xr.cftime_range(start=\"2021-02-26T02:00:40\", periods=10, freq=\"20us\")"
+    "xr.cftime_range(start='2021-02-26T02:00:40', periods=10, freq='20us')"
    ]
   },
   {
@@ -678,15 +678,15 @@
    "source": [
     "u, v = calculate_velocities(X, Y)  # calculate velocities\n",
     "ds = xr.Dataset()\n",
-    "ds[\"u\"] = xr.DataArray(\n",
+    "ds['u'] = xr.DataArray(\n",
     "    u.reshape(4, 10, 40),\n",
-    "    dims=[\"time\", \"x\", \"y\"],\n",
-    "    coords={\"time\": range(4), \"x\": range(10), \"y\": range(40)},\n",
-    "    attrs={\"units\": \"m/s\"},\n",
+    "    dims=['time', 'x', 'y'],\n",
+    "    coords={'time': range(4), 'x': range(10), 'y': range(40)},\n",
+    "    attrs={'units': 'm/s'},\n",
     ")\n",
-    "ds[\"v\"] = xr.DataArray(v.reshape(4, 10, 40), dims=[\"time\", \"x\", \"y\"])\n",
-    "ds[\"magnitude\"] = np.hypot(ds.u, ds.v)  # calculate the resultant velocity\n",
-    "ds.magnitude.attrs[\"long_name\"] = \"Van der pol Phase magnitude\"\n",
+    "ds['v'] = xr.DataArray(v.reshape(4, 10, 40), dims=['time', 'x', 'y'])\n",
+    "ds['magnitude'] = np.hypot(ds.u, ds.v)  # calculate the resultant velocity\n",
+    "ds.magnitude.attrs['long_name'] = 'Van der pol Phase magnitude'\n",
     "ds"
    ]
   },
@@ -720,7 +720,7 @@
     }
    ],
    "source": [
-    "ds.plot.quiver(x=\"x\", y=\"y\", u=\"u\", v=\"v\", scale=150, col=\"time\", hue=\"magnitude\", col_wrap=2)"
+    "ds.plot.quiver(x='x', y='y', u='u', v='v', scale=150, col='time', hue='magnitude', col_wrap=2)"
    ]
   },
   {
@@ -764,15 +764,15 @@
    ],
    "source": [
     "ds.isel(y=slice(None, None, 3)).plot.quiver(\n",
-    "    x=\"x\",\n",
-    "    y=\"y\",\n",
-    "    u=\"u\",\n",
-    "    v=\"v\",\n",
+    "    x='x',\n",
+    "    y='y',\n",
+    "    u='u',\n",
+    "    v='v',\n",
     "    scale=150,\n",
-    "    col=\"time\",\n",
-    "    angles=\"uv\",\n",
-    "    units=\"height\",\n",
-    "    hue=\"magnitude\",\n",
+    "    col='time',\n",
+    "    angles='uv',\n",
+    "    units='height',\n",
+    "    hue='magnitude',\n",
     "    col_wrap=2,\n",
     ")"
    ]
@@ -827,7 +827,7 @@
     "import fsspec\n",
     "\n",
     "fs = fsspec.filesystem(protocol='gs', token=None)\n",
-    "url = \"gs://cmip6/CMIP6/HighResMIP/CMCC/CMCC-CM2-HR4/highresSST-present/r1i1p1f1/Amon/rsus/gn/v20170706/\"\n",
+    "url = 'gs://cmip6/CMIP6/HighResMIP/CMCC/CMCC-CM2-HR4/highresSST-present/r1i1p1f1/Amon/rsus/gn/v20170706/'\n",
     "mapper = fs.get_mapper(url)\n",
     "ds = xr.open_zarr(mapper, consolidated=True)"
    ]
@@ -1324,8 +1324,8 @@
    "source": [
     "ds = xr.open_dataset(\n",
     "    url,\n",
-    "    engine=\"zarr\",\n",
-    "    backend_kwargs={\"storage_options\": {\"token\": None}, \"consolidated\": True},\n",
+    "    engine='zarr',\n",
+    "    backend_kwargs={'storage_options': {'token': None}, 'consolidated': True},\n",
     ")\n",
     "ds"
    ]

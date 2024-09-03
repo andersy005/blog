@@ -51,6 +51,12 @@ html_theme_options = {
     'google_analytics_id': 'UA-91185106-1',
     'search_bar_position': 'navbar',
 }
+html_theme_options['analytics'] = {
+    # The domain you'd like to use for this analytics instance
+    'plausible_analytics_domain': 'blog.andersonbanihirwe.dev',
+    # The analytics script that is served by Plausible
+    'plausible_analytics_url': 'https://plausible.andersonb.xyz/js/script.js',
+}
 
 html_favicon = '_static/share.png'
 html_title = ''

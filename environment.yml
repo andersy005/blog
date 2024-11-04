@@ -11,27 +11,25 @@ dependencies:
   - distributed
   - hvplot
   - ipywidgets
-  - ipywidgets
-  - jupyterlab>=3
+  - jupyterlab
   - matplotlib
-  - myst-nb>=0.12.0
+  - myst-nb
   - netcdf4
   - numba
-  - pip
   - pydantic
   - pydata-sphinx-theme>=0.4.3
-  - python=3.9
+  - python=3.12
   - scipy
   - seaborn
   - sphinx
   - sphinx-autobuild
   - sphinx-comments
   - sphinx-panels
-  - sphinxcontrib-bibtex<2.0.0
+  - sphinxcontrib-bibtex
   - sympy
   - watermark
   - wrapt
-  - xarray>=0.18.2
+  - xarray
   - pooch
   - pip:
       - ptime

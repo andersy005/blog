@@ -132,15 +132,15 @@ def build_teaching_gallery(app: Sphinx):
                 if url.netloc == 'github.com':
                     _, org, repo = url.path.rstrip('/').split('/')
                     link = f'https://img.shields.io/github/stars/{org}/{repo}?style=social'
-                    star_text = f"[![GitHub Repo stars]({link})]({item['repository']})"
+                    star_text = f'[![GitHub Repo stars]({link})]({item["repository"]})'
             except Exception:
                 pass
 
         grid_items.append(
             f"""\
-        `````{{grid-item-card}} {" ".join(item["name"].split())}
+        `````{{grid-item-card}} {' '.join(item['name'].split())}
         :text-align: center
-        {item["video"]}
+        {item['video']}
         +++
 
         ````{{grid}} 2 2 2 2

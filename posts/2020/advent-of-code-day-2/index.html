@@ -39,7 +39,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=3c15507b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css?v=2a6c4383" />
@@ -482,8 +482,8 @@ document.write(`
   <span><i class="fa-fw fa fa-tags"></i> </span
   >
    
-  <a href="../../tag/python/">python</a>   
-  <a href="../../tag/adventofcode/">adventofcode</a>  
+  <a href="../../tag/adventofcode/">adventofcode</a>   
+  <a href="../../tag/python/">python</a>  
 </li>
  
 </ul>
@@ -670,14 +670,14 @@ their respective policies.</p>
 password and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when the password is valid.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks whether the password is valid according to the policy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -796,7 +796,7 @@ The Bitwise XOR sets the bits in the result to 1 if either, but not both, of the
 corresponding bits in the two operands is 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_valid_password</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
     <span class="n">required_positions</span><span class="p">,</span> <span class="n">letter</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">first_position</span><span class="p">,</span> <span class="n">second_position</span> <span class="o">=</span> <span class="n">required_positions</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
@@ -968,7 +968,7 @@ passwords from our input data:</p>
         <div class="footer-item">
   <p class="copyright">
     
-      © Copyright 2018-2024. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      © Copyright 2018-2026. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
       <br/>
     
   </p>

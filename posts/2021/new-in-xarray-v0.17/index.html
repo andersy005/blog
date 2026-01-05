@@ -39,7 +39,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=3c15507b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css?v=2a6c4383" />
@@ -482,8 +482,8 @@ document.write(`
   <span><i class="fa-fw fa fa-tags"></i> </span
   >
    
-  <a href="../../tag/python/">python</a>   
-  <a href="../../tag/xarray/">xarray</a>  
+  <a href="../../tag/xarray/">xarray</a>   
+  <a href="../../tag/python/">python</a>  
 </li>
  
 </ul>
@@ -610,8 +610,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 
 <span class="n">xr</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
@@ -683,7 +683,7 @@ as an example:</p>
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">calculate_velocities</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">μ</span><span class="o">=</span><span class="mf">0.6</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_velocities</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">μ</span><span class="o">=</span><span class="mf">0.6</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute velocities for van der pol oscillator using Lienard transform.</span>
 
 <span class="sd">    Notes</span>
@@ -1262,7 +1262,7 @@ use fsspec URLS directly</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fsspec</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">fsspec</span>
 
 <span class="n">fs</span> <span class="o">=</span> <span class="n">fsspec</span><span class="o">.</span><span class="n">filesystem</span><span class="p">(</span><span class="n">protocol</span><span class="o">=</span><span class="s1">&#39;gs&#39;</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;gs://cmip6/CMIP6/HighResMIP/CMCC/CMCC-CM2-HR4/highresSST-present/r1i1p1f1/Amon/rsus/gn/v20170706/&#39;</span>
@@ -1825,7 +1825,7 @@ Attributes: (12/47)
         <div class="footer-item">
   <p class="copyright">
     
-      © Copyright 2018-2024. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      © Copyright 2018-2026. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
       <br/>
     
   </p>

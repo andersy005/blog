@@ -39,7 +39,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=3c15507b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css?v=2a6c4383" />
@@ -482,8 +482,8 @@ document.write(`
   <span><i class="fa-fw fa fa-tags"></i> </span
   >
    
-  <a href="../../tag/python/">python</a>   
-  <a href="../../tag/adventofcode/">adventofcode</a>  
+  <a href="../../tag/adventofcode/">adventofcode</a>   
+  <a href="../../tag/python/">python</a>  
 </li>
  
 </ul>
@@ -675,10 +675,10 @@ second time, <strong>what value is in the accumulator?</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">namedtuple</span>
 
 
-<span class="k">def</span> <span class="nf">parse_instruction</span><span class="p">(</span><span class="n">instruction</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_instruction</span><span class="p">(</span><span class="n">instruction</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">instruction</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Instruction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 
@@ -737,7 +737,7 @@ second time, <strong>what value is in the accumulator?</strong></p>
 <h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_program_status</span><span class="p">(</span><span class="n">instructions</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_program_status</span><span class="p">(</span><span class="n">instructions</span><span class="p">):</span>
     <span class="n">accumulator</span><span class="p">,</span> <span class="n">pointer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
     <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="n">terminated</span> <span class="o">=</span> <span class="kc">False</span>
@@ -840,10 +840,10 @@ program terminates?</strong></p>
 <h3>Solution<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
 
 
-<span class="k">def</span> <span class="nf">fix_program</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fix_program</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">instructions</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="n">flip</span> <span class="o">=</span> <span class="p">(</span>
         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">operation</span><span class="o">=</span><span class="s1">&#39;jmp&#39;</span><span class="p">)</span>
@@ -985,7 +985,7 @@ program terminates?</strong></p>
         <div class="footer-item">
   <p class="copyright">
     
-      © Copyright 2018-2024. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      © Copyright 2018-2026. Except where otherwise noted, this work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
       <br/>
     
   </p>
